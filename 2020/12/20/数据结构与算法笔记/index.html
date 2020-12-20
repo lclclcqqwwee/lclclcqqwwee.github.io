@@ -24,15 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="C++" />
+  <meta name="keywords" content="C" />
 
 
-<link rel="canonical" href="http://yoursite.com/2020/04/18/first-blog/">
+<link rel="canonical" href="http://yoursite.com/2020/12/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">
 
 
 
   <title>
-关于C++中冻结屏幕 |
+数据结构与算法 |
 Yume Shoka = Chen's Blog = Fighting for BAT!</title>
 <meta name="generator" content="Hexo 5.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,16 +60,16 @@ Yume Shoka = Chen's Blog = Fighting for BAT!</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">关于C++中冻结屏幕
+  <h1 itemprop="name headline">数据结构与算法
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2020-04-18 13:12:21">
+  <span class="item" title="创建时间：2020-12-20 13:07:10">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2020-04-18T13:12:21+08:00">2020-04-18</time>
+    <time itemprop="dateCreated datePublished" datetime="2020-12-20T13:07:10+08:00">2020-12-20</time>
   </span>
 </div>
 
@@ -102,12 +102,12 @@ Yume Shoka = Chen's Blog = Fighting for BAT!</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeubcbajj20zk0m8h1h.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclgi503lj20zk0m8hdt.jpg"></li>
           <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4fomxoj20zk0m8axp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitzannuj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicliierfjj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
         </ul>
       </div>
     </header>
@@ -136,7 +136,7 @@ Yume Shoka = Chen's Blog = Fighting for BAT!</title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/18/first-blog/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -151,10 +151,91 @@ Yume Shoka = Chen's Blog = Fighting for BAT!</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="system（”pause“）"><a href="#system（”pause“）" class="headerlink" title="system（”pause“）"></a>system（”pause“）</h1><p>system(“pause”)可以实现冻结屏幕，便于观察程序的执行结果；</p>
-
+    <h1 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h1><p>==<strong>前言</strong>：数据结构是一门研究非数值计算的程序设计问题中的操作对象，以及他们之间的关系和操作等相关问题的学科。==</p>
+<p><strong>数据结构</strong>：<u>是相互之间存在一种或多种特定关系的数据元素的集合，我们把数据结构分为逻辑结构和物理结构。</u></p>
+<p><strong>逻辑结构</strong>：<u>是指数据对象中数据元素之间的相互关系。</u></p>
+<p>分为四种：集合结构、线性结构、树形结构、图形结构。</p>
+<p><strong>物理结构</strong>：<u>是指数据的逻辑结构在计算机中的存储形式。</u></p>
+<p>​    分为两种：顺序存储结构、链式存储结构</p>
+<p><strong>抽象数据类型</strong>：是指一个数据模型及定义在该模型上的一组操作。“抽象”的意义在于数据类型的数学抽象特性。抽象数据类型体现了程序设计中问题分解、抽象和信息隐藏的特性。</p>
+<p><strong>算法</strong>：算法是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表示一个或多个操作。</p>
+<p>​    具有五个基本特性：输入、输出、有穷性、确定性、可行性。</p>
+<p>​    好的算法设计要求：正确性、可读性、健壮性、时间效率高和储存量低。</p>
+<p><strong>算法效率的度量方法</strong>：事后统计法(不科学、不准确)、事前分析估算法。</p>
+<p>​    ==大O阶方法==：1.用常数1取代运行时间中的所有加法常数</p>
+<p>​                          2.在修改后的运行次数函数中，只保留最高阶项</p>
+<p>​                          3. 如果最高阶项存在且不是1，则去除与这个项相乘的常数。</p>
+<p>​    <strong>所得到的结果就是大O阶。</strong></p>
+<table>
+<thead>
+<tr>
+<th>执行次数函数</th>
+<th>阶</th>
+<th>非正式术语</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>12</td>
+<td>O(1)</td>
+<td>常数阶</td>
+</tr>
+<tr>
+<td>2n+3</td>
+<td>O(n)</td>
+<td>线性阶</td>
+</tr>
+<tr>
+<td>3n^2^+2n+1</td>
+<td>O(n^2^)</td>
+<td>平方阶</td>
+</tr>
+<tr>
+<td>5log<del>2</del>n+20</td>
+<td>O(logn)</td>
+<td>对数阶</td>
+</tr>
+<tr>
+<td>2n+3nlog<del>2</del>n+19</td>
+<td>O(nlogn)</td>
+<td>nlogn阶</td>
+</tr>
+<tr>
+<td>6n^3^+2n^2^+3n+4</td>
+<td>O(n^3^)</td>
+<td>立方阶</td>
+</tr>
+<tr>
+<td>2^n^</td>
+<td>O(2^n^)</td>
+<td>指数阶</td>
+</tr>
+</tbody></table>
+<p>​    <strong>O(1)&lt;O(logn)&lt;O(n)&lt;O(nlogn)&lt;O(n^2^)&lt;O(n^3^)&lt;O(2^n^)&lt;O(n!)&lt;O(n^n^)</strong></p>
+<h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><p><strong>零个或多个数据元素的有限序列。</strong></p>
+<ul>
+<li><p>其中<strong>数据元素</strong>的个数<strong>n</strong>定义为表的长度。</p>
+</li>
+<li><p>当n=0时称为<strong>空表</strong></p>
+</li>
+<li><p>将<strong>非空的线性表</strong>记作：<strong>（a<del>1</del>,…,a<del>i-1</del>,a<del>i</del>,a<del>i+1</del>,…a<del>n</del>)</strong></p>
+<p>==a<del>1</del>为线性起点（起始节点），a<del>n</del>为线性终点（终端节点）==</p>
+</li>
+</ul>
+<p>​       ==<strong>a<del>i-1</del>是a<del>i</del>的直接前驱，a<del>i+1</del>是a<del>i</del>的直接后继，a<del>1</del>有且仅有一个直接后继，a<del>n</del>有且只有一个直接前驱</strong>==</p>
+<h4 id="抽象表的数据类型："><a href="#抽象表的数据类型：" class="headerlink" title="抽象表的数据类型："></a>抽象表的数据类型：</h4><p>线性表的顺序存储结构</p>
+<p>顺序存储结构的插入与删除</p>
+<p>线性表的链式存储结构</p>
+<p>单链表的读取</p>
+<p>单链表的插入与删除</p>
+<p>单链表的整表创建</p>
+<p>单链表的整表删除</p>
+<p>单链表结构与顺序存储结构优缺点</p>
+<p>静态链表</p>
+<p>循环链表</p>
+<p>双向链表</p>
+<h2 id="栈与队列"><a href="#栈与队列" class="headerlink" title="栈与队列"></a>栈与队列</h2><h2 id="串"><a href="#串" class="headerlink" title="串"></a>串</h2><h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2>
       <div class="tags">
-          <a href="/tags/C/" rel="tag"><i class="ic i-tag"></i> C++</a>
+          <a href="/tags/C/" rel="tag"><i class="ic i-tag"></i> C</a>
       </div>
   </div>
 
@@ -166,7 +247,7 @@ Yume Shoka = Chen's Blog = Fighting for BAT!</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2020-04-18 14:50:52" itemprop="dateModified" datetime="2020-04-18T14:50:52+08:00">2020-04-18</time>
+    <time title="修改时间：2020-12-20 13:16:52" itemprop="dateModified" datetime="2020-12-20T13:16:52+08:00">2020-12-20</time>
   </span>
 </div>
 
@@ -202,7 +283,7 @@ Yume Shoka = Chen's Blog = Fighting for BAT!</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2020/04/18/first-blog/" title="关于C++中冻结屏幕">http://yoursite.com/2020/04/18/first-blog/</a>
+    <a href="http://yoursite.com/2020/12/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" title="数据结构与算法">http://yoursite.com/2020/12/20/数据结构与算法笔记/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -221,22 +302,14 @@ Yume Shoka = Chen's Blog = Fighting for BAT!</title>
     <div class="item left">
       
 
-  <a href="/2020/03/18/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipevuctzzj20zk0m84qp.jpg" title="C++远程线程注入MFC">
+  <a href="/2020/09/10/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicliwyw55j20zk0m8hdt.jpg" title="C++ windows程序设计">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>C++远程线程注入MFC</h3>
+  <h3>C++ windows程序设计</h3>
   </a>
 
     </div>
     <div class="item right">
-      
-
-  <a href="/2020/04/18/second/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4baakhj20zk0m8h5q.jpg" title="关于vs学习c&#x2F;c++中的一些总结">
-  <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>关于vs学习c/c++中的一些总结</h3>
-  </a>
-
     </div>
 </div>
 
@@ -253,7 +326,7 @@ Yume Shoka = Chen's Blog = Fighting for BAT!</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#system%EF%BC%88%E2%80%9Dpause%E2%80%9C%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">system（”pause“）</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">数据结构与算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="toc-number">1.1.</span> <span class="toc-text">线性表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">定义：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E8%A1%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">抽象表的数据类型：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97"><span class="toc-number">1.2.</span> <span class="toc-text">栈与队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%B2"><span class="toc-number">1.3.</span> <span class="toc-text">串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91"><span class="toc-number">1.4.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE"><span class="toc-number">1.5.</span> <span class="toc-text">图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-number">1.6.</span> <span class="toc-text">排序</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -305,12 +378,10 @@ Yume Shoka = Chen's Blog = Fighting for BAT!</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2020/03/18/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2020/04/18/second/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -334,25 +405,7 @@ Yume Shoka = Chen's Blog = Fighting for BAT!</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2020/12/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" title="数据结构与算法">数据结构与算法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2020/04/18/first-blog/" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2020/04/18/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
   </li>
 
       
@@ -370,7 +423,25 @@ Yume Shoka = Chen's Blog = Fighting for BAT!</title>
 <div class="breadcrumb">
 </div>
 
+    <span><a href="/2020/12/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" title="数据结构与算法">数据结构与算法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
     <span><a href="/2020/09/10/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2020/04/18/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
   </li>
 
   </ul>
@@ -401,7 +472,7 @@ Yume Shoka = Chen's Blog = Fighting for BAT!</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2020/04/18/first-blog/',
+    path: '2020/12/20/数据结构与算法笔记/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
