@@ -24,16 +24,12 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="C/C++" />
 
-
-<link rel="canonical" href="http://yoursite.com/2020/04/18/second/">
+<link rel="canonical" href="http://yoursite.com/categories/algorithm/">
 
 
 
-  <title>
-关于vs学习c/c++中的一些总结 |
-Yume Shoka = 未来の期間 = 勿負韶華</title>
+  <title>分类：数据结构与算法笔记 | Yume Shoka = 未来の期間 = 勿負韶華</title>
 <meta name="generator" content="Hexo 5.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
   <div id="loading">
@@ -60,19 +56,9 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">关于vs学习c/c++中的一些总结
+  <h1 itemprop="name headline">
+    分类于"数据结构与算法笔记"的文章
   </h1>
-  
-<div class="meta">
-  <span class="item" title="创建时间：2020-04-18 13:44:27">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2020-04-18T13:44:27+08:00">2020-04-18</time>
-  </span>
-</div>
-
 
           </div>
         </div>
@@ -102,12 +88,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicm07ih54j20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipetlbztpj20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclimtf7dj20zk0m8qav.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
-          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclhpw3lwj20zk0m8gvw.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipew8gmvyj20zk0m87wh.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclx6phq6j20zk0m8e36.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicit4jrvuj20zk0m8785.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></li>
         </ul>
       </div>
     </header>
@@ -128,133 +114,43 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       <div class="inner">
         <div id="main" class="pjax">
           
-  <div class="article wrap">
-    
-<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-<i class="ic i-home"></i>
-<span><a href="/">首页</a></span>
-</div>
+  <div class="collapse wrap">
+    <h2 class="item header">
+      <a href="/categories">全部</a>
+      <small>/</small>
+      数据结构与算法笔记
+      <small>分类</small>
+    </h2>
+        <article class="item normal" itemscope itemtype="http://schema.org/Article">
+          <div class="meta">
+            <time itemprop="dateCreated"
+                  datetime="2020-12-20T13:07:10+08:00"
+                  content="2020-12-20">
+              12-20
+            </time>
+          </div>
 
-    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/18/second/">
-
-  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="image" content="/images/avatar.jpg">
-    <meta itemprop="name" content="Chen">
-    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
-  </span>
-
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="未来の期間">
-  </span>
-
-  <div class="body md" itemprop="articleBody">
-    
-
-    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，vs对编程萌新及其的不友好，下面是我在vs中的踩坑（哭）</p>
-<h1 id="vs中c语言编写上遇到的小问题"><a href="#vs中c语言编写上遇到的小问题" class="headerlink" title="vs中c语言编写上遇到的小问题"></a>vs中c语言编写上遇到的小问题</h1><p>  一、清空缓冲区<br>      vs里不能用 fflush(stdin); 应使用 rewind(stdin);<br>  二、接收用户输入<br>      vs中不能用scanf();认为他不安全 应使用 scanf_s();<br>  三、scanf_s<br>      vs中scanf特殊增加一个参数——字符串长度，字符串长度可以直接给定某一个大于字符串真实长度的数字（至少比真实长度大一位，用来存放‘\0’），也可以使用sizeof(字符串名)。<br>      scanf_s(“%s”, hero1.name,50); //vs输入字符串数组时要标明大小<br>  四、getch();函数<br>      在vs中改为了 _getch();  //用来当用户按下某个字符时，函数自动读取，无需按回车<br>  五、关于vs中默认unicode字符集(宽字节字符集)的问题<br>      使用unicode字符集时，可能会出现报错<br>      原因：使用了 Unicode 字符集，而字符串双引号没有加 L 或 _T() 或 TEXT()<br>      栗子：outtextxy(x, y, L”XXX”);<br>            outtextxy(x, y, _T(“XXX”));<br>            outtextxy(x, y, TEXT(“XXX”));<br>      vs中修改字符集在 项目-&gt; 属性-&gt;配置属性-&gt;高级-&gt;高级属性-&gt;字符集<br>      修改为多字节字符集时打印字符串可不用加L<br>      说明：<br>           _T 会根据你工程的设置自动转换UNICODE和非UNICODE.<br>           L 就是转为UNICODE</p>
-
-      <div class="tags">
-          <a href="/tags/C-C/" rel="tag"><i class="ic i-tag"></i> C/C++</a>
-      </div>
-  </div>
-
-   <footer>
-
-    <div class="meta">
-  <span class="item">
-    <span class="icon">
-      <i class="ic i-calendar-check"></i>
-    </span>
-    <span class="text">更新于</span>
-    <time title="修改时间：2020-04-18 14:50:31" itemprop="dateModified" datetime="2020-04-18T14:50:31+08:00">2020-04-18</time>
-  </span>
-</div>
-
-      
-<div class="reward">
-  <button><i class="ic i-heartbeat"></i> 赞赏</button>
-  <p>请我喝[茶]~(￣▽￣)~*</p>
-  <div id="qr">
-      
-      <div>
-        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
-        <p>微信支付</p>
-      </div>
-      
-      <div>
-        <img data-src="/images/alipay.png" alt="Chen 支付宝">
-        <p>支付宝</p>
-      </div>
-      
-      <div>
-        <img data-src="/images/paypal.png" alt="Chen 贝宝">
-        <p>贝宝</p>
-      </div>
-  </div>
-</div>
-
-      
-
-<div id="copyright">
-<ul>
-  <li class="author">
-    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
-  </li>
-  <li class="link">
-    <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2020/04/18/second/" title="关于vs学习c&#x2F;c++中的一些总结">http://yoursite.com/2020/04/18/second/</a>
-  </li>
-  <li class="license">
-    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
-
-  </footer>
-
-</article>
+          <div class="title">
+              <a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url">
+                <span itemprop="name">数据结构与算法（一）</span>
+              </a>
+          </div>
+        </article>
 
   </div>
+
   
 
-<div class="post-nav">
-    <div class="item left">
-      
-
-  <a href="/2020/04/18/first-blog/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicm07ih54j20zk0m84qp.jpg" title="关于C++中冻结屏幕">
-  <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>关于C++中冻结屏幕</h3>
-  </a>
-
-    </div>
-    <div class="item right">
-      
-
-  <a href="/2020/09/10/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipetv6p75j20zk0m8x6p.jpg" title="C++ windows程序设计">
-  <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>C++ windows程序设计</h3>
-  </a>
-
-    </div>
-</div>
-
-  
-  <div class="wrap" id="comments"></div>
 
 
         </div>
         <div id="sidebar">
           
-
 <div class="inner">
 
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vs%E4%B8%ADc%E8%AF%AD%E8%A8%80%E7%BC%96%E5%86%99%E4%B8%8A%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8F%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">vs中c语言编写上遇到的小问题</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -273,9 +169,15 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
         <span class="name">文章</span>
       </a>
     </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">2</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">3</span>
+        <span class="count">2</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -306,17 +208,14 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2020/04/18/first-blog/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2020/09/10/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
 </div>
-
 
         </div>
         <div class="dimmer"></div>
@@ -333,45 +232,50 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++">C++</a>
 </div>
 
-    <span><a href="/2020/03/18/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
+    <span><a href="/2020/04/18/cpp/first-blog/" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/algorithm/" title="分类于 数据结构与算法笔记">数据结构与算法笔记</a>
 </div>
 
-    <span><a href="/2020/04/18/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
+    <span><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="数据结构与算法（一）">数据结构与算法（一）</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++">C++</a>
 </div>
 
-    <span><a href="/2020/09/10/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
+    <span><a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++">C++</a>
 </div>
 
-    <span><a href="/2020/12/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" title="数据结构与算法">数据结构与算法</a></span>
+    <span><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++">C++</a>
 </div>
 
-    <span><a href="/2020/04/18/first-blog/" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></span>
+    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
   </li>
 
   </ul>
@@ -402,7 +306,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2020/04/18/second/',
+    path: 'categories/algorithm/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
