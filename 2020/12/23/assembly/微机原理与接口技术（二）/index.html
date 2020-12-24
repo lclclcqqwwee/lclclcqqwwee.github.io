@@ -1,0 +1,1007 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C" />
+
+
+<link rel="canonical" href="http://yoursite.com/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/">
+
+
+
+  <title>
+第二章 8088/8086微处理器 - 微机原理与接口技术-吴宁 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">第二章 8088/8086微处理器
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2020-12-23 14:52:25">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2020-12-23T14:52:25+08:00">2020-12-23</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicitzannuj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicliierfjj20zk0m8npd.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/assembly/" itemprop="item" rel="index" title="分类于 微机原理与接口技术-吴宁"><span itemprop="name">微机原理与接口技术-吴宁</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="微机原理与接口技术-二"><a href="#微机原理与接口技术-二" class="headerlink" title="微机原理与接口技术(二)"></a>微机原理与接口技术(二)</h1><h2 id="第二章-8088-8086微处理器"><a href="#第二章-8088-8086微处理器" class="headerlink" title="第二章     8088/8086微处理器"></a>第二章     8088/8086微处理器</h2><p><strong>特点：</strong></p>
+<ul>
+<li>采用并行流水线工作方式——通过设置指令预取队列实现</li>
+<li>对内存空间实行分段管理——将内存分为4个阶段并设置地址段寄存器，以实现对1MB空间的寻址</li>
+<li>支持协处理器</li>
+</ul>
+<h3 id="8088-8086-CPU的两种工作模式"><a href="#8088-8086-CPU的两种工作模式" class="headerlink" title="8088/8086 CPU的两种工作模式"></a>8088/8086 CPU的两种工作模式</h3><ul>
+<li><p>8088/8086CPU可工作于两种模式下：最小模式、最大模式</p>
+</li>
+<li><p>最小模式为单处理器模式，所有控制信号由微处理器产生</p>
+</li>
+<li><p>最大模式为多处理器模式，部分控制信号由外部总线控制器产生</p>
+<ul>
+<li>用于包含协处理器的情况下</li>
+</ul>
+</li>
+</ul>
+<p><strong>最小模式下的总线连接示意图</strong></p>
+<p>见图14</p>
+<p><img data-src="/images/14.png" alt="14"></p>
+<p><strong>最大模式下的总线连接示意图</strong></p>
+<p>见图15</p>
+<p><img data-src="/images/15.png" alt="15"></p>
+<p><strong>两种工作模式的选中方式</strong></p>
+<ul>
+<li>8088是工作在最小还是最大模式由MN/MX引线的状态决定。(MX有上横杠，表示低电平有效)<ul>
+<li>MN/MX-0——工作于最大模式</li>
+<li>MN/MX-1——工作于最小模式</li>
+</ul>
+</li>
+</ul>
+<h3 id="8088的主要引线及内部结构"><a href="#8088的主要引线及内部结构" class="headerlink" title="8088的主要引线及内部结构"></a>8088的主要引线及内部结构</h3><h4 id="8088-CPU最小模式下的主要引脚信号"><a href="#8088-CPU最小模式下的主要引脚信号" class="headerlink" title="8088 CPU最小模式下的主要引脚信号"></a>8088 CPU最小模式下的主要引脚信号</h4><ul>
+<li>8088最小模式下的主要引脚信号→4组<ul>
+<li>完成一次访问内存或接口所需要的主要信号</li>
+<li>与外部同步控制信号</li>
+<li>中断请求和响应信号</li>
+<li>总线保持和影响信号</li>
+</ul>
+</li>
+</ul>
+<p>见图10</p>
+<p><strong>微处理器读取一条指令的控制过程</strong></p>
+<ul>
+<li><p>发出读取数据所在的目标地址（地址信号）</p>
+<ul>
+<li>内存储器单元地址</li>
+<li>I/O接口地址</li>
+</ul>
+</li>
+<li><p>发出读控制信号（控制信号）</p>
+</li>
+<li><p>送出传输的数据（数据信号）</p>
+</li>
+</ul>
+<p><strong>8088 CPU最小模式下的主要引脚信号</strong></p>
+<ul>
+<li>地址线和数据线：<ul>
+<li>AD₀—AD₇：低8位地址和低8位数据信号分时复用。在传送地址信号时为单向，传送数据信号时为双向。</li>
+<li>A₁₆—A₁₉：高4位地址信号，与状态信号分时复用。</li>
+<li>A₈—A₁₅：8位地址信号</li>
+</ul>
+</li>
+</ul>
+<p>20位地址信号→可产生2²⁰=1M个编码</p>
+<p>8位数据信号→可同时传输8bit二进制码</p>
+<ul>
+<li>主要控制信号<ul>
+<li>#WR：写信号</li>
+<li>#RD：读信号</li>
+<li>IO/#M：为“0”表示访问内存，为“1”表示访问接口</li>
+<li>#DEN：低电平有效时，允许进行读/写操作</li>
+<li>DT/#R：数据收发器的传送方向控制</li>
+<li>ALE：地址锁存信号</li>
+<li>RESET：复位信号</li>
+</ul>
+</li>
+</ul>
+<p>例：当#WR=1，#RD=0，IO/#M=0时，表示CPU当前正在进行读存储器操作</p>
+<ul>
+<li>READY信号</li>
+</ul>
+<p>见图16</p>
+<p><img data-src="/images/16.png" alt="16"></p>
+<ul>
+<li><p>中断请求和相应信号</p>
+<ul>
+<li>INTR：可屏蔽中断请求输入端</li>
+<li>NMI：非屏蔽中断请求输入端</li>
+<li>INTA：中断响应输出端（INTA有上横杠，表示低电平有效）</li>
+</ul>
+</li>
+<li><p>总线保持信号</p>
+<ul>
+<li>HOLD：总线保持请求信号输入端。当CPU以外的其他设备要求占用总线时，通过该引脚向CPU发出请求。</li>
+<li>HLDA：总线保持响应信号输出端。CPU对HOLD信号的响应信号。</li>
+</ul>
+</li>
+</ul>
+<p><strong>8088和8086CPU引线功能比较</strong></p>
+<ul>
+<li><p>数据总线宽度不同</p>
+<ul>
+<li>8088的外部总线宽度是8位，8086为16位。</li>
+</ul>
+</li>
+<li><p>访问存储器和输入输出控制信号含义不同</p>
+<ul>
+<li>8088——IO/M=0表示访问内存</li>
+<li>8086——IO/M=1表示访问内存</li>
+</ul>
+</li>
+<li><p>其他部分引线功能的区别</p>
+</li>
+</ul>
+<h4 id="8088内部结构"><a href="#8088内部结构" class="headerlink" title="8088内部结构"></a>8088内部结构</h4><p>微处理器：运算器、控制器、寄存器</p>
+<p>逻辑上分为：执行单元(EU)、总线接口单元(BIU)</p>
+<p>见图17</p>
+<p><img data-src="/images/17.png" alt="17"></p>
+<p><strong>执行单元</strong></p>
+<ul>
+<li>构成：运算器、8个通用寄存器、1个标志寄存器、EU部分控制电路</li>
+<li>功能：指令译码、指令执行、暂存中间运算结果、保存运算结果特征</li>
+</ul>
+<p><strong>总线接口单元</strong></p>
+<p>功能：</p>
+<ul>
+<li><p>从内存中取指令到指令预取队列</p>
+<ul>
+<li>指令预取队列是并行流水线工作的基础</li>
+</ul>
+</li>
+<li><p>负责与内存或输入/输出接口之间的数据传送</p>
+</li>
+<li><p>在执行转移程序时，BIU使指令预取队列复位，从指定的新地址取指令，并立即传给执行单元执行</p>
+</li>
+</ul>
+<p><strong>结论</strong></p>
+<ul>
+<li>指令预取队列的存在使EU和BIU两个部分可同时进行工作（实现了指令的并行执行）<ul>
+<li>提高了CPU的效率</li>
+<li>降低了对存储器存取速度的要求</li>
+</ul>
+</li>
+</ul>
+<h4 id="8088内部寄存器"><a href="#8088内部寄存器" class="headerlink" title="8088内部寄存器"></a>8088内部寄存器</h4><p><strong>内部寄存器的类型</strong></p>
+<ul>
+<li>含14个16位寄存器，按功能可分为三类<ul>
+<li>8个通用寄存器</li>
+<li>4个段寄存器</li>
+<li>2个控制寄存器</li>
+</ul>
+</li>
+</ul>
+<p>深入理解：每个寄存器中数据的含义</p>
+<p><strong>一、通用寄存器</strong></p>
+<ul>
+<li><p>数据寄存器（AX，BX，CX，DX）</p>
+</li>
+<li><p>地址指针寄存器（SP，BP）</p>
+</li>
+<li><p>变址寄存器（SI，DI）</p>
+</li>
+</ul>
+<p><strong>数据寄存器</strong></p>
+<ul>
+<li>8088/8086焊4个16位数据寄存器，他们又可分为8个8位寄存器，即：<ul>
+<li>AX→AH，AL</li>
+<li>BX→BH，BL</li>
+<li>CX→CH，CL</li>
+<li>DX→DH，DL</li>
+</ul>
+</li>
+</ul>
+<p>数据寄存器特有的习惯用法：</p>
+<ul>
+<li><p>AX：累加器</p>
+<ul>
+<li>所有I/O指令都通过AX与接口传送信息，中间运算结果也多放于AX中</li>
+</ul>
+</li>
+<li><p>BX：基址寄存器</p>
+<ul>
+<li>在间接寻址中用于存放基地址</li>
+</ul>
+</li>
+<li><p>CX：计数寄存器</p>
+<ul>
+<li>用于在循环或串操作指令中存放计数值</li>
+</ul>
+</li>
+<li><p>DX：数据寄存器</p>
+<ul>
+<li>在间接寻址的I/O指令中存放I/O端口地址；在32位乘除法运算时，存放高16位数</li>
+</ul>
+</li>
+</ul>
+<p><strong>地址指针寄存器</strong></p>
+<ul>
+<li><p>SP：堆栈指针寄存器，其内容位栈顶的偏移地址</p>
+</li>
+<li><p>BP：基址指针寄存器，常用于在访问内存时存放内存单元的偏移地址</p>
+</li>
+</ul>
+<p>BX与BP在应用上的区别</p>
+<ul>
+<li>作为通用寄存器，二者均可用于存放数据</li>
+<li>作为基址寄存器，用BX表示所寻找的数据在数据段；用BP则表示数据在堆栈段</li>
+</ul>
+<p><strong>变址寄存器</strong></p>
+<ul>
+<li><p>SI：源变址寄存器</p>
+</li>
+<li><p>DI：目标变址寄存器</p>
+</li>
+<li><p>变址寄存器在指令中常用于存放数据在内存中的地址</p>
+</li>
+</ul>
+<p><strong>二、控制寄存器</strong></p>
+<ul>
+<li>IP：指令指针寄存器，其内容为下一条要取的指令的偏移地址</li>
+<li>FLAGS：标志寄存器，存放运算结果的特征<ul>
+<li>6个状态标志位（CF，SF，AF，PF，OF，ZF）</li>
+<li>3个控制标志位（IF，TF，DF）</li>
+</ul>
+</li>
+</ul>
+<p><strong>状态标志位</strong></p>
+<ul>
+<li><p>CF（Carry Flag）</p>
+<ul>
+<li>进位标志位。加（减）法运算时，若最高位有进（错）位则，CF=1</li>
+</ul>
+</li>
+<li><p>OF（Overflow Flag）</p>
+<ul>
+<li>溢出标志位。当算数运算的结果超出了有符号数的可表达范围时，OF=1</li>
+</ul>
+</li>
+<li><p>ZF（Zero Flag）</p>
+<ul>
+<li>零标志位。当运算结果为零时，ZF=1</li>
+</ul>
+</li>
+<li><p>SF（Sign Flag）</p>
+<ul>
+<li>符号标志位。当运算结果的最高位为1时，SF=1</li>
+</ul>
+</li>
+<li><p>PF（Parity Flag）</p>
+<ul>
+<li>奇偶标志位。运算结果的低8位中“1”的个数为偶数时PF=1</li>
+</ul>
+</li>
+<li><p>AF（Auxiliary Carry Flag）</p>
+<ul>
+<li>辅助进位标志位。加(减)操作中，若Bit3向Bit4有进位（借位），AF=1</li>
+</ul>
+</li>
+</ul>
+<p><strong>控制标志位</strong></p>
+<ul>
+<li><p>TF（Trap Flag）</p>
+<ul>
+<li>陷井标志位，也叫跟踪标志位。TF=1时，使CPU处于单步执行指令的工作方式</li>
+</ul>
+</li>
+<li><p>IF（Interrupt Enable Flag）</p>
+<ul>
+<li>中断允许标志位。IF=1使CPU可以响应可屏蔽中断请求</li>
+</ul>
+</li>
+<li><p>DF（Direction Flag）</p>
+<ul>
+<li>方位标志位。在数据串操作时确定操作的方向</li>
+</ul>
+</li>
+</ul>
+<p><strong>三、段寄存器</strong></p>
+<ul>
+<li><p>作用：用于存放相应逻辑段的段基地址</p>
+</li>
+<li><p>8088/8086内存中逻辑段的类型</p>
+<ul>
+<li>代码段→存放指令代码</li>
+<li>数据段→存放操作的数据</li>
+<li>附加段→存放操作的数据</li>
+<li>堆栈段→存放暂时不用但需保存的数据</li>
+</ul>
+</li>
+</ul>
+<p><strong>段寄存器</strong></p>
+<ul>
+<li>CS：代码段寄存器，存放代码段的段基地址</li>
+<li>DS：数据段寄存器，存放数据段的段基地址</li>
+<li>ES：附加段寄存器，存放数据段的段基地址</li>
+<li>SS：堆栈段寄存器，存放堆栈段的段基地址</li>
+</ul>
+<p><strong>段寄存器的值表明相应逻辑段在内存中的位置</strong></p>
+<hr>
+<h3 id="实模式下的存储器寻址"><a href="#实模式下的存储器寻址" class="headerlink" title="实模式下的存储器寻址"></a>实模式下的存储器寻址</h3><p><strong>内存储器管理</strong></p>
+<ul>
+<li><p>8088CPU是16位体系结构的微处理器</p>
+</li>
+<li><p>可以同时处理（产生）16位二进制码</p>
+<ul>
+<li>可以产生64K个编码，直接管理64K个内存单元</li>
+</ul>
+</li>
+<li><p>8088CPU需要管理1MB内存（使用内存分段管理方式实现）</p>
+<ul>
+<li>需要能够产生1M个地址编码</li>
+</ul>
+</li>
+</ul>
+<p><strong>内存地址变换</strong></p>
+<ul>
+<li><p>欲实现对1MB内存空间的正确访问，每个内存单元在整个内存空间中必须具备唯一地址→物理地址</p>
+</li>
+<li><p>将直接产生的16位编码变换为20位物理地址即为内存地址变换</p>
+</li>
+</ul>
+<p><strong>一、内存单元的编址</strong></p>
+<ul>
+<li><p>内存每个单元的地址在逻辑上由两部分组成：</p>
+<ul>
+<li>段(基)地址：指示存储单元在整个内存空间中处于哪个区域(段)</li>
+<li>段内地址(相对地址/偏移地址)：指示存储单元在段中的相对位置(与段中第一个单元的距离)<ul>
+<li>8088为16位结构，所以段地址和偏移地址均为16位（也就是共32位）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>段基地址：决定存储单元在内存中的位置</p>
+</li>
+<li><p>相对地址(偏移地址)：该存储单元相对段内第一个单元的距离</p>
+</li>
+<li><p>逻辑段的起始地址称为段首，由偏移地址的定义得：段首的偏移地址=0</p>
+</li>
+<li><p>物理地址：内存单元在整个内存空间中的唯一地址（20位）</p>
+</li>
+</ul>
+<p>见图18、19</p>
+<p><img data-src="/images/18.png" alt="18"></p>
+<p><img data-src="/images/19.png" alt="19"></p>
+<p><strong>二、实地址下的存储器地址变换</strong></p>
+<ul>
+<li><p>内存物理地址由段基地址和偏移地址组成</p>
+</li>
+<li><p>物理地址=段基地址×16+偏移地址</p>
+</li>
+</ul>
+<p><strong>三、段寄存器</strong></p>
+<ul>
+<li><p>作用：用于存放相应逻辑段的段基地址</p>
+</li>
+<li><p>8086/8088内存中逻辑段的类型</p>
+<ul>
+<li>代码段→存放指令代码</li>
+<li>数据段→存放操作的数据</li>
+<li>附加段→存放操作的数据</li>
+<li>堆栈段→存放暂时不用但需保存的数据</li>
+</ul>
+</li>
+<li><p>8086/8088内存中每类逻辑段的数量</p>
+<ul>
+<li>最多为64k个</li>
+</ul>
+</li>
+</ul>
+<p><strong>段寄存器</strong></p>
+<ul>
+<li>CS：代码段寄存器，存放代码段的段基地址</li>
+<li>DS：数据段寄存器，存放数据段的段基地址</li>
+<li>ES：附加段寄存器，存放数据段的段基地址</li>
+<li>SS：堆栈段寄存器，存放堆栈段的段基地址</li>
+</ul>
+<p><strong>例1：</strong></p>
+<ul>
+<li>设某操作数存放在数据段，DS=250AH，数据所在单元的偏移地址=0204H</li>
+<li>则该操作数所在单元的物理地址为：<ul>
+<li>250AH×16+0204H=252A4H</li>
+</ul>
+</li>
+</ul>
+<p><strong>例2：</strong></p>
+<ul>
+<li>设：DS=2500H，某单元的偏移地址=00A0H，则有：</li>
+</ul>
+<p>见图20</p>
+<p><img data-src="/images/20.png" alt="20"></p>
+<p><strong>逻辑段与逻辑地址</strong></p>
+<ul>
+<li><p>内存的分段是逻辑分段，不是物理段。各个逻辑段在地址上可以不相连，可以部分重合，也可以完全重合。</p>
+</li>
+<li><p>每个内存单元具有唯一物理地址，但可能具有多个逻辑地址。即：</p>
+<ul>
+<li>一个内存单元可以同时处于两个逻辑段</li>
+<li>一个内存单元可以在不同时刻属于相同（或不同）类型的段</li>
+<li>一个内存单元在同一个时刻可以属于不同类型的段</li>
+</ul>
+</li>
+</ul>
+<p><strong>例3：</strong></p>
+<ul>
+<li>已知：CS=1055H，DS=250AH，ES=2EF0H，SS=8FF0H</li>
+<li>画出各段在内存中的分布<ul>
+<li>CS=1055H，段首地址=10550H，默认段尾地址=3509FH</li>
+<li>DS=250AH，段首地址=250A0H，默认段尾地址=3509FH</li>
+<li>ES=2EF0H</li>
+<li>SS=8FF0H</li>
+</ul>
+</li>
+</ul>
+<p>见图21</p>
+<p><img data-src="/images/21.png" alt="21"></p>
+<p><strong>逻辑段说明</strong></p>
+<ul>
+<li><p>同一程序模块装入主存时，不同类型的段可以装入在相同/不同的物理空间</p>
+<ul>
+<li>两个逻辑段完全重合或部分重合</li>
+</ul>
+</li>
+<li><p>两个不同程序模块装入主存时，同一类型的逻辑段也可以装入相同或不同的物理空间中</p>
+</li>
+</ul>
+<p><strong>四、堆栈及堆栈段的使用</strong></p>
+<ul>
+<li>堆栈：<ul>
+<li>内存中一个特殊区域，用于存放暂时不用或需要保护的数据</li>
+<li>常用于响应中断或子程序调用</li>
+</ul>
+</li>
+</ul>
+<p>见图22</p>
+<p><img data-src="/images/22.png" alt="22"></p>
+<ul>
+<li><p>若栈顶=栈底→空栈</p>
+</li>
+<li><p>若栈顶=栈首→满栈</p>
+</li>
+</ul>
+<p><strong>堆栈示列：</strong></p>
+<ul>
+<li><p>已知：SS=1000H，SP=0100H</p>
+</li>
+<li><p>则：</p>
+<ul>
+<li>堆栈段的段首地址=10000H</li>
+<li>栈顶（偏移）地址=0100H</li>
+</ul>
+</li>
+<li><p>若该段最后一个单元地址为10200H，则：</p>
+<ul>
+<li>栈底偏移地址=0200H</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="8088系统总线"><a href="#8088系统总线" class="headerlink" title="8088系统总线"></a>8088系统总线</h4><p><strong>一、总线时序</strong></p>
+<ul>
+<li>CPU工作时序：CPU各引脚信号在时间上的关系</li>
+<li>总线周期：<ul>
+<li>CPU完成一次访问内存（或接口）操作所需要的时间</li>
+<li>一个总线周期至少包括4个时钟周期</li>
+</ul>
+</li>
+</ul>
+<p>见图23</p>
+<p><img data-src="/images/23.png" alt="23"></p>
+<p><strong>8088最小模式下的工作时序</strong></p>
+<p>见图24</p>
+<p><img data-src="/images/24.png" alt="24"></p>
+<p><strong>二、总线的概念</strong></p>
+<ul>
+<li><p>总线：是一组导线和相关的控制、驱动电路的集合。是计算机系统各部件之间传输地址、数据和控制信息的通道。</p>
+<ul>
+<li>地址总线（AB）</li>
+<li>数据总线（DB）</li>
+<li>控制总线（CB）</li>
+</ul>
+</li>
+<li><p>总线按层次结构分类</p>
+<ul>
+<li>按层次结构分为：CPU总线、系统总线、外部总线</li>
+</ul>
+</li>
+</ul>
+<p><strong>三、总线结构</strong></p>
+<ul>
+<li>单总线结构</li>
+</ul>
+<p>见图25</p>
+<p><img data-src="/images/25.png" alt="25"></p>
+<ul>
+<li><p>双总线结构</p>
+<ul>
+<li>面向CPU的双总线结构<ul>
+<li>存储器与I/O接口间无直接通道</li>
+</ul>
+</li>
+</ul>
+<p>见图26</p>
+<p><img data-src="/images/26.png" alt="26"></p>
+<ul>
+<li>面向主存的双总线结构<ul>
+<li>在单总线结构基础上增加一条CPU到存储器的高速总线</li>
+</ul>
+</li>
+</ul>
+<p>见图27</p>
+<p><img data-src="/images/27.png" alt="27"></p>
+</li>
+<li><p>多总线结构</p>
+<ul>
+<li>现代微机中的多总线结构</li>
+</ul>
+</li>
+</ul>
+<p>见图28</p>
+<p><img data-src="/images/28.png" alt="28"></p>
+<p><strong>四、总线的基本功能</strong></p>
+<ul>
+<li>数据传输</li>
+<li>仲裁控制</li>
+<li>出错处理</li>
+<li>总线驱动</li>
+</ul>
+<p><strong>五、总线的主要性能指标</strong></p>
+<ul>
+<li><p>总线带宽（B/S）：</p>
+<ul>
+<li>单位时间内总线上可传送的数据量</li>
+<li>总线带宽=位宽×工作频率</li>
+</ul>
+</li>
+<li><p>总线位宽（bit）：</p>
+<ul>
+<li>能同时传送的数据位数</li>
+</ul>
+</li>
+<li><p>总线的工作频率（MHz）</p>
+<ul>
+<li>总线带宽=（位宽/8）×（工作频率/每个存取周期的时钟数）</li>
+</ul>
+</li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/C/" rel="tag"><i class="ic i-tag"></i> C</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2020-12-24 21:06:36" itemprop="dateModified" datetime="2020-12-24T21:06:36+08:00">2020-12-24</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">http://yoursite.com/2020/12/23/assembly/微机原理与接口技术（二）/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipetfk5zwj20zk0m8e81.jpg" title="第一章 微型计算机系统">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微机原理与接口技术-吴宁</span>
+  <h3>第一章 微型计算机系统</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF-%E4%BA%8C"><span class="toc-number">1.</span> <span class="toc-text">微机原理与接口技术(二)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-8088-8086%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">第二章     8088&#x2F;8086微处理器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8088-8086-CPU%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">8088&#x2F;8086 CPU的两种工作模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8088%E7%9A%84%E4%B8%BB%E8%A6%81%E5%BC%95%E7%BA%BF%E5%8F%8A%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">8088的主要引线及内部结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8088-CPU%E6%9C%80%E5%B0%8F%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E4%B8%BB%E8%A6%81%E5%BC%95%E8%84%9A%E4%BF%A1%E5%8F%B7"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">8088 CPU最小模式下的主要引脚信号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8088%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">8088内部结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8088%E5%86%85%E9%83%A8%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">8088内部寄存器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E5%AD%98%E5%82%A8%E5%99%A8%E5%AF%BB%E5%9D%80"><span class="toc-number">1.1.3.</span> <span class="toc-text">实模式下的存储器寻址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8088%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">8088系统总线</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" rel="bookmark" title="第一章 微型计算机系统">第一章 微型计算机系统</a></li><li class="active"><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="bookmark" title="第二章 8088/8086微处理器">第二章 8088/8086微处理器</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">7</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">3</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">2</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/first-blog/" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/algorithm/" title="分类于 数据结构与算法笔记">数据结构与算法笔记</a>
+</div>
+
+    <span><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="数据结构与算法（一）">数据结构与算法（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="第一章 微型计算机系统">第一章 微型计算机系统</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2020</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2020/12/23/assembly/微机原理与接口技术（二）/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
