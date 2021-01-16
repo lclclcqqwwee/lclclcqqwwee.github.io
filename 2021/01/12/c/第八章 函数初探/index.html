@@ -1,0 +1,632 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C" />
+
+
+<link rel="canonical" href="http://yoursite.com/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/">
+
+
+
+  <title>
+第八章 函数初探 - 老九零基础学C语言笔记 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">第八章 函数初探
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-01-12 21:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-01-12T21:00:00+08:00">2021-01-12</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicit4jrvuj20zk0m8785.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicm0n457cj20zk0m8e81.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/c/" itemprop="item" rel="index" title="分类于 老九零基础学C语言笔记"><span itemprop="name">老九零基础学C语言笔记</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="第八章-函数初探"><a href="#第八章-函数初探" class="headerlink" title="第八章 函数初探"></a>第八章 函数初探</h1><h3 id="函数（function）"><a href="#函数（function）" class="headerlink" title="函数（function）"></a>函数（function）</h3><ul>
+<li><p>是完成特定任务的独立程序代码</p>
+</li>
+<li><p>语法规则定义了函数的结构和使用方式</p>
+</li>
+<li><p>好处：</p>
+<ul>
+<li>可以省去编写重复代码的苦闷</li>
+<li>可以让程序更加模块化，提高代码可读性</li>
+<li>方便后期修改、完善</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数的种类"><a href="#函数的种类" class="headerlink" title="函数的种类"></a>函数的种类</h3><ul>
+<li><p>种类</p>
+<ul>
+<li>内置函数<ul>
+<li>由C语言系统提供</li>
+<li>需要在程序前包含定义函数的头文件</li>
+</ul>
+</li>
+</ul>
+<p>见图h</p>
+<p><img data-src="/images/h.png" alt="h"></p>
+<ul>
+<li>自定义函数<ul>
+<li>不带参数</li>
+<li>带参数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="常用的内置函数"><a href="#常用的内置函数" class="headerlink" title="常用的内置函数"></a>常用的内置函数</h4><p>见图i、j</p>
+<p><img data-src="/images/i.png" alt="i"></p>
+<p><img data-src="/images/j.png" alt="j"></p>
+<ul>
+<li><p>system函数常见用法：</p>
+<p>1、system(“pause”);                               //冻结屏幕，便于观察程序的执行结果</p>
+<p>2、system(“cls”);                                     //清屏操作</p>
+<p>3、system(“color 4E”);                           //修改背景色及前景色</p>
+<p>4、system(“shutdown /r /t 180”);        //设置自动关机</p>
+</li>
+</ul>
+<h4 id="内置函数补充"><a href="#内置函数补充" class="headerlink" title="内置函数补充"></a>内置函数补充</h4><ul>
+<li>malloc()<ul>
+<li>malloc的全称是memory allocation，中文叫动态内存分配，当无法知道内存具体位置的时候，想要绑定真正的内存空间，就需要用到动态的分配内存</li>
+<li>分配长度为num_bytes字节的内存块</li>
+<li>函数原型：extern void * malloc(unsigned int num_bytes)</li>
+<li>如果分配成功则返回指向被分配内存的指针(此存储区中的初始值不确定)，否则返回空指针NULL</li>
+<li>当内存不再使用时，应使用free()函数将内存块释放(原始内存中的数据保持不变)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> * num;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	num = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * <span class="number">5</span>);</span><br><span class="line">	num[<span class="number">4</span>] = <span class="number">9</span>;</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; <span class="number">5</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,num[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">free</span>(num);<span class="comment">//用完释放内存</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> * num;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	num = <span class="built_in">calloc</span>(<span class="number">5</span>,<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">	num[<span class="number">4</span>] = <span class="number">9</span>;</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; <span class="number">5</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,num[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">free</span>(num);<span class="comment">//用完释放内存</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意1：</p>
+<p>calloc作用与molloc类似</p>
+<p>1、不需要强转，直接返回数组</p>
+<p>2、两个参数，默认初始化数组元素</p>
+<p>注意2：</p>
+<p>关于free函数：</p>
+<p>1、必须是通过molloc、calloc或relloc分配内存的指针</p>
+<p>2、释放的指针必须是初始分配的地址，进行运算后需要恢复</p>
+<ul>
+<li>realloc()<ul>
+<li>原型：extern void *realloc(void *mem_address, unsigned int newsize);</li>
+<li>用法：#include &lt;stdlib.h&gt; 有些编译器需要#include &lt;alloc.h&gt;</li>
+<li>功能：改变mem_address所指内存区域的大小为newsize长度</li>
+<li>说明：如果重新分配成功则返回指向被分配内存的指针，否则返回空指针NULL</li>
+<li>当内存不再使用时，应使用free()函数将内存块释放(原始内存中的数据保持不变)</li>
+</ul>
+</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//演示动态分配内存</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span>* nums;</span><br><span class="line">	<span class="comment">//nums = calloc(5, sizeof(int));//拥有初始化</span></span><br><span class="line">	<span class="comment">//nums = (int*)malloc(20);//为前面的指针动态分配了20个字节的空间</span></span><br><span class="line">	nums = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * <span class="number">5</span>);</span><br><span class="line">	<span class="comment">//等价于：int nums[5]</span></span><br><span class="line">	<span class="comment">//为指针动态分配空间后，指针就变成了数组</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;请输入第%d个元素：&quot;</span>, i + <span class="number">1</span>);</span><br><span class="line">		scanf_s(<span class="string">&quot;%d&quot;</span>, nums + i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;数组元素为：\n&quot;</span>);</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\t&quot;</span>, *(nums + i));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">free</span>(nums);<span class="comment">//释放动态分配的内存</span></span><br><span class="line">	nums = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h4><ul>
+<li>函数定义</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">return_type <span class="title">function_name</span><span class="params">([datatype1 arg1],[datatype arg2,[...]])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>函数三要素<ul>
+<li>返回值类型</li>
+<li>函数名</li>
+<li>参数列表</li>
+</ul>
+</li>
+</ul>
+<h4 id="书写自定义函数"><a href="#书写自定义函数" class="headerlink" title="书写自定义函数"></a>书写自定义函数</h4><ul>
+<li>自定义函数的完整写法</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">//函数原型</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span>,<span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	......</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//函数定义</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> num1，<span class="keyword">int</span> num2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//函数实现的代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>注意：</p>
+<p>1、函数原型与函数定义的头部类似，最后以分号结尾</p>
+<p>2、函数原型中的参数名称可以省略，只写参数类型</p>
+</li>
+</ul>
+<p><strong>练习：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  需求：</span></span><br><span class="line"><span class="comment">      三种图形的面积计算公式如下：</span></span><br><span class="line"><span class="comment">         圆：s = PI * r * r；</span></span><br><span class="line"><span class="comment">         矩形：s = width * height；</span></span><br><span class="line"><span class="comment">         三角形：s = width * height / 2；</span></span><br><span class="line"><span class="comment">      使用函数分别实现三种图形的面积计算，打印计算结果</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//函数原型</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">calcCircle</span><span class="params">()</span></span>;<span class="comment">//计算圆的面积</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">calcRectangle</span><span class="params">()</span></span>;<span class="comment">//j计算矩形面积</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">calcSum</span><span class="params">()</span></span>;<span class="comment">//求1-100之间偶数和</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//计算圆的面积（函数实现）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">calcCircle</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">double</span> radius, s;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;请输入圆的半径：&quot;</span>);</span><br><span class="line">	scanf_s(<span class="string">&quot;%lf&quot;</span>, &amp;radius);</span><br><span class="line">	s = <span class="number">3.14</span> * <span class="built_in">pow</span>(radius, <span class="number">2</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;半径为%.2lf的圆面积为：%.2lf\n&quot;</span>, radius, s);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">calcRectangle</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">double</span> width, height; <span class="comment">//矩形的宽和高</span></span><br><span class="line">	<span class="keyword">double</span> s;<span class="comment">//矩形的面积</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;请输入矩形的宽：&quot;</span>);</span><br><span class="line">	scanf_s(<span class="string">&quot;%lf&quot;</span>, &amp;width);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;请输入矩形的高：&quot;</span>);</span><br><span class="line">	scanf_s(<span class="string">&quot;%lf&quot;</span>, &amp;height);</span><br><span class="line">	<span class="keyword">if</span> (width &lt;= <span class="number">0</span> || height &lt;= <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;宽和高不能为负数\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span>;<span class="comment">//返回值，只能返回一个值，不能返回多个值</span></span><br><span class="line">	&#125;</span><br><span class="line">	s = width * height;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;矩形的面积为：%.lf\n&quot;</span>, s);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">calcSum</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//1-100之间的偶数和</span></span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			sum+=i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//将计算好的结果返回</span></span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	三种图形的面积计算公式如下：</span></span><br><span class="line"><span class="comment">	圆：s = PI * r * r;</span></span><br><span class="line"><span class="comment">	矩形：s = width * height;</span></span><br><span class="line"><span class="comment">	三角形：s = width * height / 2;</span></span><br><span class="line"><span class="comment">	使用函数分别实现图形的面积计算，打印计算结果</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="comment">//书写函数的步骤：完成函数三要素</span></span><br><span class="line">	<span class="comment">//误区：不要一开始就去考虑如何完成某个功能</span></span><br><span class="line">	calcCircle();<span class="comment">//调用计算圆面积的函数</span></span><br><span class="line">	calcRectangle();<span class="comment">//调用计算矩形面积的函数</span></span><br><span class="line">	<span class="comment">//需要返回值吗？</span></span><br><span class="line">	<span class="comment">//函数名是什么？</span></span><br><span class="line">	<span class="comment">//需要给这个函数参数吗？</span></span><br><span class="line">	<span class="keyword">int</span> sum = calcSum();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;1-100之间的偶数和为：%d\n&quot;</span>, sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="带返回值的函数"><a href="#带返回值的函数" class="headerlink" title="带返回值的函数"></a>带返回值的函数</h4><ul>
+<li>C语言中的返回值<ul>
+<li>关键字：return</li>
+<li>只能返回一个值，不能返回多个值</li>
+<li>返回值类型必须与原型中的返回值类型匹配</li>
+<li>return会立即终止函数并返回，可返回空值</li>
+</ul>
+</li>
+</ul>
+<h4 id="函数示例"><a href="#函数示例" class="headerlink" title="函数示例"></a>函数示例</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">书写函数实现数组元素的查找，要求返回找到的元素下标</span></span><br><span class="line"><span class="comment">书写函数实现冒泡排序并返回排序后的数组</span></span><br><span class="line"><span class="comment">书写函数要求用户输入密码（六位，错误则重新输入），返回并打印用户输入的正确密码</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//书写函数实现数组元素的查找，要求返回找到的元素下标</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//书写函数实现冒泡排序并返回排序后的数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//书写函数要求用户输入密码（六位，错误则重新输入），返回并打印用户输入的正确密码</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> index = search();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;找到的元素下标是：%d\n&quot;</span>, index);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> nums[] = &#123; <span class="number">34</span>,<span class="number">56</span>,<span class="number">78</span>,<span class="number">3</span>,<span class="number">2</span>, &#125;;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="comment">//要查找的数字，所查找数字的下标，没有找到index为-1</span></span><br><span class="line">	<span class="keyword">int</span> searchNum, searchINdex = <span class="number">-1</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;请输入要查找的整形数字：&quot;</span>);</span><br><span class="line">	scanf_s(<span class="string">&quot;%d&quot;</span>, &amp;searchNum);</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (searchNum == nums[i])</span><br><span class="line">		&#123;</span><br><span class="line">			searchINdex = i;<span class="comment">//记录下查找的下标</span></span><br><span class="line">			<span class="comment">//return searchNum;</span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//返回查找到的元素下标</span></span><br><span class="line">	<span class="keyword">return</span> searchINdex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="带参函数"><a href="#带参函数" class="headerlink" title="带参函数"></a>带参函数</h4><ul>
+<li>形式参数和实际参数</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">//int,int - 形式参数</span></span><br><span class="line"><span class="keyword">int</span> sum（<span class="keyword">int</span>，<span class="keyword">int</span>);</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//a,b-形式参数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> num1 = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">int</span> num2 = <span class="number">20</span>;</span><br><span class="line">	<span class="keyword">int</span> result = sum(num1,num2); <span class="comment">//实际参数</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;结果：%d\n&quot;</span>,result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>示例</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//自行实现pow参数</span></span><br><span class="line"><span class="comment">//求第一个参数的n次幂</span></span><br><span class="line"><span class="comment">//double num1, double num2 --- 形式参数</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">power</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">int</span>)</span></span>; <span class="comment">//函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//实际参数 - 调用</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d的%d次幂等于：%.lf&quot;</span>, <span class="number">5</span>, <span class="number">2</span>, power(<span class="number">5</span>, <span class="number">2</span>));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">power</span><span class="params">(<span class="keyword">double</span> num1, <span class="keyword">int</span> num2)</span>  <span class="comment">//函数定义</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">double</span> result = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; num2; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		result *= num1;<span class="comment">//累乘</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>练习</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">圆面积</span></span><br><span class="line"><span class="comment">矩形面积</span></span><br><span class="line"><span class="comment">三角形面积</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//根据传入的半径，返回面积</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">calcCircle</span><span class="params">(<span class="keyword">double</span>)</span></span>;</span><br><span class="line"><span class="comment">//对用户的输入进行非负验证/让用户输入正确的值/拿到用户所输入的正确值</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">validate</span><span class="params">(<span class="keyword">double</span>)</span></span>; <span class="comment">//验证输入的double类型数据是否为正数</span></span><br><span class="line"><span class="comment">//double input();//函数内直接让用户输入，如果不符合要求就重新录入，返回录入正确的数字</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">calcRectangle</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;<span class="comment">//计算矩形的面积</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">calcTriangle</span><span class="params">(<span class="keyword">double</span>, <span class="keyword">double</span>)</span></span>;<span class="comment">//计算三角形的面积</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//思考：在本列中，那些功能是比较通用的？是可以书写成函数多此调用的？</span></span><br><span class="line">	<span class="comment">//用户输入的必须是正数</span></span><br><span class="line">	<span class="comment">//打印面积</span></span><br><span class="line">	<span class="keyword">double</span> radius; <span class="comment">//用户输入的半径</span></span><br><span class="line">	<span class="keyword">double</span> width, height;<span class="comment">//图形的宽和高</span></span><br><span class="line">	<span class="keyword">double</span> width2, height2;<span class="comment">//三角形的底和高</span></span><br><span class="line">	<span class="keyword">double</span> s;<span class="comment">//图形的面积</span></span><br><span class="line">	<span class="keyword">int</span> choice;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;1.圆\n&quot;</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;2.矩形\n&quot;</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;3.三角形\n&quot;</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;支持三种图形的面积，请选择：\n&quot;</span>);</span><br><span class="line">	scanf_s(<span class="string">&quot;%d&quot;</span>, &amp;choice);</span><br><span class="line">	<span class="keyword">switch</span> (choice)</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;请输入求面积的圆的半径：&quot;</span>);</span><br><span class="line">		<span class="keyword">do</span> &#123;</span><br><span class="line">			scanf_s(<span class="string">&quot;%lf&quot;</span>, &amp;radius);<span class="comment">//录入</span></span><br><span class="line">			<span class="keyword">if</span> (!validate(radius))</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;所录入的内容不能为负，请重新输入：&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">while</span> (!validate(radius));<span class="comment">//当验证不通过的时候，重新录入</span></span><br><span class="line">		s = calcCircle(radius);<span class="comment">//调用计算圆面积的方法</span></span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;请输入求面积的矩形的宽和高：&quot;</span>);</span><br><span class="line">		<span class="keyword">do</span> &#123;</span><br><span class="line">			scanf_s(<span class="string">&quot;%lf%lf&quot;</span>, &amp;width, &amp;height);</span><br><span class="line">			<span class="keyword">if</span> (!validate(width) || !validate(height))</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;请输入两个不为负的值：&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">while</span> (!validate(width) || !validate(height));</span><br><span class="line">		<span class="comment">//验证通过之后，调用函数计算图形的面积</span></span><br><span class="line">		s = calcRectangle(width, height);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;请输入求面积的三角形的底和高：&quot;</span>);</span><br><span class="line">		<span class="keyword">do</span> &#123;</span><br><span class="line">			scanf_s(<span class="string">&quot;%lf%lf&quot;</span>, &amp;width2, &amp;height2);</span><br><span class="line">			<span class="keyword">if</span> (!validate(width2) || !validate(height2))</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;请输入两个不为负的值：&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">while</span> (!validate(width2) || !validate(height2));</span><br><span class="line">		<span class="comment">//验证通过之后，调用函数计算图形的面积</span></span><br><span class="line">		s = calcTriangle(width2, height2);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;只能选择1-3的数字！&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//需要的用户的输入进行非负验证 - 书写函数</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;图形的面积为：%.2lf\n&quot;</span>, s);</span><br><span class="line">	<span class="comment">//在函数中实现的是 各图形的计算过程</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">calcCircle</span><span class="params">(<span class="keyword">double</span> radius)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//pow函数可以自己定义</span></span><br><span class="line">	<span class="keyword">double</span> s = <span class="number">3.14</span> * <span class="built_in">pow</span>(radius, <span class="number">2</span>);</span><br><span class="line">	<span class="comment">//返回计算好的面积值</span></span><br><span class="line">	<span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//验证输入的double类型数据是否为正数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">validate</span><span class="params">(<span class="keyword">double</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> num &gt; <span class="number">0</span>;   <span class="comment">//如果num&gt;0,会返回一个非零值，表示真</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//根据传入的矩形宽和高，返回矩形面积</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">calcRectangle</span><span class="params">(<span class="keyword">double</span> width, <span class="keyword">double</span> height)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> width * height;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//根据传入的三角形底和高，返回三角形面积</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">calcTriangle</span><span class="params">(<span class="keyword">double</span> width2, <span class="keyword">double</span> height2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> width2 * height2 / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><ul>
+<li>函数调用自己的过程称为递归（recursion）</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(num == <span class="number">1</span>)<span class="comment">//退出条件</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		num = num * factorial(num - <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">return</span> num;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//计算5的阶乘</span></span><br><span class="line">	<span class="keyword">int</span> result = factorial(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用递归时的注意点：</p>
+<p>1、有反复的执行过程（调用自己）</p>
+<p>2、有跳出反复执行过程的条件（出口）</p>
+
+      <div class="tags">
+          <a href="/tags/C/" rel="tag"><i class="ic i-tag"></i> C</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2021-01-12 23:54:44" itemprop="dateModified" datetime="2021-01-12T23:54:44+08:00">2021-01-12</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" title="第八章 函数初探">http://yoursite.com/2021/01/12/c/第八章 函数初探/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipew8gmvyj20zk0m87wh.jpg" title="第七章 指针">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 老九零基础学C语言笔记</span>
+  <h3>第七章 指针</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipevgoki5j20zk0m84qp.jpg" title="第九章 函数进阶">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 老九零基础学C语言笔记</span>
+  <h3>第九章 函数进阶</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2"><span class="toc-number">1.</span> <span class="toc-text">第八章 函数初探</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%EF%BC%88function%EF%BC%89"><span class="toc-number">1.0.1.</span> <span class="toc-text">函数（function）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="toc-number">1.0.2.</span> <span class="toc-text">函数的种类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">常用的内置函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E8%A1%A5%E5%85%85"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">内置函数补充</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">自定义函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B9%A6%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.2.4.</span> <span class="toc-text">书写自定义函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%A6%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.2.5.</span> <span class="toc-text">带返回值的函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.0.2.6.</span> <span class="toc-text">函数示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%A6%E5%8F%82%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.2.7.</span> <span class="toc-text">带参函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%92%E5%BD%92"><span class="toc-number">1.0.2.8.</span> <span class="toc-text">递归</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" rel="bookmark" title="第一章 Hellow C语言">第一章 Hellow C语言</a></li><li><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="bookmark" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></li><li><a href="/2020/12/28/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" rel="bookmark" title="第六章 数组及常用算法">第六章 数组及常用算法</a></li><li><a href="/2020/12/30/c/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84/" rel="bookmark" title="第三章 运算符和条件结构">第三章 运算符和条件结构</a></li><li><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" rel="bookmark" title="第四章 循环初探">第四章 循环初探</a></li><li><a href="/2021/01/05/c/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/" rel="bookmark" title="第五章 循环结构进阶">第五章 循环结构进阶</a></li><li><a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" rel="bookmark" title="第七章 指针">第七章 指针</a></li><li class="active"><a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" rel="bookmark" title="第八章 函数初探">第八章 函数初探</a></li><li><a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" rel="bookmark" title="第九章 函数进阶">第九章 函数进阶</a></li><li><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="bookmark" title="第十章 字符串">第十章 字符串</a></li><li><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E7%BB%93%E6%9E%84%E4%BD%93/" rel="bookmark" title="第十一章 结构体">第十一章 结构体</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">18</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">4</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">2</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" title="第九章 函数进阶">第九章 函数进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/" title="第五章 循环结构进阶">第五章 循环结构进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" title="第八章 函数初探">第八章 函数初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="第十章 字符串">第十章 字符串</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" title="第四章 循环初探">第四章 循环初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" title="第七章 指针">第七章 指针</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/01/12/c/第八章 函数初探/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

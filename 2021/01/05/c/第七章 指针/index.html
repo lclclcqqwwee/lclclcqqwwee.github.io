@@ -1,0 +1,608 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C" />
+
+
+<link rel="canonical" href="http://yoursite.com/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/">
+
+
+
+  <title>
+第七章 指针 - 老九零基础学C语言笔记 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">第七章 指针
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-01-05 19:09:40">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-01-05T19:09:40+08:00">2021-01-05</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclhnx9glj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeudstjqj20zk0m8k3r.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclga70tsj20zk0m84mr.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeuibk9fj20zk0m8ay2.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/c/" itemprop="item" rel="index" title="分类于 老九零基础学C语言笔记"><span itemprop="name">老九零基础学C语言笔记</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="第七章-指针"><a href="#第七章-指针" class="headerlink" title="第七章 指针"></a>第七章 指针</h1><h3 id="指针（pointer）简介"><a href="#指针（pointer）简介" class="headerlink" title="指针（pointer）简介"></a>指针（pointer）简介</h3><ul>
+<li>指针是一个值为内存地址的变量（或数据对象）</li>
+</ul>
+<p>见图c</p>
+<p><img data-src="/images/c.png" alt="c"></p>
+<h3 id="声明即初始化指针变量"><a href="#声明即初始化指针变量" class="headerlink" title="声明即初始化指针变量"></a>声明即初始化指针变量</h3><ul>
+<li><p>基本用法：数据类型 * 指针变量名；</p>
+</li>
+<li><p>例如：</p>
+<ul>
+<li>int * ptr_num;</li>
+<li>char * ptr_name;</li>
+<li>float * money_ptr;</li>
+<li>double * p_price;</li>
+</ul>
+</li>
+<li><p>注意：</p>
+<p>在头文件&lt;stdio.h&gt;中，NULL被定义为常量</p>
+<p>int * ptr_num = NULL;</p>
+<p>指针的初始值设为空，表示指针不指向任何地址</p>
+</li>
+</ul>
+<h3 id="取地址符-amp"><a href="#取地址符-amp" class="headerlink" title="取地址符&amp;"></a>取地址符&amp;</h3><p>见图d</p>
+<p><img data-src="/images/d.png" alt="d"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">1024</span>;</span><br><span class="line"><span class="keyword">int</span> * ptr_num;</span><br><span class="line"><span class="comment">//取num变量的地址赋值给ptr_num</span></span><br><span class="line">ptr_num = &amp;num;</span><br></pre></td></tr></table></figure>
+<h3 id="间接运算符"><a href="#间接运算符" class="headerlink" title="间接运算符"></a>间接运算符</h3><p>见图e、f</p>
+<p><img data-src="/images/e.png" alt="e"></p>
+<p><img data-src="/images/f.png" alt="f"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">1024</span>;</span><br><span class="line"><span class="keyword">int</span> * ptr_num;</span><br><span class="line">ptr_num = &amp; num;</span><br><span class="line"></span><br><span class="line">*ptr_num = <span class="number">1111</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="指针使用示例"><a href="#指针使用示例" class="headerlink" title="指针使用示例"></a>指针使用示例</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> num = <span class="number">1024</span>;<span class="comment">//整型变量</span></span><br><span class="line">	<span class="keyword">int</span> *ptr_num;<span class="comment">//整型指针变量</span></span><br><span class="line">	<span class="comment">//取num的地址赋值给ptr_num变量</span></span><br><span class="line">	ptr_num = &amp;num;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;num的值为：%d\n&quot;</span>,num);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;num的内存地址为：%p\n&quot;</span>,&amp;num);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;ptr_num的值为：%p\n&quot;</span>,ptr_num);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;ptr_num的内存地址为：%p\n&quot;</span>,&amp;ptr_num);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;*ptr_num指向的值为：%d\n&quot;</span>,*ptr_num);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 打印结果:</span></span><br><span class="line"><span class="comment">num的值为：1024</span></span><br><span class="line"><span class="comment">num的内存地址为：0028FF44</span></span><br><span class="line"><span class="comment">ptr_num的值为：0028FF44</span></span><br><span class="line"><span class="comment">ptr_num的内存地址为：0028FF40</span></span><br><span class="line"><span class="comment">*ptr_num指向的值为：1024</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num1 = <span class="number">1024</span>;</span><br><span class="line">    <span class="keyword">int</span> num2 = <span class="number">2048</span>;</span><br><span class="line">    <span class="keyword">int</span> *ptr1, *ptr2;</span><br><span class="line">    ptr1 = &amp;num1;</span><br><span class="line">    ptr2 = &amp;num2;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;num1的值是%d\tnum1的地址是：%p\n&quot;</span>,num1,ptr1);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;num2的值是%d\tnum2的地址是：%p\n&quot;</span>,num2,ptr2);</span><br><span class="line">    <span class="comment">//ptr2 = ptr1;</span></span><br><span class="line">    *ptr2 = *ptr1;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;重新赋值后：\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;num2的值是%d\tnum2的地址是：%p\n&quot;</span>,num2,ptr2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="指针小结"><a href="#指针小结" class="headerlink" title="指针小结"></a>指针小结</h3><ul>
+<li><p>指针同样是一个变量，只不过该变量中存储的是一个对象的内存地址</p>
+</li>
+<li><p>如果一个变量存储另一个对象的地址，则称该变量指向这个对象</p>
+</li>
+<li><p>指针变量可以赋值，指针的指向在程序执行中可以改变</p>
+</li>
+<li><p>指针p在执行中某刻指向变量x，在另一时刻也可以指向变量y</p>
+</li>
+<li><p>注意：</p>
+<p>1、指针变量的命名规则和其他变量的命名规则一样</p>
+<p>2、指针不能与现有变量同名</p>
+<p>3、指针可存放c语言中的任何基本数据类型、数组和其他所有高级数据结构的地址</p>
+<p>4、若指针已声明为指向某种类型数据的地址，则它不能用于存储其他类型数据的地址</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> num = <span class="number">1024</span>;</span><br><span class="line">	<span class="keyword">int</span>* ptr_num = &amp;num;</span><br><span class="line">	<span class="keyword">int</span>** ptr_num2 = &amp;ptr_num;      <span class="comment">//二级指针，两个星号</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> num2 = <span class="number">2048</span>;</span><br><span class="line">	<span class="keyword">int</span>* mtr_num = &amp;num2;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;num的值为：%d\t内存地址为：%p\n&quot;</span>,num,ptr_num);    <span class="comment">//&amp;取内存地址，与直接用地址变量的名一样</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;num的内存地址为：%p\n&quot;</span>,&amp;num);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;ptr_num的值为：%p\n&quot;</span>, ptr_num);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;ptr_num的内存地址为：%p\n&quot;</span>,&amp;ptr_num);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;ptr_num指向的值为：%d\n&quot;</span>,*ptr_num);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;ptr_num2的值为：%p\n&quot;</span>,ptr_num2);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;ptr_num2的内存地址为：%p\n&quot;</span>,&amp;ptr_num2);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;ptr_num2指向的值为：%d\n&quot;</span>,**ptr_num2);     <span class="comment">//两个*代表通过指针的指针访问原指针空间</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;-----------------------------------------------------\n&quot;</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;num的值是%d\tnum的地址是：%p\n&quot;</span>, num, ptr_num);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;num2的值是%d\tnum的地址是：%p\n&quot;</span>, num2, mtr_num);</span><br><span class="line">	<span class="comment">//将变量1值赋给变量2</span></span><br><span class="line">	<span class="comment">//num2 = num;   //等价 *mtr_num = *ptr_num</span></span><br><span class="line">	<span class="comment">//直接操作指针</span></span><br><span class="line">	mtr_num = ptr_num; <span class="comment">//是mtr_num的值（变量）赋给了ptr_num的值（变量被更改），导致两个指针都指向一个内存空间</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;重新赋值后：\n&quot;</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;num的值是%d\tnum的地址是：%p\n&quot;</span>, num, ptr_num);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;num2的值是%d\tnum2的地址是：%p\n&quot;</span>, num2, mtr_num);</span><br><span class="line">	*mtr_num = <span class="number">11111111</span>;   <span class="comment">//所以这里的指针，指向了num，改它就相当于改了num的值，而不是num2</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;重新赋值后：\n&quot;</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;num的值是%d\tnum的地址是：%p\n&quot;</span>, num, ptr_num);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;num2的值是%d\tnum2的地址是：%p\n&quot;</span>, num2, mtr_num);</span><br><span class="line"></span><br><span class="line">	mtr_num = <span class="literal">NULL</span>;  <span class="comment">//防止野指针的乱入，所以经常用完后把野指针设为空</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="指针与数组"><a href="#指针与数组" class="headerlink" title="指针与数组"></a>指针与数组</h3><ul>
+<li>数组：<ul>
+<li>存储在一块连续的内存空间中</li>
+<li>数组名就是这块连续内存空间的首地址</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> score[<span class="number">5</span>] = &#123;<span class="number">98</span>,<span class="number">87</span>,<span class="number">65</span>,<span class="number">43</span>,<span class="number">76</span>&#125;;</span><br><span class="line"><span class="keyword">double</span> * ptr_score;</span><br><span class="line">ptr_score = &amp;score[<span class="number">0</span>];</span><br><span class="line"><span class="comment">//ptr_score = score;</span></span><br></pre></td></tr></table></figure>
+<p>见图g</p>
+<p><img data-src="/images/g.png" alt="g"></p>
+<h3 id="指针运算"><a href="#指针运算" class="headerlink" title="指针运算"></a>指针运算</h3><ul>
+<li>指针的算数运算<ul>
+<li>指针的递增和递减（++、–）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">double</span> score[<span class="number">5</span>] = &#123;<span class="number">98</span>,<span class="number">87</span>,<span class="number">65</span>,<span class="number">43</span>,<span class="number">76</span>&#125;;</span><br><span class="line"><span class="keyword">double</span> * ptr_score;</span><br><span class="line">ptr_score = score;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; <span class="number">5</span>;i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.2lf\n&quot;</span>,*ptr_score++);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：一个类型为T的指针移动，以sizeof(T)为移动单位</li>
+</ul>
+<h3 id="数组与指针小结"><a href="#数组与指针小结" class="headerlink" title="数组与指针小结"></a>数组与指针小结</h3><ul>
+<li><p>int num[50];//num是数组名，也是数组的首地址</p>
+</li>
+<li><p>num的值与&amp;num[0]的值是相同的</p>
+</li>
+<li><p>数组第i+1个元素可表示为：</p>
+<ul>
+<li>第i+1个元素的地址：&amp;num[i]或num+i</li>
+<li>第i+1个元素的值：num[i]或*(num+i)</li>
+</ul>
+</li>
+<li><p>为指向数组的指针赋值：</p>
+<ul>
+<li>int * ptr_num = num; 或int * ptr_num = &amp;num[0];</li>
+</ul>
+</li>
+<li><p>指针变量可以指向数组元素</p>
+<ul>
+<li>int * ptr_num = &amp;num[4]; 或 int * ptr_num = num + 4;</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">double</span> score[] = &#123; <span class="number">98</span>,<span class="number">87</span>,<span class="number">65</span>,<span class="number">43</span>,<span class="number">76</span> &#125;;</span><br><span class="line">	<span class="keyword">double</span>* ptr_score;</span><br><span class="line">	ptr_score = score;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;double型数组的地址占%d个字节\n&quot;</span>,<span class="keyword">sizeof</span>(ptr_score));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;数组的首地址：%p\t数组首元素的地址：%p\n&quot;</span>,score,&amp;score[<span class="number">0</span>]);  <span class="comment">//数组名就是数组的首地址</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//printf(&quot;%.2lf\n&quot;, ptr_score[i]);</span></span><br><span class="line">		<span class="comment">//printf(&quot;%.2lf\n&quot;, *(ptr_score + i));</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%.2lf\n&quot;</span>, *ptr_score++);           <span class="comment">//打印数组的每个元素</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//指针的递增和递减，double类型指针每次移动以8字节移动，每一个元素占8字节</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;******************************************************\n&quot;</span>);</span><br><span class="line">	<span class="comment">//假设我们希望再次打印数组的每个元素</span></span><br><span class="line">	<span class="comment">//重新访问数组元素前，记得重置指针位置</span></span><br><span class="line">	ptr_score = score;  <span class="comment">//如果是用 *(ptr_score + i)则不用，否则 *ptr_score++ 会访问不知名的内存地址</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//printf(&quot;%.2lf\n&quot;, ptr_score[i]);</span></span><br><span class="line">		<span class="comment">//printf(&quot;%.2lf\n&quot;, *(ptr_score + i));</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%.2lf\n&quot;</span>, *ptr_score++);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//在c语言中指针可以随意加或减，如果超出现在内存空间，可能会指向其他内存空间</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="数组与指针示例"><a href="#数组与指针示例" class="headerlink" title="数组与指针示例"></a>数组与指针示例</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">array</span>[] = &#123;<span class="number">15</span>,<span class="number">20</span>,<span class="number">25</span>,<span class="number">30</span>,<span class="number">35</span>&#125;;</span><br><span class="line">	<span class="keyword">int</span> i;<span class="comment">//循环变量</span></span><br><span class="line">	<span class="keyword">int</span> * ptr_array = <span class="built_in">array</span>;</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; <span class="number">5</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;第%d个元素的值为%d\t地址为：%p\n&quot;</span>,i+<span class="number">1</span>,*ptr_array,ptr_array);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 结果为</span></span><br><span class="line"><span class="comment">第1个元素的值为15	地址为：0028FF20</span></span><br><span class="line"><span class="comment">第2个元素的值为20	地址为：0028FF24</span></span><br><span class="line"><span class="comment">第3个元素的值为25	地址为：0028FF28</span></span><br><span class="line"><span class="comment">第4个元素的值为30	地址为：0028FF2C</span></span><br><span class="line"><span class="comment">第5个元素的值为35	地址为：0028FF30</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="指针与二维数组"><a href="#指针与二维数组" class="headerlink" title="指针与二维数组"></a>指针与二维数组</h3><ul>
+<li>首地址：&amp;a[0] [0]</li>
+<li>使用指针访问二维数组中的元素<ul>
+<li>*(a[1] + 2)</li>
+<li>*( *(a[1] + 2))</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 5</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//数组名就是数组的首地址（数组首元素地址）</span></span><br><span class="line">	<span class="comment">//二维数组的理解：二维数组是由n个1维数组组成</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	<span class="keyword">double</span> score[<span class="number">5</span>][<span class="number">3</span>] = &#123;</span><br><span class="line">		&#123;<span class="number">55</span>, <span class="number">66</span>, <span class="number">77</span>&#125;,</span><br><span class="line">		&#123;<span class="number">52</span>, <span class="number">62</span>, <span class="number">72</span>&#125;,</span><br><span class="line">		&#123;<span class="number">15</span>, <span class="number">26</span>, <span class="number">37</span>&#125;,</span><br><span class="line">		&#123;<span class="number">54</span>, <span class="number">65</span>, <span class="number">76</span>&#125;,</span><br><span class="line">		&#123;<span class="number">55</span>, <span class="number">66</span>, <span class="number">77</span>&#125;,</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">double</span>(*ptr_score)[<span class="number">3</span>] = score;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//printf(&quot;%.2lf\t&quot;,score[i][j]);  // score[i] =&gt; *(score + i)</span></span><br><span class="line">			<span class="comment">//printf(&quot;%.2lf\t&quot;, *(score[i] + j));</span></span><br><span class="line">			<span class="comment">//printf(&quot;%.2lf\t&quot;, *(*(score + i) + j));</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%.2lf\t&quot;</span>, *(*(ptr_score + i) + j));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	//遍历第一行数据：第一行的数组名就是score[0]</span></span><br><span class="line"><span class="comment">	for (i = 0; i &lt; 3; i++)</span></span><br><span class="line"><span class="comment">	&#123;</span></span><br><span class="line"><span class="comment">		printf(&quot;%.2lf\t&quot;, score[0][i]);</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">	printf(&quot;\n&quot;);</span></span><br><span class="line"><span class="comment">	//遍历第二行数据：score[1]</span></span><br><span class="line"><span class="comment">	for (i = 0; i &lt; 3; i++)</span></span><br><span class="line"><span class="comment">	&#123;</span></span><br><span class="line"><span class="comment">		printf(&quot;%.2lf\t&quot;, score[1][i]);</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+      <div class="tags">
+          <a href="/tags/C/" rel="tag"><i class="ic i-tag"></i> C</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2021-01-12 21:01:33" itemprop="dateModified" datetime="2021-01-12T21:01:33+08:00">2021-01-12</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" title="第七章 指针">http://yoursite.com/2021/01/05/c/第七章 指针/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/01/05/c/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipewf5l51j20zk0m8b29.jpg" title="第五章 循环结构进阶">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 老九零基础学C语言笔记</span>
+  <h3>第五章 循环结构进阶</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclh3brzpj20zk0m8ann.jpg" title="第八章 函数初探">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 老九零基础学C语言笔记</span>
+  <h3>第八章 函数初探</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E6%8C%87%E9%92%88"><span class="toc-number">1.</span> <span class="toc-text">第七章 指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%EF%BC%88pointer%EF%BC%89%E7%AE%80%E4%BB%8B"><span class="toc-number">1.0.1.</span> <span class="toc-text">指针（pointer）简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%8D%B3%E5%88%9D%E5%A7%8B%E5%8C%96%E6%8C%87%E9%92%88%E5%8F%98%E9%87%8F"><span class="toc-number">1.0.2.</span> <span class="toc-text">声明即初始化指针变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%96%E5%9C%B0%E5%9D%80%E7%AC%A6-amp"><span class="toc-number">1.0.3.</span> <span class="toc-text">取地址符&amp;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%B4%E6%8E%A5%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.0.4.</span> <span class="toc-text">间接运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.0.5.</span> <span class="toc-text">指针使用示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E5%B0%8F%E7%BB%93"><span class="toc-number">1.0.6.</span> <span class="toc-text">指针小结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E4%B8%8E%E6%95%B0%E7%BB%84"><span class="toc-number">1.0.7.</span> <span class="toc-text">指针与数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E8%BF%90%E7%AE%97"><span class="toc-number">1.0.8.</span> <span class="toc-text">指针运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E5%B0%8F%E7%BB%93"><span class="toc-number">1.0.9.</span> <span class="toc-text">数组与指针小结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.0.10.</span> <span class="toc-text">数组与指针示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E4%B8%8E%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">1.0.11.</span> <span class="toc-text">指针与二维数组</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" rel="bookmark" title="第一章 Hellow C语言">第一章 Hellow C语言</a></li><li><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="bookmark" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></li><li><a href="/2020/12/28/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" rel="bookmark" title="第六章 数组及常用算法">第六章 数组及常用算法</a></li><li><a href="/2020/12/30/c/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84/" rel="bookmark" title="第三章 运算符和条件结构">第三章 运算符和条件结构</a></li><li><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" rel="bookmark" title="第四章 循环初探">第四章 循环初探</a></li><li><a href="/2021/01/05/c/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/" rel="bookmark" title="第五章 循环结构进阶">第五章 循环结构进阶</a></li><li class="active"><a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" rel="bookmark" title="第七章 指针">第七章 指针</a></li><li><a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" rel="bookmark" title="第八章 函数初探">第八章 函数初探</a></li><li><a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" rel="bookmark" title="第九章 函数进阶">第九章 函数进阶</a></li><li><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="bookmark" title="第十章 字符串">第十章 字符串</a></li><li><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E7%BB%93%E6%9E%84%E4%BD%93/" rel="bookmark" title="第十一章 结构体">第十一章 结构体</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">18</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">4</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">2</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/01/05/c/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" title="第九章 函数进阶">第九章 函数进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/" title="第五章 循环结构进阶">第五章 循环结构进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/first-blog/" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" title="第七章 指针">第七章 指针</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="第十章 字符串">第十章 字符串</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/algorithm/" title="分类于 数据结构与算法笔记">数据结构与算法笔记</a>
+</div>
+
+    <span><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="数据结构与算法（一）">数据结构与算法（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" title="第四章 循环初探">第四章 循环初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/01/05/c/第七章 指针/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
