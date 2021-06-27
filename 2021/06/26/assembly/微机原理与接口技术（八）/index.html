@@ -1,0 +1,1133 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C" />
+
+
+<link rel="canonical" href="http://yoursite.com/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/">
+
+
+
+  <title>
+第八章 模拟量的输入输出 - 微机原理与接口技术-吴宁 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">第八章 模拟量的输入输出
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-06-26 08:20:36">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-06-26T08:20:36+08:00">2021-06-26</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclffsa1cj20zk0m811l.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicliwyw55j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciusoyjnj219g0u0x56.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicliierfjj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclg5ms2rj20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/assembly/" itemprop="item" rel="index" title="分类于 微机原理与接口技术-吴宁"><span itemprop="name">微机原理与接口技术-吴宁</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="微机原理与接口技术（八）"><a href="#微机原理与接口技术（八）" class="headerlink" title="微机原理与接口技术（八）"></a>微机原理与接口技术（八）</h1><ul>
+<li>模拟量输入输出通道</li>
+<li>D/A转换器</li>
+<li>A/D转换器</li>
+</ul>
+<h2 id="模拟量输入输出通道"><a href="#模拟量输入输出通道" class="headerlink" title="模拟量输入输出通道"></a>模拟量输入输出通道</h2><h3 id="模拟量I-O通道："><a href="#模拟量I-O通道：" class="headerlink" title="模拟量I/O通道："></a>模拟量I/O通道：</h3><p>见图160</p>
+<p><img data-src="/images/160.png" alt="160"></p>
+<h3 id="模拟量的输入通道中的主要部件"><a href="#模拟量的输入通道中的主要部件" class="headerlink" title="模拟量的输入通道中的主要部件"></a>模拟量的输入通道中的主要部件</h3><ul>
+<li>传感器（Transducer）<ul>
+<li>非电量→电压、电流</li>
+</ul>
+</li>
+<li>变送器（Transformer）<ul>
+<li>转换成标准的电信号 </li>
+</ul>
+</li>
+<li>信号处理（Signal Processing） <ul>
+<li>放大、整形、滤波</li>
+</ul>
+</li>
+<li>多路转换开关（Multiplexer）<ul>
+<li>多选一</li>
+</ul>
+</li>
+<li>采样保持电路（Sample Holder，S/H）<ul>
+<li>保证变换时信号恒定不变</li>
+</ul>
+</li>
+<li>A/D变换器（A/D Converter）<ul>
+<li>模拟量转换为数字量 </li>
+</ul>
+</li>
+</ul>
+<h3 id="模拟量的输出通道"><a href="#模拟量的输出通道" class="headerlink" title="模拟量的输出通道"></a>模拟量的输出通道</h3><ul>
+<li>D/A变换器（D/A Converter）<ul>
+<li>数字量转换为模拟量 </li>
+</ul>
+</li>
+<li>低通滤波<ul>
+<li>平滑输出波形</li>
+</ul>
+</li>
+<li>整型、放大、驱动<ul>
+<li>提供足够的驱动电压，电流</li>
+</ul>
+</li>
+</ul>
+<h3 id="闭环控制系统应用案例"><a href="#闭环控制系统应用案例" class="headerlink" title="闭环控制系统应用案例"></a>闭环控制系统应用案例</h3><p>水泥厂增湿塔出口温度控制系统</p>
+<p>见图161</p>
+<p><img data-src="/images/161.png" alt="161"></p>
+<h3 id="无线传感器接口"><a href="#无线传感器接口" class="headerlink" title="无线传感器接口"></a>无线传感器接口</h3><p>见图162</p>
+<p><img data-src="/images/162.png" alt="162"></p>
+<h2 id="D-A转换器"><a href="#D-A转换器" class="headerlink" title="D/A转换器"></a>D/A转换器</h2><ul>
+<li>D/A转换器的基本工作原理</li>
+<li>D/A转换器的主要技术指标</li>
+<li>典型D/A转换器芯片及应用</li>
+</ul>
+<h3 id="1-D-A转换器的基本工作原理"><a href="#1-D-A转换器的基本工作原理" class="headerlink" title="1.D/A转换器的基本工作原理"></a>1.D/A转换器的基本工作原理</h3><ul>
+<li>组成<ul>
+<li>模拟开关</li>
+<li>电阻网络</li>
+<li>运算放大器</li>
+</ul>
+</li>
+</ul>
+<p>见图163</p>
+<p><img data-src="/images/163.png" alt="163"></p>
+<h4 id="基本变换原理"><a href="#基本变换原理" class="headerlink" title="基本变换原理"></a>基本变换原理</h4><ul>
+<li>当运放的放大倍数足够大时，输出电压VO与输入电压Vin的 关系为： <ul>
+<li>V0 = - Rf / R * Vin</li>
+</ul>
+</li>
+</ul>
+<p>见图164</p>
+<p><img data-src="/images/164.png" alt="164"></p>
+<ul>
+<li>若输入端有n个支路, 则输出电压VO与输入电压Vi的关系为： <ul>
+<li>V0 = - Rf ∑ 1/Ri * Vin</li>
+</ul>
+</li>
+</ul>
+<p>见图165</p>
+<p><img data-src="/images/165.png" alt="165"></p>
+<h5 id="n-8-的权电阻网络"><a href="#n-8-的权电阻网络" class="headerlink" title="n=8 的权电阻网络"></a>n=8 的权电阻网络</h5><p>见图166</p>
+<p><img data-src="/images/166.png" alt="166"></p>
+<ul>
+<li><p>如果每个支路由一个开关Si控制，Si=1表示Si合上，Si=0表 示Si断开，则上式变换为</p>
+<ul>
+<li>V0 = - ∑ 1/2^i^ * SiVref<ul>
+<li>若Si=1,该项对VO有贡献</li>
+<li>若Si=0,该项对VO无贡献 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如果用8位二进制代码来控制图中的S1～S8 (Di=1时Si闭合； Di=0时Si断开)，则不同的二进制代码就对应不同输出电压VO</p>
+</li>
+<li><p>当代码在0～FFH之间变化时，VO相应地在 0～(255/256)Vref之间变化</p>
+</li>
+<li><p>为控制电阻网络各支路电阻值的精度，实际的D/A转换器采用 R-2R梯形电阻网络，它只用两种阻值的电阻(R和2R)。</p>
+</li>
+</ul>
+<h4 id="实际的D-A转换器——R-2R梯形电阻网络"><a href="#实际的D-A转换器——R-2R梯形电阻网络" class="headerlink" title="实际的D/A转换器——R-2R梯形电阻网络"></a>实际的D/A转换器——R-2R梯形电阻网络</h4><p>见图167</p>
+<p><img data-src="/images/167.png" alt="167"></p>
+<h3 id="2-主要技术指标"><a href="#2-主要技术指标" class="headerlink" title="2.主要技术指标"></a>2.主要技术指标</h3><ul>
+<li><p>分辨率（Resolution） </p>
+<ul>
+<li>输入的二进制数每±1个最低有效位 (LSB，Least Significant Bit) 使输出变化的程度。 </li>
+</ul>
+</li>
+<li><p>分辨率表示方法：</p>
+<ul>
+<li>可用输入数字量的位数来表示，如8位、10位等； </li>
+<li>也可用一个LSB 使输出变化的程度来表示。 </li>
+</ul>
+</li>
+<li><p>例：</p>
+<ul>
+<li>一个满量程为5V的10位D/A变换器的分辨率为：</li>
+<li>5/(2^10^-1) = 5/1023= 0.04888V= 48.88mV</li>
+</ul>
+</li>
+</ul>
+<h4 id="转换精度（误差）"><a href="#转换精度（误差）" class="headerlink" title="转换精度（误差）"></a>转换精度（误差）</h4><p>实际输出值与理论值之间的最大偏差</p>
+<ul>
+<li>影响转换精度的因素： <ul>
+<li>分辩率、电源波动、温度变化…</li>
+</ul>
+</li>
+</ul>
+<h4 id="转换时间"><a href="#转换时间" class="headerlink" title="转换时间"></a>转换时间</h4><ul>
+<li>从开始转换到与满量程值相差±1/2 LSB所对应的模拟量所 需要的时间 </li>
+</ul>
+<p>见图168</p>
+<p><img data-src="/images/168.png" alt="168"></p>
+<h3 id="3-典型D-A转换器DAC0832"><a href="#3-典型D-A转换器DAC0832" class="headerlink" title="3.典型D/A转换器DAC0832"></a>3.典型D/A转换器DAC0832</h3><ul>
+<li>特点<ul>
+<li>8位电流输出型D/A转换器</li>
+<li>T型电阻网络</li>
+<li>差动输出 </li>
+</ul>
+</li>
+</ul>
+<h4 id="1）主要引脚功能"><a href="#1）主要引脚功能" class="headerlink" title="1）主要引脚功能"></a>1）主要引脚功能</h4><ul>
+<li>输入寄存器控制信号： <ul>
+<li>D7～D0：输入数据线 </li>
+<li>ILE：输入锁存允许 </li>
+<li>#CS：片选信号</li>
+<li>#WR1：写输入锁存器</li>
+</ul>
+</li>
+<li>DAC寄存器的控制信号： <ul>
+<li>#WR2：写DAC寄存器</li>
+<li>#XFER：允许输入锁存器的数据传送到DAC寄存器 </li>
+</ul>
+</li>
+</ul>
+<p>见图169</p>
+<p><img data-src="/images/169.png" alt="169"></p>
+<h4 id="2）DAC0832的内部结构"><a href="#2）DAC0832的内部结构" class="headerlink" title="2）DAC0832的内部结构"></a>2）DAC0832的内部结构</h4><p>见图170</p>
+<p><img data-src="/images/170.png" alt="170"></p>
+<h4 id="3）工作模式"><a href="#3）工作模式" class="headerlink" title="3）工作模式"></a>3）工作模式</h4><ul>
+<li>单缓冲模式</li>
+<li>双缓冲模式</li>
+<li>无缓冲模式</li>
+</ul>
+<h5 id="单缓冲模式"><a href="#单缓冲模式" class="headerlink" title="单缓冲模式"></a>单缓冲模式</h5><ul>
+<li><p>使输入锁存器或DAC寄存器二者之一处于直通，即芯片只占用一 个端口地址。</p>
+</li>
+<li><p>CPU只需一次写入即开始转换。写入数据的程序为： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MOV DX，PORT</span><br><span class="line">MOV AL，DATA</span><br><span class="line">OUT DX，AL</span><br></pre></td></tr></table></figure></li>
+<li><p>单缓冲模式应用例：</p>
+<ul>
+<li><p>利用所示线路图在VOUT端输出三角波</p>
+<p>见图171</p>
+<p><img data-src="/images/171.png" alt="171"></p>
+</li>
+<li><p>输出三角波程序（不考虑频率和幅值调整）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">      MOV DX，0278H</span><br><span class="line">      MOV AL，0</span><br><span class="line">NET1: OUT DX，AL</span><br><span class="line">      INC AL</span><br><span class="line">      CMP AL，0FFH</span><br><span class="line">      JNZ NET1</span><br><span class="line">      DEC AL</span><br><span class="line">NET2: OUT DX，AL</span><br><span class="line">      DEC AL</span><br><span class="line">      CMP AL，0</span><br><span class="line">      JNZ NET2</span><br><span class="line">      JMP NET1</span><br></pre></td></tr></table></figure>
+<h5 id="双缓冲模式（标准模式）"><a href="#双缓冲模式（标准模式）" class="headerlink" title="双缓冲模式（标准模式）"></a>双缓冲模式（标准模式）</h5></li>
+</ul>
+</li>
+<li><p>输入寄存器和DAC寄存器均需控制。</p>
+<ul>
+<li>当输入寄存器控制信号有效时，数据写入输入寄存器中，并同时位 于DAC寄存器的输入端； </li>
+<li>在DAC寄存器控制信号有效时，数据写入DAC寄存器，并启动变换。 </li>
+</ul>
+</li>
+<li><p>此时芯片占用两个端口地址。</p>
+</li>
+<li><p>优点：</p>
+<ul>
+<li>数据接收与D/A转换可异步进行</li>
+<li>可实现多个DAC同步转换输出。 </li>
+<li>分时写入、同步转换</li>
+</ul>
+</li>
+<li><p>工作时序</p>
+<p>见图172</p>
+<p><img data-src="/images/172.png" alt="172"></p>
+</li>
+<li><p>双缓冲模式同步转换例：</p>
+<p>见图173</p>
+<p><img data-src="/images/173.png" alt="173"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MOV AL，data</span><br><span class="line">MOV DX，port1</span><br><span class="line">OUT DX，AL        ;0832-1的输入寄存器地址 </span><br><span class="line">MOV DX，port2</span><br><span class="line">OUT DX，AL        ;0832-2的输入寄存器地址 </span><br><span class="line">MOV DX，port3</span><br><span class="line">OUT DX，AL        ;DAC寄存器地址 </span><br><span class="line">HLT</span><br></pre></td></tr></table></figure>
+<h5 id="无缓冲器模式"><a href="#无缓冲器模式" class="headerlink" title="无缓冲器模式"></a>无缓冲器模式</h5></li>
+<li><p>使内部的两个寄存器都处于直通状态。模拟输出始终跟随输入变化。</p>
+</li>
+<li><p>不能直接与数据总线连接，需外加并行接口(如74LS373、8255等)。 </p>
+</li>
+</ul>
+<h3 id="4-D-A转换器的应用"><a href="#4-D-A转换器的应用" class="headerlink" title="4.D/A转换器的应用"></a>4.D/A转换器的应用</h3><ul>
+<li>信号发生器 → 向D/A转换器写入某种按规律变化的数 据，即可在输出端获得相应的各种波形 </li>
+<li>用于闭环控制系统 </li>
+</ul>
+<h2 id="A-D转换器"><a href="#A-D转换器" class="headerlink" title="A/D转换器"></a>A/D转换器</h2><ul>
+<li><p>用于将连续变化的模拟信号转换为数字信号的装置，简 称ADC，是模拟系统与计算机之间的接口部件。</p>
+</li>
+<li><p>A/D转换器类型：</p>
+<ul>
+<li>计数型A/D转换器 → 速度慢、价格低，适用于慢速系统 </li>
+<li>双积分型A/D转换器 → 分辩率高、抗干扰性 好、转换速度慢，适 用于中速系统</li>
+<li>逐位反馈型A/D转换器 → 转换精度高、速度 快、抗干扰性差。</li>
+</ul>
+</li>
+<li><p>要点：</p>
+<ul>
+<li>A/D转换器的一般工作原理</li>
+<li>A/D转换器的主要技术指标</li>
+<li>A/D转换器的应用 <ul>
+<li>与系统的连接</li>
+<li>数据采集程序的编写</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-A-D转换器的工作原理"><a href="#1-A-D转换器的工作原理" class="headerlink" title="1.A/D转换器的工作原理"></a>1.A/D转换器的工作原理</h3><ul>
+<li><p>逐位反馈型A/D转换器</p>
+<ul>
+<li><p>类似天平称重量时的尝试法，逐步用砝码的累积重量去逼近被称物体</p>
+<p>见图174</p>
+<p><img data-src="/images/174.png" alt="174"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-主要技术指标-1"><a href="#2-主要技术指标-1" class="headerlink" title="2.主要技术指标"></a>2.主要技术指标</h3><ul>
+<li><p>转换精度</p>
+<ul>
+<li>量化误差<ul>
+<li>量化误差=1/2 △<ul>
+<li>量化间隔(△)=Vmax /（2^n^-1）<ul>
+<li>（2^n^-1）为字长</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>非线性误差</li>
+<li>其它误差</li>
+</ul>
+</li>
+<li><p>例：设满量程电压=10V，A/D变换器位数=10位，则： </p>
+<ul>
+<li>其量化间隔（分辨率）= 10V / 1023 ≈ 9.78mV </li>
+<li>量化误差 = 1 / 2 △ ≈ 4.89mV</li>
+</ul>
+</li>
+</ul>
+<h4 id="其他指标"><a href="#其他指标" class="headerlink" title="其他指标"></a>其他指标</h4><ul>
+<li>转换时间<ul>
+<li>实现一次转换需要的时间。精度越高（字长越长），转换速 度越慢。 </li>
+</ul>
+</li>
+<li>动态范围 <ul>
+<li>允许转换的电压范围 </li>
+</ul>
+</li>
+</ul>
+<h3 id="3-典型的A-D转换器芯片"><a href="#3-典型的A-D转换器芯片" class="headerlink" title="3.典型的A/D转换器芯片"></a>3.典型的A/D转换器芯片</h3><ul>
+<li>ADC0809：<ul>
+<li>8通道（8路）输入 </li>
+<li>8位字长 </li>
+<li>逐位逼近型</li>
+<li>转换时间100μs</li>
+<li>内置三态输出缓冲器 </li>
+</ul>
+</li>
+</ul>
+<h4 id="主要引脚功能"><a href="#主要引脚功能" class="headerlink" title="主要引脚功能"></a>主要引脚功能</h4><ul>
+<li>D7～D0 → 输出数据线（三态） </li>
+<li>IN0～IN7 → 8通道（路）模拟输入 </li>
+<li>ADDA、ADDB、ADDC → 通道地址 </li>
+<li>ALE → 通道地址锁存 </li>
+<li>START → 启动转换</li>
+<li>EOC → 转换结束状态输出 </li>
+<li>OE → 输出允许 </li>
+<li>CLK → 时钟输入（10KHz～1.2MHz） </li>
+</ul>
+<h4 id="内部结构"><a href="#内部结构" class="headerlink" title="内部结构"></a>内部结构</h4><p>见图175</p>
+<p><img data-src="/images/175.png" alt="175"></p>
+<h4 id="工作时序"><a href="#工作时序" class="headerlink" title="工作时序"></a>工作时序</h4><p>见图176</p>
+<p><img data-src="/images/176.png" alt="176"></p>
+<h4 id="ADC0809的工作流程"><a href="#ADC0809的工作流程" class="headerlink" title="ADC0809的工作流程"></a>ADC0809的工作流程</h4><p>见图177</p>
+<p><img data-src="/images/177.png" alt="177"></p>
+<h4 id="判断转换结束的方法"><a href="#判断转换结束的方法" class="headerlink" title="判断转换结束的方法"></a>判断转换结束的方法</h4><ul>
+<li>软件延时等待（比如延时120us）<ul>
+<li>此时不用EOC信号，CPU效率最低</li>
+</ul>
+</li>
+<li>软件查询EOC状态<ul>
+<li>查询控制方式 </li>
+</ul>
+</li>
+<li>把EOC作为中断申请信号，接到中断控制器的IN端。<ul>
+<li>在中断服务程序中读入转换结果，效率较高 </li>
+</ul>
+</li>
+</ul>
+<h4 id="ADC0809的应用"><a href="#ADC0809的应用" class="headerlink" title="ADC0809的应用"></a>ADC0809的应用</h4><ul>
+<li>硬件连接<ul>
+<li>通常情况下A/D转换器需要经数字接口与系统连接 </li>
+</ul>
+</li>
+<li>数据采集程序设计<ul>
+<li>从数据采集到存储</li>
+</ul>
+</li>
+</ul>
+<h4 id="ADC0809与系统的连接"><a href="#ADC0809与系统的连接" class="headerlink" title="ADC0809与系统的连接"></a>ADC0809与系统的连接</h4><ul>
+<li>一般需通过数字接口与系统连接<ul>
+<li>获取转换结果及状态信息（EOC）需通过输入接口 </li>
+<li>选择通道地址、输出地址锁存（ALE）及启动变换（START） 信号需通过输出接口</li>
+<li>由于ALE和START信号的特点，通常将两者并联后，连接到数 字输出接口。</li>
+</ul>
+</li>
+</ul>
+<p>见图178</p>
+<p><img data-src="/images/178.png" alt="178"></p>
+<ul>
+<li>当仅采集单路模拟量时 <ul>
+<li>此时通道可由硬件确定，系统无须输出通道地址，则也无须地址锁存。</li>
+</ul>
+</li>
+<li>当循环采集多路模拟量时<ul>
+<li>系统须通过软件方式循环输出不同的通道地址，及相应的地址锁存信号。</li>
+</ul>
+</li>
+</ul>
+<h4 id="ADC0809与系统的连接例"><a href="#ADC0809与系统的连接例" class="headerlink" title="ADC0809与系统的连接例"></a>ADC0809与系统的连接例</h4><h5 id="单路模拟量输入："><a href="#单路模拟量输入：" class="headerlink" title="单路模拟量输入："></a>单路模拟量输入：</h5><p>见图179</p>
+<p><img data-src="/images/179.png" alt="179"></p>
+<h5 id="多路模拟量输入："><a href="#多路模拟量输入：" class="headerlink" title="多路模拟量输入："></a>多路模拟量输入：</h5><p>见图180</p>
+<p><img data-src="/images/180.png" alt="180"></p>
+<h5 id="循环数据采集程序流程"><a href="#循环数据采集程序流程" class="headerlink" title="循环数据采集程序流程"></a>循环数据采集程序流程</h5><p>见图181</p>
+<p><img data-src="/images/181.png" alt="181"></p>
+<h2 id="I-O接口系统综合设计示例详解I"><a href="#I-O接口系统综合设计示例详解I" class="headerlink" title="I/O接口系统综合设计示例详解I"></a>I/O接口系统综合设计示例详解I</h2><ul>
+<li>I/O数字接口</li>
+</ul>
+<h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><ul>
+<li><p>设某8253的端口地址范围为FFE8H—FFEBH，输入该芯片的时钟频率为2MHz。</p>
+</li>
+<li><p>要求</p>
+<ul>
+<li>设计芯片与系统的接线图，并编写程序实现在OUT1产生周期为1s的连续方波。</li>
+</ul>
+</li>
+<li><p>题目分析</p>
+<ul>
+<li><p>工作时钟频率：2MHz</p>
+</li>
+<li><p>8253端口地址：FFE8H—FFEBH</p>
+<ul>
+<li>端口地址范围：1111 1111 1110 10XX</li>
+</ul>
+</li>
+<li><p>8253 OUT1端输出周期为1s的连续方波</p>
+<ul>
+<li>计数初值：1s/0.5us=2000000<ul>
+<li>超出16bit计数器可存储的最大值，需要2个计算通道级联实现</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>可以选择将外部时钟信号接入通道0的CLK0，其OUT0输出接入CLK1，作为通道1的时钟信号。</p>
+</li>
+<li><p>OUT0输出连续方波，工作频率设置为1KHz。</p>
+<ul>
+<li><p>原则：两通道计算初值乘积=2000000</p>
+</li>
+<li><p>CLK0：2MHz，OUT0：1KHz，CNT0计数初值=2000</p>
+<p>CLK1：1KHz，OUT1：1Hz，CNT1计数初值=1000</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>见图182</p>
+<p><img data-src="/images/182.png" alt="182"></p>
+<h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><ul>
+<li><p>通过三态门循环检测OUT 0 端的状态</p>
+<ul>
+<li>若为低电平 ， 则等待 </li>
+<li>若为高电平，则读取拨段开 关的当前位置 ，并将开关的当前位置状态用七段数码管 显示出来 。 </li>
+</ul>
+</li>
+<li><p>有任意键按下时 ，工作结束 。 </p>
+</li>
+<li><p>分析：</p>
+<ul>
+<li>由给定条件得8255 CNT0的计数初值：<ul>
+<li>1.148MHz/1Hz=1148000&gt;65536 </li>
+</ul>
+</li>
+<li>需要两级分频。可利用CNT1实现。</li>
+</ul>
+</li>
+</ul>
+<p>见图183</p>
+<p><img data-src="/images/183.png" alt="183"></p>
+<ul>
+<li><p>由图得7段数码管编码：</p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">“0”</th>
+<th align="center">“1”</th>
+<th align="center">“2”</th>
+<th align="center">“3”</th>
+<th align="center">“4”</th>
+<th align="center">“5”</th>
+<th align="center">“6“</th>
+<th align="center">”7“</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">七段码</td>
+<td align="center">3FH</td>
+<td align="center">06H</td>
+<td align="center">5BH</td>
+<td align="center">4FH</td>
+<td align="center">66H</td>
+<td align="center">6DH</td>
+<td align="center">7DH</td>
+<td align="center">07H</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>8253输出端连接图： </p>
+<p>见图184</p>
+<p><img data-src="/images/184.png" alt="184"></p>
+</li>
+<li><p>CNT1的输出脉冲频率设置的原则：</p>
+<ul>
+<li>使两级分频时的计数初值在允许范围内。 </li>
+</ul>
+</li>
+</ul>
+<h4 id="8253初始化程序："><a href="#8253初始化程序：" class="headerlink" title="8253初始化程序："></a>8253初始化程序：</h4><p>见图185</p>
+<p><img data-src="/images/185.png" alt="185"></p>
+<h4 id="I-O-控制程序"><a href="#I-O-控制程序" class="headerlink" title="I/O 控制程序"></a>I/O 控制程序</h4><p>见图186</p>
+<p><img data-src="/images/186.png" alt="186"></p>
+<h2 id="I-O接口系统综合设计示例详解II"><a href="#I-O接口系统综合设计示例详解II" class="headerlink" title="I/O接口系统综合设计示例详解II"></a>I/O接口系统综合设计示例详解II</h2><ul>
+<li>I/O数字与模拟接口</li>
+</ul>
+<h3 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h3><ul>
+<li>某炉温控制电路原理图如图所示。图中，8位A/D转换器的输入模拟量范围为0～5V。要求将炉温控制在允许的范围内（其对应的上限值和下限值分别为MAX和MIN）。若低于下限或高于上限（超出阈值），则调用控制算法子程序F(X)，将子程序运算的结果（在AL中）从8255的PB口输出，对炉温进行调节。否则，继续执行以上操作，直到有键按下时才退出。</li>
+</ul>
+<p>见图187</p>
+<p><img data-src="/images/187.png" alt="187"></p>
+<h4 id="硬件系统设计"><a href="#硬件系统设计" class="headerlink" title="硬件系统设计"></a>硬件系统设计</h4><ul>
+<li><p>8255接口地址范围： 0011 1010 0000 ～ 0011 1010 0011    （部分地址译码 ）</p>
+</li>
+<li><p>硬件系统原理示意图：</p>
+<p>见图188</p>
+<p><img data-src="/images/188.png" alt="188"></p>
+</li>
+<li><p>题目分析：</p>
+<ul>
+<li><p>A/D转换器为单路模拟量输入； </p>
+</li>
+<li><p>由A/D转换器工作时序，可得出其工作流程：</p>
+<ul>
+<li>启动变换 </li>
+<li>若#EOC=0，则转换结束 </li>
+<li>使OE=1 </li>
+<li>读取转换结果。</li>
+</ul>
+<p>见图189</p>
+<p><img data-src="/images/189.png" alt="189"></p>
+</li>
+</ul>
+</li>
+<li><p>程序控制流程 </p>
+<p>见图190</p>
+<p><img data-src="/images/190.png" alt="190"></p>
+</li>
+<li><p>程序块</p>
+<p>见图191</p>
+<p><img data-src="/images/191.png" alt="191"></p>
+</li>
+</ul>
+<h3 id="示例2-1"><a href="#示例2-1" class="headerlink" title="示例2"></a>示例2</h3><ul>
+<li><p>设计一个简单的水库水位监视系统。要求：</p>
+<ul>
+<li>通过ADC0809的IN0端监测水位的高低。 </li>
+<li>系统始终监视水位的高低变化，水位到达最高点的90%时开始报警，扬声器 发出0.5秒500Hz和0.5秒1KHz交替变化的声音，报警灯点亮；</li>
+<li>水位恢复正常后，系统不再报警。 </li>
+</ul>
+</li>
+<li><p>设计：</p>
+<ul>
+<li>利用8253产生音频报警信号。设地址范围：F814H～F817H </li>
+<li>利用8255控制ADC0809的A/D转换和报警控制。地址范围：F800H～F803H </li>
+</ul>
+</li>
+<li><p>题目分析：</p>
+<ul>
+<li><p>单路数据采集，无需设定通道地址，无需送地址锁存信号 </p>
+</li>
+<li><p>∵ADC0809输入为最大模拟量值时，输出数字量=FFH。 </p>
+<p>∴水位到达最高点的90%时，对应的数字量是230（E6H） </p>
+</li>
+<li><p>扬声器发出0.5秒500Hz和0.5秒1KHz交替变化的声音</p>
+<ul>
+<li>需要利用8253两个通道分别发出500Hz和1KHz频率的连续方波，另外一个通道产 生周期为0.5秒的连续方波信号作为上述两通道的选题控制信号。<ul>
+<li>8253的三个通道全部工作于方式3，计数初值<ul>
+<li>通道0 :50kHz/500Hz=100; </li>
+<li>通道1:50kHz/1kHz=50; </li>
+<li>通道2:50kHz/1Hz=50000 </li>
+</ul>
+</li>
+<li>利用PC0启动报警（输出高电平启动）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="硬件系统设计-1"><a href="#硬件系统设计-1" class="headerlink" title="硬件系统设计"></a>硬件系统设计</h4><p>见图192</p>
+<p><img data-src="/images/192.png" alt="192"></p>
+<h4 id="芯片初始化："><a href="#芯片初始化：" class="headerlink" title="芯片初始化："></a>芯片初始化：</h4><p>见图193</p>
+<p><img data-src="/images/193.png" alt="193"></p>
+<h4 id="控制程序："><a href="#控制程序：" class="headerlink" title="控制程序："></a>控制程序：</h4><p>见图194</p>
+<p><img data-src="/images/194.png" alt="194"></p>
+<h2 id="课程结束总结"><a href="#课程结束总结" class="headerlink" title="课程结束总结"></a>课程结束总结</h2><h3 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h3><ul>
+<li>计算机基础知识</li>
+<li>8088 微处理器与总线</li>
+<li>8086 CPU指令集</li>
+<li>汇编语言程序设计方法</li>
+<li>半导体存储器及其接口设计</li>
+<li>输入输出技术及输入输出接口</li>
+</ul>
+<h4 id="1-计算机基础知识"><a href="#1-计算机基础知识" class="headerlink" title="1.计算机基础知识"></a>1.计算机基础知识</h4><ul>
+<li>熟练掌握三种常用计数制及BCD码的表示及其相互间的转换</li>
+<li>ACCII码的概念</li>
+<li>二进制数的算术运算<ul>
+<li>无符号数的运算</li>
+<li>补码的运算</li>
+<li>溢出问题</li>
+</ul>
+</li>
+<li>逻辑运算、逻辑门和译码器</li>
+</ul>
+<h4 id="2-微处理器"><a href="#2-微处理器" class="headerlink" title="2.微处理器"></a>2.微处理器</h4><ul>
+<li><p>微型计算机系统组成</p>
+</li>
+<li><p>8088CPU主要引线的功能</p>
+</li>
+<li><p>8088CPU的内部结构和工作原理</p>
+</li>
+<li><p>8088CPU时序</p>
+<ul>
+<li>时钟周期、总线周期</li>
+</ul>
+</li>
+<li><p>内部寄存器组</p>
+<ul>
+<li>内部寄存器种类、数量、功能及其内容的含意</li>
+</ul>
+</li>
+<li><p>存储器寻址</p>
+<ul>
+<li>段基地址，偏移地址，逻辑地址，物理地址，编址方式</li>
+</ul>
+</li>
+<li><p>了解总线的基本概念</p>
+</li>
+</ul>
+<h4 id="3-8086指令系统"><a href="#3-8086指令系统" class="headerlink" title="3.8086指令系统"></a>3.8086指令系统</h4><ul>
+<li>8种寻址方式</li>
+<li>指令系统<ul>
+<li>数据传送类</li>
+<li>算术运算类</li>
+<li>逻辑运算和移位</li>
+<li>串操作</li>
+<li>程序控制</li>
+<li>处理器控制</li>
+</ul>
+</li>
+</ul>
+<h5 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h5><ul>
+<li>指令格式<ul>
+<li>单操作数，双操作数，零操作数</li>
+</ul>
+</li>
+<li>各指令对操作数的要求</li>
+<li>指令的执行原理<ul>
+<li>串操作指令，转移和调用类指令，循环类指令</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-汇编语言程序设计"><a href="#4-汇编语言程序设计" class="headerlink" title="4.汇编语言程序设计"></a>4.汇编语言程序设计</h4><ul>
+<li>汇编程序设计过程</li>
+<li>汇编语言源程序的结构</li>
+<li>操作数中的数据项和表达式</li>
+<li>伪指令</li>
+<li>DOS功能调用</li>
+<li>简单汇编语言源程序的设计</li>
+</ul>
+<h4 id="5-存储系统"><a href="#5-存储系统" class="headerlink" title="5.存储系统"></a>5.存储系统</h4><ul>
+<li>半导体存储器的分类及其特点</li>
+<li>Cache的基本概念</li>
+<li>存储器系统设计<ul>
+<li>译码电路及其他控制信号</li>
+<li>存储器扩展技术</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-输入输出技术及输入输出接口"><a href="#6-输入输出技术及输入输出接口" class="headerlink" title="6.输入输出技术及输入输出接口"></a>6.输入输出技术及输入输出接口</h4><ul>
+<li>I/O接口、I/O端口的的概念和端口的编址方式</li>
+<li>常用简单接口芯片及其应用</li>
+<li>4种基本输入输出方法的特点</li>
+<li>中断技术</li>
+<li>可编程数字接口</li>
+<li>模拟接口</li>
+</ul>
+<p><strong>设计实现简单I/O接口控制系统（I/O控制程序，硬联电路）</strong></p>
+
+      <div class="tags">
+          <a href="/tags/C/" rel="tag"><i class="ic i-tag"></i> C</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2021-06-27 15:13:35" itemprop="dateModified" datetime="2021-06-27T15:13:35+08:00">2021-06-27</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/" title="第八章 模拟量的输入输出">http://yoursite.com/2021/06/26/assembly/微机原理与接口技术（八）/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipey0a334j20zk0m8qpt.jpg" title="第七章 常用数字接口电路">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微机原理与接口技术-吴宁</span>
+  <h3>第七章 常用数字接口电路</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">微机原理与接口技术（八）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%87%8F%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E9%80%9A%E9%81%93"><span class="toc-number">1.1.</span> <span class="toc-text">模拟量输入输出通道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%87%8FI-O%E9%80%9A%E9%81%93%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">模拟量I&#x2F;O通道：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%87%8F%E7%9A%84%E8%BE%93%E5%85%A5%E9%80%9A%E9%81%93%E4%B8%AD%E7%9A%84%E4%B8%BB%E8%A6%81%E9%83%A8%E4%BB%B6"><span class="toc-number">1.1.2.</span> <span class="toc-text">模拟量的输入通道中的主要部件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%87%8F%E7%9A%84%E8%BE%93%E5%87%BA%E9%80%9A%E9%81%93"><span class="toc-number">1.1.3.</span> <span class="toc-text">模拟量的输出通道</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E6%A1%88%E4%BE%8B"><span class="toc-number">1.1.4.</span> <span class="toc-text">闭环控制系统应用案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.1.5.</span> <span class="toc-text">无线传感器接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-A%E8%BD%AC%E6%8D%A2%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">D&#x2F;A转换器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-D-A%E8%BD%AC%E6%8D%A2%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.D&#x2F;A转换器的基本工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8F%98%E6%8D%A2%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">基本变换原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#n-8-%E7%9A%84%E6%9D%83%E7%94%B5%E9%98%BB%E7%BD%91%E7%BB%9C"><span class="toc-number">1.2.1.1.1.</span> <span class="toc-text">n&#x3D;8 的权电阻网络</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E7%9A%84D-A%E8%BD%AC%E6%8D%A2%E5%99%A8%E2%80%94%E2%80%94R-2R%E6%A2%AF%E5%BD%A2%E7%94%B5%E9%98%BB%E7%BD%91%E7%BB%9C"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">实际的D&#x2F;A转换器——R-2R梯形电阻网络</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%BB%E8%A6%81%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.主要技术指标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E7%B2%BE%E5%BA%A6%EF%BC%88%E8%AF%AF%E5%B7%AE%EF%BC%89"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">转换精度（误差）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E6%97%B6%E9%97%B4"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">转换时间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%85%B8%E5%9E%8BD-A%E8%BD%AC%E6%8D%A2%E5%99%A8DAC0832"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.典型D&#x2F;A转换器DAC0832</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E4%B8%BB%E8%A6%81%E5%BC%95%E8%84%9A%E5%8A%9F%E8%83%BD"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">1）主要引脚功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89DAC0832%E7%9A%84%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">2）DAC0832的内部结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">3）工作模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E7%BC%93%E5%86%B2%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.2.3.3.1.</span> <span class="toc-text">单缓冲模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8C%E7%BC%93%E5%86%B2%E6%A8%A1%E5%BC%8F%EF%BC%88%E6%A0%87%E5%87%86%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="toc-number">1.2.3.3.2.</span> <span class="toc-text">双缓冲模式（标准模式）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%A0%E7%BC%93%E5%86%B2%E5%99%A8%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.2.3.3.3.</span> <span class="toc-text">无缓冲器模式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-D-A%E8%BD%AC%E6%8D%A2%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.D&#x2F;A转换器的应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-D%E8%BD%AC%E6%8D%A2%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">A&#x2F;D转换器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-A-D%E8%BD%AC%E6%8D%A2%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.A&#x2F;D转换器的工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%BB%E8%A6%81%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87-1"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.主要技术指标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%8C%87%E6%A0%87"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">其他指标</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%85%B8%E5%9E%8B%E7%9A%84A-D%E8%BD%AC%E6%8D%A2%E5%99%A8%E8%8A%AF%E7%89%87"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.典型的A&#x2F;D转换器芯片</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%BC%95%E8%84%9A%E5%8A%9F%E8%83%BD"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">主要引脚功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">内部结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%97%B6%E5%BA%8F"><span class="toc-number">1.3.3.3.</span> <span class="toc-text">工作时序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ADC0809%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.3.3.4.</span> <span class="toc-text">ADC0809的工作流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E8%BD%AC%E6%8D%A2%E7%BB%93%E6%9D%9F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.3.5.</span> <span class="toc-text">判断转换结束的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ADC0809%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">1.3.3.6.</span> <span class="toc-text">ADC0809的应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ADC0809%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.3.3.7.</span> <span class="toc-text">ADC0809与系统的连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ADC0809%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%BF%9E%E6%8E%A5%E4%BE%8B"><span class="toc-number">1.3.3.8.</span> <span class="toc-text">ADC0809与系统的连接例</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E8%B7%AF%E6%A8%A1%E6%8B%9F%E9%87%8F%E8%BE%93%E5%85%A5%EF%BC%9A"><span class="toc-number">1.3.3.8.1.</span> <span class="toc-text">单路模拟量输入：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E6%A8%A1%E6%8B%9F%E9%87%8F%E8%BE%93%E5%85%A5%EF%BC%9A"><span class="toc-number">1.3.3.8.2.</span> <span class="toc-text">多路模拟量输入：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B"><span class="toc-number">1.3.3.8.3.</span> <span class="toc-text">循环数据采集程序流程</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O%E6%8E%A5%E5%8F%A3%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1%E7%A4%BA%E4%BE%8B%E8%AF%A6%E8%A7%A3I"><span class="toc-number">1.4.</span> <span class="toc-text">I&#x2F;O接口系统综合设计示例详解I</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B1"><span class="toc-number">1.4.1.</span> <span class="toc-text">示例1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B2"><span class="toc-number">1.4.2.</span> <span class="toc-text">示例2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8253%E5%88%9D%E5%A7%8B%E5%8C%96%E7%A8%8B%E5%BA%8F%EF%BC%9A"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">8253初始化程序：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#I-O-%E6%8E%A7%E5%88%B6%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">I&#x2F;O 控制程序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O%E6%8E%A5%E5%8F%A3%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1%E7%A4%BA%E4%BE%8B%E8%AF%A6%E8%A7%A3II"><span class="toc-number">1.5.</span> <span class="toc-text">I&#x2F;O接口系统综合设计示例详解II</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B1%EF%BC%9A"><span class="toc-number">1.5.1.</span> <span class="toc-text">示例1：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">硬件系统设计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B2-1"><span class="toc-number">1.5.2.</span> <span class="toc-text">示例2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1-1"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">硬件系统设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8A%AF%E7%89%87%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%9A"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">芯片初始化：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E7%A8%8B%E5%BA%8F%EF%BC%9A"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">控制程序：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E7%BB%93%E6%9D%9F%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.</span> <span class="toc-text">课程结束总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9"><span class="toc-number">1.6.1.</span> <span class="toc-text">主要内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">1.计算机基础知识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-number">1.6.1.2.</span> <span class="toc-text">2.微处理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-8086%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.6.1.3.</span> <span class="toc-text">3.8086指令系统</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.6.1.3.1.</span> <span class="toc-text">指令系统</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.6.1.4.</span> <span class="toc-text">4.汇编语言程序设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.6.1.5.</span> <span class="toc-text">5.存储系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%8A%80%E6%9C%AF%E5%8F%8A%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.6.1.6.</span> <span class="toc-text">6.输入输出技术及输入输出接口</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" rel="bookmark" title="第一章 微型计算机系统">第一章 微型计算机系统</a></li><li><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="bookmark" title="第二章 8088/8086微处理器">第二章 8088/8086微处理器</a></li><li><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" rel="bookmark" title="第三章 指令系统">第三章 指令系统</a></li><li><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" rel="bookmark" title="第四章 汇编语言程序">第四章 汇编语言程序</a></li><li><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" rel="bookmark" title="第五章 存储器系统">第五章 存储器系统</a></li><li><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" rel="bookmark" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></li><li><a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" rel="bookmark" title="第七章 常用数字接口电路">第七章 常用数字接口电路</a></li><li class="active"><a href="/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/" rel="bookmark" title="第八章 模拟量的输入输出">第八章 模拟量的输入输出</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">24</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">4</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">2</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" title="第三章 指令系统">第三章 指令系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" title="第四章 汇编语言程序">第四章 汇编语言程序</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" title="第五章 存储器系统">第五章 存储器系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/30/c/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84/" title="第三章 运算符和条件结构">第三章 运算符和条件结构</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="第十章 字符串">第十章 字符串</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" title="第七章 指针">第七章 指针</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" title="第四章 循环初探">第四章 循环初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/first-blog/" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/06/26/assembly/微机原理与接口技术（八）/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

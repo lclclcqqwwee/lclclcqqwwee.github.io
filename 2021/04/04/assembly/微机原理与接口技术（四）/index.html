@@ -1,0 +1,1018 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C" />
+
+
+<link rel="canonical" href="http://yoursite.com/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/">
+
+
+
+  <title>
+第四章 汇编语言程序 - 微机原理与接口技术-吴宁 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">第四章 汇编语言程序
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-04-04 16:59:10">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-04-04T16:59:10+08:00">2021-04-04</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexe4oykj20zk0m87ji.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicis081o9j20zk0m8dmr.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeubcbajj20zk0m8h1h.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicis3attqj20zk0m8k7l.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/assembly/" itemprop="item" rel="index" title="分类于 微机原理与接口技术-吴宁"><span itemprop="name">微机原理与接口技术-吴宁</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="微机原理与接口技术（四）"><a href="#微机原理与接口技术（四）" class="headerlink" title="微机原理与接口技术（四）"></a>微机原理与接口技术（四）</h1><h2 id="1-汇编语言源程序与汇编程序"><a href="#1-汇编语言源程序与汇编程序" class="headerlink" title="1.汇编语言源程序与汇编程序"></a>1.汇编语言源程序与汇编程序</h2><ul>
+<li>汇编语言源程序→用助记符编写</li>
+<li>汇编程序→源程序的编译程序</li>
+</ul>
+<p>汇编语言源程序→汇编程序→机器语言目标程序</p>
+<p><strong>汇编语言设计与执行过程</strong></p>
+<ul>
+<li><p>输入汇编语言源程序(EDIT)→源文件.ASM</p>
+</li>
+<li><p>汇编(MASM)→目标文件.OBJ</p>
+</li>
+<li><p>链接(LINK)→可执行文件.EXE</p>
+</li>
+<li><p>调试(TD)→最终程序</p>
+</li>
+</ul>
+<h2 id="2-汇编语言语句类型和格式"><a href="#2-汇编语言语句类型和格式" class="headerlink" title="2.汇编语言语句类型和格式"></a>2.汇编语言语句类型和格式</h2><p>汇编语言语句类型：</p>
+<ul>
+<li>指令性语句→CPU执行的语句，能够生成目标代码</li>
+<li>指示性语句→CPU不执行，而由汇编程序执行的语句，不生成目标代码</li>
+</ul>
+<p>汇编语言语句格式：</p>
+<ul>
+<li><p>指令性语句：</p>
+<p>[标号:] [前缀] 注记符 [操作数], [操作数] [;注释]</p>
+</li>
+<li><p>指示性语句：</p>
+<p>[名字] 伪指令注记符 操作数 [, 操作数, …] [;注释]</p>
+</li>
+</ul>
+<h2 id="3-汇编语言语句中的操作数"><a href="#3-汇编语言语句中的操作数" class="headerlink" title="3.汇编语言语句中的操作数"></a>3.汇编语言语句中的操作数</h2><ul>
+<li>寄存器、存储单元、常量、变量或标号、表达式</li>
+</ul>
+<p><strong>常量</strong></p>
+<ul>
+<li><p>数字常量→0F00H (十六进制开头不能为字母需加0)、64H</p>
+</li>
+<li><p>字符串常量→用单引号引起的字符或字符串</p>
+</li>
+<li><p>例：</p>
+<ul>
+<li>MOV AL，‘A’   →  AL=41H</li>
+</ul>
+</li>
+<li><p>例：</p>
+<ul>
+<li>定义字符串：‘ABCD’ → 汇编时被编译成对应的ASCII码：41H，42H，43H，44H</li>
+</ul>
+</li>
+</ul>
+<p><strong>变量</strong></p>
+<ul>
+<li><p>内存单元的符号地址，为存储器操作数</p>
+</li>
+<li><p>变量的属性：</p>
+<p>段值——变量所在段的段地址</p>
+<p>偏移量——变量所指单元的偏移地址</p>
+<p>类型——字节型、字型和双字型</p>
+</li>
+</ul>
+<p><strong>表达式</strong></p>
+<ul>
+<li><p>算数运算、逻辑运算、关系运算符、*取值运算和属性运算、其他运算</p>
+<p>①取值运算符</p>
+<ul>
+<li><p>用于分析存储器操作数的属性</p>
+<ul>
+<li><p>获取变量的属性值</p>
+<p>OFFSET → 取得其后变量或标号的偏移地址</p>
+<p>SEG → 取得其后变量或标号的段地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MOV AX, SEG DATA</span><br><span class="line">MOV DS, AX              ;取变量的段地址并送给DS</span><br><span class="line">MOV BX, OFFSET DATA     ;取变量的偏移地址送给BX   等价于 LEA BX, DATA</span><br></pre></td></tr></table></figure>
+<p>②属性运算符</p>
+</li>
+</ul>
+</li>
+<li><p>用于指定其后存储器操作数的类型</p>
+</li>
+<li><p>运算符：PTR</p>
+</li>
+<li><p>例：</p>
+<ul>
+<li>MOV BYTR PTR[BX]. 12H          ;PTR指定存储器操作数[BX]为”字节型“</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="伪指令"><a href="#伪指令" class="headerlink" title="伪指令"></a>伪指令</h2><ul>
+<li><p>由汇编程序执行的”指令系统“</p>
+</li>
+<li><p>作用：</p>
+<ul>
+<li>定义变量</li>
+<li>分配存储区</li>
+<li>定义逻辑段</li>
+<li>指示程序开始和结束</li>
+<li>定义过程等</li>
+</ul>
+</li>
+<li><p>帮助计算机理解注记符指令编写的汇编语言源程序</p>
+</li>
+<li><p>常用伪指令：</p>
+<p>数据定义伪指令、符号定义伪指令、段定义伪指令、结束伪指令、过程定义伪指令、宏命令伪指令</p>
+</li>
+</ul>
+<h3 id="一、数据定义伪指令"><a href="#一、数据定义伪指令" class="headerlink" title="一、数据定义伪指令"></a>一、数据定义伪指令</h3><ul>
+<li><p>用于定义数据区中变量的类型及其所占内存空间大小</p>
+</li>
+<li><p>格式：</p>
+<p>[变量名] 伪指令助记符 操作数, …    ; [注释]</p>
+<ul>
+<li>伪指令注记符：定义变量类型</li>
+<li>操作数：变量值可以是常数，表达式或字符串。其大小不能超过伪指令注记符所限定的范围</li>
+<li>变量名：符号地址</li>
+</ul>
+</li>
+<li><p>变量的类型及其操作数的个数决定了该变量所在内存空间的大小</p>
+</li>
+</ul>
+<h4 id="1-数据定义伪指令注记符"><a href="#1-数据定义伪指令注记符" class="headerlink" title="1.数据定义伪指令注记符"></a>1.数据定义伪指令注记符</h4><ul>
+<li>DB (Define Byte)：定义变量为字节型，指向的每一个操作数占1个字节单元</li>
+<li>DW (Define Word)：定义的变量为字类型，指向的每一个操作数占1个字单元(2个字节单元)</li>
+<li>DD (Define Double Word)：定义的变量为双字型，占4个字节单元</li>
+<li>DQ (Define Quadword)：定义的变量为4字型</li>
+<li>DT (Define Tenbytes)：定义的变量为10字节型</li>
+</ul>
+<p><strong>数据定义伪指令例</strong></p>
+<ul>
+<li>DATA1 DB 11H, 22H, 33H, 44H</li>
+<li>DATA2 DW 11H, 22H, 3344H</li>
+<li>DATA3 DD 11H*2, 22H,334455566H</li>
+</ul>
+<p>见图65</p>
+<p><img data-src="/images/65.png" alt="65"></p>
+<p><strong>数据定义伪指令的几点说明</strong></p>
+<ul>
+<li>数据定义伪指令决定所定义变量的类型</li>
+<li>定义字符串必须用DB伪指令</li>
+<li>例：<ul>
+<li>DATA1 DB ‘ABCD’, 66H</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-重复操作数"><a href="#2-重复操作数" class="headerlink" title="2.重复操作数"></a>2.重复操作数</h4><ul>
+<li><p>当同样的操作数重复多次时，可以使用重复操作符</p>
+</li>
+<li><p>作用：</p>
+<ul>
+<li>为一个数据区的各个单元设置相同的初值</li>
+</ul>
+</li>
+<li><p>格式：</p>
+<p>[变量名] 伪指令注记符 n DUP (初值[, 初值, …])</p>
+</li>
+<li><p>例：</p>
+<ul>
+<li>M1 DB 10 DUP (0)</li>
+</ul>
+</li>
+<li><p>常用于声明一个数据区</p>
+</li>
+</ul>
+<h4 id="3-”-“的作用"><a href="#3-”-“的作用" class="headerlink" title="3.”?“的作用"></a>3.”?“的作用</h4><ul>
+<li>表示随机值，用于预留存储空间</li>
+<li>例：<ul>
+<li>MEM1 DB 34H, ‘A’, ?            ;随机数占一个字节单元</li>
+<li>DW 20 DUP  (?)                    ;预留40个字节单元，每单元为随机值</li>
+</ul>
+</li>
+</ul>
+<p><strong>数据定义伪指令例</strong></p>
+<ul>
+<li>M1 DB ‘How are you?’</li>
+<li>M2 DW 3 DUP(11H), 3344H</li>
+<li>​       DB 4 DUP (?)</li>
+<li>M3 DB 3 DUP (22H, 11H, ?)</li>
+</ul>
+<p>见图66</p>
+<p><img data-src="/images/66.png" alt="66"></p>
+<h3 id="二、符号定义伪指令"><a href="#二、符号定义伪指令" class="headerlink" title="二、符号定义伪指令"></a>二、符号定义伪指令</h3><ul>
+<li><p>将表达式的值赋给一个名字。当源程序中需多次引用某一表达式时，可以利用EQU伪命令，用一个符号代替表达式，以便于程序维护。</p>
+</li>
+<li><p>格式：</p>
+<ul>
+<li>符号名 EQU 表达式</li>
+</ul>
+</li>
+<li><p>操作：</p>
+<ul>
+<li>用符号名取代后边的表达式，不可重新定义</li>
+</ul>
+</li>
+<li><p>例：</p>
+<ul>
+<li>CONSTANT EQU 100</li>
+</ul>
+</li>
+<li><p>EQU说明的表达式不占用内存空间</p>
+</li>
+</ul>
+<h3 id="三、段定义伪指令"><a href="#三、段定义伪指令" class="headerlink" title="三、段定义伪指令"></a>三、段定义伪指令</h3><ul>
+<li><p>在汇编语言源程序中定义逻辑段</p>
+<ul>
+<li>说明逻辑段的骑士和结束</li>
+<li>说明不同程序模块中同类逻辑段之间的联系形态</li>
+</ul>
+</li>
+<li><p>格式：</p>
+<p>段名 SEGMENT [定位类型] [组合类型] [‘类别’]</p>
+<p>​            …</p>
+<p>段名 ENDS</p>
+<ul>
+<li>段名代表逻辑段的段基地址</li>
+<li>定位类型说明逻辑段的起点</li>
+<li>组合类型为装入内存时各逻辑段的组合方式</li>
+<li>类别为链接时不同程序模块中的同类逻辑段将被装入连续存储区</li>
+</ul>
+</li>
+</ul>
+<p><strong>段定义伪指令例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DATA SEGMENT</span><br><span class="line">MEM1 DB 11H, 22H          ;MEM1变量在逻辑段中的位置就代表了他的偏移地址</span><br><span class="line">MEM2 DB &#39;Hello!&#39;</span><br><span class="line">MEM2 DW 2 DUP (?)         ;DW表示变量的类型</span><br><span class="line">DATA ENDS                 ;DATA段名也代表逻辑段的段地址</span><br></pre></td></tr></table></figure>
+<h3 id="四、设定段寄存器伪指令"><a href="#四、设定段寄存器伪指令" class="headerlink" title="四、设定段寄存器伪指令"></a>四、设定段寄存器伪指令</h3><ul>
+<li>说明所定义逻辑段的性质</li>
+<li>格式：<ul>
+<li>ASSUME 段寄存器名:段名[, 段寄存器名:段名, …]</li>
+</ul>
+</li>
+</ul>
+<h3 id="五、结束伪指令"><a href="#五、结束伪指令" class="headerlink" title="五、结束伪指令"></a>五、结束伪指令</h3><ul>
+<li>表示源程序结束</li>
+<li>格式：<ul>
+<li>END [标号]</li>
+</ul>
+</li>
+</ul>
+<p><strong>汇编语言源程序结构</strong></p>
+<p>见图67</p>
+<p><img data-src="/images/67.png" alt="67"></p>
+<p><strong>一个完整源程序结构例</strong></p>
+<p>见图68</p>
+<p><img data-src="/images/68.png" alt="68"></p>
+<h3 id="过程定义伪指令"><a href="#过程定义伪指令" class="headerlink" title="过程定义伪指令"></a>过程定义伪指令</h3><ul>
+<li><p>用于定义一个过程体</p>
+</li>
+<li><p>格式：</p>
+<p>过程名 PROC [NEAR/FAR]</p>
+<p>​               …</p>
+<p>​             RET</p>
+<p>过程名 ENDP</p>
+</li>
+<li><p>过程体的最后一条指令必须是RET</p>
+</li>
+</ul>
+<p><strong>过程定义及调用例</strong></p>
+<ul>
+<li><p>定义延时子程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">DELAY PROC</span><br><span class="line">      PUSH BX</span><br><span class="line">      PUSH CX</span><br><span class="line">      MOV BL, 2</span><br><span class="line">NEXT: MOV CX, 4167</span><br><span class="line">W10M: LOOP W10M</span><br><span class="line">      DEC BL</span><br><span class="line">      JNZ NEXT</span><br><span class="line">      POP CX</span><br><span class="line">      POP BX</span><br><span class="line">      RET</span><br><span class="line">DELAY ENDP</span><br></pre></td></tr></table></figure></li>
+<li><p>调用延时子程序：CALL DELAY</p>
+</li>
+</ul>
+<h3 id="宏命令伪指令"><a href="#宏命令伪指令" class="headerlink" title="宏命令伪指令"></a>宏命令伪指令</h3><ul>
+<li><p>宏：</p>
+<ul>
+<li>源程序中由汇编程序识别的具有独立功能的一段程序代码</li>
+</ul>
+</li>
+<li><p>当源程序中需要多次使用同一个程序段时，可以将该程序段定义为一个宏</p>
+</li>
+<li><p>格式：</p>
+<p>宏命令名 MACRO &lt;形式参数&gt;</p>
+<p>​                    …</p>
+<p>​                    …</p>
+<p>​                ENDM</p>
+</li>
+<li><p>通过参数传递方式引用宏</p>
+</li>
+</ul>
+<p><strong>宏定义与宏调用例</strong></p>
+<ul>
+<li><p>定义宏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DADD MACRO X, Y, Z</span><br><span class="line">     MOV AX, X</span><br><span class="line">     ADD AX, Y</span><br><span class="line">     MOV Z,AX</span><br><span class="line">     ENDM</span><br></pre></td></tr></table></figure></li>
+<li><p>宏调用</p>
+<ul>
+<li>DADD DATA1, DATA2, SUM</li>
+</ul>
+</li>
+<li><p>汇编后源程序中的宏展开</p>
+<ul>
+<li>MOV AX, DATA1</li>
+<li>ADD AX, DATA2</li>
+<li>MOV SUM, AX</li>
+</ul>
+</li>
+</ul>
+<h3 id="调整偏移量伪指令"><a href="#调整偏移量伪指令" class="headerlink" title="调整偏移量伪指令"></a>调整偏移量伪指令</h3><ul>
+<li><p>规定程序或变量在逻辑段中的起始地址</p>
+<p>默认情况下，程序或变量在逻辑段中的起始偏移地址为：0</p>
+<p>利用ORG指令，可以改变程序或变量的起始偏移地址</p>
+</li>
+<li><p>格式：</p>
+<ul>
+<li>ORG 表达式</li>
+<li>表达式为非负常数</li>
+</ul>
+</li>
+<li><p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DATA SEGMENT</span><br><span class="line">     ORG 1200H</span><br><span class="line">     BUFF DB 1,2        ;变量BUFF的偏移地址为1200H</span><br><span class="line">DATA ENDS</span><br></pre></td></tr></table></figure>
+<h2 id="系统功能调用"><a href="#系统功能调用" class="headerlink" title="系统功能调用"></a>系统功能调用</h2></li>
+<li><p>BIOS</p>
+<ul>
+<li>主流在ROM中的基本输入/输出系统<ul>
+<li>家电自检，装入引导，主要I/O设备处理程序及接口控制</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>DOS</p>
+<ul>
+<li>磁盘操作系统</li>
+</ul>
+</li>
+</ul>
+<p>DOS功能/BIOS功能调用是调用系统内核子程序</p>
+<p>DOS功能与BIOS功能均通过中断方式调用，称为BIOS中断和DOS中断</p>
+<h3 id="DOS软中断"><a href="#DOS软中断" class="headerlink" title="DOS软中断"></a>DOS软中断</h3><ul>
+<li><p>DOS中断包括：设备管理，目录管理，文件管理，其他用中断类型码区分</p>
+</li>
+<li><p>DOS软中断：类型码为21H</p>
+</li>
+<li><p>关于DOS软中断说明</p>
+<ul>
+<li>包含多个子宫内的功能包</li>
+<li>各子功能用功能号区分</li>
+<li>用软中断指令调用，中断类型码固定为21H</li>
+</ul>
+</li>
+</ul>
+<h4 id="DOS功能调用的基本步骤"><a href="#DOS功能调用的基本步骤" class="headerlink" title="DOS功能调用的基本步骤"></a>DOS功能调用的基本步骤</h4><ul>
+<li><p>将调用参数装入指定的寄存器(入口参数/出口参数)</p>
+</li>
+<li><p>将功能号装入AH</p>
+</li>
+<li><p>按中断类型号调用DOS中断</p>
+</li>
+<li><p>检查返回参数是否正确</p>
+</li>
+<li><p>调用格式：</p>
+<p>MOV AH, 功能号</p>
+<p>&lt;置相应参数&gt;</p>
+<p>INT 21H</p>
+</li>
+</ul>
+<h5 id="1-单字符输入"><a href="#1-单字符输入" class="headerlink" title="1.单字符输入"></a>1.单字符输入</h5><ul>
+<li><p>调用方法：</p>
+<p>MOV AH, 01</p>
+<p>INT 21H</p>
+</li>
+<li><p>输入的字符在AL中</p>
+</li>
+<li><p>单字符输入例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET KEY: MOV AH, 1</span><br><span class="line">         INT 21H</span><br><span class="line">       CMP AL, &#39;Y&#39;</span><br><span class="line">         JZ YES</span><br><span class="line">         CMP AL, &#39;N&#39;</span><br><span class="line">         JZ NO</span><br><span class="line">         JMP GET KEY</span><br><span class="line">YES:     ...</span><br><span class="line">NO:      ...</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h5 id="2-字符串输入"><a href="#2-字符串输入" class="headerlink" title="2.字符串输入"></a>2.字符串输入</h5><ul>
+<li><p>接收由键盘输入一串字符</p>
+</li>
+<li><p>输入的字符串存储在内存指导区域中→字符输入缓冲区</p>
+</li>
+<li><p>用户自定义缓冲区格式</p>
+<p>见图69</p>
+<p><img data-src="/images/69.png" alt="69"></p>
+</li>
+<li><p>字符串输入功能号</p>
+<ul>
+<li>10</li>
+</ul>
+</li>
+<li><p>缓存区须定义在数据段</p>
+</li>
+<li><p>方法：</p>
+<p>AH                ;功能号</p>
+<p>DS: DX         ;字符串在内存中的存放地址</p>
+<p>INT 21H</p>
+</li>
+<li><p>输入字符串程序段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DAT1 DB 20, ?, 20 DUP (?)         ;在数据段中定义</span><br><span class="line">   ...</span><br><span class="line">LEA DX, DAT1</span><br><span class="line">MOV AH, 0AH</span><br><span class="line">INT 21H</span><br></pre></td></tr></table></figure></li>
+<li><p>输入缓冲区</p>
+<p>见图70</p>
+<p><img data-src="/images/70.png" alt="70"></p>
+</li>
+</ul>
+<h5 id="3-单字符显示输出"><a href="#3-单字符显示输出" class="headerlink" title="3.单字符显示输出"></a>3.单字符显示输出</h5><ul>
+<li><p>AH       ;功能号2</p>
+<p>DL       ;待输出字符</p>
+<p>INT 21H</p>
+</li>
+<li><p>例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MOV AH, 2</span><br><span class="line">MOV DL, 41H</span><br><span class="line">INT 21H        ;执行结果:屏幕显示A</span><br></pre></td></tr></table></figure>
+<h5 id="4-字符串输出显示"><a href="#4-字符串输出显示" class="headerlink" title="4.字符串输出显示"></a>4.字符串输出显示</h5></li>
+<li><p>AH            ;功能号09H</p>
+<p>DS: DX     ;待输出字符串的偏移地址</p>
+<p>INT 21H</p>
+</li>
+<li><p>注意点：</p>
+<ul>
+<li>被显示的字符串必须以‘$’结束</li>
+<li>所显示的内容不应出现非可见的ASCII码</li>
+<li>若考虑输出格式需要，在定义字符串后，加上回车符和换行符</li>
+</ul>
+</li>
+<li><p>字符串输出显示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">DATA SEGMENT</span><br><span class="line">     MESS1 DB &#39;Input String:&#39;, 0DH, 0AH,&#39;$&#39;</span><br><span class="line">DATA ENDS</span><br><span class="line">CODE SEGMENT</span><br><span class="line">     ...</span><br><span class="line">MOV AH, 09</span><br><span class="line">MOV DX, OFFSET MESS1</span><br><span class="line">INT 21H</span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
+<h5 id="5-返回操作系统-DOS-功能"><a href="#5-返回操作系统-DOS-功能" class="headerlink" title="5.返回操作系统(DOS)功能"></a>5.返回操作系统(DOS)功能</h5></li>
+<li><p>功能号：</p>
+<ul>
+<li>4CH</li>
+</ul>
+</li>
+<li><p>调用格式</p>
+<ul>
+<li>MOV AH, 4CH</li>
+<li>INT 21H</li>
+</ul>
+</li>
+<li><p>功能：</p>
+<ul>
+<li>程序执行完该2条语句后能正常返回DOS</li>
+<li>常位于程序结尾处</li>
+</ul>
+</li>
+</ul>
+<p><strong>DOS功能调用小结</strong></p>
+<ul>
+<li>通过中断指令调用。一个中断类型码对应1个功能程序包</li>
+<li>每个程序包中的子功能通过功能号区分，调用时功能号须送AH</li>
+<li>注意不同子功能的入口/出口参数要求</li>
+<li>DOS和BOIS中断均可能影响AX</li>
+</ul>
+<h2 id="汇编程序设计示例"><a href="#汇编程序设计示例" class="headerlink" title="汇编程序设计示例"></a>汇编程序设计示例</h2><p>见图71</p>
+<p><img data-src="/images/71.png" alt="71"></p>
+<p>见图72</p>
+<p><img data-src="/images/72.png" alt="72"></p>
+<p>见图73</p>
+<p><img data-src="/images/73.png" alt="73"></p>
+<p>见图74</p>
+<p><img data-src="/images/74.png" alt="74"></p>
+<p>见图75</p>
+<p><img data-src="/images/75.png" alt="75"></p>
+<p>见图76</p>
+<p><img data-src="/images/76.png" alt="76"></p>
+<h2 id="汇编程序设计小结"><a href="#汇编程序设计小结" class="headerlink" title="汇编程序设计小结"></a>汇编程序设计小结</h2><ul>
+<li><p>汇编语言程序设计一般步骤</p>
+<ul>
+<li>根据实际问题抽象出数学模型</li>
+<li>确定算法</li>
+<li>画程序流程图</li>
+<li>分配内存工作单元和寄存器</li>
+<li>程序编码</li>
+<li>调试</li>
+</ul>
+</li>
+<li><p>内容提要</p>
+<ul>
+<li>汇编语言源程序的结构</li>
+<li>汇编语言语句→变量、表达式中的运算符</li>
+<li>伪指令</li>
+<li>DOS功能调用<ul>
+<li>5个子功能的应用</li>
+</ul>
+</li>
+<li>简单汇编语言源程序的设计</li>
+</ul>
+</li>
+<li><p>注意点</p>
+<ul>
+<li>变量的定义与应用<ul>
+<li>明确所定义变量在内存中的分布</li>
+</ul>
+</li>
+<li>存储区的定义<ul>
+<li>定义没有变量的存储区没有意义</li>
+</ul>
+</li>
+<li>完整的汇编语言源程序结构<ul>
+<li>定义逻辑段，说明段的含义，初始化段寄存器</li>
+</ul>
+</li>
+<li>伪指令<ul>
+<li>数据定义方式</li>
+</ul>
+</li>
+<li>字符及字符串的输入和显示输出<ul>
+<li>字符输入缓冲区的定义，输出字符串的定义</li>
+</ul>
+</li>
+<li>汇编语言程序结构<ul>
+<li>顺序结构</li>
+<li>循环结构<ul>
+<li>使用LOOP指令或条件转移指令实现</li>
+</ul>
+</li>
+<li>分支结构<ul>
+<li>一般用条件转移指令实现</li>
+</ul>
+</li>
+<li>子程序结构</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>见图77</p>
+<p><img data-src="/images/77.png" alt="77"></p>
+<p>见图78</p>
+<p><img data-src="/images/78.png" alt="78"></p>
+
+      <div class="tags">
+          <a href="/tags/C/" rel="tag"><i class="ic i-tag"></i> C</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2021-06-18 21:53:22" itemprop="dateModified" datetime="2021-06-18T21:53:22+08:00">2021-06-18</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" title="第四章 汇编语言程序">http://yoursite.com/2021/04/04/assembly/微机原理与接口技术（四）/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E7%BB%93%E6%9E%84%E4%BD%93/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclfdu6exj20zk0m87hw.jpg" title="第十一章 结构体">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 老九零基础学C语言笔记</span>
+  <h3>第十一章 结构体</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclhpw3lwj20zk0m8gvw.jpg" title="第五章 存储器系统">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微机原理与接口技术-吴宁</span>
+  <h3>第五章 存储器系统</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">微机原理与接口技术（四）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E6%BA%90%E7%A8%8B%E5%BA%8F%E4%B8%8E%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.1.</span> <span class="toc-text">1.汇编语言源程序与汇编程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E8%AF%AD%E5%8F%A5%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">2.汇编语言语句类型和格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E8%AF%AD%E5%8F%A5%E4%B8%AD%E7%9A%84%E6%93%8D%E4%BD%9C%E6%95%B0"><span class="toc-number">1.3.</span> <span class="toc-text">3.汇编语言语句中的操作数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-number">1.4.</span> <span class="toc-text">伪指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-number">1.4.1.</span> <span class="toc-text">一、数据定义伪指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89%E4%BC%AA%E6%8C%87%E4%BB%A4%E6%B3%A8%E8%AE%B0%E7%AC%A6"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">1.数据定义伪指令注记符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%87%8D%E5%A4%8D%E6%93%8D%E4%BD%9C%E6%95%B0"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">2.重复操作数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E2%80%9D-%E2%80%9C%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.4.1.3.</span> <span class="toc-text">3.”?“的作用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%AC%A6%E5%8F%B7%E5%AE%9A%E4%B9%89%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-number">1.4.2.</span> <span class="toc-text">二、符号定义伪指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%AE%B5%E5%AE%9A%E4%B9%89%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-number">1.4.3.</span> <span class="toc-text">三、段定义伪指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%AE%BE%E5%AE%9A%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-number">1.4.4.</span> <span class="toc-text">四、设定段寄存器伪指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E7%BB%93%E6%9D%9F%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-number">1.4.5.</span> <span class="toc-text">五、结束伪指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B%E5%AE%9A%E4%B9%89%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-number">1.4.6.</span> <span class="toc-text">过程定义伪指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8F%E5%91%BD%E4%BB%A4%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-number">1.4.7.</span> <span class="toc-text">宏命令伪指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E5%81%8F%E7%A7%BB%E9%87%8F%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-number">1.4.8.</span> <span class="toc-text">调整偏移量伪指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E8%B0%83%E7%94%A8"><span class="toc-number">1.5.</span> <span class="toc-text">系统功能调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOS%E8%BD%AF%E4%B8%AD%E6%96%AD"><span class="toc-number">1.5.1.</span> <span class="toc-text">DOS软中断</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DOS%E5%8A%9F%E8%83%BD%E8%B0%83%E7%94%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">DOS功能调用的基本步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%8D%95%E5%AD%97%E7%AC%A6%E8%BE%93%E5%85%A5"><span class="toc-number">1.5.1.1.1.</span> <span class="toc-text">1.单字符输入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%85%A5"><span class="toc-number">1.5.1.1.2.</span> <span class="toc-text">2.字符串输入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%8D%95%E5%AD%97%E7%AC%A6%E6%98%BE%E7%A4%BA%E8%BE%93%E5%87%BA"><span class="toc-number">1.5.1.1.3.</span> <span class="toc-text">3.单字符显示输出</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA%E6%98%BE%E7%A4%BA"><span class="toc-number">1.5.1.1.4.</span> <span class="toc-text">4.字符串输出显示</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E8%BF%94%E5%9B%9E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-DOS-%E5%8A%9F%E8%83%BD"><span class="toc-number">1.5.1.1.5.</span> <span class="toc-text">5.返回操作系统(DOS)功能</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.6.</span> <span class="toc-text">汇编程序设计示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%B0%8F%E7%BB%93"><span class="toc-number">1.7.</span> <span class="toc-text">汇编程序设计小结</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" rel="bookmark" title="第一章 微型计算机系统">第一章 微型计算机系统</a></li><li><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="bookmark" title="第二章 8088/8086微处理器">第二章 8088/8086微处理器</a></li><li><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" rel="bookmark" title="第三章 指令系统">第三章 指令系统</a></li><li class="active"><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" rel="bookmark" title="第四章 汇编语言程序">第四章 汇编语言程序</a></li><li><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" rel="bookmark" title="第五章 存储器系统">第五章 存储器系统</a></li><li><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" rel="bookmark" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></li><li><a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" rel="bookmark" title="第七章 常用数字接口电路">第七章 常用数字接口电路</a></li><li><a href="/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/" rel="bookmark" title="第八章 模拟量的输入输出">第八章 模拟量的输入输出</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">24</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">4</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">2</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E7%BB%93%E6%9E%84%E4%BD%93/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/algorithm/" title="分类于 数据结构与算法笔记">数据结构与算法笔记</a>
+</div>
+
+    <span><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="数据结构与算法（一）">数据结构与算法（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" title="第六章 数组及常用算法">第六章 数组及常用算法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/" title="第五章 循环结构进阶">第五章 循环结构进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" title="第八章 函数初探">第八章 函数初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" title="第三章 指令系统">第三章 指令系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" title="第五章 存储器系统">第五章 存储器系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/04/04/assembly/微机原理与接口技术（四）/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

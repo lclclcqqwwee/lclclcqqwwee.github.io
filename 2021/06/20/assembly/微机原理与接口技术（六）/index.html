@@ -1,0 +1,1123 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C" />
+
+
+<link rel="canonical" href="http://yoursite.com/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/">
+
+
+
+  <title>
+第六章 输入输出和中断技术 - 微机原理与接口技术-吴宁 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">第六章 输入输出和中断技术
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-06-20 19:43:21">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-06-20T19:43:21+08:00">2021-06-20</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipesx5fdwj20zk0m81kx.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/assembly/" itemprop="item" rel="index" title="分类于 微机原理与接口技术-吴宁"><span itemprop="name">微机原理与接口技术-吴宁</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="微机原理与接口技术（六）"><a href="#微机原理与接口技术（六）" class="headerlink" title="微机原理与接口技术（六）"></a>微机原理与接口技术（六）</h1><h2 id="输入输出技术概述"><a href="#输入输出技术概述" class="headerlink" title="输入输出技术概述"></a>输入输出技术概述</h2><ul>
+<li>I/O接口的基本功能</li>
+<li>I/O接口及其编址方式</li>
+<li>I/O地址编码</li>
+</ul>
+<h3 id="1-I-O接口"><a href="#1-I-O接口" class="headerlink" title="1.I/O接口"></a>1.I/O接口</h3><ul>
+<li>接口要解决的问题<ul>
+<li>速度匹配→数据的缓冲与暂存</li>
+<li>信号的驱动能力→信号驱动</li>
+<li>信号形式和电平的匹配→信号类型转换</li>
+<li>信息格式→信号格式转换</li>
+<li>时序匹配（定时关系）</li>
+<li>总线隔离→三态门</li>
+</ul>
+</li>
+</ul>
+<h4 id="接口的基本构成"><a href="#接口的基本构成" class="headerlink" title="接口的基本构成"></a>接口的基本构成</h4><p>见图104</p>
+<p><img data-src="/images/104.png" alt="104"></p>
+<h3 id="2-I-O端口及其编址"><a href="#2-I-O端口及其编址" class="headerlink" title="2.I/O端口及其编址"></a>2.I/O端口及其编址</h3><ul>
+<li><p>端口：接口电路中用于缓存数据及控制信息的部件</p>
+<ul>
+<li>数据端口、状态端口、控制端口</li>
+</ul>
+<p>见图105</p>
+<p><img data-src="/images/105.png" alt="105"></p>
+</li>
+</ul>
+<h4 id="I-O端口编址"><a href="#I-O端口编址" class="headerlink" title="I/O端口编址"></a>I/O端口编址</h4><ul>
+<li><p>计算机系统中包含各类不同功能的接口电路</p>
+</li>
+<li><p>每个接口中含1个或多个端口</p>
+<p>见图106</p>
+<p><img data-src="/images/106.png" alt="106"></p>
+</li>
+<li><p>端口编址</p>
+<ul>
+<li>为确保CPU能够访问到每个不同的端口</li>
+</ul>
+</li>
+<li><p>寻址端口的方法</p>
+<ul>
+<li><p>先找到端口的接口电路芯片→片选</p>
+</li>
+<li><p>再在该芯片上找具体访问的端口→片内寻址</p>
+<ul>
+<li><p>若接口中仅有一个端口，则找到芯片即找到端口</p>
+</li>
+<li><p>若接口中由多个端口，则找到芯片后再找端口</p>
+<p>每个端口地址=片选地址（高位地址）+片内地址</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>8086/8088寻址端口的能力</p>
+<ul>
+<li>64K个端口</li>
+</ul>
+</li>
+<li><p>端口的编址方式</p>
+<ul>
+<li>与内存统一编址</li>
+<li>独立编址<ul>
+<li>内存地址资源充分利用，能够应用于端口的指令较少</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>见图107</p>
+<p><img data-src="/images/107.png" alt="107"></p>
+<h4 id="8088-8086的I-O端口编址"><a href="#8088-8086的I-O端口编址" class="headerlink" title="8088/8086的I/O端口编址"></a>8088/8086的I/O端口编址</h4><ul>
+<li>采用I/O独立编址方式，与内存共用地址总线，用IO/#M信号状态区分</li>
+<li>访问端口时仅使用地址总线的：A15~A0</li>
+<li>可寻址的I/O端口为64K(65536)个，I/O地址范围：0~FFFFH</li>
+<li>IBMPC只使用了1024个I/O地址(0~3FFH)</li>
+</ul>
+<h3 id="3-I-O地址译码"><a href="#3-I-O地址译码" class="headerlink" title="3.I/O地址译码"></a>3.I/O地址译码</h3><ul>
+<li><p>目的：</p>
+<ul>
+<li>确定端口的地址</li>
+</ul>
+</li>
+<li><p>参加译码的信号</p>
+<ul>
+<li>#IOR，#IOW，高位地址信号</li>
+</ul>
+</li>
+<li><p>对端口读/写信号的产生条件</p>
+<ul>
+<li>IO/#M=1</li>
+<li>#RD=0→#IOR=0</li>
+<li>#WR=0→#IOW=0</li>
+</ul>
+<p>OUT指令将使总线的#IOW信号有效</p>
+<p>IN指令将使总线的#IOR信号有效</p>
+</li>
+<li><p>当接口只有一个端口时</p>
+<ul>
+<li>无片内地址，全部地址信号均为高位地址(可全部参与译码)，译码输出直接选择该端口</li>
+</ul>
+</li>
+<li><p>当接口具有多个端口时</p>
+<ul>
+<li>则16位地址线的高位参与译码(决定接口的基地址)，而低位则用于确定要访问哪一个端口</li>
+</ul>
+</li>
+<li><p>由于端口资源丰富，端口地址译码常采用部分地址译码</p>
+</li>
+</ul>
+<h4 id="I-O地址译码例"><a href="#I-O地址译码例" class="headerlink" title="I/O地址译码例"></a>I/O地址译码例</h4><ul>
+<li><p>某外设接口有4个端口，地址为2F0H——2F3H，由A15~A2译码得到，而A1，A0用来区分接口中的4个端口。试画该接口与系统的连接图</p>
+</li>
+<li><p>地址范围</p>
+<p>见图108</p>
+<p><img data-src="/images/108.png" alt="108"></p>
+</li>
+<li><p>译码电路图</p>
+<p>见图109</p>
+<p><img data-src="/images/109.png" alt="109"></p>
+</li>
+</ul>
+<h2 id="简单接口电路"><a href="#简单接口电路" class="headerlink" title="简单接口电路"></a>简单接口电路</h2><h3 id="1-接口的分类及特点"><a href="#1-接口的分类及特点" class="headerlink" title="1.接口的分类及特点"></a>1.接口的分类及特点</h3><ul>
+<li>按传输信息的方向分类：<ul>
+<li>输入接口</li>
+<li>输出接口</li>
+</ul>
+</li>
+<li>按传输信息的类型分类：<ul>
+<li>数字接口</li>
+<li>模拟接口</li>
+</ul>
+</li>
+<li>按传输信息的方式分类：<ul>
+<li>并行接口</li>
+<li>串行接口</li>
+</ul>
+</li>
+</ul>
+<p>见图110</p>
+<p><img data-src="/images/110.png" alt="110"></p>
+<h4 id="接口特点"><a href="#接口特点" class="headerlink" title="接口特点"></a>接口特点</h4><ul>
+<li><p>输入接口</p>
+<ul>
+<li><p>要求对数据具有控制能力</p>
+</li>
+<li><p>常用三态门实现</p>
+<p>见图111</p>
+<p><img data-src="/images/111.png" alt="111"></p>
+</li>
+</ul>
+</li>
+<li><p>输出接口</p>
+<ul>
+<li><p>要求对数据具有锁存能力</p>
+</li>
+<li><p>常用锁存器实现</p>
+<p>见图112</p>
+<p><img data-src="/images/112.png" alt="112"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-三态门接口"><a href="#2-三态门接口" class="headerlink" title="2.三态门接口"></a>2.三态门接口</h3><ul>
+<li>特点：<ul>
+<li>具有对数据的控制能力，但不具备对数据的控制能力</li>
+</ul>
+</li>
+<li>74LS244<ul>
+<li>含8个三态门的集成电路芯片</li>
+<li>在外设具有数据保持能力时用来输入接口</li>
+</ul>
+</li>
+</ul>
+<p>见图113</p>
+<p><img data-src="/images/113.png" alt="113"></p>
+<h4 id="三态门接口应用例"><a href="#三态门接口应用例" class="headerlink" title="三态门接口应用例"></a>三态门接口应用例</h4><ul>
+<li><p>编写程序</p>
+<ul>
+<li><p>判断图中的开关状态。若所有开关都闭合，则程序转向标号NEXT1，否则转向标号为NEXT2的程序执行。</p>
+<p>见图114</p>
+<p><img data-src="/images/114.png" alt="114"></p>
+</li>
+<li><p>采用看部分地址译码，地址线A1和A0未参加译码</p>
+</li>
+<li><p>接口芯片的地址范围：</p>
+<p>83FCH~83FFH</p>
+</li>
+<li><p>当地址总线上A15~A0出现此4个地址之一时，#E1#E2端有效，三态门导通。</p>
+</li>
+</ul>
+</li>
+<li><p>题目分析</p>
+<ul>
+<li>当开关断开时，三态门输入端I呈现高电位</li>
+<li>当开关闭合时，三态门输入端I呈现低电位</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">       MOV DX, 83FCH</span><br><span class="line">       IN AL, DX</span><br><span class="line">       AND AL, 0FFH</span><br><span class="line">       JZ NEXT1</span><br><span class="line">       JMP NEXT2</span><br><span class="line">       ...</span><br><span class="line">NEXT1: ...</span><br><span class="line">NEXT2: ...</span><br></pre></td></tr></table></figure>
+<h3 id="3-锁存器接口"><a href="#3-锁存器接口" class="headerlink" title="3.锁存器接口"></a>3.锁存器接口</h3><ul>
+<li>特点<ul>
+<li>具有对数据的锁存能力</li>
+</ul>
+</li>
+<li>8D锁存器<ul>
+<li>74LS273：8D触发器，不具备数据的控制能力</li>
+<li>74LS373：含三态的8D触发器，具有对数据的控制能力<ul>
+<li>既可以做输入接口，也可做输出接口</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="74LS273"><a href="#74LS273" class="headerlink" title="74LS273"></a>74LS273</h4><ul>
+<li><p>由8个D触发器组成</p>
+<p>见图115</p>
+<p><img data-src="/images/115.png" alt="115"></p>
+</li>
+</ul>
+<h4 id="锁存器接口例"><a href="#锁存器接口例" class="headerlink" title="锁存器接口例"></a>锁存器接口例</h4><ul>
+<li><p>应用74LS273作为输出接口，实现对8个发光二极管的控制</p>
+<p>见图116</p>
+<p><img data-src="/images/116.png" alt="116"></p>
+</li>
+<li><p>题目分析：</p>
+<ul>
+<li>由图得，要使接到Q端得发光二极管亮，其对应得Q端须输出“1”状态，反之输出“0”状态。</li>
+</ul>
+</li>
+<li><p>由图得出锁存器74LS273得端口地址：FFFFH</p>
+</li>
+<li><p>程序段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MOV DX, 0FFFFH        ;数字得第一个数符是字符型时其前要加0</span><br><span class="line">MOV AL, 01000001B</span><br><span class="line">OUT DX, AL</span><br></pre></td></tr></table></figure>
+<h2 id="基本输入-输出方法"><a href="#基本输入-输出方法" class="headerlink" title="基本输入/输出方法"></a>基本输入/输出方法</h2></li>
+<li><p>无条件传送 (程序控制方式)</p>
+</li>
+<li><p>查询式传送 (程序控制方式)</p>
+</li>
+<li><p>中断方式传送</p>
+</li>
+<li><p>直接存储器存取(DMA)</p>
+</li>
+</ul>
+<h3 id="1-无条件传送"><a href="#1-无条件传送" class="headerlink" title="1.无条件传送"></a>1.无条件传送</h3><ul>
+<li>要求外设总是处于准备好状态</li>
+<li>优点<ul>
+<li>软件及接口硬件简单</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>只适于简单外设，适应范围较窄</li>
+</ul>
+</li>
+</ul>
+<h4 id="无条件传送例"><a href="#无条件传送例" class="headerlink" title="无条件传送例"></a>无条件传送例</h4><p>见图117</p>
+<p><img data-src="/images/117.png" alt="117"></p>
+<h3 id="2-查询工作方式"><a href="#2-查询工作方式" class="headerlink" title="2.查询工作方式"></a>2.查询工作方式</h3><ul>
+<li>仅当条件满足时才能进行数据传送</li>
+<li>每满足一次条件只能进行一次数据传送</li>
+<li>适用场合<ul>
+<li>外设并不总是准备好</li>
+<li>对传送速率和效率要求不高</li>
+</ul>
+</li>
+<li>工作条件<ul>
+<li>外设应提供设备状态信息</li>
+<li>接口应具备状态端口</li>
+</ul>
+</li>
+</ul>
+<h4 id="查询工作方式流程图"><a href="#查询工作方式流程图" class="headerlink" title="查询工作方式流程图"></a>查询工作方式流程图</h4><p>见图118</p>
+<p><img data-src="/images/118.png" alt="118"></p>
+<ul>
+<li>优点<ul>
+<li>软硬件比较简单</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>CPU效率低，数据传送得实时性差，速度较慢</li>
+</ul>
+</li>
+</ul>
+<p>见图119</p>
+<p><img data-src="/images/119.png" alt="119"></p>
+<h3 id="3-中断控制方式"><a href="#3-中断控制方式" class="headerlink" title="3.中断控制方式"></a>3.中断控制方式</h3><ul>
+<li>特点：<ul>
+<li>外设在需要时向CPU提出请求，CPU再去为它服务。服务结束后或在外设不需要时，CPU可执行自己的程序</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>CPU效率高，实时性好，速度快</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>程序编制相对较为复杂</li>
+</ul>
+</li>
+</ul>
+<h3 id="以上三种I-O方式的共性"><a href="#以上三种I-O方式的共性" class="headerlink" title="以上三种I/O方式的共性"></a>以上三种I/O方式的共性</h3><ul>
+<li>信息传送均需通过CPU</li>
+<li>软件：<ul>
+<li>外设与内存之间的数据传送是通过CPU执行程序来完成的(PIO方式)</li>
+</ul>
+</li>
+<li>硬件：<ul>
+<li>I/O接口和存储器的读写控制信号、地址信号都是由CPU发出的</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>程序的执行速度限定了传送的最大速度</li>
+</ul>
+</li>
+</ul>
+<p>见图120</p>
+<p><img data-src="/images/120.png" alt="120"></p>
+<h3 id="4-DMA控制方式"><a href="#4-DMA控制方式" class="headerlink" title="4.DMA控制方式"></a>4.DMA控制方式</h3><ul>
+<li>特点：<ul>
+<li>外设直接与存储器进行数据交换 ，CPU不再担当数据传输的中介者 </li>
+<li>总线由DMA控制器 (DMAC) 进行控制 (CPU要放弃总线控制权) ，内存/外设的地址和读写控制信号均由DMAC提供。</li>
+</ul>
+</li>
+</ul>
+<p>见图121</p>
+<p><img data-src="/images/121.png" alt="121"></p>
+<h4 id="DMA控制方式的工作流程"><a href="#DMA控制方式的工作流程" class="headerlink" title="DMA控制方式的工作流程"></a>DMA控制方式的工作流程</h4><p>① 外设向DMA控制器发出“DMA传送请求”信号DRQ</p>
+<p>② DMA控制器收到请求后，向CPU发出“总线请求”信号 HOLD； </p>
+<p>③ CPU在完成当前总线周期后会立即发出HLDA信号，对 HOLD信号进行响应； </p>
+<p>④ DMA控制器收到HLDA信号后，就开始控制总线，并向外设 发出DMA响应信号DACK。</p>
+<h4 id="DMA工作方式"><a href="#DMA工作方式" class="headerlink" title="DMA工作方式"></a>DMA工作方式</h4><ul>
+<li><p>周期窃取：</p>
+<ul>
+<li>每个DMA周期只传送一个字节或一个字就立即释放总线。</li>
+</ul>
+</li>
+<li><p>数据块传送：</p>
+<ul>
+<li>DMAC在申请到总线后，将一块数据传送完后才释放总 线，而不管中间DREQ是否有效。 </li>
+</ul>
+</li>
+<li><p>直接存取方式：</p>
+<ul>
+<li>DMA的数据传送请求直接发到主存储器，在得到响应后， 整个工作过程在DMA控制器中由硬件完成。 </li>
+</ul>
+</li>
+</ul>
+<h4 id="周期窃取的DMA方式"><a href="#周期窃取的DMA方式" class="headerlink" title="周期窃取的DMA方式"></a>周期窃取的DMA方式</h4><p>见图122</p>
+<p><img data-src="/images/122.png" alt="122"></p>
+<h3 id="4种基本I-O控制方式总结"><a href="#4种基本I-O控制方式总结" class="headerlink" title="4种基本I/O控制方式总结"></a>4种基本I/O控制方式总结</h3><ul>
+<li><p>无条件传送：</p>
+<ul>
+<li>简单，适用范围小，仅适用于“随时准备好”的低速外设 </li>
+</ul>
+</li>
+<li><p>查询工作方式</p>
+<ul>
+<li>简单，适用于具备“状态信息”的低速外设</li>
+<li>CPU效率低，控制实时性差 </li>
+</ul>
+</li>
+<li><p>中断方式</p>
+<ul>
+<li>适用于中速外设 </li>
+<li>相对于查询方式，CPU效率较高，控制实时性较好 </li>
+</ul>
+</li>
+<li><p>DMA方式</p>
+<ul>
+<li>数据传输由DMA硬件来控制，数据直接在内存和外设之间交换，可以达到很高的传输速率。 </li>
+<li>控制复杂，硬件成本相对较高。</li>
+</ul>
+</li>
+</ul>
+<h2 id="简单I-O控制系统设计"><a href="#简单I-O控制系统设计" class="headerlink" title="简单I/O控制系统设计"></a>简单I/O控制系统设计</h2><h3 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h3><ul>
+<li><p>外设状态端口地址为03FBH，第5位(bit5)为状态标志（=1忙，=0准备好）；外设数据端口地址为03F8H，写入数据会使状态标志置1；外设把数据读走后又把它置0。</p>
+</li>
+<li><p>要求：</p>
+<ul>
+<li>画出该控制系统电路图</li>
+<li>利用查询工作方式，将DATA下100B数据输出。</li>
+</ul>
+</li>
+</ul>
+<p>见图123</p>
+<p><img data-src="/images/123.png" alt="123"></p>
+<ul>
+<li><p>题目分析</p>
+<ul>
+<li>外设有1位状态位，需要通过输入接口将状态信息输入系统；<ul>
+<li>可选择一个三态门或74LS244接口 </li>
+</ul>
+</li>
+<li>数据需由系统输出，需要通过输出接口 <ul>
+<li>可选择74LS273接口</li>
+</ul>
+</li>
+<li>输入接口地址= 03FBH，bit5=1表示“忙”</li>
+<li>输出接口地址=03F8H</li>
+<li>待输出数据在内存中的首地址=DATA；</li>
+<li>待输出数据块大小=100B</li>
+</ul>
+</li>
+<li><p>状态端口地址：0000 0011 1111 1011 </p>
+<p>数据端口地址：0000 0011 1111 1000 </p>
+</li>
+</ul>
+<p>见图124</p>
+<p><img data-src="/images/124.png" alt="124"></p>
+<ul>
+<li><p>控制程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">       LEA SI, DATA</span><br><span class="line">       MOV CX, 100</span><br><span class="line">AGAIN: MOCDX, 03FBH</span><br><span class="line">WAITT: IN AL,DX</span><br><span class="line">       TEST AL, 20H</span><br><span class="line">       JNZ WAITT</span><br><span class="line">       MOV DX, 03F8H</span><br><span class="line">       MOV AL, [SI]</span><br><span class="line">       OUT DX, AL</span><br><span class="line">       INC SI</span><br><span class="line">       LOOP AGAIN</span><br><span class="line">       HLT</span><br></pre></td></tr></table></figure>
+<p>见图125</p>
+</li>
+</ul>
+<p><img data-src="/images/125.png" alt="125"></p>
+<h3 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h3><p>根据开关状态在7段数码管上显示数字或符号</p>
+<ul>
+<li>设输出接口的地址为F0H，输入接口地址为F1H（仅给出8位地址，为部分地址译码）</li>
+<li>当开关的状态分别为0000～1111时，在7段数码管上对应显示’0’～’F’</li>
+<li>外部设备，需要通过I/O接口与系统连接 </li>
+<li>题目分析<ul>
+<li>输入设备：4个开关 </li>
+<li>输出设备：1个七段数码管 </li>
+<li>需要1个输入接口，1个输出接口 </li>
+</ul>
+</li>
+</ul>
+<p>见图126</p>
+<p><img data-src="/images/126.png" alt="126"></p>
+<p>见图127</p>
+<p><img data-src="/images/127.png" alt="127"></p>
+<p>见图128</p>
+<p><img data-src="/images/128.png" alt="128"></p>
+<ul>
+<li>程序段</li>
+</ul>
+<p>见图129</p>
+<p><img data-src="/images/129.png" alt="129"></p>
+<h2 id="中断技术"><a href="#中断技术" class="headerlink" title="中断技术"></a>中断技术</h2><ul>
+<li>中断的基本概念</li>
+<li>中断相应的一般过程</li>
+<li>中断向量表</li>
+<li>8088/8086中断系统</li>
+</ul>
+<h3 id="1-中断的基本概念"><a href="#1-中断的基本概念" class="headerlink" title="1.中断的基本概念"></a>1.中断的基本概念</h3><ul>
+<li>中断：<ul>
+<li>CPU执行程序时，由于发生了某种随机的事件(外部或内部)， 引起CPU暂时中断正在运行的程序，转去执行一段特殊的服务 程序，以处理该事件，该事件处理完后又返回被中断的程序 继续执行，这一过程称为中断。 <ul>
+<li>事件为中断源</li>
+<li>一段特殊的服务程序是中断服务(处理)子程序</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="引入中断的原因"><a href="#引入中断的原因" class="headerlink" title="引入中断的原因"></a>引入中断的原因</h4><ul>
+<li>提高对外设的相应实时性</li>
+<li>提高了CPU的利用率<ul>
+<li>避免了CPU不断检测外设状态的过程</li>
+</ul>
+</li>
+</ul>
+<h4 id="中断类型"><a href="#中断类型" class="headerlink" title="中断类型"></a>中断类型</h4><ul>
+<li>根据中断请求的来源分为：<ul>
+<li>内部中断<ul>
+<li>异常中断——异常事件引起</li>
+<li>软件中断——中断指令引起</li>
+</ul>
+</li>
+<li>外部中断<ul>
+<li>可屏蔽中断——INTR中断</li>
+<li>非屏蔽中断——NMI中断</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-外部可屏蔽中断相应的一般过程"><a href="#2-外部可屏蔽中断相应的一般过程" class="headerlink" title="2.外部可屏蔽中断相应的一般过程"></a>2.外部可屏蔽中断相应的一般过程</h3><ul>
+<li>中断请求</li>
+<li>中断源识别及中断判优</li>
+<li>中断响应</li>
+<li>中断处理（服务）</li>
+<li>中断返回</li>
+</ul>
+<h4 id="1）中断请求"><a href="#1）中断请求" class="headerlink" title="1）中断请求"></a>1）中断请求</h4><p>外部可屏蔽中断请求信号：INTR</p>
+<ul>
+<li>中断请求信号应保持到中断被处理为止；</li>
+<li>CPU响应中断后，中断请求信号应及时撤销。 </li>
+</ul>
+<h4 id="2）中断源识别"><a href="#2）中断源识别" class="headerlink" title="2）中断源识别"></a>2）中断源识别</h4><ul>
+<li>软件查询法</li>
+<li>中断矢量法 → 由中断源提供中断类型号，CPU根据类型确定中断源</li>
+</ul>
+<h5 id="中断判优"><a href="#中断判优" class="headerlink" title="中断判优"></a>中断判优</h5><p>中断源识别及判优由硬件系统完成</p>
+<ul>
+<li><p>优先级法则</p>
+<ul>
+<li>低优先级的中断程序允许被高优先 级的中断源所中断 </li>
+</ul>
+</li>
+<li><p>排队法则</p>
+<ul>
+<li>先来先响应</li>
+</ul>
+</li>
+<li><p>中断控制器判优：根据中断向量码（中断类型码）确定中断源</p>
+</li>
+</ul>
+<p>见图130</p>
+<p><img data-src="/images/130.png" alt="130"></p>
+<h4 id="3）中断响应"><a href="#3）中断响应" class="headerlink" title="3）中断响应"></a>3）中断响应</h4><p>外部可屏蔽中断响应信号：#INTA</p>
+<ul>
+<li>向中断源发出#INTA中断响应信号；</li>
+<li>关中断 → 不允许响应其它中断</li>
+<li>保护硬件现场 → 将FLAGS压入堆栈</li>
+<li>获得中断服务程序入口地址</li>
+<li>以上由硬件系统完成</li>
+</ul>
+<h4 id="4）中断处理"><a href="#4）中断处理" class="headerlink" title="4）中断处理"></a>4）中断处理</h4><ul>
+<li>执行中断服务子程序</li>
+<li>中断服务子程序的特点：<ul>
+<li>为“远过程” </li>
+<li>用IRET指令返回 </li>
+</ul>
+</li>
+</ul>
+<h5 id="中断服务子程序完成的工作"><a href="#中断服务子程序完成的工作" class="headerlink" title="中断服务子程序完成的工作"></a>中断服务子程序完成的工作</h5><ul>
+<li>关中断，保护现场，保护断点，找入口地址 </li>
+<li>保护软件现场（参数） </li>
+<li>开中断（STI） </li>
+<li>中断处理</li>
+<li>关中断（CLI） </li>
+<li>恢复现场 </li>
+<li>中断返回 </li>
+</ul>
+<h4 id="5）中断返回"><a href="#5）中断返回" class="headerlink" title="5）中断返回"></a>5）中断返回</h4><ul>
+<li>执行IRET指令，使IP、CS和FLAGS从堆栈弹出</li>
+<li>恢复断点和硬件现场</li>
+</ul>
+<h4 id="中断处理过程"><a href="#中断处理过程" class="headerlink" title="中断处理过程"></a>中断处理过程</h4><p>见图131</p>
+<p><img data-src="/images/131.png" alt="131"></p>
+<h3 id="3-中断向量表"><a href="#3-中断向量表" class="headerlink" title="3.中断向量表"></a>3.中断向量表</h3><ul>
+<li>存放各类中断的中断服务程序的 入口地址； </li>
+<li>位于内存的00000H～003FFH。</li>
+</ul>
+<p>见图132</p>
+<p><img data-src="/images/132.png" alt="132"></p>
+<ul>
+<li>每个入口占用4 Bytes，低字为段内偏移，高字 为段基址； </li>
+<li>中断向量表大小为1KB，共256个入口。 </li>
+</ul>
+<p>见图133</p>
+<p><img data-src="/images/133.png" alt="133"></p>
+<h3 id="4-8088-8086中断系统"><a href="#4-8088-8086中断系统" class="headerlink" title="4.8088/8086中断系统"></a>4.8088/8086中断系统</h3><p>见图134</p>
+<p><img data-src="/images/134.png" alt="134"></p>
+<h4 id="8088内部中断与NMI中断"><a href="#8088内部中断与NMI中断" class="headerlink" title="8088内部中断与NMI中断"></a>8088内部中断与NMI中断</h4><ul>
+<li>特点：<ul>
+<li>无#INTA周期</li>
+<li>中断类型码固定或指令给出</li>
+</ul>
+</li>
+</ul>
+<h4 id="8088-8086-中断响应和处理流程"><a href="#8088-8086-中断响应和处理流程" class="headerlink" title="8088/8086 中断响应和处理流程"></a>8088/8086 中断响应和处理流程</h4><p>见图135</p>
+<p><img data-src="/images/135.png" alt="135"></p>
+<h2 id="输入输出与中断技术小结"><a href="#输入输出与中断技术小结" class="headerlink" title="输入输出与中断技术小结"></a>输入输出与中断技术小结</h2><h3 id="应理解："><a href="#应理解：" class="headerlink" title="应理解："></a>应理解：</h3><ul>
+<li>I/O接口的基本概念和功能<ul>
+<li>什么是/O端口？</li>
+</ul>
+</li>
+<li>I/O端口的编址方式<ul>
+<li>4种基本I/O方法的特点及适用场合</li>
+</ul>
+</li>
+<li>什么是中断？什么是中断向量表？<ul>
+<li>中断响应的一般过程</li>
+</ul>
+</li>
+</ul>
+<h3 id="应掌握："><a href="#应掌握：" class="headerlink" title="应掌握："></a>应掌握：</h3><ul>
+<li>I/O接口译码电路设计方法</li>
+<li>利用无条件传送或查询方式实现对简单外设的控制</li>
+<li>利用三态门接口和锁存器接口芯片实现对简单外设的控制</li>
+</ul>
+<h3 id="注意点与常见问题"><a href="#注意点与常见问题" class="headerlink" title="注意点与常见问题"></a>注意点与常见问题</h3><ul>
+<li><p>4种基本输入输出方法各自的应用场合</p>
+<ul>
+<li>无条件传送方式：<ul>
+<li>外设随时处于“准备好”状态，且不能提供状态信息</li>
+</ul>
+</li>
+<li>查询方式：<ul>
+<li>外设必须要能够提供状态信息</li>
+</ul>
+</li>
+<li>中断方式：<ul>
+<li>外设必须具备发出高电平中断请求信号的能力</li>
+<li>常用于实时性要求较高的中速外设控制</li>
+</ul>
+</li>
+<li>DMA方式<ul>
+<li>整个输入输出由硬件系统完成，适用于高速外设。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>简单接口电路设计</p>
+<ul>
+<li>译码电路设计</li>
+<li>总线信号</li>
+</ul>
+</li>
+<li><p>接口系统的译码电路常采用部分地址译码</p>
+</li>
+<li><p>中断技术</p>
+<ul>
+<li>中断响应的一般过程</li>
+<li>中断向量表<ul>
+<li>每个表项的含义</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/C/" rel="tag"><i class="ic i-tag"></i> C</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2021-06-24 23:03:11" itemprop="dateModified" datetime="2021-06-24T23:03:11+08:00">2021-06-24</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">http://yoursite.com/2021/06/20/assembly/微机原理与接口技术（六）/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitzannuj20zk0m8b29.jpg" title="第五章 存储器系统">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微机原理与接口技术-吴宁</span>
+  <h3>第五章 存储器系统</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipexbei4hj20zk0m8npd.jpg" title="第七章 常用数字接口电路">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微机原理与接口技术-吴宁</span>
+  <h3>第七章 常用数字接口电路</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">微机原理与接口技术（六）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%8A%80%E6%9C%AF%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">输入输出技术概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-I-O%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.I&#x2F;O接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%9E%84%E6%88%90"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">接口的基本构成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-I-O%E7%AB%AF%E5%8F%A3%E5%8F%8A%E5%85%B6%E7%BC%96%E5%9D%80"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.I&#x2F;O端口及其编址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#I-O%E7%AB%AF%E5%8F%A3%E7%BC%96%E5%9D%80"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">I&#x2F;O端口编址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8088-8086%E7%9A%84I-O%E7%AB%AF%E5%8F%A3%E7%BC%96%E5%9D%80"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">8088&#x2F;8086的I&#x2F;O端口编址</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-I-O%E5%9C%B0%E5%9D%80%E8%AF%91%E7%A0%81"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.I&#x2F;O地址译码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#I-O%E5%9C%B0%E5%9D%80%E8%AF%91%E7%A0%81%E4%BE%8B"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">I&#x2F;O地址译码例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">简单接口电路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%88%86%E7%B1%BB%E5%8F%8A%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.接口的分类及特点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">接口特点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%89%E6%80%81%E9%97%A8%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.三态门接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E6%80%81%E9%97%A8%E6%8E%A5%E5%8F%A3%E5%BA%94%E7%94%A8%E4%BE%8B"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">三态门接口应用例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%94%81%E5%AD%98%E5%99%A8%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.锁存器接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#74LS273"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">74LS273</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%81%E5%AD%98%E5%99%A8%E6%8E%A5%E5%8F%A3%E4%BE%8B"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">锁存器接口例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">基本输入&#x2F;输出方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%97%A0%E6%9D%A1%E4%BB%B6%E4%BC%A0%E9%80%81"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.无条件传送</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E6%9D%A1%E4%BB%B6%E4%BC%A0%E9%80%81%E4%BE%8B"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">无条件传送例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9F%A5%E8%AF%A2%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.查询工作方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">查询工作方式流程图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%AD%E6%96%AD%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.中断控制方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8A%E4%B8%89%E7%A7%8DI-O%E6%96%B9%E5%BC%8F%E7%9A%84%E5%85%B1%E6%80%A7"><span class="toc-number">1.3.4.</span> <span class="toc-text">以上三种I&#x2F;O方式的共性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-DMA%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.5.</span> <span class="toc-text">4.DMA控制方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">DMA控制方式的工作流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DMA%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">DMA工作方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%A8%E6%9C%9F%E7%AA%83%E5%8F%96%E7%9A%84DMA%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.5.3.</span> <span class="toc-text">周期窃取的DMA方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E7%A7%8D%E5%9F%BA%E6%9C%ACI-O%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="toc-number">1.3.6.</span> <span class="toc-text">4种基本I&#x2F;O控制方式总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95I-O%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.</span> <span class="toc-text">简单I&#x2F;O控制系统设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B1"><span class="toc-number">1.4.1.</span> <span class="toc-text">例1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B2"><span class="toc-number">1.4.2.</span> <span class="toc-text">例2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E6%8A%80%E6%9C%AF"><span class="toc-number">1.5.</span> <span class="toc-text">中断技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%AD%E6%96%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.5.1.</span> <span class="toc-text">1.中断的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E4%B8%AD%E6%96%AD%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">引入中断的原因</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">中断类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%96%E9%83%A8%E5%8F%AF%E5%B1%8F%E8%94%BD%E4%B8%AD%E6%96%AD%E7%9B%B8%E5%BA%94%E7%9A%84%E4%B8%80%E8%88%AC%E8%BF%87%E7%A8%8B"><span class="toc-number">1.5.2.</span> <span class="toc-text">2.外部可屏蔽中断相应的一般过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E4%B8%AD%E6%96%AD%E8%AF%B7%E6%B1%82"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">1）中断请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E4%B8%AD%E6%96%AD%E6%BA%90%E8%AF%86%E5%88%AB"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">2）中断源识别</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E5%88%A4%E4%BC%98"><span class="toc-number">1.5.2.2.1.</span> <span class="toc-text">中断判优</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89%E4%B8%AD%E6%96%AD%E5%93%8D%E5%BA%94"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">3）中断响应</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%EF%BC%89%E4%B8%AD%E6%96%AD%E5%A4%84%E7%90%86"><span class="toc-number">1.5.2.4.</span> <span class="toc-text">4）中断处理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%AD%90%E7%A8%8B%E5%BA%8F%E5%AE%8C%E6%88%90%E7%9A%84%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.5.2.4.1.</span> <span class="toc-text">中断服务子程序完成的工作</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%EF%BC%89%E4%B8%AD%E6%96%AD%E8%BF%94%E5%9B%9E"><span class="toc-number">1.5.2.5.</span> <span class="toc-text">5）中断返回</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="toc-number">1.5.2.6.</span> <span class="toc-text">中断处理过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E8%A1%A8"><span class="toc-number">1.5.3.</span> <span class="toc-text">3.中断向量表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8088-8086%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.8088&#x2F;8086中断系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8088%E5%86%85%E9%83%A8%E4%B8%AD%E6%96%AD%E4%B8%8ENMI%E4%B8%AD%E6%96%AD"><span class="toc-number">1.5.4.1.</span> <span class="toc-text">8088内部中断与NMI中断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8088-8086-%E4%B8%AD%E6%96%AD%E5%93%8D%E5%BA%94%E5%92%8C%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="toc-number">1.5.4.2.</span> <span class="toc-text">8088&#x2F;8086 中断响应和处理流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E4%B8%8E%E4%B8%AD%E6%96%AD%E6%8A%80%E6%9C%AF%E5%B0%8F%E7%BB%93"><span class="toc-number">1.6.</span> <span class="toc-text">输入输出与中断技术小结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%90%86%E8%A7%A3%EF%BC%9A"><span class="toc-number">1.6.1.</span> <span class="toc-text">应理解：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E6%8E%8C%E6%8F%A1%EF%BC%9A"><span class="toc-number">1.6.2.</span> <span class="toc-text">应掌握：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9%E4%B8%8E%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">1.6.3.</span> <span class="toc-text">注意点与常见问题</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" rel="bookmark" title="第一章 微型计算机系统">第一章 微型计算机系统</a></li><li><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="bookmark" title="第二章 8088/8086微处理器">第二章 8088/8086微处理器</a></li><li><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" rel="bookmark" title="第三章 指令系统">第三章 指令系统</a></li><li><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" rel="bookmark" title="第四章 汇编语言程序">第四章 汇编语言程序</a></li><li><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" rel="bookmark" title="第五章 存储器系统">第五章 存储器系统</a></li><li class="active"><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" rel="bookmark" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></li><li><a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" rel="bookmark" title="第七章 常用数字接口电路">第七章 常用数字接口电路</a></li><li><a href="/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/" rel="bookmark" title="第八章 模拟量的输入输出">第八章 模拟量的输入输出</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">24</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">4</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">2</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" title="第七章 常用数字接口电路">第七章 常用数字接口电路</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="第一章 微型计算机系统">第一章 微型计算机系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/first-blog/" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" title="第四章 循环初探">第四章 循环初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" title="第五章 存储器系统">第五章 存储器系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="第十章 字符串">第十章 字符串</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/06/20/assembly/微机原理与接口技术（六）/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

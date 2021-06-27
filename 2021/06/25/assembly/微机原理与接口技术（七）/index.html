@@ -1,0 +1,1016 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C" />
+
+
+<link rel="canonical" href="http://yoursite.com/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/">
+
+
+
+  <title>
+第七章 常用数字接口电路 - 微机原理与接口技术-吴宁 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">第七章 常用数字接口电路
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-06-25 08:10:25">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-06-25T08:10:25+08:00">2021-06-25</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclxfdlttj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/assembly/" itemprop="item" rel="index" title="分类于 微机原理与接口技术-吴宁"><span itemprop="name">微机原理与接口技术-吴宁</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="微机原理与接口技术（七）"><a href="#微机原理与接口技术（七）" class="headerlink" title="微机原理与接口技术（七）"></a>微机原理与接口技术（七）</h1><p><strong>内容提要：</strong></p>
+<p>两种可编程并行接口芯片的应用</p>
+<ul>
+<li>可编程芯片：<ul>
+<li>可以通过软件命令，控制芯片的工作方式<ul>
+<li>数据传输方向</li>
+<li>输入/输出方式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="可编程定时器8253"><a href="#可编程定时器8253" class="headerlink" title="可编程定时器8253"></a>可编程定时器8253</h2><h3 id="计数与定时"><a href="#计数与定时" class="headerlink" title="计数与定时"></a>计数与定时</h3><ul>
+<li>定时/计算器的工作基准是时钟脉冲</li>
+</ul>
+<p>见图136</p>
+<p><img data-src="/images/136.png" alt="136"></p>
+<ul>
+<li>计数脉冲周期恒定</li>
+<li>定时的时间长度取决于时钟脉冲的周期及脉冲数<ul>
+<li>要求定时100秒，计数脉冲数：100<ul>
+<li>100为计数初值，由需求和条件决定</li>
+</ul>
+</li>
+<li>分为加法计数与减法计数</li>
+</ul>
+</li>
+</ul>
+<h3 id="8253芯片特点"><a href="#8253芯片特点" class="headerlink" title="8253芯片特点"></a>8253芯片特点</h3><ul>
+<li><p>可编程的逻辑器件</p>
+</li>
+<li><p>非通道型的接口，具有特定功能</p>
+</li>
+<li><p>可实现计数和定时</p>
+</li>
+<li><p>工作方式：</p>
+<ul>
+<li>减法计数 </li>
+<li>计数值减为0时输出相应控制信号 </li>
+<li>输出控制信号的形式可通过软件设置</li>
+</ul>
+</li>
+<li><p>特点：</p>
+<p>① 外部主要引脚信号，功能及内部结构 </p>
+<p>② 计数启动方式 </p>
+<p>③ 工作方式 </p>
+<p>④ 控制命令字格式 </p>
+<p>⑤ 应用 </p>
+</li>
+</ul>
+<h4 id="1-外部引线及内部结构"><a href="#1-外部引线及内部结构" class="headerlink" title="1.外部引线及内部结构"></a>1.外部引线及内部结构</h4><ul>
+<li>连接系统端的主要引线：<ul>
+<li>D0——D7</li>
+<li>#CS</li>
+<li>#RD</li>
+<li>#WR</li>
+<li>A0，A1</li>
+</ul>
+</li>
+<li>连接外设端的主要引线：<ul>
+<li>CLK——时钟脉冲输入</li>
+<li>GATE——门控信号输入</li>
+<li>OUT——定时输出</li>
+</ul>
+</li>
+</ul>
+<p>见图137</p>
+<p><img data-src="/images/137.png" alt="137"></p>
+<h5 id="内部结构特点"><a href="#内部结构特点" class="headerlink" title="内部结构特点"></a>内部结构特点</h5><ul>
+<li>具有三个完全相同的、独立的计数/定时器 </li>
+</ul>
+<p>见图138</p>
+<p><img data-src="/images/138.png" alt="138"></p>
+<ul>
+<li>每个计数器中都有 16b初值寄存器 和 16b计数寄存器，因此每个计数器占用一个端口地址</li>
+</ul>
+<h5 id="结构特点"><a href="#结构特点" class="headerlink" title="结构特点"></a>结构特点</h5><ul>
+<li><p>内部3个计数器均为减法计数器</p>
+<ul>
+<li>根据计数脉冲的频率及需要定时的时间长度确定计数初值 </li>
+</ul>
+</li>
+<li><p>每个计数器含 16位初值寄存器(存放计数初值) 和 16位计数寄存器，拥有相同端口地址</p>
+</li>
+<li><p>控制寄存器（存放控制命令字）</p>
+</li>
+</ul>
+<h5 id="外部引线及内部结构"><a href="#外部引线及内部结构" class="headerlink" title="外部引线及内部结构"></a>外部引线及内部结构</h5><ul>
+<li><p>三个可独立工作的16位定时/计数器，一个控制寄存器。共占用4个端口地址。</p>
+</li>
+<li><p>4个端口的地址编码：</p>
+<table>
+<thead>
+<tr>
+<th align="center">A1</th>
+<th align="center">A0</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">CNT0</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">CNT1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">CNT2</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">控制寄存器</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="2-计数启动方式"><a href="#2-计数启动方式" class="headerlink" title="2.计数启动方式"></a>2.计数启动方式</h4><ul>
+<li>启动方式由GATE端信号的形式决定 </li>
+<li>软件启动 → GATE端为高电平 </li>
+<li>硬件启动 → GATE端有一个上升沿</li>
+</ul>
+<h4 id="3-工作方式"><a href="#3-工作方式" class="headerlink" title="3.工作方式"></a>3.工作方式</h4><ul>
+<li><p>方式0</p>
+<ul>
+<li>软件启动，不自动重复计数</li>
+<li>计数结束输出高电平。 </li>
+</ul>
+<p>见图139</p>
+<p><img data-src="/images/139.png" alt="139"></p>
+</li>
+<li><p>方式1</p>
+<ul>
+<li><p>硬件启动，不自动重复计数</p>
+</li>
+<li><p>计数开始输出低电平，结束后又变高。 </p>
+<ul>
+<li><p>计数一旦启动，GATE端既使变 低也不会影响计数。 </p>
+</li>
+<li><p>可重复触发。当计数到0后，不用再次写入计数初值，只要再次出现GATE上升沿，即可产生 一个同样宽度的负脉冲</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>见图140</p>
+<p><img data-src="/images/140.png" alt="140"></p>
+</li>
+<li><p>方式2</p>
+<ul>
+<li>软、硬件启动，自动重复计数。</li>
+<li>计数到最后一个脉冲时输出低电平<ul>
+<li>可输出频率为（1/N） CLK脉冲频率的连续方波信号。 </li>
+<li>每1个OUT端脉冲包含 （N-1）*CLK的正脉冲，1CLK的负脉冲。 </li>
+</ul>
+</li>
+</ul>
+<p>见图141</p>
+<p><img data-src="/images/141.png" alt="141"></p>
+</li>
+<li><p>方式3</p>
+<ul>
+<li>软、硬件启动，自动重复计数</li>
+<li>输出对称方波<ul>
+<li>若N为偶数，输出频率 为（1/N）CLK频率的 连续对称方波信号。 </li>
+<li>若N为奇数，输出波形 为 (N+l)/2CLK 周 期 正 脉 冲 ， (N-1)/2CLK 负 脉冲。</li>
+</ul>
+</li>
+</ul>
+<p>见图142</p>
+<p><img data-src="/images/142.png" alt="142"></p>
+</li>
+<li><p>方式4</p>
+<ul>
+<li>软件启动，不自动重复计数。</li>
+<li>计数结束输出一个CLK宽度的 低电平 </li>
+</ul>
+<p>见图143</p>
+<p><img data-src="/images/143.png" alt="143"></p>
+</li>
+<li><p>方式5</p>
+<ul>
+<li>硬件启动，不自动重复计数</li>
+<li>波形与方式4相同 </li>
+</ul>
+<p>见图144</p>
+<p><img data-src="/images/144.png" alt="144"></p>
+</li>
+</ul>
+<h5 id="工作方式小结"><a href="#工作方式小结" class="headerlink" title="工作方式小结"></a>工作方式小结</h5><ul>
+<li>需要两个写脉冲——两次写操作 <ul>
+<li>第1个写脉冲写入控制字</li>
+<li>第2个写脉冲写入计数初值</li>
+</ul>
+</li>
+<li>不同的工作方式，有不同的计数启动方法。</li>
+<li>可根据对输出波形的要求，选择不同的工作方式</li>
+<li>能输出连续波形的只有方式2和方式3。</li>
+</ul>
+<h4 id="4-控制字"><a href="#4-控制字" class="headerlink" title="4.控制字"></a>4.控制字</h4><ul>
+<li>用于设定各计数器的工作方式</li>
+</ul>
+<p>见图145</p>
+<p><img data-src="/images/145.png" alt="145"></p>
+<ul>
+<li>最大16位BCD数：9999 </li>
+<li>最大16位二进制数：FFFF </li>
+<li>8253为减法计数器，最大计数初值：0</li>
+</ul>
+<h4 id="5-8253的应用"><a href="#5-8253的应用" class="headerlink" title="5.8253的应用"></a>5.8253的应用</h4><ul>
+<li>硬件设计<ul>
+<li>与系统的连接 </li>
+</ul>
+</li>
+<li>软件设计<ul>
+<li>初始化程序设计<ul>
+<li>写入控制字</li>
+<li>置计数初值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="与系统的连接示意"><a href="#与系统的连接示意" class="headerlink" title="与系统的连接示意"></a>与系统的连接示意</h5><p>见图146</p>
+<p><img data-src="/images/146.png" alt="146"></p>
+<h5 id="应用中的注意点"><a href="#应用中的注意点" class="headerlink" title="应用中的注意点"></a>应用中的注意点</h5><ul>
+<li><p>每一次启动计数，需有两次写操作：</p>
+<ul>
+<li>写控制字</li>
+<li>写计数器初值<ul>
+<li>如果初值为8位字长，则一次写入；若初值为16位字长，则需两次写入 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>每个计数器的控制命令字均送入控制寄存器</p>
+</li>
+<li><p>各计数器的计数初值送到该计数器的计数寄存器及初值寄 存器。</p>
+</li>
+</ul>
+<h5 id="初始化流程"><a href="#初始化流程" class="headerlink" title="初始化流程"></a>初始化流程</h5><p>见图147</p>
+<p><img data-src="/images/147.png" alt="147"></p>
+<ul>
+<li>当有两个以上计数器被应用时的初始化程序设计流程：</li>
+</ul>
+<p>见图148</p>
+<p><img data-src="/images/148.png" alt="148"></p>
+<p>见图149</p>
+<p><img data-src="/images/149.png" alt="149"></p>
+<h5 id="8253应用例"><a href="#8253应用例" class="headerlink" title="8253应用例"></a>8253应用例</h5><ul>
+<li><p>采用8253作定时/计数器，其接口地址为0120H~0123H。</p>
+</li>
+<li><p>输入8253的时钟频率为2MH。要求：</p>
+<ul>
+<li>CNT0每10ms输出一个CLK周期宽的负脉冲</li>
+<li>CNT1输出10KHz的连续方波信号</li>
+<li>CNT2在定时5ms后产生输出高电平 </li>
+</ul>
+</li>
+<li><p>得出：</p>
+<ul>
+<li>工作的计数器、工作方式、计数初值、计数脉冲频率</li>
+</ul>
+</li>
+<li><p>画线路连接图，并编写初始化程序</p>
+</li>
+<li><p>计算计数初值</p>
+<p>CNT0：10ms/0.5us=20000 </p>
+<p>CNT1：2 MHz/10KHz=200 </p>
+<p>CNT2： 5ms/0.5us=10000</p>
+</li>
+<li><p>确定控制字</p>
+<p>CNT0：方式2，16位计数值 → 00110100</p>
+<p>CNT1：方式3，低8位计数值 → 01010110</p>
+<p>CNT2：方式0，16位计数值 → 10110000</p>
+</li>
+</ul>
+<p>见图150</p>
+<p><img data-src="/images/150.png" alt="150"></p>
+<ul>
+<li><p>初始化程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CNT0：</span><br><span class="line">MOV DX, 0123H</span><br><span class="line">MOV AL, 34H</span><br><span class="line">OUT DX, AL</span><br><span class="line">MOV DX, 0120H</span><br><span class="line">MOV AX, 20000</span><br><span class="line">OUT DX, AL</span><br><span class="line">MOV AL, AH</span><br><span class="line">OUT DX, AL</span><br><span class="line">CNT1:</span><br><span class="line">...</span><br><span class="line">CNT2:</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h5 id="8523接口"><a href="#8523接口" class="headerlink" title="8523接口"></a>8523接口</h5></li>
+<li><p>可编程8bit并行接口</p>
+<ul>
+<li>通过软件初始化控制其工作方式和计数/ 定时时长</li>
+</ul>
+</li>
+<li><p>实现对外部设备的定时/计数控制</p>
+<ul>
+<li>减法计数器</li>
+</ul>
+</li>
+</ul>
+<h2 id="可编程并行接口8255"><a href="#可编程并行接口8255" class="headerlink" title="可编程并行接口8255"></a>可编程并行接口8255</h2><h3 id="1-并行接口8255的特点"><a href="#1-并行接口8255的特点" class="headerlink" title="1.并行接口8255的特点"></a>1.并行接口8255的特点</h3><ul>
+<li><p>通道型接口</p>
+<ul>
+<li>主要用于数据的输入或输出</li>
+</ul>
+</li>
+<li><p>含3个独立的8位并行输入/输出端口</p>
+<ul>
+<li>2个为8位端口（PA，PB）</li>
+<li>1个可拆分为两个4位端口（PC口） </li>
+</ul>
+</li>
+<li><p>各端口均具有数据的控制和锁存能力 </p>
+<ul>
+<li>既可作为输入端口，也可以作输出端口。</li>
+</ul>
+</li>
+<li><p>可通过编程，设置各端口工作在某一确定状态下。 </p>
+</li>
+</ul>
+<p>见图151</p>
+<p><img data-src="/images/151.png" alt="151"></p>
+<h3 id="2-结构"><a href="#2-结构" class="headerlink" title="2.结构"></a>2.结构</h3><p>见图152</p>
+<p><img data-src="/images/152.png" alt="152"></p>
+<h3 id="3-引线"><a href="#3-引线" class="headerlink" title="3.引线"></a>3.引线</h3><ul>
+<li>连接系统端的主要引线：<ul>
+<li>D0——D7</li>
+<li>#CS</li>
+<li>#RD</li>
+<li>#WR</li>
+<li>A0，A1</li>
+<li>REAST</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">A1</th>
+<th align="center">A0</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">A端口</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">B端口</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">C端口</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">控制寄存器</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>连接外设端的引脚：</p>
+<ul>
+<li>PA0——PA7</li>
+<li>PB0——PB7</li>
+<li>PC0——PC7</li>
+</ul>
+<p>以上三种分别对应A、B、C三个端口</p>
+</li>
+</ul>
+<h4 id="8255与系统的连接示意图"><a href="#8255与系统的连接示意图" class="headerlink" title="8255与系统的连接示意图"></a>8255与系统的连接示意图</h4><p>见图153</p>
+<p><img data-src="/images/153.png" alt="153"></p>
+<h3 id="4-工作方式"><a href="#4-工作方式" class="headerlink" title="4.工作方式"></a>4.工作方式</h3><ul>
+<li>基本输入/输出方式（方式0） </li>
+<li>选通工作方式（方式1）</li>
+<li>双向传送方式（方式2）</li>
+</ul>
+<h4 id="方式0："><a href="#方式0：" class="headerlink" title="方式0："></a>方式0：</h4><ul>
+<li>相当于三个独立的8位简单接口</li>
+<li>各端口既可设置为输入口，也可设置为输出口，但不能 同时实现输入及输出 </li>
+<li>C端口可以是一个8位的简单接口，也可以分为两个独立 的4位端口 </li>
+<li>常用于连接简单外设，适于无条件或查询方式</li>
+</ul>
+<h5 id="方式0的应用："><a href="#方式0的应用：" class="headerlink" title="方式0的应用："></a>方式0的应用：</h5><ul>
+<li>习惯上：<ul>
+<li>A端口和B端口作为8位数据的输入或输出口 </li>
+<li>C口的某些位作为状态输入 </li>
+</ul>
+</li>
+<li>注：<ul>
+<li>若使C端口低4位中某一位作为输入口，则低4位中其他位都应作 为输入口。同时可设高4位作为输出。 </li>
+</ul>
+</li>
+</ul>
+<h5 id="8255工作于方式0的连接示意图"><a href="#8255工作于方式0的连接示意图" class="headerlink" title="8255工作于方式0的连接示意图"></a>8255工作于方式0的连接示意图</h5><p>见图154</p>
+<p><img data-src="/images/154.png" alt="154"></p>
+<h4 id="方式1："><a href="#方式1：" class="headerlink" title="方式1："></a>方式1：</h4><ul>
+<li>利用一组选通控制信号控制A端口和B端口的数 据输入输出</li>
+<li>A口、B口作输入或输出口，C口的部分位用作 选通控制信号</li>
+<li>A口、B口在作为输入和输出时的选通信号不同</li>
+</ul>
+<h5 id="方式1的应用："><a href="#方式1的应用：" class="headerlink" title="方式1的应用："></a>方式1的应用：</h5><ul>
+<li>方式1主要用于中断控制方式下的输入输出 </li>
+<li>C口的8位除用作选通信号外，其余位可工作 于方式0下，作为输入或输出口。 </li>
+</ul>
+<h4 id="方式2："><a href="#方式2：" class="headerlink" title="方式2："></a>方式2：</h4><ul>
+<li>双向输入输出方式<ul>
+<li>可以既作为输入口，又作为输出口。</li>
+</ul>
+</li>
+<li>只有A端口可工作在方式2下 </li>
+</ul>
+<h5 id="方式2的应用："><a href="#方式2的应用：" class="headerlink" title="方式2的应用："></a>方式2的应用：</h5><ul>
+<li>可使A端口作为双向端口所有 </li>
+<li>用于中断控制方式 </li>
+<li>当A口工作于方式2时：<ul>
+<li>B口可工作于方式1 <ul>
+<li>此时C口的所有位都用作选通控制信号的输入输出 </li>
+</ul>
+</li>
+<li>B口也可工作于方式0 <ul>
+<li>此时C口的剩余位也可工作于方式0 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-方式控制字及位控制字"><a href="#4-方式控制字及位控制字" class="headerlink" title="4.方式控制字及位控制字"></a>4.方式控制字及位控制字</h3><ul>
+<li>方式控制字：<ul>
+<li>用于确定3个端口的工作方式及数据传送方向；</li>
+</ul>
+</li>
+<li>位控制字 <ul>
+<li>仅用于C端口</li>
+<li>可设置C口某位的初始状态（为高电平或低电平）</li>
+<li>当其工作于方式0下且作为输出口时，一般需要对作为输出的 位设置初始状态（即初始化） </li>
+</ul>
+</li>
+</ul>
+<h3 id="5-8255芯片的应用"><a href="#5-8255芯片的应用" class="headerlink" title="5.8255芯片的应用"></a>5.8255芯片的应用</h3><ul>
+<li>芯片与系统的连接 </li>
+<li>芯片的初始化</li>
+<li>相应的控制程序</li>
+</ul>
+<h4 id="8255应用例："><a href="#8255应用例：" class="headerlink" title="8255应用例："></a>8255应用例：</h4><ul>
+<li><p>8086CPU通过8255实施监控。8255端口地址为1020H-1023H，启动操作由端 口B的PB7控制（高电平有效），端口A输入8个监控点的状态（每个引脚接 一个监控点），只要其中任一路出现异常情况（高电平），系统就通过与 PC0相连的信号灯报警（高电平灯亮），要求信号灯亮灭3次。要求：</p>
+<ul>
+<li>设计系统线路图，要求用138译码器设计译码电路；</li>
+<li>编写8255初始化程序及启动、测试和报警控制程序</li>
+</ul>
+</li>
+<li><p>地址范围：</p>
+<ul>
+<li>0001 0000 0010 00XX</li>
+</ul>
+</li>
+</ul>
+<p>见图155</p>
+<p><img data-src="/images/155.png" alt="155"></p>
+<h4 id="控制流程"><a href="#控制流程" class="headerlink" title="控制流程"></a>控制流程</h4><p>见图156</p>
+<p><img data-src="/images/156.png" alt="156"></p>
+<h4 id="控制程序"><a href="#控制程序" class="headerlink" title="控制程序"></a>控制程序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">MOV DX，1023H</span><br><span class="line">MOV AL，1001 0000B</span><br><span class="line">OUT DX，AL</span><br><span class="line">MOV AL，0</span><br><span class="line">OUT DX，AL</span><br><span class="line">MOV DX，1021H</span><br><span class="line">MOV AL，80H</span><br><span class="line">OUT DX，AL </span><br><span class="line">A：MOV DX，1020H </span><br><span class="line">MOV CX，3</span><br><span class="line">MOV DX，1022H</span><br><span class="line">MOV AL，1</span><br><span class="line">B: OUT DX，AL</span><br><span class="line">CALL DELAY</span><br><span class="line">NOT AL</span><br><span class="line">CALL DELAY</span><br><span class="line">LOOP B</span><br><span class="line">JMP A</span><br></pre></td></tr></table></figure>
+<ul>
+<li>利用8255和8253构造报警系统： </li>
+</ul>
+<p>见图157</p>
+<p><img data-src="/images/157.png" alt="157"></p>
+<h4 id="8255应用要求"><a href="#8255应用要求" class="headerlink" title="8255应用要求"></a>8255应用要求</h4><ul>
+<li>主要引线功能及结构 </li>
+<li>3种工作方式及其特点</li>
+<li>应用<ul>
+<li>芯片与系统的连接 </li>
+<li>芯片的初始化编程 </li>
+<li>数据输入/输出控制程序设计 </li>
+</ul>
+</li>
+</ul>
+<h2 id="可编程并行数字接口小结"><a href="#可编程并行数字接口小结" class="headerlink" title="可编程并行数字接口小结"></a>可编程并行数字接口小结</h2><h3 id="学习要求"><a href="#学习要求" class="headerlink" title="学习要求"></a>学习要求</h3><ul>
+<li><p>了解什么是可编程</p>
+</li>
+<li><p>可编程定时/计数器</p>
+<ul>
+<li>启动方式</li>
+<li>不同工作方式下的输出波形特点</li>
+<li>初始化编程</li>
+<li>与系统的连接</li>
+</ul>
+<p>根据需要选择相应的工作方式</p>
+</li>
+<li><p>可编程并行数字接口</p>
+<ul>
+<li>不同工作方式的适应场合</li>
+<li>与系统的连接</li>
+<li>初始化编程</li>
+<li>相关控制程序</li>
+</ul>
+</li>
+<li><p>利用可编程定时计数器8253、可编程并行接口8255设计需要的I/O接口控制系统</p>
+</li>
+</ul>
+<h3 id="可编程并行数字接口应用例"><a href="#可编程并行数字接口应用例" class="headerlink" title="可编程并行数字接口应用例"></a>可编程并行数字接口应用例</h3><p>利用8255和8253构造报警系统</p>
+<ul>
+<li>设计一个简易的安全报警系统，外部时钟频率18.9KHz。系统功能要求如下：<ul>
+<li>在房间门窗等8个入口处安装探测器，PC7控制警报灯的亮或灭，PC6控制8253通道0的启动。正常情况下，探测器输出为低电平，当探测到有异常时，探测器输出为高电平。</li>
+<li>利用8253通道0产生100Hz频率的方波，使警铃发出警报声。</li>
+<li>系统启动后，在初始状态下，警铃不响，警灯不亮。系统不断检测各探测器的输出电平，如果检测到有任意一个探测器的输出为高电平，并且在随后的5次连续检测中，读入的探测器状态均不为0，则启动报警，使报警灯亮（ PC6 、PC7输出高电平），警铃发出100Hz的报警声。</li>
+</ul>
+</li>
+</ul>
+<h4 id="系统连接图"><a href="#系统连接图" class="headerlink" title="系统连接图"></a>系统连接图</h4><p>见图158</p>
+<p><img data-src="/images/158.png" alt="158"></p>
+<h4 id="系统软件设计"><a href="#系统软件设计" class="headerlink" title="系统软件设计"></a>系统软件设计</h4><p>见图159</p>
+<p><img data-src="/images/159.png" alt="159"></p>
+
+      <div class="tags">
+          <a href="/tags/C/" rel="tag"><i class="ic i-tag"></i> C</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2021-06-25 22:00:39" itemprop="dateModified" datetime="2021-06-25T22:00:39+08:00">2021-06-25</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" title="第七章 常用数字接口电路">http://yoursite.com/2021/06/25/assembly/微机原理与接口技术（七）/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipesng5oej20zk0m87d4.jpg" title="第六章 输入输出和中断技术">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微机原理与接口技术-吴宁</span>
+  <h3>第六章 输入输出和中断技术</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipet8c1a2j20zk0m8kct.jpg" title="第八章 模拟量的输入输出">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微机原理与接口技术-吴宁</span>
+  <h3>第八章 模拟量的输入输出</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">微机原理与接口技术（七）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B%E5%AE%9A%E6%97%B6%E5%99%A88253"><span class="toc-number">1.1.</span> <span class="toc-text">可编程定时器8253</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E4%B8%8E%E5%AE%9A%E6%97%B6"><span class="toc-number">1.1.1.</span> <span class="toc-text">计数与定时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8253%E8%8A%AF%E7%89%87%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.2.</span> <span class="toc-text">8253芯片特点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%A4%96%E9%83%A8%E5%BC%95%E7%BA%BF%E5%8F%8A%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">1.外部引线及内部结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.2.1.1.</span> <span class="toc-text">内部结构特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.2.1.2.</span> <span class="toc-text">结构特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E5%BC%95%E7%BA%BF%E5%8F%8A%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.2.1.3.</span> <span class="toc-text">外部引线及内部结构</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%AE%A1%E6%95%B0%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">2.计数启动方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">3.工作方式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%B0%8F%E7%BB%93"><span class="toc-number">1.1.2.3.1.</span> <span class="toc-text">工作方式小结</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%8E%A7%E5%88%B6%E5%AD%97"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">4.控制字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-8253%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">5.8253的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%BF%9E%E6%8E%A5%E7%A4%BA%E6%84%8F"><span class="toc-number">1.1.2.5.1.</span> <span class="toc-text">与系统的连接示意</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%B8%AD%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">1.1.2.5.2.</span> <span class="toc-text">应用中的注意点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.2.5.3.</span> <span class="toc-text">初始化流程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8253%E5%BA%94%E7%94%A8%E4%BE%8B"><span class="toc-number">1.1.2.5.4.</span> <span class="toc-text">8253应用例</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8523%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.1.2.5.5.</span> <span class="toc-text">8523接口</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B%E5%B9%B6%E8%A1%8C%E6%8E%A5%E5%8F%A38255"><span class="toc-number">1.2.</span> <span class="toc-text">可编程并行接口8255</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B9%B6%E8%A1%8C%E6%8E%A5%E5%8F%A38255%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.并行接口8255的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%BC%95%E7%BA%BF"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.引线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8255%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%BF%9E%E6%8E%A5%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">8255与系统的连接示意图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.工作方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F0%EF%BC%9A"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">方式0：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F0%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%9A"><span class="toc-number">1.2.4.1.1.</span> <span class="toc-text">方式0的应用：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8255%E5%B7%A5%E4%BD%9C%E4%BA%8E%E6%96%B9%E5%BC%8F0%E7%9A%84%E8%BF%9E%E6%8E%A5%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="toc-number">1.2.4.1.2.</span> <span class="toc-text">8255工作于方式0的连接示意图</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F1%EF%BC%9A"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">方式1：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F1%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%9A"><span class="toc-number">1.2.4.2.1.</span> <span class="toc-text">方式1的应用：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F2%EF%BC%9A"><span class="toc-number">1.2.4.3.</span> <span class="toc-text">方式2：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F2%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%9A"><span class="toc-number">1.2.4.3.1.</span> <span class="toc-text">方式2的应用：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%96%B9%E5%BC%8F%E6%8E%A7%E5%88%B6%E5%AD%97%E5%8F%8A%E4%BD%8D%E6%8E%A7%E5%88%B6%E5%AD%97"><span class="toc-number">1.2.5.</span> <span class="toc-text">4.方式控制字及位控制字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-8255%E8%8A%AF%E7%89%87%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">1.2.6.</span> <span class="toc-text">5.8255芯片的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8255%E5%BA%94%E7%94%A8%E4%BE%8B%EF%BC%9A"><span class="toc-number">1.2.6.1.</span> <span class="toc-text">8255应用例：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.6.2.</span> <span class="toc-text">控制流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.2.6.3.</span> <span class="toc-text">控制程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8255%E5%BA%94%E7%94%A8%E8%A6%81%E6%B1%82"><span class="toc-number">1.2.6.4.</span> <span class="toc-text">8255应用要求</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B%E5%B9%B6%E8%A1%8C%E6%95%B0%E5%AD%97%E6%8E%A5%E5%8F%A3%E5%B0%8F%E7%BB%93"><span class="toc-number">1.3.</span> <span class="toc-text">可编程并行数字接口小结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B1%82"><span class="toc-number">1.3.1.</span> <span class="toc-text">学习要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B%E5%B9%B6%E8%A1%8C%E6%95%B0%E5%AD%97%E6%8E%A5%E5%8F%A3%E5%BA%94%E7%94%A8%E4%BE%8B"><span class="toc-number">1.3.2.</span> <span class="toc-text">可编程并行数字接口应用例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%BF%9E%E6%8E%A5%E5%9B%BE"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">系统连接图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">系统软件设计</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" rel="bookmark" title="第一章 微型计算机系统">第一章 微型计算机系统</a></li><li><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="bookmark" title="第二章 8088/8086微处理器">第二章 8088/8086微处理器</a></li><li><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" rel="bookmark" title="第三章 指令系统">第三章 指令系统</a></li><li><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" rel="bookmark" title="第四章 汇编语言程序">第四章 汇编语言程序</a></li><li><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" rel="bookmark" title="第五章 存储器系统">第五章 存储器系统</a></li><li><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" rel="bookmark" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></li><li class="active"><a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" rel="bookmark" title="第七章 常用数字接口电路">第七章 常用数字接口电路</a></li><li><a href="/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/" rel="bookmark" title="第八章 模拟量的输入输出">第八章 模拟量的输入输出</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">24</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">4</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">2</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" title="第四章 汇编语言程序">第四章 汇编语言程序</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/first-blog/" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/algorithm/" title="分类于 数据结构与算法笔记">数据结构与算法笔记</a>
+</div>
+
+    <span><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="数据结构与算法（一）">数据结构与算法（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" title="第九章 函数进阶">第九章 函数进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="第一章 微型计算机系统">第一章 微型计算机系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" title="第五章 存储器系统">第五章 存储器系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2021/06/25/assembly/微机原理与接口技术（七）/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
