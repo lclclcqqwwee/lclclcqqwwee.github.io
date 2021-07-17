@@ -27,12 +27,12 @@
   <meta name="keywords" content="C" />
 
 
-<link rel="canonical" href="http://yoursite.com/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/">
+<link rel="canonical" href="http://yoursite.com/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/">
 
 
 
   <title>
-第一章 Hellow C语言 - 老九零基础学C语言笔记 |
+寄存器指令总结 - 微机原理与接口技术-吴宁 |
 Yume Shoka = 未来の期間 = 勿負韶華</title>
 <meta name="generator" content="Hexo 5.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,16 +60,16 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">第一章 Hellow C语言
+  <h1 itemprop="name headline">寄存器指令总结
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2020-12-22 15:45:25">
+  <span class="item" title="创建时间：2021-07-17 15:45:11">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2020-12-22T15:45:25+08:00">2020-12-22</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-07-17T15:45:11+08:00">2021-07-17</time>
   </span>
 </div>
 
@@ -102,12 +102,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclg5ms2rj20zk0m8u0x.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclhpw3lwj20zk0m8gvw.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclh5u05ej20zk0m87df.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicm0n457cj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giph4fomxoj20zk0m8axp.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipewr8iypj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giph4lm9i7j20zk0m84qp.jpg"></li>
         </ul>
       </div>
     </header>
@@ -133,12 +133,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
 <span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/c/" itemprop="item" rel="index" title="分类于 老九零基础学C语言笔记"><span itemprop="name">老九零基础学C语言笔记</span></a>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/assembly/" itemprop="item" rel="index" title="分类于 微机原理与接口技术-吴宁"><span itemprop="name">微机原理与接口技术-吴宁</span></a>
 <meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -153,49 +153,41 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="第一章-Hellow-C语言"><a href="#第一章-Hellow-C语言" class="headerlink" title="第一章 Hellow C语言"></a>第一章 Hellow C语言</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>C语言特点</strong></p>
+    <h1 id="通用寄存器指令"><a href="#通用寄存器指令" class="headerlink" title="通用寄存器指令"></a>通用寄存器指令</h1><p><strong>数据寄存器：</strong>AX (多用于累加器)，BX (多用于基址寄存器)，CX (多用于计数寄存器)，DX (多用于数据寄存器)</p>
+<p>8088/8086焊4个16位数据寄存器，他们又可分为8个8位寄存器，即：</p>
 <ul>
-<li><p>结构化的程序设计语言</p>
+<li>AX→AH，AL </li>
+<li>BX→BH，BL</li>
+<li>CX→CH，CL</li>
+<li>DX→DH，DL</li>
+</ul>
+<p><strong>地址指针寄存器：</strong>（SP 堆栈指针寄存器，BP 基址指针寄存器） </p>
+<p><strong>变址寄存器：</strong>（SI 源变址寄存器，DI 目标变址寄存器）</p>
+<p>⭐有4个通用寄存器可用于存放数据的偏移地址：</p>
 <ul>
-<li>层次清晰，便于按模块化方式组织程序，易于调试和维护</li>
-<li>结构化的缺点也很明显，程序的可重用性差</li>
+<li>间址寄存器：<ul>
+<li>BX（默认在数据段）</li>
+<li>BP（默认在堆栈段）</li>
+<li>SI（源变址寄存器）</li>
+<li>DI（目标变址寄存器）</li>
 </ul>
 </li>
-<li><p>语言简洁</p>
+</ul>
+<h1 id="控制寄存器指令"><a href="#控制寄存器指令" class="headerlink" title="控制寄存器指令"></a>控制寄存器指令</h1><p>IP：指令指针寄存器，其内容为下一条要取的指令的偏移地址 </p>
+<p>FLAGS：标志寄存器，存放运算结果的特征 </p>
 <ul>
-<li>适合作为编程入门语言，使用方便</li>
+<li>6个状态标志位（CF 进位，SF 符号，AF 辅助，PF 奇偶，OF 溢出，ZF 零） </li>
+<li>3个控制标志位（IF 中断允许，TF 陷井跟踪，DF 方位）</li>
 </ul>
-</li>
-<li><p>可移植性好</p>
+<h1 id="段寄存器指令"><a href="#段寄存器指令" class="headerlink" title="段寄存器指令"></a>段寄存器指令</h1><p>CS：代码段寄存器，存放代码段的段基地址 </p>
+<p>DS：数据段寄存器，存放数据段的段基地址 </p>
+<p>ES：附加段寄存器，存放数据段的段基地址 </p>
+<p>SS：堆栈段寄存器，存放堆栈段的段基地址</p>
+<hr>
+<p>OF溢出：正＋负 一定不溢出，正+正=负 一定溢出，负+负=正 一定溢出</p>
+<p>AF辅助：前半字节有进借位AF=1</p>
 <ul>
-<li>统计表面不同机器上的C语言编译程序80%的代码是公共的，C语言的编译程序便于移植</li>
-</ul>
-</li>
-<li><p>功能强大</p>
-<ul>
-<li>即可用于系统软件的开发，也适合应用软件的开发</li>
-</ul>
-</li>
-</ul>
-<h2 id="第一个程序"><a href="#第一个程序" class="headerlink" title="第一个程序"></a>第一个程序</h2><p><strong>Hellow World</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Hellow World!\n&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="C语言的编译和执行"><a href="#C语言的编译和执行" class="headerlink" title="C语言的编译和执行"></a>C语言的编译和执行</h2><ul>
-<li>编译和执行过程<ul>
-<li>1、编译<ul>
-<li>形成目标代码/文件。目标代码是编译器的输出结果，长剑扩展名位“.o”或”.obj”</li>
-</ul>
-</li>
-<li>2、连接<ul>
-<li>将目标代码跟C函数库相连接，并将源程序所用的库代码与目标代码合并</li>
-<li>形成最终可执行的二进制机器代码（可执行程序）</li>
-</ul>
-</li>
-<li>3、执行<ul>
-<li>在特定的机器环境下运行C应用程序</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>DB 8位 DW 16位 DD 32位</li>
 </ul>
 
       <div class="tags">
@@ -211,7 +203,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2020-12-28 18:25:17" itemprop="dateModified" datetime="2020-12-28T18:25:17+08:00">2020-12-28</time>
+    <time title="修改时间：2021-07-17 11:13:41" itemprop="dateModified" datetime="2021-07-17T11:13:41+08:00">2021-07-17</time>
   </span>
 </div>
 
@@ -247,7 +239,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" title="第一章 Hellow C语言">http://yoursite.com/2020/12/22/c/第一章 Hellow C语言/</a>
+    <a href="http://yoursite.com/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" title="寄存器指令总结">http://yoursite.com/2021/07/17/assembly/寄存器指令总结/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -266,22 +258,14 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <div class="item left">
       
 
-  <a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitht3xtj20zk0m8k5v.jpg" title="第一章 微型计算机系统">
+  <a href="/2021/07/17/assembly/%E6%8C%87%E4%BB%A4%E5%85%A8%E9%9B%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclffsa1cj20zk0m811l.jpg" title="指令全集">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 微机原理与接口技术-吴宁</span>
-  <h3>第一章 微型计算机系统</h3>
+  <h3>指令全集</h3>
   </a>
 
     </div>
     <div class="item right">
-      
-
-  <a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipexoj0moj20zk0m8kgu.jpg" title="第二章 8088&#x2F;8086微处理器">
-  <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> 微机原理与接口技术-吴宁</span>
-  <h3>第二章 8088/8086微处理器</h3>
-  </a>
-
     </div>
 </div>
 
@@ -298,11 +282,11 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-Hellow-C%E8%AF%AD%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">第一章 Hellow C语言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.2.</span> <span class="toc-text">第一个程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E6%89%A7%E8%A1%8C"><span class="toc-number">1.3.</span> <span class="toc-text">C语言的编译和执行</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">通用寄存器指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">控制寄存器指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text">段寄存器指令</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li class="active"><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" rel="bookmark" title="第一章 Hellow C语言">第一章 Hellow C语言</a></li><li><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="bookmark" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></li><li><a href="/2020/12/30/c/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84/" rel="bookmark" title="第三章 运算符和条件结构">第三章 运算符和条件结构</a></li><li><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" rel="bookmark" title="第四章 循环初探">第四章 循环初探</a></li><li><a href="/2021/01/05/c/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/" rel="bookmark" title="第五章 循环结构进阶">第五章 循环结构进阶</a></li><li><a href="/2021/01/05/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" rel="bookmark" title="第六章 数组及常用算法">第六章 数组及常用算法</a></li><li><a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" rel="bookmark" title="第七章 指针">第七章 指针</a></li><li><a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" rel="bookmark" title="第八章 函数初探">第八章 函数初探</a></li><li><a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" rel="bookmark" title="第九章 函数进阶">第九章 函数进阶</a></li><li><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="bookmark" title="第十章 字符串">第十章 字符串</a></li><li><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E7%BB%93%E6%9E%84%E4%BD%93/" rel="bookmark" title="第十一章 结构体">第十一章 结构体</a></li>
+          <li><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" rel="bookmark" title="第一章 微型计算机系统">第一章 微型计算机系统</a></li><li><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="bookmark" title="第二章 8088/8086微处理器">第二章 8088/8086微处理器</a></li><li><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" rel="bookmark" title="第三章 指令系统">第三章 指令系统</a></li><li><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" rel="bookmark" title="第四章 汇编语言程序">第四章 汇编语言程序</a></li><li><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" rel="bookmark" title="第五章 存储器系统">第五章 存储器系统</a></li><li><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" rel="bookmark" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></li><li><a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" rel="bookmark" title="第七章 常用数字接口电路">第七章 常用数字接口电路</a></li><li><a href="/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/" rel="bookmark" title="第八章 模拟量的输入输出">第八章 模拟量的输入输出</a></li><li><a href="/2021/07/17/assembly/%E6%8C%87%E4%BB%A4%E5%85%A8%E9%9B%86/" rel="bookmark" title="指令全集">指令全集</a></li><li class="active"><a href="/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="寄存器指令总结">寄存器指令总结</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -359,12 +343,10 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -386,20 +368,10 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
-</div>
-
-    <span><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="第一章 微型计算机系统">第一章 微型计算机系统</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
 </div>
 
-    <span><a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
+    <span><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
   </li>
 
       
@@ -409,47 +381,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
 </div>
 
-    <span><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" title="第三章 指令系统">第三章 指令系统</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" title="第八章 函数初探">第八章 函数初探</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" title="第四章 循环初探">第四章 循环初探</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" title="第一章 Hellow C语言">第一章 Hellow C语言</a></span>
+    <span><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" title="第五章 存储器系统">第五章 存储器系统</a></span>
   </li>
 
       
@@ -466,10 +398,30 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="第一章 微型计算机系统">第一章 微型计算机系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/first-blog/" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="第十章 字符串">第十章 字符串</a></span>
+    <span><a href="/2020/12/30/c/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84/" title="第三章 运算符和条件结构">第三章 运算符和条件结构</a></span>
   </li>
 
       
@@ -479,7 +431,37 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
 </div>
 
-    <span><a href="/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" title="寄存器指令总结">寄存器指令总结</a></span>
+    <span><a href="/2021/07/17/assembly/%E6%8C%87%E4%BB%A4%E5%85%A8%E9%9B%86/" title="指令全集">指令全集</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" title="第三章 指令系统">第三章 指令系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></span>
   </li>
 
   </ul>
@@ -510,7 +492,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2020/12/22/c/第一章 Hellow C语言/',
+    path: '2021/07/17/assembly/寄存器指令总结/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
