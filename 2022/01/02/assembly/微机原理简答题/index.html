@@ -1,0 +1,692 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C" />
+
+
+<link rel="canonical" href="http://yoursite.com/2022/01/02/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%AE%80%E7%AD%94%E9%A2%98/">
+
+
+
+  <title>
+微机原理简答题 - 微机原理与接口技术-吴宁 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">微机原理简答题
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-01-02 13:44:27">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-01-02T13:44:27+08:00">2022-01-02</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclxp31goj20zk0m8qv5.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipesx5fdwj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeubcbajj20zk0m8h1h.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/assembly/" itemprop="item" rel="index" title="分类于 微机原理与接口技术-吴宁"><span itemprop="name">微机原理与接口技术-吴宁</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/02/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%AE%80%E7%AD%94%E9%A2%98/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="微机原理简答题"><a href="#微机原理简答题" class="headerlink" title="微机原理简答题"></a>微机原理简答题</h1><h2 id="1-简述缓冲器、锁存器和触发器的作用"><a href="#1-简述缓冲器、锁存器和触发器的作用" class="headerlink" title="1.简述缓冲器、锁存器和触发器的作用"></a>1.简述缓冲器、锁存器和触发器的作用</h2><p>（1）缓冲器：又称缓冲寄存器。 ①完成速度的匹配，在高速工作的 CPU 与慢速工作的外设间起协调和缓冲作用，实现数据传送的同步。 （1 分） ②提供一个暂存的空间。它分输入缓冲器和输出缓冲器两种。输入缓冲器是将外设送来的数据暂时存放， 以便处理器将它取走；输出缓冲器是用来暂时存放处理器送往外设的数据。（1 分） ③提高驱动能力。（1 分） ④信号隔离的作用，消除负载对信号源的影响。（1 分） </p>
+<p>（2）锁存器（latch）：利用电平控制数据的传输。（1 分） ①缓存。（1 分） ②完成高速的控制器与慢速的外设的不同步问题。（1 分） ③解决驱动的问题。（1 分） </p>
+<p>（3）触发器：是最小的记忆单元,能记忆二进制数的一个数位，是寄存器、存储器基本元件。（2 分）</p>
+<h2 id="2-什么是中断？计算机使用中断有什么好处？"><a href="#2-什么是中断？计算机使用中断有什么好处？" class="headerlink" title="2.什么是中断？计算机使用中断有什么好处？"></a>2.什么是中断？计算机使用中断有什么好处？</h2><p>（1）中断是指在计算机执行期间，系统内发生任何非寻常的或非预期的急需处理事件，使得 CPU 暂 时中断当前正在执行的程序而转去执行相应的事件处理程序，待处理完毕后又返回原来被中断处继续执行 或调度新的进程执行的过程。（2 分）</p>
+<p> (2) 中断的优点： ① 解决快速 CPU 与慢速外设之间的矛盾，使 CPU 可以与外设同时工作，不交换信息时，处理机和外围设 备处于各自独立的并行工作状态。提高计算机系统效率。（2 分） ② 维持系统可靠正常工作。在程序运行过程中，如出现异常，向处理机发出中断请求，处理机立即采取 保护措施。（2 分） ③ 计算机实现对控制对象的实时处理，处理机随时响应外设请求并处理。（2 分） ④ 计算机可以对故障自行处理。处理机中设有各种故障检测和错误诊断的部件，一旦发现故障或错误， 立即发出中断请求，进行故障现场记录和隔离。（2 分）</p>
+<h2 id="3-什么叫端口？通常有哪几类端口？计算机对I-O端口编址时通常采用哪两种方法？在8088-8086系统中，用哪种方法对I-O端口进行编址？"><a href="#3-什么叫端口？通常有哪几类端口？计算机对I-O端口编址时通常采用哪两种方法？在8088-8086系统中，用哪种方法对I-O端口进行编址？" class="headerlink" title="3.什么叫端口？通常有哪几类端口？计算机对I/O端口编址时通常采用哪两种方法？在8088/8086系统中，用哪种方法对I/O端口进行编址？"></a>3.什么叫端口？通常有哪几类端口？计算机对I/O端口编址时通常采用哪两种方法？在8088/8086系统中，用哪种方法对I/O端口进行编址？</h2><p>（1）CPU 和外设进行数据传输时，各类信息在接口中进入不同的寄存器，一般称这些寄存器为端口。 （2 分） （2）端口通常有 3 类：数据端口、状态端口、控制端口。（3 分） </p>
+<p>（3）计算机对端口编址的两种方法为：计算机对内存和 I/O 端口统一编址；计算机对内存和 I/O 端口独 立编址。（4 分） </p>
+<p>（4）在 8086/8088 系统中用内存和 I/O 端口各自独立编址。（1 分）</p>
+<h2 id="4-“8086执行了一个总线周期”是指8086做了哪些可能的操作？基本总线周期如何组成？在一个典型的读存储器中，地址信号、ALE信号、RD信号、数据信号分别在何时产生？"><a href="#4-“8086执行了一个总线周期”是指8086做了哪些可能的操作？基本总线周期如何组成？在一个典型的读存储器中，地址信号、ALE信号、RD信号、数据信号分别在何时产生？" class="headerlink" title="4.“8086执行了一个总线周期”是指8086做了哪些可能的操作？基本总线周期如何组成？在一个典型的读存储器中，地址信号、ALE信号、RD信号、数据信号分别在何时产生？"></a>4.“8086执行了一个总线周期”是指8086做了哪些可能的操作？基本总线周期如何组成？在一个典型的读存储器中，地址信号、ALE信号、RD信号、数据信号分别在何时产生？</h2><p>（1）“8086 执行了一个总线周期是”指：①8086 可能从片外的存储器取指令；（2 分） ②8086 可能对片外的存储器或 I/O 接口进行了一次读/写数据的操作。（2 分） </p>
+<p>（2）基本总线周期由 T1 至 T4 四个时钟周期组成。（2 分） </p>
+<p>（3）在一个典型的读存储器总线周期中，地址信号在 T1 周期内产生，ALE 信号在 T1 周期内产生，RD信 号在 T2 周期内产生，数据信号一般在 T3 周期内产生，若存储器在 T3 内来不及提供数据，8086 会在总线 周期中的 T3 后插入等待状态 Tw，存储器将在某 Tw 中给出数据。（4 分）</p>
+<h2 id="5-什么是地址锁存器？8086-8088系统中为什么要用地址锁存器？锁存的是什么信息？举例说明。"><a href="#5-什么是地址锁存器？8086-8088系统中为什么要用地址锁存器？锁存的是什么信息？举例说明。" class="headerlink" title="5.什么是地址锁存器？8086/8088系统中为什么要用地址锁存器？锁存的是什么信息？举例说明。"></a>5.什么是地址锁存器？8086/8088系统中为什么要用地址锁存器？锁存的是什么信息？举例说明。</h2><p>（1）地址锁存器是一个暂存器，它根据控制信号的状态将总线上的地址代码暂存起来（2 分）。 </p>
+<p>（2）8088/8086 的数据和地址总线采用分时复用操作方式，即用同一总线既传送地址又传送数据（2 分）。 当微处理器与存储器交换信号时，首先由 CPU 发送存储器的地址，同时发允许锁存信号 ALE 给锁存器， 当锁存器接到该信号后将地址/数据总线上的地址锁存在锁存器中，随后才能传送数据信息。（4 分） </p>
+<p>（3）8088/8086 系统的地址锁存器采用 74LS373/273 或者 8282/8283，每片能够锁 8 位地址。（2分）</p>
+<h2 id="6-什么是中断类型码、中断向量、中断向量表？在基于8086-8088的微机系统中，中断类型码和中断向量之间有什么关系？"><a href="#6-什么是中断类型码、中断向量、中断向量表？在基于8086-8088的微机系统中，中断类型码和中断向量之间有什么关系？" class="headerlink" title="6.什么是中断类型码、中断向量、中断向量表？在基于8086/8088的微机系统中，中断类型码和中断向量之间有什么关系？"></a>6.什么是中断类型码、中断向量、中断向量表？在基于8086/8088的微机系统中，中断类型码和中断向量之间有什么关系？</h2><p>处理机可处理的每种中断的编号为中断类型码。（2 分） 中断向量是指中断处理程序的入口地址，由处理机自动寻址。（2 分） 中断向量表是存放所有类型中断处理程序入口地址的一个默认的内存区域。（2 分） 在 8086 系统中，中断类型码乘以 4 得到向量表的地址指针（2 分），从此处读出 4 字节内容即为中断向量 （2 分）。</p>
+<h2 id="7-8086CPU从功能上分为几部分？各部分由什么组成？各部分的功能是什么？"><a href="#7-8086CPU从功能上分为几部分？各部分由什么组成？各部分的功能是什么？" class="headerlink" title="7.8086CPU从功能上分为几部分？各部分由什么组成？各部分的功能是什么？"></a>7.8086CPU从功能上分为几部分？各部分由什么组成？各部分的功能是什么？</h2><p>（1）8086CPU 从功能上分为两大部分：一是执行部件(EU)，二是总线接口部件(BIU)。 </p>
+<p>（2）执行部件(EU)是由以下 4 部分组成： ①4 个通用寄存器：AX、BX、CX、DX。 ②4 个专用寄存器：基址指针寄存器 BP，堆栈指针寄存器 SP，源变址寄存器 SI，目的变址寄存器 DI。 ③标志寄存器 FR。. ④算术逻辑部件 ALU。 功能：负责执行所有的指令，向总线接口部件(BIU)提供指令执行的结果数据和地址，并对通用寄存器和标 志寄存器进行管理。 </p>
+<p>（3）总线接口部件(BIU)由以下部件组成: ①4 个段寄存器：代码段寄存器 CS，数据段寄存器 DS，附加段寄存器 ES，堆栈段寄存器 SS。 ②指令指针寄存器。 ③地址加法器。 ④指令队列。 </p>
+<p>功能：执行外部总线周期，负责CPU 与主存储器和外设之间的信息交换。 </p>
+<h2 id="8-8086如何响应一个外部的INTR中断请求？"><a href="#8-8086如何响应一个外部的INTR中断请求？" class="headerlink" title="8.8086如何响应一个外部的INTR中断请求？"></a>8.8086如何响应一个外部的INTR中断请求？</h2><p>在 INTR 中断请求响应条件满足的情况下，</p>
+<p> (1) 8086 在连续的两个总线周期中发出INTA中断请求响应信号；</p>
+<p> (2) 在第二个 INTA信号期间，中断源经数据总线向 8086 发出一字节的中断类型码，8086 收到中断类 型码后放入暂存器；</p>
+<p> (3) 8086 保护现场：标志寄存器入栈，清除 IF、TF 标志位，断点 CS、IP 值入栈；</p>
+<p> (4) 8086 将中断类型码乘以 4 后得到中断向量表的入口地址，从此地址开始的 4 个单元中读出中断服 务程序的入口地址（IP，CS）； </p>
+<p>（5）8086 从此地址取指令执行，使控制转向中断处理过程。</p>
+<h2 id="9-站在80X86汇编语言程序员角度，说明数据存储位置有哪些？访问这些数据可采用的寻址方式分别是什么？对这些位置的数据访问速度是否相同，为什么？"><a href="#9-站在80X86汇编语言程序员角度，说明数据存储位置有哪些？访问这些数据可采用的寻址方式分别是什么？对这些位置的数据访问速度是否相同，为什么？" class="headerlink" title="9.站在80X86汇编语言程序员角度，说明数据存储位置有哪些？访问这些数据可采用的寻址方式分别是什么？对这些位置的数据访问速度是否相同，为什么？"></a>9.站在80X86汇编语言程序员角度，说明数据存储位置有哪些？访问这些数据可采用的寻址方式分别是什么？对这些位置的数据访问速度是否相同，为什么？</h2><p>（1）数据存储位置有 CPU 内部的寄存器、内存、IO 端口（3 分） </p>
+<p>（2）采用的寻址方式分别是： ①寄存器操作数采用寄存器寻址（1 分） ②存储器操作数采用直接寻址，寄存器间接寻址，寄存器相对寻址，基址变址寻址，相对基址变址 寻址 （4 分） ③IO 端口的访问需专门的 IO 指令，有直接寻址和间接寻址。</p>
+<p> （3）速度不同，寄存器位于 CPU 内部，因此速度最快，存储器操作数速度较慢，因为需要通过系统总线 访问内存，端口的访问最慢，属于输入/输出操作（2 分）。</p>
+<h2 id="10-什么是总线，简述各类总线的应用场合？"><a href="#10-什么是总线，简述各类总线的应用场合？" class="headerlink" title="10.什么是总线，简述各类总线的应用场合？"></a>10.什么是总线，简述各类总线的应用场合？</h2><p>（1）总线（Bus）是计算机各种功能部件之间传送信息的公共通信线，它是 CPU、内存、输入、输 出设备传递信息的公用通道，主机的各个部件通过总线相连接，外部设备通过相应的接口电路再与总线 相连接，从而形成了计算机硬件系统。 </p>
+<p>（2）按总线功能或信号类型来分，有数据总线、地址总线和控制总线。 按总线的层次结构分来为，有： ① CPU 片内总线：微机系统中速度最快的总线，主要在 CPU 内部，连接 CPU 内部部件，提供系统原始 的控制和命令。 ②系统总线：在系统总线和 CPU 总线之间的一级总线，提供 CPU 和主板器件之间以及 CPU 到高速外设 之间的快速信息通道。 ③通信总线：也称为外部总线，是微机与微机、微机与外设之间进行通信的总线。</p>
+<h2 id="11-简述在最小工作模式下，8086如何响应一个总线请求？"><a href="#11-简述在最小工作模式下，8086如何响应一个总线请求？" class="headerlink" title="11.简述在最小工作模式下，8086如何响应一个总线请求？"></a>11.简述在最小工作模式下，8086如何响应一个总线请求？</h2><p>外部总线主控模块经 HOLD 引线向 8086 发出总线请求信号；8086 在每个时钟周期的上升沿采样 HOLD 引线；若发现 HOLD=1 则在当前总线周期结束时(T4 结束)发出总线请求的响应信号 HLDA；8086 使地址、数据及控制总线进入高阻状态，让出总线控制权，完成响应过程。</p>
+<h2 id="12-简述CPU与外设进行数据交换的方式，并说明每种方式的特点。"><a href="#12-简述CPU与外设进行数据交换的方式，并说明每种方式的特点。" class="headerlink" title="12.简述CPU与外设进行数据交换的方式，并说明每种方式的特点。"></a>12.简述CPU与外设进行数据交换的方式，并说明每种方式的特点。</h2><p>CPU 与外设进行数据交换的方式有：无条件传送方式、查询传送方式、中断控制方式、直接存储器 存取控制方式（DMA）和通道方式。 </p>
+<p>（1）程序控制方式: 特点是依靠程序的控制来实现主机和外设的数据传送，可分为无条件传送方式、查询 方式和中断方式。三种方式都是以 CPU 为中心的控制方式，都需要 CPU 执行程序来进行 I/O 数据传送。</p>
+<p> ①无条件传送方式：程序简单，所需的硬件和软件都比较少、传送速度快，但必须在确信外设已准备好的 情况下才能使用。</p>
+<p> ②查询传送方式：CPU 通过程序不断查询相应设备的状态，状态不符合要求，则 CPU 需要等待；只有当 状态信号符合要求时，CPU 才能进行相应的操作。硬件线路简单，程序易于实现；缺点是 CPU 利用率低 下，实时性差。 </p>
+<p>③中断控制方式: 外设在准备就绪的条件下通过请求引脚信号，主动向处理器提出交换数据的请求。CPU 与外设、外设与外设之间能并行工作。一般适合于传送数据量少的中低速外部设备，尤其适合实时控制中 的紧急事件处理，对于高速外部设备的大批量数据传送不适合。</p>
+<p>（2）直接存储器存取控制方式（DMA）：CPU 不参加数据传送，而是由 DMA 控制器来实现内存与外设， 外设与外设之间的直接传递。此种方式适用于需要大量数据高速传送的场合。CPU 与外设可以并行工作， 提高了 CPU 的效率。 </p>
+<p>（3）通道方式：可以实现对外围设备的统一管理和外围设备与内存之间的数据传送。</p>
+<h2 id="13-一般接口电路中应具有哪些电路器件？"><a href="#13-一般接口电路中应具有哪些电路器件？" class="headerlink" title="13.一般接口电路中应具有哪些电路器件？"></a>13.一般接口电路中应具有哪些电路器件？</h2><p>（1）输入/输出数据锁存器和缓冲器，用于解决 CPU 与外设之间速度不匹配的矛盾，以及起隔离和 缓冲的作用。</p>
+<p>（2）控制命令和状态寄存器，以存放 CPU 对外设的控制命令以及外设的状态信息。</p>
+<p>（3）地 址译码器，用于选择接口电路中的不同端口（寄存器）。</p>
+<p>（4）读写控制逻辑。</p>
+<p>（5）中断控制逻辑。</p>
+<h2 id="14-比较串行通信与并行通信的优缺点。"><a href="#14-比较串行通信与并行通信的优缺点。" class="headerlink" title="14.比较串行通信与并行通信的优缺点。"></a>14.比较串行通信与并行通信的优缺点。</h2><p>（1）从传送距离上看：并行通信适宜于近距离的数据传送，通常小于 30 米；而串行通信适宜于远 距离的数据传送可以从几米到数千公里；</p>
+<p>（2）从传送速度上看：并行通信传送数据的速度比串行通信快得 多；</p>
+<p>（3）从传送设备和费用上：在远距离传送中通信线路的费用占很大的比重，因而串行通信的费用由于 传送线少，比并行通信的费用低得多。</p>
+<h2 id="15-什么叫总线周期？8086CPU的一个总线周期包括多少时钟周期，什么情况下要插入Tw等待周期？插入多少个Tw取决于什么因素？"><a href="#15-什么叫总线周期？8086CPU的一个总线周期包括多少时钟周期，什么情况下要插入Tw等待周期？插入多少个Tw取决于什么因素？" class="headerlink" title="15.什么叫总线周期？8086CPU的一个总线周期包括多少时钟周期，什么情况下要插入Tw等待周期？插入多少个Tw取决于什么因素？"></a>15.什么叫总线周期？8086CPU的一个总线周期包括多少时钟周期，什么情况下要插入Tw等待周期？插入多少个Tw取决于什么因素？</h2><p>8086/8088CPU 把 BIU 完成一次访问主存储器或外设操作所需的时间称为一个总线周期。一个总线 周期最少包含 4 个时钟周期（T1~T4）。 当访问存储器（读/写）或外设时，存储器或外设不能及时地配合 CPU 传送数据，T3 之后插入一个或 多个等待等待周期 Tw。 当存储器或外设准备好数据，通过“READY”发“准备好”信号，CPU 接收到这个信号后，会自动完成 Tw 状态进人 T4 状态，因此插入多少个 Tw 取决于“READY”信号，即取决于主存或外设的速度。</p>
+<h2 id="16-在8086-8088系统中，什么是最大模式？什么是最小模式？用什么方法将8086-8088置为最大模式或最小模式？"><a href="#16-在8086-8088系统中，什么是最大模式？什么是最小模式？用什么方法将8086-8088置为最大模式或最小模式？" class="headerlink" title="16.在8086/8088系统中，什么是最大模式？什么是最小模式？用什么方法将8086/8088置为最大模式或最小模式？"></a>16.在8086/8088系统中，什么是最大模式？什么是最小模式？用什么方法将8086/8088置为最大模式或最小模式？</h2><p>（1）最小模式：在系统中只有 8086/8088 一个微处理器，所有的总线控制信号都直接由 8086/8088 产生，因此，系统中总线控制电路被减到最少。 </p>
+<p>（2）最大模式：在系统中包含两个或多个微处理器，其中一个主处理器就是 8088/8086，其它处理器为协 处理器，用于协助主处理器工作。它用在中等规模或大型的 8088/8086 系统中。一般情况下和 8088/8086 配合的协处理器有两个：一个是数值运算协处理器 8087，一个是输入/输出协处理器 8089。 </p>
+<p>（3）将 8088/8086 CPU 的第 33 脚接地，系统处于最大模式，当第 33 脚接+5V 时，系统为最小模式。</p>
+<h2 id="17-8259A的主要功能是什么？三个寄存器IRR、IMR和ISR各有什么作用？"><a href="#17-8259A的主要功能是什么？三个寄存器IRR、IMR和ISR各有什么作用？" class="headerlink" title="17.8259A的主要功能是什么？三个寄存器IRR、IMR和ISR各有什么作用？"></a>17.8259A的主要功能是什么？三个寄存器IRR、IMR和ISR各有什么作用？</h2><p>（1）8259 的功能： ①可以管理 8 级中断，通过级联的方式，用 9 片 8259 管理 64 级中断。 ②判断一个中断请求输入信号 IR 是否有效，是否符合信号的电器约定，是否被屏蔽。 ③有中断优先逻辑，并可对任一中断单独屏蔽或允许。8259A 的 8 个中断请求输入端 IR0~IR7，哪一个能 使 INT 输出有效要由编程选定的优先级方式来判定。 ④CPU 响应中断后，进入中断响应周期INTA ，8259A 能将获得优先级的 IRi所对应的中断类型号送上数据 总线提供给 CPU。 ⑤ 可通过编程选择工作方式。</p>
+<p>（2）三个寄存器 IRR、IMR 和 ISR 的作用： ①中断请求寄存器 IRR：保存 8 条外界中断请求信号 IR0～IR7 的请求状态。Di 位为 1 表示 IRi 引脚有中 断请求；为 0 表示该引脚无请求。 ②中断屏蔽寄存器 IMR：保存对中断请求信号 IR 的屏蔽状态。Di 位为 1 表示 IRi 中断被屏蔽（禁止）；为 0 表示允许该中断。 ③中断服务寄存器 ISR：保存正在被 8259A 服务着的中断状态。Di 位为 1 表示 IRi 中断正在服务中；为 0 表示没有被服务。</p>
+<h2 id="18-简述半导体存储器的主要技术指标。"><a href="#18-简述半导体存储器的主要技术指标。" class="headerlink" title="18.简述半导体存储器的主要技术指标。"></a>18.简述半导体存储器的主要技术指标。</h2><p>（1）存储容量。存储器可以存储的二进制信息总量称为存储容量。存储容量有两种表示方法：① 位表示方法。以存储器中的存储地址总数与存储字位数的乘积表示。如 1K×4 位，表示该芯片有 1K 个单元（1K＝1024），每个存储单元的长度为 4 个二进制位。②字节表示方法。以存储器中的单元总数表示（一 个存储单元由 8 个二进制位组成，称为一个字节，用 B 表示）。如 128B，表示该芯片有 128 个单元。</p>
+<p> （2）存取速度。存储器的存储速度可以用两个时间参数表示，一个是存取时间：从启动一次存储器操作 到完成该操作所经历的时间；另一个是存储周期：启动两次独立的存储器操作之间所需的最小时间间隔。 </p>
+<p>（3）可靠性。存储器的可靠性用平均故障间隔时间 MTBF 来衡量。MTBF 越长，可靠性越高。</p>
+<p> （4）存储带宽。单位时间传输的信息量。</p>
+<h2 id="19-在8086中，逻辑地址、偏移地址、物理地址分别指的是什么？具体说明。"><a href="#19-在8086中，逻辑地址、偏移地址、物理地址分别指的是什么？具体说明。" class="headerlink" title="19. 在8086中，逻辑地址、偏移地址、物理地址分别指的是什么？具体说明。"></a>19. 在8086中，逻辑地址、偏移地址、物理地址分别指的是什么？具体说明。</h2><p>逻辑地址是在程序中对存储器地址的一种表示方法，由段地址和段内偏移地址两部分组成，如 1234H： 0088H；偏移地址是指段内某个存储单元相对该段首地址的差值，是一个 16 位的二进制代码；物理地址是 8086 芯片引线送出的 20 位地址码，用来指出一个特定的存储单元。</p>
+<h2 id="20-外设向CPU申请中断，但CPU不响应，其原因可能有哪些？"><a href="#20-外设向CPU申请中断，但CPU不响应，其原因可能有哪些？" class="headerlink" title="20.外设向CPU申请中断，但CPU不响应，其原因可能有哪些？"></a>20.外设向CPU申请中断，但CPU不响应，其原因可能有哪些？</h2><p>1）该中断请求持续时间太短；</p>
+<p>2）CPU 未能在当前指令周期的最后一个时钟周期采样到中断请求信 号；</p>
+<p>3）CPU 处于关中断状态；</p>
+<p>4）该中断级被屏蔽。</p>
+<h2 id="21-简述RAM种类，并说明各有什么特点？"><a href="#21-简述RAM种类，并说明各有什么特点？" class="headerlink" title="21.简述RAM种类，并说明各有什么特点？"></a>21.简述RAM种类，并说明各有什么特点？</h2><p>RAM 有两种：SRAM（静态 RAM）和 DRAM（动态 RAM）。 </p>
+<p>（1）SRAM，它采用触发器电路构成一个二进制位信息的存储单元，这种触发器一般由 6 个晶体管组成。 只要保持通电，里面储存的数据就常久保持。SRAM 集成度较低，但是存取速度快。一般用小容量的 SRAM 作为更高速 CPU 和较低速主存之间的高速缓冲存储器（cache）。 </p>
+<p>（2） DRAM，只需一个电容和一个晶体管保存一位信息，电容极板上电荷会漏电，每隔一段时间，要刷 新充电一次，否则内部的数据就会消失。DRAM 集成度高，成本较低，一般做大容量的主存。</p>
+<h2 id="22-简述8086CPU对外中断的响应条件和处理过程。"><a href="#22-简述8086CPU对外中断的响应条件和处理过程。" class="headerlink" title="22.简述8086CPU对外中断的响应条件和处理过程。"></a>22.简述8086CPU对外中断的响应条件和处理过程。</h2><p>（1）不可屏蔽中断：一旦发生就向 CPU 发中断请求，CPU 应在当前正在执行的指令结束后响应这一 中断请求，进行中断处理。 </p>
+<p>（2）可屏蔽中断：一旦发生就向 CPU 发中断请求，CPU 根据中断的优先权来决定是否响应，标志位 IF=1 为开中断，CPU 响应。IF=0 为关中断，有可屏蔽中断请求也不响应。一旦 CPU 响应某一中断请求，发中 断响应信号INTA，关中断，保护断点，寻找中断源，根据中断服务程序的入口地址，转向中断服务程序， 保护现场，执行中断服务程序，恢复现场，开中断，返回断点。CPU 响应可屏蔽中断时，必须是在执行完 当前执行的总线周期的最后一个 T 状态。</p>
+<h2 id="23-同步传输方式和异步传输方式的特点各是什么？"><a href="#23-同步传输方式和异步传输方式的特点各是什么？" class="headerlink" title="23.同步传输方式和异步传输方式的特点各是什么？"></a>23.同步传输方式和异步传输方式的特点各是什么？</h2><p>（1）同步传输方式中发送方和接收方的时钟是统一的、字符与字符间的传输是同步无间隔的。同步传输方式是以数据块为传输单位。每个数据块的头部和尾部都要附加一个特殊的字符或比特序列，标记一个数据块的开始和结束，一般还要附加一个校验序列，以便对数据块进行差错控制。同步传输是指数据块与数据块之间的时间间隔是固定的，必须严格地规定它们的时间关系。 </p>
+<p>（2）异步传输方式并不要求发送方和接收方的时钟完全一样，字符与字符间的传输是异步的。在异步传 输方式中，每传送一个字符（5~8 位）都要在每个字符码前加 1 个起始位，在字符代码和效验码后面加 1 或 2 个停止位，表示字符结束。接收方根据起始位和停止位来判断一个新字符的开始和结束，从而起到通 信双方的同步作用。</p>
+<h2 id="24-什么是PCI总线？什么是USB？"><a href="#24-什么是PCI总线？什么是USB？" class="headerlink" title="24.什么是PCI总线？什么是USB？"></a>24.什么是PCI总线？什么是USB？</h2><p>（1） PCI （Peripheral Component Interconnect）总线是微处理机机箱内的底板各个插件板的一种数据 传输标准。32/64 位标准总线。PCI 总线是同步且独立于微处理器的，具有即插即用的特性，允许任何微 处理器通过桥接口连接到 PCI 总线上。 </p>
+<p>（2）USB（Universal Serial Bus，通用串行总线）是系统之间、系统与外部设备之间的信息通道。成为目 前电脑中的标准扩展接口。USB 接口支持设备的即插即用的特性。</p>
+<h2 id="25-指出下列指令的错误"><a href="#25-指出下列指令的错误" class="headerlink" title="25.指出下列指令的错误"></a>25.指出下列指令的错误</h2><p>（1）MOV BYTE PTR[BX]，1000</p>
+<p>（2）MOV AX，OFFSET [SI]</p>
+<p>（3）MOV AX,[SI] [DI]</p>
+<p>（4）MOV CS,AX</p>
+<p>（5）MOV DS,2000H</p>
+<p>答：</p>
+<p> (1) 1000 超出一个字节的表数范围</p>
+<p> (2) OFFSET 只用于简单变量，应去掉</p>
+<p> (3) 基址变址方式不能有 SI 和 DI 的组合</p>
+<p> (4) CS 不能作为目的寄存器</p>
+<p> (5) 立即数不能直接送入数据段寄存器</p>
+<h2 id="26-简述8086内部中断的种类及特点。"><a href="#26-简述8086内部中断的种类及特点。" class="headerlink" title="26.简述8086内部中断的种类及特点。"></a>26.简述8086内部中断的种类及特点。</h2><p>（1）内部中断又称软件中断，是通过软件调用的不可屏蔽中断，包括溢出中断、除法出错中断、单 步中断、INT n 指令中断及单字节 INT3 指令中断。</p>
+<p>（2）中断类型码或者包含在指令中，或者是预先规定的； </p>
+<p>（3）不执行 INTA 总线周期；</p>
+<p>（4）除单步中断外，任何内部中断都无法禁止；</p>
+<p>（5）除单步中断外，任何内 部中断的优先级都比任何外部中断的高。</p>
+<h2 id="27-8259A对中断优先权的管理方式有哪几种？各是什么含义？"><a href="#27-8259A对中断优先权的管理方式有哪几种？各是什么含义？" class="headerlink" title="27.8259A对中断优先权的管理方式有哪几种？各是什么含义？"></a>27.8259A对中断优先权的管理方式有哪几种？各是什么含义？</h2><p>8259A 对中断优先权的管理方式有三种： </p>
+<p>（1）完全嵌套方式：ISR 寄存器中某位置“1”，表示 CPU 正在处理这一级中断请求，8259A 允许比它级 别高的中断请求进入，禁止与它同级或低级中断请求进入。中断请求有固定的中断级别，IR0 最低，IR7 最高。 </p>
+<p>（2）自动循环方式：IR7~IR0 优先级别不固定。每当任何一级中断被处理完，它的优先级别就被改变为最 低，而将最高级赋给比它低一级的中断请求。 </p>
+<p>（3）中断屏蔽方式：由 CPU 在任何时候都可安排一条清除中断指令。 ①普通屏蔽方式：将 IMR 中某一位或某几位置“1”，可将相应级的中断请求屏蔽掉。 ②特殊屏蔽方式：当 CPU 正在处理某级中断时，要求仅对本级中断进行屏蔽，而允许其他优先比它高或 低的中断进入系统。</p>
+<h2 id="28-在基于8086的微型计算机系统中，存储器是如何组织的？是如何与处理器总线连接的？BHE信号起什么作用？"><a href="#28-在基于8086的微型计算机系统中，存储器是如何组织的？是如何与处理器总线连接的？BHE信号起什么作用？" class="headerlink" title="28.在基于8086的微型计算机系统中，存储器是如何组织的？是如何与处理器总线连接的？BHE信号起什么作用？"></a>28.在基于8086的微型计算机系统中，存储器是如何组织的？是如何与处理器总线连接的？BHE信号起什么作用？</h2><p>8086 为 16 位处理器，可访问 1M 字节的存储器空间；1M 字节的存储器分为两个 512K 字节的存储 体，分别为偶体和奇体；偶体的数据线连接 D7<del>D0，“体选”信号接地址线 A0；奇体的数据线连接 D15</del>D8， “体选”信号接BHE信号；BHE 信号有效时允许访问奇体中的高字节存储单元，实现 8086 的低字节访问、高 字节访问及字访问。</p>
+<h2 id="29-8255A的方式0一般使用在什么场合？在方式0时，如果要使用查询方式进行输入输出，应该如何处理？"><a href="#29-8255A的方式0一般使用在什么场合？在方式0时，如果要使用查询方式进行输入输出，应该如何处理？" class="headerlink" title="29.8255A的方式0一般使用在什么场合？在方式0时，如果要使用查询方式进行输入输出，应该如何处理？"></a>29.8255A的方式0一般使用在什么场合？在方式0时，如果要使用查询方式进行输入输出，应该如何处理？</h2><p>方式 0 的使用场合有两种，一种是同步传送，另一种是查询式传送。在方式 0 情况下，没有规定固 定的应答信号，所以，这时，将端口 A 和端口 B 作为数据端口，把端口 C 的 4 个数位（高 4 位或者是低 4 位均可）规定为输出口，用来输出一些控制信号，而把端口 C 的另外 4 个数位规定为输入口，用来读入外 设的状态，即利用端口 C 来配合端口 A 和端口 B 的输入/输出操作。使用查询方式进行输入输出时，可利 用端口 C 的某一位作查询，只有当该位为 1 时，方可以将数据送到输入或输出端口去。</p>
+<h2 id="30-简述ROM的类型及各类型有什么特点？"><a href="#30-简述ROM的类型及各类型有什么特点？" class="headerlink" title="30.简述ROM的类型及各类型有什么特点？"></a>30.简述ROM的类型及各类型有什么特点？</h2><p>ROM 有 PROM、EPROM 和 EEPROM。（2 分）</p>
+<p>①ROM 为只读存储器，制造时数据就已经固化好，使用中不可以改变（2 分）。</p>
+<p>②PROM 为一次可编程只读存储器，出厂时内容为空白，只可以写入一次数据（2 分）。 </p>
+<p>③EPROM 为可擦除只读存储器，出厂时内容为空白，写入数据后可以通过紫外线照射擦除，可以多次写 入和擦除（2 分）。 </p>
+<p>④EEPROM 为电可改写只读存储器，出厂时内容为空白，写入数据后可以使用电信号擦除，可以多次写入 和擦除（2 分）。</p>
+<h2 id="31-已知8086系统中，内存某存储区域如图所示，设其段地址为2600H"><a href="#31-已知8086系统中，内存某存储区域如图所示，设其段地址为2600H" class="headerlink" title="31.已知8086系统中，内存某存储区域如图所示，设其段地址为2600H"></a>31.已知8086系统中，内存某存储区域如图所示，设其段地址为2600H</h2><table>
+<thead>
+<tr>
+<th align="center">偏移地址</th>
+<th align="center">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1810H</td>
+<td align="center">34H</td>
+</tr>
+<tr>
+<td align="center">1811H</td>
+<td align="center">35H</td>
+</tr>
+<tr>
+<td align="center">1812H</td>
+<td align="center">36H</td>
+</tr>
+<tr>
+<td align="center">1813H</td>
+<td align="center">37H</td>
+</tr>
+<tr>
+<td align="center">1814H</td>
+<td align="center">38H</td>
+</tr>
+<tr>
+<td align="center">1815H</td>
+<td align="center">39H</td>
+</tr>
+</tbody></table>
+<p>（1）字数据3837H的逻辑地址是多少？物理地址是多少？</p>
+<p>​            <strong>逻辑地址为 2600H:1813H，物理地址为 27813H</strong></p>
+<p>（2）地址为1810H的字节数据是多少？地址为1811H的双字数据是多少？</p>
+<p>​            <strong>字节数据为 34H，双字数据为 38373635H。</strong></p>
+<p>（3）指令MOV AX，[1812H]和LEA BX，[1812H]，执行后AX=（<strong>3736H</strong>），BX=（<strong>1812H</strong>）。</p>
+<h2 id="32-简述微处理器，微型计算机和和微型计算机系统的概念，说明三者之间有什么不同？"><a href="#32-简述微处理器，微型计算机和和微型计算机系统的概念，说明三者之间有什么不同？" class="headerlink" title="32.简述微处理器，微型计算机和和微型计算机系统的概念，说明三者之间有什么不同？"></a>32.简述微处理器，微型计算机和和微型计算机系统的概念，说明三者之间有什么不同？</h2><p>（1）微处理器是由一片或少数几片大规模集成电路组成的中央处理器。由控制器、运算器和寄存器 组成。能完成取指令、执行指令，以及与外界主存储器和逻辑部件交换信息，是微型计算机的运算控制部 分。微处理器是微型计算机的核心。 </p>
+<p>（2）微型计算机是由微处理器、主存储器、输入/输出接口电路和系统总线构成的裸机系统。 </p>
+<p>（3）微型计算机系统是以微型计算机为主机，配上系统软件和外设之后而构成的计算机系统。 三者之间是有很大不同的，微处理器是微型计算机的一个组成部分，而微型计算机又是微型计算机系 统的一个组成部分。</p>
+<h2 id="33-简述微型计算机系统的工作过程"><a href="#33-简述微型计算机系统的工作过程" class="headerlink" title="33.简述微型计算机系统的工作过程"></a>33.简述微型计算机系统的工作过程</h2><p>微型计算机的基本工作过程是执行程序的过程。</p>
+<p>① 首先将程序和数据通过输入设备送入主存储器。</p>
+<p>② CPU 自动从程序存放的第 1 个存储单元起，逐步取出程序指令送到控制器去识别，分析译码指令的功 能。 </p>
+<p>③ 控制器根据指令的含义发出相应的命令（如加法、减法），将存储单元中存放的操作数据取出送往运算 器进行运算，再把运算结果送回存储器指定的单元中。</p>
+<p>④ 当运算任务完成后，根据指令将结果送到输出设备输出。</p>
+<p>⑤ 总之，微型计算机的基本工作是取值令、分析指令，并根据指令规定的操作类型和操作对象，执行指 令。如此重复，周而复始，直至执行完程序的所有指令，从而实现程序的基本功能。</p>
+<h2 id="34-什么是中断嵌套-使用中断嵌套有什么好处？对于可屏蔽中断，实现中断嵌套的条件是什么？"><a href="#34-什么是中断嵌套-使用中断嵌套有什么好处？对于可屏蔽中断，实现中断嵌套的条件是什么？" class="headerlink" title="34.什么是中断嵌套?使用中断嵌套有什么好处？对于可屏蔽中断，实现中断嵌套的条件是什么？"></a>34.什么是中断嵌套?使用中断嵌套有什么好处？对于可屏蔽中断，实现中断嵌套的条件是什么？</h2><p>（1）微处理器在处理低级别中断的过程中，如果出现了级别高的中断请求，微处理器停止执行低级 中断的处理程序而去优先处理高级中断，等高级中断处理完毕后，再接着执行低级的未处理完的程序，这 种中断处理方式成为中断嵌套。 </p>
+<p>（2）使用中断嵌套的好处是能够提高中断响应的实时性。对于某些对实时性要求较高的操作,必须赋 予较高的优先级和采取中断嵌套的方式，才能保证系统能够及时响应该中断请求。 </p>
+<p>（3）对于可屏蔽中断，实现中断嵌套的条件有:</p>
+<p>​            ①微处理器处于中断允许状态(IF=1) </p>
+<p>​            ②中断请求的优 先级高于正在执行的中断处理程序的优先级。</p>
+<p>​            ③ 中断请求未被 8259 屏蔽。(4)没有不可屏蔽中断请求和总 线请求。</p>
+<h2 id="35-BHE-信号的作用是什么？试说明当起始地址为奇地址、偶地址、一次读写一个字节和一个字时，BHE-和A0的状态。"><a href="#35-BHE-信号的作用是什么？试说明当起始地址为奇地址、偶地址、一次读写一个字节和一个字时，BHE-和A0的状态。" class="headerlink" title="35.BHE#信号的作用是什么？试说明当起始地址为奇地址、偶地址、一次读写一个字节和一个字时，BHE#和A0的状态。"></a>35.BHE#信号的作用是什么？试说明当起始地址为奇地址、偶地址、一次读写一个字节和一个字时，BHE#和A0的状态。</h2><p>BHE信号的作用是高 8 位数据总线允许。若BHE为 0 则表示对一个字进行操作，即高 8 位 D15<del>D8有 效，若BHE为 1 则表示对一个字节进行操作，即高 8 位无效只用低 8 位 D7</del>D0。当起始地址为奇地址并且 一次读写一个字节，BHE为 0，A0 为 1；当起始地址为偶地址并且一次读写一个字节，BHE为 1，A0 为 0； 当起始地址为奇地址并且一次读写一个字时，BHE为 0，A0为 1；当起始地址为偶地址时，一次读写一个字 时，BHE为 0，A0状态为 0。</p>
+<h2 id="36-简述8259A的基本组成部分。"><a href="#36-简述8259A的基本组成部分。" class="headerlink" title="36.简述8259A的基本组成部分。"></a>36.简述8259A的基本组成部分。</h2><p>8259A 由 8 个部分组成。 </p>
+<p>①8 位中断请求寄存器 IRR，用来存放从外设来的中断请求信号 IR0 ~ IR7； </p>
+<p>②8 位中断屏蔽寄存器 IMR，用来存放 CPU 送来的屏蔽信号； </p>
+<p>③8 位中断服务寄存器 ISR，用来记忆正在处理中的中断级别； </p>
+<p>④优先级判别器 PR，也称优先级分析器； </p>
+<p>⑤控制逻辑； </p>
+<p>⑥数据总线缓冲器； </p>
+<p>⑦读/写逻辑； </p>
+<p>⑧级联缓冲器/比较器。 其中，IRR、IMR、ISR、PR 和控制逻辑五个部分是实现中断优先管理的核心部件。</p>
+<h2 id="37-比较8255A三种工作方式的应用场合有何区别？"><a href="#37-比较8255A三种工作方式的应用场合有何区别？" class="headerlink" title="37.比较8255A三种工作方式的应用场合有何区别？"></a>37.比较8255A三种工作方式的应用场合有何区别？</h2><p>方式 0 适用于同步传送和查询传送方式，方式 1 适用于外设在能提供选通信号或数据接收信号的场 合，且采用中断传送方式比较方便；方式 2 适用于一个并行外设既可以作为输入设备，又可以作为输出设 备，并且输入和输出不会同时进行的场合。</p>
+<h2 id="38-简述8086和8088有什么区别"><a href="#38-简述8086和8088有什么区别" class="headerlink" title="38.简述8086和8088有什么区别"></a>38.简述8086和8088有什么区别</h2><p>① 由于 8088 只能传输 8 位数据，所以 8088 只有 8 个地址/数据复用引脚 AD0<del>AD7；而 8086 是按 16 位传输数据的，所以有 16 个地址/数据复用引脚 AD0</del>AD15； </p>
+<p>②在最小模式时，8088 和 8086 的第 28 引脚（M/IO）的控制信号高低电平相反。8088 是M/IO，8086 是 M/IO。 </p>
+<p>③ 8086 的第 34 腿为BHE /S7，BHE用来区分是传送字节、还是字，8088 的第 34 腿为 SS0，用来指出状态信 息，不能复用。 </p>
+<p>④ 8088 和 8086 的内部指令队列长度不同，8088 的为 4 字节长，而 8086 的为 6 字节长。</p>
+<h2 id="39-已知：DS-2000H，BX-0300H，SI-0002H，（20300H）-12H，（20301H）-34H，（20302H）-56H，（20303H）-78H，（21400H）-2AH，（21401H）-4CH，（21402H）-B7H，（21403H）-65H，试说明下列各条指令执行完后AX寄存器的内容。"><a href="#39-已知：DS-2000H，BX-0300H，SI-0002H，（20300H）-12H，（20301H）-34H，（20302H）-56H，（20303H）-78H，（21400H）-2AH，（21401H）-4CH，（21402H）-B7H，（21403H）-65H，试说明下列各条指令执行完后AX寄存器的内容。" class="headerlink" title="39.已知：DS=2000H，BX=0300H，SI=0002H，（20300H）=12H，（20301H）=34H，（20302H）=56H，（20303H）=78H，（21400H）=2AH，（21401H）=4CH，（21402H）=B7H，（21403H）=65H，试说明下列各条指令执行完后AX寄存器的内容。"></a>39.已知：DS=2000H，BX=0300H，SI=0002H，（20300H）=12H，（20301H）=34H，（20302H）=56H，（20303H）=78H，（21400H）=2AH，（21401H）=4CH，（21402H）=B7H，（21403H）=65H，试说明下列各条指令执行完后AX寄存器的内容。</h2><p>（1）MOV AX，1400H        <strong>; AX=1400H</strong> </p>
+<p>（2）MOV AX，BX        <strong>; AX=0300H</strong> </p>
+<p>（3）MOV AX，[1400H]        <strong>; AX=4C2AH</strong> </p>
+<p>（4）MOV AX，[BX]        <strong>;AX=3412H</strong> </p>
+<p>（5）MOV AH，[BX+SI]        <strong>;AH=56H</strong></p>
+<h2 id="40-在计算机上运行汇编语言程序的步骤是什么？"><a href="#40-在计算机上运行汇编语言程序的步骤是什么？" class="headerlink" title="40.在计算机上运行汇编语言程序的步骤是什么？"></a>40.在计算机上运行汇编语言程序的步骤是什么？</h2><p>（1）用编辑文件如 EDIT 编辑源文件，形成.ASM 文件；</p>
+<p>（2）用汇编程序（MASM）把.ASM 源文件 汇编成目标文件.OBJ；</p>
+<p>（3）用连接程序（LINK）把.OBJ 文件转换成.EXE 可执行文件；</p>
+<p>（4）运行可执行文 件.EXE；</p>
+<p>（5）若有错，使用 DEBUG 进行调试。</p>
+<h2 id="41-CPU响应中断的条件是什么？简述中断处理过程。"><a href="#41-CPU响应中断的条件是什么？简述中断处理过程。" class="headerlink" title="41.CPU响应中断的条件是什么？简述中断处理过程。"></a>41.CPU响应中断的条件是什么？简述中断处理过程。</h2><p>CPU 响应中断要有三个条件： 外设提出中断申请；本中断位未被屏蔽；中断允许。 可屏蔽中断处理的过程一般分成如下几步： 中断请求；中断响应；保护现场；转入执行中断服务子程序；恢复现场和中断返回。 CPU 在响应外部中断，并转入相应中断服务子程序的过程中，要依次做以下工作： </p>
+<p>⑴从数据总线上读取中断类型号，将其存入内部暂存器。 </p>
+<p>⑵将标志寄存器 PSW 的值入钱。 </p>
+<p>⑶将 PSW 中的中断允许标志 IF 和单步标志 TF 清 0，以屏蔽外部其它中断请求，避 免 CPU 以单步方式执行中断处理子程字。 </p>
+<p>⑷保护断点，将当前指令下面一条指令的段地址 CS 和指令指针 IP 的值入栈，中断 处理完毕后，能正确返回到主程序继续执行。 </p>
+<p>⑸根据中断类型号到中断向量表中找到中断向量，转入相应中断服务子程序。 </p>
+<p>⑹中断处理程序结束以后，从堆栈中依次弹出 IP、CS 和 PSW，然后返回主程序断点 处，继续执行原来的程序。</p>
+<h2 id="42-数据段中定义了字数组变量WBUF，请分别用“寄存器间接寻址”与“寄存器相对寻址”将第3个字和第6个字分别送入DX及AX中。写出两种寻址的汇编程序段。"><a href="#42-数据段中定义了字数组变量WBUF，请分别用“寄存器间接寻址”与“寄存器相对寻址”将第3个字和第6个字分别送入DX及AX中。写出两种寻址的汇编程序段。" class="headerlink" title="42.数据段中定义了字数组变量WBUF，请分别用“寄存器间接寻址”与“寄存器相对寻址”将第3个字和第6个字分别送入DX及AX中。写出两种寻址的汇编程序段。"></a>42.数据段中定义了字数组变量WBUF，请分别用“寄存器间接寻址”与“寄存器相对寻址”将第3个字和第6个字分别送入DX及AX中。写出两种寻址的汇编程序段。</h2><p>寄存器间接寻址： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LEA BX，WBUF </span><br><span class="line">ADD BX，3×2 ;从第 0 字开始的第 3 个字，偏移 6 个字节单元 </span><br><span class="line">MOV DX，[BX]</span><br><span class="line">ADD BX, 3×2 ;从第 3 字开始偏移 6 个字节单元，找到第 6 个字 </span><br><span class="line">MOV AX, [BX] </span><br></pre></td></tr></table></figure>
+<p>寄存器相对寻址： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MOV BX, 3×2 </span><br><span class="line">MOV DX, WBUF[BX] </span><br><span class="line">MOV BX, 6×2 </span><br><span class="line">MOV AX, WBUF[BX]</span><br></pre></td></tr></table></figure>
+<h2 id="43-冯·诺伊曼计算机的基本设计思想是什么？"><a href="#43-冯·诺伊曼计算机的基本设计思想是什么？" class="headerlink" title="43.冯·诺伊曼计算机的基本设计思想是什么？"></a>43.冯·诺伊曼计算机的基本设计思想是什么？</h2><p>采用二进制形式表示数据和指令。指令由操作码和地址码组成。 将程序和数据存放在存储器中，计算机在工作时从存储器取出指令加以执行，自动完成计算任务。这就 是“存储程序”和“程序控制”（简称存储程序控制）的概念。 指令的执行是顺序的，即一般按照指令在存储器中存放的顺序执行，程序分支由转移指令实现。 计算机 由存储器、运算器、控制器、输入设备和输出设备五大基本部件组成，并规定了 5 部分的基本功能。</p>
+<h2 id="44-为什么在主程序和中断服务程序中都要安排开中断指令？"><a href="#44-为什么在主程序和中断服务程序中都要安排开中断指令？" class="headerlink" title="44.为什么在主程序和中断服务程序中都要安排开中断指令？"></a>44.为什么在主程序和中断服务程序中都要安排开中断指令？</h2><p>CPU 进入中断周期后，中断隐指令自动将中断标志位置零，即关中断，这就意味着 CPU 在执行中 断服务程序中禁止响应新的中断请求。CPU 若想再次响应中断请求，必须开中断，这一任务通常由中断服 务程序中的开中断指令实现。 </p>
+<p>主程序中在开中断之前要屏蔽本级和低级中断，以防干扰，然后开中断，允许处理高级中断请求。在中断处理之后也要开中断，允许任何中断请求。如果没有开中断，更高级中断请求无法响应。 在中断服务期间，把该中断的断点保存后再开中断，表示响应更高级中断请求，然后进入中断服务程序， 执行中断服务程序，在恢复断点之前关中断，之后又开中断，又可响应更高级中断。</p>
+<h2 id="45-在对存储器芯片进行片选时，全译码方式、部分译码方式和先选方式各有何特点？"><a href="#45-在对存储器芯片进行片选时，全译码方式、部分译码方式和先选方式各有何特点？" class="headerlink" title="45.在对存储器芯片进行片选时，全译码方式、部分译码方式和先选方式各有何特点？"></a>45.在对存储器芯片进行片选时，全译码方式、部分译码方式和先选方式各有何特点？</h2><p>①全译码方式:系统中的全部地址线均参与译码，存储器芯片中的每一个存储单元对应一个唯一的地 址。需要译码器,常用的有 2:4 和 3:8 译码器。 </p>
+<p>②部分译码方式: 系统中的地址线不是全部参与译码，存储器芯片中的一个存储单元有多个地址，n 位 没有使用的地址线产生 2 n种地址，地址范围出现重叠。译码简单。 </p>
+<p>③线选译码方式: 系统中的地址线只有少量用于选择芯片，存储器芯片中的一个存储单元有多个地址。 地址有可能不连续。不需要译码。</p>
+
+      <div class="tags">
+          <a href="/tags/C/" rel="tag"><i class="ic i-tag"></i> C</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-01-02 16:50:59" itemprop="dateModified" datetime="2022-01-02T16:50:59+08:00">2022-01-02</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2022/01/02/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%AE%80%E7%AD%94%E9%A2%98/" title="微机原理简答题">http://yoursite.com/2022/01/02/assembly/微机原理简答题/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeu7txpzj20zk0m81kx.jpg" title="寄存器指令总结">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 微机原理与接口技术-吴宁</span>
+  <h3>寄存器指令总结</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/01/05/c/c%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%A2%98/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipex2cdtbj20zk0m8x6p.jpg" title="C语言编程题">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 老九零基础学C语言笔记</span>
+  <h3>C语言编程题</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%AE%80%E7%AD%94%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">微机原理简答题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%AE%80%E8%BF%B0%E7%BC%93%E5%86%B2%E5%99%A8%E3%80%81%E9%94%81%E5%AD%98%E5%99%A8%E5%92%8C%E8%A7%A6%E5%8F%91%E5%99%A8%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">1.简述缓冲器、锁存器和触发器的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%AD%E6%96%AD%EF%BC%9F%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%AD%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">2.什么是中断？计算机使用中断有什么好处？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BB%80%E4%B9%88%E5%8F%AB%E7%AB%AF%E5%8F%A3%EF%BC%9F%E9%80%9A%E5%B8%B8%E6%9C%89%E5%93%AA%E5%87%A0%E7%B1%BB%E7%AB%AF%E5%8F%A3%EF%BC%9F%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AF%B9I-O%E7%AB%AF%E5%8F%A3%E7%BC%96%E5%9D%80%E6%97%B6%E9%80%9A%E5%B8%B8%E9%87%87%E7%94%A8%E5%93%AA%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%9F%E5%9C%A88088-8086%E7%B3%BB%E7%BB%9F%E4%B8%AD%EF%BC%8C%E7%94%A8%E5%93%AA%E7%A7%8D%E6%96%B9%E6%B3%95%E5%AF%B9I-O%E7%AB%AF%E5%8F%A3%E8%BF%9B%E8%A1%8C%E7%BC%96%E5%9D%80%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">3.什么叫端口？通常有哪几类端口？计算机对I&#x2F;O端口编址时通常采用哪两种方法？在8088&#x2F;8086系统中，用哪种方法对I&#x2F;O端口进行编址？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E2%80%9C8086%E6%89%A7%E8%A1%8C%E4%BA%86%E4%B8%80%E4%B8%AA%E6%80%BB%E7%BA%BF%E5%91%A8%E6%9C%9F%E2%80%9D%E6%98%AF%E6%8C%878086%E5%81%9A%E4%BA%86%E5%93%AA%E4%BA%9B%E5%8F%AF%E8%83%BD%E7%9A%84%E6%93%8D%E4%BD%9C%EF%BC%9F%E5%9F%BA%E6%9C%AC%E6%80%BB%E7%BA%BF%E5%91%A8%E6%9C%9F%E5%A6%82%E4%BD%95%E7%BB%84%E6%88%90%EF%BC%9F%E5%9C%A8%E4%B8%80%E4%B8%AA%E5%85%B8%E5%9E%8B%E7%9A%84%E8%AF%BB%E5%AD%98%E5%82%A8%E5%99%A8%E4%B8%AD%EF%BC%8C%E5%9C%B0%E5%9D%80%E4%BF%A1%E5%8F%B7%E3%80%81ALE%E4%BF%A1%E5%8F%B7%E3%80%81RD%E4%BF%A1%E5%8F%B7%E3%80%81%E6%95%B0%E6%8D%AE%E4%BF%A1%E5%8F%B7%E5%88%86%E5%88%AB%E5%9C%A8%E4%BD%95%E6%97%B6%E4%BA%A7%E7%94%9F%EF%BC%9F"><span class="toc-number">1.4.</span> <span class="toc-text">4.“8086执行了一个总线周期”是指8086做了哪些可能的操作？基本总线周期如何组成？在一个典型的读存储器中，地址信号、ALE信号、RD信号、数据信号分别在何时产生？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BB%80%E4%B9%88%E6%98%AF%E5%9C%B0%E5%9D%80%E9%94%81%E5%AD%98%E5%99%A8%EF%BC%9F8086-8088%E7%B3%BB%E7%BB%9F%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E5%9C%B0%E5%9D%80%E9%94%81%E5%AD%98%E5%99%A8%EF%BC%9F%E9%94%81%E5%AD%98%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%E4%BF%A1%E6%81%AF%EF%BC%9F%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E3%80%82"><span class="toc-number">1.5.</span> <span class="toc-text">5.什么是地址锁存器？8086&#x2F;8088系统中为什么要用地址锁存器？锁存的是什么信息？举例说明。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%AD%E6%96%AD%E7%B1%BB%E5%9E%8B%E7%A0%81%E3%80%81%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E3%80%81%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E8%A1%A8%EF%BC%9F%E5%9C%A8%E5%9F%BA%E4%BA%8E8086-8088%E7%9A%84%E5%BE%AE%E6%9C%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%EF%BC%8C%E4%B8%AD%E6%96%AD%E7%B1%BB%E5%9E%8B%E7%A0%81%E5%92%8C%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E4%B9%8B%E9%97%B4%E6%9C%89%E4%BB%80%E4%B9%88%E5%85%B3%E7%B3%BB%EF%BC%9F"><span class="toc-number">1.6.</span> <span class="toc-text">6.什么是中断类型码、中断向量、中断向量表？在基于8086&#x2F;8088的微机系统中，中断类型码和中断向量之间有什么关系？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-8086CPU%E4%BB%8E%E5%8A%9F%E8%83%BD%E4%B8%8A%E5%88%86%E4%B8%BA%E5%87%A0%E9%83%A8%E5%88%86%EF%BC%9F%E5%90%84%E9%83%A8%E5%88%86%E7%94%B1%E4%BB%80%E4%B9%88%E7%BB%84%E6%88%90%EF%BC%9F%E5%90%84%E9%83%A8%E5%88%86%E7%9A%84%E5%8A%9F%E8%83%BD%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.7.</span> <span class="toc-text">7.8086CPU从功能上分为几部分？各部分由什么组成？各部分的功能是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-8086%E5%A6%82%E4%BD%95%E5%93%8D%E5%BA%94%E4%B8%80%E4%B8%AA%E5%A4%96%E9%83%A8%E7%9A%84INTR%E4%B8%AD%E6%96%AD%E8%AF%B7%E6%B1%82%EF%BC%9F"><span class="toc-number">1.8.</span> <span class="toc-text">8.8086如何响应一个外部的INTR中断请求？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E7%AB%99%E5%9C%A880X86%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E5%91%98%E8%A7%92%E5%BA%A6%EF%BC%8C%E8%AF%B4%E6%98%8E%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E8%AE%BF%E9%97%AE%E8%BF%99%E4%BA%9B%E6%95%B0%E6%8D%AE%E5%8F%AF%E9%87%87%E7%94%A8%E7%9A%84%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%AF%B9%E8%BF%99%E4%BA%9B%E4%BD%8D%E7%BD%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6%E6%98%AF%E5%90%A6%E7%9B%B8%E5%90%8C%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.9.</span> <span class="toc-text">9.站在80X86汇编语言程序员角度，说明数据存储位置有哪些？访问这些数据可采用的寻址方式分别是什么？对这些位置的数据访问速度是否相同，为什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E4%BB%80%E4%B9%88%E6%98%AF%E6%80%BB%E7%BA%BF%EF%BC%8C%E7%AE%80%E8%BF%B0%E5%90%84%E7%B1%BB%E6%80%BB%E7%BA%BF%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E5%90%88%EF%BC%9F"><span class="toc-number">1.10.</span> <span class="toc-text">10.什么是总线，简述各类总线的应用场合？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E7%AE%80%E8%BF%B0%E5%9C%A8%E6%9C%80%E5%B0%8F%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F%E4%B8%8B%EF%BC%8C8086%E5%A6%82%E4%BD%95%E5%93%8D%E5%BA%94%E4%B8%80%E4%B8%AA%E6%80%BB%E7%BA%BF%E8%AF%B7%E6%B1%82%EF%BC%9F"><span class="toc-number">1.11.</span> <span class="toc-text">11.简述在最小工作模式下，8086如何响应一个总线请求？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E7%AE%80%E8%BF%B0CPU%E4%B8%8E%E5%A4%96%E8%AE%BE%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E4%BA%A4%E6%8D%A2%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%8C%E5%B9%B6%E8%AF%B4%E6%98%8E%E6%AF%8F%E7%A7%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E7%89%B9%E7%82%B9%E3%80%82"><span class="toc-number">1.12.</span> <span class="toc-text">12.简述CPU与外设进行数据交换的方式，并说明每种方式的特点。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-%E4%B8%80%E8%88%AC%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF%E4%B8%AD%E5%BA%94%E5%85%B7%E6%9C%89%E5%93%AA%E4%BA%9B%E7%94%B5%E8%B7%AF%E5%99%A8%E4%BB%B6%EF%BC%9F"><span class="toc-number">1.13.</span> <span class="toc-text">13.一般接口电路中应具有哪些电路器件？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E6%AF%94%E8%BE%83%E4%B8%B2%E8%A1%8C%E9%80%9A%E4%BF%A1%E4%B8%8E%E5%B9%B6%E8%A1%8C%E9%80%9A%E4%BF%A1%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E3%80%82"><span class="toc-number">1.14.</span> <span class="toc-text">14.比较串行通信与并行通信的优缺点。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-%E4%BB%80%E4%B9%88%E5%8F%AB%E6%80%BB%E7%BA%BF%E5%91%A8%E6%9C%9F%EF%BC%9F8086CPU%E7%9A%84%E4%B8%80%E4%B8%AA%E6%80%BB%E7%BA%BF%E5%91%A8%E6%9C%9F%E5%8C%85%E6%8B%AC%E5%A4%9A%E5%B0%91%E6%97%B6%E9%92%9F%E5%91%A8%E6%9C%9F%EF%BC%8C%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E8%A6%81%E6%8F%92%E5%85%A5Tw%E7%AD%89%E5%BE%85%E5%91%A8%E6%9C%9F%EF%BC%9F%E6%8F%92%E5%85%A5%E5%A4%9A%E5%B0%91%E4%B8%AATw%E5%8F%96%E5%86%B3%E4%BA%8E%E4%BB%80%E4%B9%88%E5%9B%A0%E7%B4%A0%EF%BC%9F"><span class="toc-number">1.15.</span> <span class="toc-text">15.什么叫总线周期？8086CPU的一个总线周期包括多少时钟周期，什么情况下要插入Tw等待周期？插入多少个Tw取决于什么因素？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-%E5%9C%A88086-8088%E7%B3%BB%E7%BB%9F%E4%B8%AD%EF%BC%8C%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%80%E5%A4%A7%E6%A8%A1%E5%BC%8F%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%80%E5%B0%8F%E6%A8%A1%E5%BC%8F%EF%BC%9F%E7%94%A8%E4%BB%80%E4%B9%88%E6%96%B9%E6%B3%95%E5%B0%868086-8088%E7%BD%AE%E4%B8%BA%E6%9C%80%E5%A4%A7%E6%A8%A1%E5%BC%8F%E6%88%96%E6%9C%80%E5%B0%8F%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-number">1.16.</span> <span class="toc-text">16.在8086&#x2F;8088系统中，什么是最大模式？什么是最小模式？用什么方法将8086&#x2F;8088置为最大模式或最小模式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-8259A%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E4%B8%89%E4%B8%AA%E5%AF%84%E5%AD%98%E5%99%A8IRR%E3%80%81IMR%E5%92%8CISR%E5%90%84%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">1.17.</span> <span class="toc-text">17.8259A的主要功能是什么？三个寄存器IRR、IMR和ISR各有什么作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-%E7%AE%80%E8%BF%B0%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E4%B8%BB%E8%A6%81%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87%E3%80%82"><span class="toc-number">1.18.</span> <span class="toc-text">18.简述半导体存储器的主要技术指标。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-%E5%9C%A88086%E4%B8%AD%EF%BC%8C%E9%80%BB%E8%BE%91%E5%9C%B0%E5%9D%80%E3%80%81%E5%81%8F%E7%A7%BB%E5%9C%B0%E5%9D%80%E3%80%81%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80%E5%88%86%E5%88%AB%E6%8C%87%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%85%B7%E4%BD%93%E8%AF%B4%E6%98%8E%E3%80%82"><span class="toc-number">1.19.</span> <span class="toc-text">19. 在8086中，逻辑地址、偏移地址、物理地址分别指的是什么？具体说明。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-%E5%A4%96%E8%AE%BE%E5%90%91CPU%E7%94%B3%E8%AF%B7%E4%B8%AD%E6%96%AD%EF%BC%8C%E4%BD%86CPU%E4%B8%8D%E5%93%8D%E5%BA%94%EF%BC%8C%E5%85%B6%E5%8E%9F%E5%9B%A0%E5%8F%AF%E8%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">1.20.</span> <span class="toc-text">20.外设向CPU申请中断，但CPU不响应，其原因可能有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-%E7%AE%80%E8%BF%B0RAM%E7%A7%8D%E7%B1%BB%EF%BC%8C%E5%B9%B6%E8%AF%B4%E6%98%8E%E5%90%84%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="toc-number">1.21.</span> <span class="toc-text">21.简述RAM种类，并说明各有什么特点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-%E7%AE%80%E8%BF%B08086CPU%E5%AF%B9%E5%A4%96%E4%B8%AD%E6%96%AD%E7%9A%84%E5%93%8D%E5%BA%94%E6%9D%A1%E4%BB%B6%E5%92%8C%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B%E3%80%82"><span class="toc-number">1.22.</span> <span class="toc-text">22.简述8086CPU对外中断的响应条件和处理过程。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-%E5%90%8C%E6%AD%A5%E4%BC%A0%E8%BE%93%E6%96%B9%E5%BC%8F%E5%92%8C%E5%BC%82%E6%AD%A5%E4%BC%A0%E8%BE%93%E6%96%B9%E5%BC%8F%E7%9A%84%E7%89%B9%E7%82%B9%E5%90%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.23.</span> <span class="toc-text">23.同步传输方式和异步传输方式的特点各是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-%E4%BB%80%E4%B9%88%E6%98%AFPCI%E6%80%BB%E7%BA%BF%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AFUSB%EF%BC%9F"><span class="toc-number">1.24.</span> <span class="toc-text">24.什么是PCI总线？什么是USB？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-%E6%8C%87%E5%87%BA%E4%B8%8B%E5%88%97%E6%8C%87%E4%BB%A4%E7%9A%84%E9%94%99%E8%AF%AF"><span class="toc-number">1.25.</span> <span class="toc-text">25.指出下列指令的错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-%E7%AE%80%E8%BF%B08086%E5%86%85%E9%83%A8%E4%B8%AD%E6%96%AD%E7%9A%84%E7%A7%8D%E7%B1%BB%E5%8F%8A%E7%89%B9%E7%82%B9%E3%80%82"><span class="toc-number">1.26.</span> <span class="toc-text">26.简述8086内部中断的种类及特点。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#27-8259A%E5%AF%B9%E4%B8%AD%E6%96%AD%E4%BC%98%E5%85%88%E6%9D%83%E7%9A%84%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%EF%BC%9F%E5%90%84%E6%98%AF%E4%BB%80%E4%B9%88%E5%90%AB%E4%B9%89%EF%BC%9F"><span class="toc-number">1.27.</span> <span class="toc-text">27.8259A对中断优先权的管理方式有哪几种？各是什么含义？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#28-%E5%9C%A8%E5%9F%BA%E4%BA%8E8086%E7%9A%84%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%EF%BC%8C%E5%AD%98%E5%82%A8%E5%99%A8%E6%98%AF%E5%A6%82%E4%BD%95%E7%BB%84%E7%BB%87%E7%9A%84%EF%BC%9F%E6%98%AF%E5%A6%82%E4%BD%95%E4%B8%8E%E5%A4%84%E7%90%86%E5%99%A8%E6%80%BB%E7%BA%BF%E8%BF%9E%E6%8E%A5%E7%9A%84%EF%BC%9FBHE%E4%BF%A1%E5%8F%B7%E8%B5%B7%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">1.28.</span> <span class="toc-text">28.在基于8086的微型计算机系统中，存储器是如何组织的？是如何与处理器总线连接的？BHE信号起什么作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#29-8255A%E7%9A%84%E6%96%B9%E5%BC%8F0%E4%B8%80%E8%88%AC%E4%BD%BF%E7%94%A8%E5%9C%A8%E4%BB%80%E4%B9%88%E5%9C%BA%E5%90%88%EF%BC%9F%E5%9C%A8%E6%96%B9%E5%BC%8F0%E6%97%B6%EF%BC%8C%E5%A6%82%E6%9E%9C%E8%A6%81%E4%BD%BF%E7%94%A8%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%E8%BF%9B%E8%A1%8C%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%EF%BC%8C%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%EF%BC%9F"><span class="toc-number">1.29.</span> <span class="toc-text">29.8255A的方式0一般使用在什么场合？在方式0时，如果要使用查询方式进行输入输出，应该如何处理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#30-%E7%AE%80%E8%BF%B0ROM%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%90%84%E7%B1%BB%E5%9E%8B%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="toc-number">1.30.</span> <span class="toc-text">30.简述ROM的类型及各类型有什么特点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#31-%E5%B7%B2%E7%9F%A58086%E7%B3%BB%E7%BB%9F%E4%B8%AD%EF%BC%8C%E5%86%85%E5%AD%98%E6%9F%90%E5%AD%98%E5%82%A8%E5%8C%BA%E5%9F%9F%E5%A6%82%E5%9B%BE%E6%89%80%E7%A4%BA%EF%BC%8C%E8%AE%BE%E5%85%B6%E6%AE%B5%E5%9C%B0%E5%9D%80%E4%B8%BA2600H"><span class="toc-number">1.31.</span> <span class="toc-text">31.已知8086系统中，内存某存储区域如图所示，设其段地址为2600H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32-%E7%AE%80%E8%BF%B0%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%8C%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%92%8C%E5%92%8C%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%8C%E8%AF%B4%E6%98%8E%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-number">1.32.</span> <span class="toc-text">32.简述微处理器，微型计算机和和微型计算机系统的概念，说明三者之间有什么不同？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#33-%E7%AE%80%E8%BF%B0%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="toc-number">1.33.</span> <span class="toc-text">33.简述微型计算机系统的工作过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#34-%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%AD%E6%96%AD%E5%B5%8C%E5%A5%97-%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%AD%E5%B5%8C%E5%A5%97%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%EF%BC%9F%E5%AF%B9%E4%BA%8E%E5%8F%AF%E5%B1%8F%E8%94%BD%E4%B8%AD%E6%96%AD%EF%BC%8C%E5%AE%9E%E7%8E%B0%E4%B8%AD%E6%96%AD%E5%B5%8C%E5%A5%97%E7%9A%84%E6%9D%A1%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.34.</span> <span class="toc-text">34.什么是中断嵌套?使用中断嵌套有什么好处？对于可屏蔽中断，实现中断嵌套的条件是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#35-BHE-%E4%BF%A1%E5%8F%B7%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E8%AF%95%E8%AF%B4%E6%98%8E%E5%BD%93%E8%B5%B7%E5%A7%8B%E5%9C%B0%E5%9D%80%E4%B8%BA%E5%A5%87%E5%9C%B0%E5%9D%80%E3%80%81%E5%81%B6%E5%9C%B0%E5%9D%80%E3%80%81%E4%B8%80%E6%AC%A1%E8%AF%BB%E5%86%99%E4%B8%80%E4%B8%AA%E5%AD%97%E8%8A%82%E5%92%8C%E4%B8%80%E4%B8%AA%E5%AD%97%E6%97%B6%EF%BC%8CBHE-%E5%92%8CA0%E7%9A%84%E7%8A%B6%E6%80%81%E3%80%82"><span class="toc-number">1.35.</span> <span class="toc-text">35.BHE#信号的作用是什么？试说明当起始地址为奇地址、偶地址、一次读写一个字节和一个字时，BHE#和A0的状态。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#36-%E7%AE%80%E8%BF%B08259A%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86%E3%80%82"><span class="toc-number">1.36.</span> <span class="toc-text">36.简述8259A的基本组成部分。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#37-%E6%AF%94%E8%BE%838255A%E4%B8%89%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E5%90%88%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.37.</span> <span class="toc-text">37.比较8255A三种工作方式的应用场合有何区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#38-%E7%AE%80%E8%BF%B08086%E5%92%8C8088%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-number">1.38.</span> <span class="toc-text">38.简述8086和8088有什么区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#39-%E5%B7%B2%E7%9F%A5%EF%BC%9ADS-2000H%EF%BC%8CBX-0300H%EF%BC%8CSI-0002H%EF%BC%8C%EF%BC%8820300H%EF%BC%89-12H%EF%BC%8C%EF%BC%8820301H%EF%BC%89-34H%EF%BC%8C%EF%BC%8820302H%EF%BC%89-56H%EF%BC%8C%EF%BC%8820303H%EF%BC%89-78H%EF%BC%8C%EF%BC%8821400H%EF%BC%89-2AH%EF%BC%8C%EF%BC%8821401H%EF%BC%89-4CH%EF%BC%8C%EF%BC%8821402H%EF%BC%89-B7H%EF%BC%8C%EF%BC%8821403H%EF%BC%89-65H%EF%BC%8C%E8%AF%95%E8%AF%B4%E6%98%8E%E4%B8%8B%E5%88%97%E5%90%84%E6%9D%A1%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%AE%8C%E5%90%8EAX%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%86%85%E5%AE%B9%E3%80%82"><span class="toc-number">1.39.</span> <span class="toc-text">39.已知：DS&#x3D;2000H，BX&#x3D;0300H，SI&#x3D;0002H，（20300H）&#x3D;12H，（20301H）&#x3D;34H，（20302H）&#x3D;56H，（20303H）&#x3D;78H，（21400H）&#x3D;2AH，（21401H）&#x3D;4CH，（21402H）&#x3D;B7H，（21403H）&#x3D;65H，试说明下列各条指令执行完后AX寄存器的内容。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#40-%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8A%E8%BF%90%E8%A1%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%AD%A5%E9%AA%A4%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.40.</span> <span class="toc-text">40.在计算机上运行汇编语言程序的步骤是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#41-CPU%E5%93%8D%E5%BA%94%E4%B8%AD%E6%96%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E7%AE%80%E8%BF%B0%E4%B8%AD%E6%96%AD%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B%E3%80%82"><span class="toc-number">1.41.</span> <span class="toc-text">41.CPU响应中断的条件是什么？简述中断处理过程。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#42-%E6%95%B0%E6%8D%AE%E6%AE%B5%E4%B8%AD%E5%AE%9A%E4%B9%89%E4%BA%86%E5%AD%97%E6%95%B0%E7%BB%84%E5%8F%98%E9%87%8FWBUF%EF%BC%8C%E8%AF%B7%E5%88%86%E5%88%AB%E7%94%A8%E2%80%9C%E5%AF%84%E5%AD%98%E5%99%A8%E9%97%B4%E6%8E%A5%E5%AF%BB%E5%9D%80%E2%80%9D%E4%B8%8E%E2%80%9C%E5%AF%84%E5%AD%98%E5%99%A8%E7%9B%B8%E5%AF%B9%E5%AF%BB%E5%9D%80%E2%80%9D%E5%B0%86%E7%AC%AC3%E4%B8%AA%E5%AD%97%E5%92%8C%E7%AC%AC6%E4%B8%AA%E5%AD%97%E5%88%86%E5%88%AB%E9%80%81%E5%85%A5DX%E5%8F%8AAX%E4%B8%AD%E3%80%82%E5%86%99%E5%87%BA%E4%B8%A4%E7%A7%8D%E5%AF%BB%E5%9D%80%E7%9A%84%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E6%AE%B5%E3%80%82"><span class="toc-number">1.42.</span> <span class="toc-text">42.数据段中定义了字数组变量WBUF，请分别用“寄存器间接寻址”与“寄存器相对寻址”将第3个字和第6个字分别送入DX及AX中。写出两种寻址的汇编程序段。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#43-%E5%86%AF%C2%B7%E8%AF%BA%E4%BC%8A%E6%9B%BC%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.43.</span> <span class="toc-text">43.冯·诺伊曼计算机的基本设计思想是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#44-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%92%8C%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E7%A8%8B%E5%BA%8F%E4%B8%AD%E9%83%BD%E8%A6%81%E5%AE%89%E6%8E%92%E5%BC%80%E4%B8%AD%E6%96%AD%E6%8C%87%E4%BB%A4%EF%BC%9F"><span class="toc-number">1.44.</span> <span class="toc-text">44.为什么在主程序和中断服务程序中都要安排开中断指令？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#45-%E5%9C%A8%E5%AF%B9%E5%AD%98%E5%82%A8%E5%99%A8%E8%8A%AF%E7%89%87%E8%BF%9B%E8%A1%8C%E7%89%87%E9%80%89%E6%97%B6%EF%BC%8C%E5%85%A8%E8%AF%91%E7%A0%81%E6%96%B9%E5%BC%8F%E3%80%81%E9%83%A8%E5%88%86%E8%AF%91%E7%A0%81%E6%96%B9%E5%BC%8F%E5%92%8C%E5%85%88%E9%80%89%E6%96%B9%E5%BC%8F%E5%90%84%E6%9C%89%E4%BD%95%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="toc-number">1.45.</span> <span class="toc-text">45.在对存储器芯片进行片选时，全译码方式、部分译码方式和先选方式各有何特点？</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" rel="bookmark" title="第一章 微型计算机系统">第一章 微型计算机系统</a></li><li><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="bookmark" title="第二章 8088/8086微处理器">第二章 8088/8086微处理器</a></li><li><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" rel="bookmark" title="第三章 指令系统">第三章 指令系统</a></li><li><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" rel="bookmark" title="第四章 汇编语言程序">第四章 汇编语言程序</a></li><li><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" rel="bookmark" title="第五章 存储器系统">第五章 存储器系统</a></li><li><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" rel="bookmark" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></li><li><a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" rel="bookmark" title="第七章 常用数字接口电路">第七章 常用数字接口电路</a></li><li><a href="/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/" rel="bookmark" title="第八章 模拟量的输入输出">第八章 模拟量的输入输出</a></li><li><a href="/2021/07/17/assembly/%E6%8C%87%E4%BB%A4%E5%85%A8%E9%9B%86/" rel="bookmark" title="指令全集">指令全集</a></li><li><a href="/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="寄存器指令总结">寄存器指令总结</a></li><li class="active"><a href="/2022/01/02/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%AE%80%E7%AD%94%E9%A2%98/" rel="bookmark" title="微机原理简答题">微机原理简答题</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">28</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">4</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">2</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/01/05/c/c%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%A2%98/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/" title="第五章 循环结构进阶">第五章 循环结构进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2022/01/05/c/c%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%A2%98/" title="C语言编程题">C语言编程题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="第一章 微型计算机系统">第一章 微型计算机系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" title="第七章 常用数字接口电路">第七章 常用数字接口电路</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" title="第五章 存储器系统">第五章 存储器系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/07/17/assembly/%E6%8C%87%E4%BB%A4%E5%85%A8%E9%9B%86/" title="指令全集">指令全集</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" title="第九章 函数进阶">第九章 函数进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" title="第三章 指令系统">第三章 指令系统</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/01/02/assembly/微机原理简答题/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
