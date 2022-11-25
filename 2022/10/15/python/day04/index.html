@@ -1,0 +1,816 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="python" />
+
+
+<link rel="canonical" href="http://yoursite.com/2022/10/15/python/day04/">
+
+
+
+  <title>
+04.模块基础、时间模块、语法风格及布局、字符串详解 - python基础 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">04.模块基础、时间模块、语法风格及布局、字符串详解
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-10-15 21:30:27">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-10-15T21:30:27+08:00">2022-10-15</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicm07ih54j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicitf0kl1j20zk0m87fe.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/python/" itemprop="item" rel="index" title="分类于 python基础"><span itemprop="name">python基础</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/10/15/python/day04/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="模块基础"><a href="#模块基础" class="headerlink" title="模块基础"></a>模块基础</h1><h2 id="定义模块"><a href="#定义模块" class="headerlink" title="定义模块"></a>定义模块</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li>模块是从逻辑上组织python代码的形式</li>
+<li>当代码量变得相当大的时候，最好把代码分成一些有组织的代码段，前提是保证它们的 <strong>彼此交互</strong></li>
+<li>这些代码片段相互间有一定的联系，可能是一个包含数据成员和方法的类，也可能是一组相关但彼此独立的操作函数</li>
+<li>人话：一个   <strong>.py文件</strong>   就是一个python模块</li>
+</ul>
+<h2 id="导入模块-import"><a href="#导入模块-import" class="headerlink" title="导入模块 (import)"></a>导入模块 (import)</h2><ul>
+<li>使用 <strong>import</strong> 导入模块</li>
+<li>模块属性通过 <strong>“模块名.属性”</strong> 的方式调用</li>
+<li>模块函数通过 <strong>“模块名.函数名”</strong> 的方式调用</li>
+<li>如果仅需要模块中的某些属性，也可以单独导入</li>
+</ul>
+<h3 id="为什么需要导入模块？"><a href="#为什么需要导入模块？" class="headerlink" title="为什么需要导入模块？"></a>为什么需要导入模块？</h3><p>可以提升开发效率，简化代码</p>
+<p><strong>图例</strong></p>
+<p><img data-src="day04.assets/1660052980503.png" alt="1660052980503"></p>
+<p><strong>正确使用</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test.py，将 file_copy.py 放在同级目录下</span></span><br><span class="line"><span class="comment"># 需求：要将/etc/passwd复制到/tmp/passwd</span></span><br><span class="line">src_path = <span class="string">&quot;/etc/passwd&quot;</span></span><br><span class="line">dst_path = <span class="string">&quot;/tmp/passwd&quot;</span></span><br><span class="line"><span class="comment"># 如何复制？</span></span><br><span class="line"><span class="comment"># 调用已有模块中的方法</span></span><br><span class="line"><span class="comment">#    - 很推荐，简单粗暴不动脑</span></span><br><span class="line"><span class="comment">#    - 直接使用 file_copy.py的方法即可</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入方法一：直接导入模块</span></span><br><span class="line"><span class="keyword">import</span> file_copy  <span class="comment"># 要注意路径问题</span></span><br><span class="line">file_copy.copy(src_path, dst_path)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入方法二：只导入 file_copy 模块的 copy 方法</span></span><br><span class="line"><span class="keyword">from</span> file_copy <span class="keyword">import</span> copy  <span class="comment"># 如果相同时导入多个模块 from file_copy import *</span></span><br><span class="line">copy(src_path, dst_path)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入方法三：导入模块起别名 as</span></span><br><span class="line"><span class="keyword">import</span> file_copy <span class="keyword">as</span> fc  <span class="comment"># alias</span></span><br><span class="line">fc.copy(src_path, dst_path)</span><br></pre></td></tr></table></figure>
+<h3 id="常用的导入模块的方法"><a href="#常用的导入模块的方法" class="headerlink" title="常用的导入模块的方法"></a>常用的导入模块的方法</h3><ul>
+<li>一行指导入一个模块，可以导入多行， 例如：<strong>import random</strong></li>
+<li>也可一行导入多个模块，例如：<strong>import random, sys</strong></li>
+<li>只导入模块中的某些方法，例如：<strong>from random import choice, randint</strong></li>
+</ul>
+<h2 id="模块加载-load"><a href="#模块加载-load" class="headerlink" title="模块加载 (load)"></a>模块加载 (load)</h2><ul>
+<li>一个模块只被 <strong>加载一次</strong>，无论它被导入多少次</li>
+<li>只加载一次可以 <strong>阻止多重导入时，代码被多次执行</strong></li>
+<li>如果两个文件相互导入，防止了无限的相互加载</li>
+<li>模块加载时，顶层代码会自动执行，所以只将函数放入模块的顶层是最好的编程习惯</li>
+</ul>
+<h2 id="模块特性及案例"><a href="#模块特性及案例" class="headerlink" title="模块特性及案例"></a>模块特性及案例</h2><h3 id="模块特性"><a href="#模块特性" class="headerlink" title="模块特性"></a>模块特性</h3><p>模块在被导入时，会先完整的执行一次模块中的 <strong>所有程序</strong></p>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># foo.py</span></span><br><span class="line">print(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># bar.py</span></span><br><span class="line"><span class="keyword">import</span> foo  <span class="comment"># 导入foo.py，会将 foo.py 中的代码完成的执行一次，所以会执行 foo 中 print(__name__)</span></span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># foo.py   -&gt;   __main__   当模块文件直接执行时，__name__的值为‘__main__’</span></span><br><span class="line"><span class="comment"># bar.py   -&gt;   foo        当模块被另一个文件导入时，__name__的值就是该模块的名字</span></span><br></pre></td></tr></table></figure>
+<p>所以我们以后在 Python 模块中执行代码的标准格式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span>():</span></span><br><span class="line">    ......</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+<h2 id="练习：生成随机密码"><a href="#练习：生成随机密码" class="headerlink" title="练习：生成随机密码"></a>练习：生成随机密码</h2><p><strong>创建 randpass.py 脚本，要求如下：</strong></p>
+<ol>
+<li><strong>编写一个能生成 8 位随机密码的程序</strong></li>
+<li><strong>使用 random 的 choice 函数随机取出字符(大小写字母数字)</strong></li>
+<li><strong>改进程序，用户可以自己决定生成多少位的密码</strong></li>
+</ol>
+<p><strong>版本一：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random  <span class="comment"># 调用随机数模块random</span></span><br><span class="line"><span class="comment"># 定义变量all_chs，存储密码的所有选择；</span></span><br><span class="line"><span class="comment"># 定义变量result，存储8位随机数，初值为&#x27;&#x27;</span></span><br><span class="line">all_chs = <span class="string">&#x27;1234567890abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQLMNUVWXYZ&#x27;</span></span><br><span class="line">result = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="comment">#使用for循环，循环8次，每次从all_chs中随机产生一个字符，拼接到result中</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>):</span><br><span class="line">    ch = random.choice(all_chs)</span><br><span class="line">    result += ch</span><br><span class="line">print(result)  <span class="comment"># 输出结果，右键执行【Run &#x27;randpass&#x27;】，查看结果</span></span><br></pre></td></tr></table></figure>
+<p><strong>版本二（优化）：函数化程序，并可以指定密码长度，在randpass.py文件中操作</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random  <span class="comment"># 调用随机数模块random</span></span><br><span class="line"><span class="comment"># 定义变量all_chs，存储密码的所有选择；</span></span><br><span class="line">all_chs = <span class="string">&#x27;1234567890abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQLMNUVWXYZ&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">randpass</span>(<span class="params">n=<span class="number">8</span></span>):</span>  <span class="comment"># 使用def定义函数randpass(), 生成随机8位密码</span></span><br><span class="line">    result = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        ch = random.choice(all_chs)</span><br><span class="line">        result += ch</span><br><span class="line">    <span class="keyword">return</span> result  <span class="comment"># return给函数返回密码</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:  <span class="comment"># 测试代码块，__name__作为python文件调用时，执行代码块</span></span><br><span class="line">    print(randpass(<span class="number">8</span>))</span><br><span class="line">    print(randpass(<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+<p><strong>版本三：随机密码的字符选择可以调用模块</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 调用随机数模块random</span></span><br><span class="line"><span class="comment"># string模块中的变量ascii_letters和digits中，定义了大小写字母和所有数字</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span>  string <span class="keyword">import</span> ascii_letters, digits</span><br><span class="line"><span class="comment"># 定义变量all_chs，存储密码的所有选择；</span></span><br><span class="line">all_chs = ascii_letters + digits</span><br><span class="line"><span class="comment"># 使用def定义函数randpass(), 生成随机8位密码</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">randpass</span>(<span class="params">n=<span class="number">8</span></span>):</span></span><br><span class="line">    result = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        ch = random.choice(all_chs)</span><br><span class="line">        result += ch</span><br><span class="line">    <span class="keyword">return</span> result  <span class="comment"># return给函数返回密码</span></span><br><span class="line"><span class="comment"># 测试代码块，__name__作为python文件调用时，执行代码块</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    print(randpass(<span class="number">8</span>))</span><br><span class="line">    print(randpass(<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+<h1 id="时间模块"><a href="#时间模块" class="headerlink" title="时间模块"></a>时间模块</h1><h2 id="time-模块"><a href="#time-模块" class="headerlink" title="time 模块"></a>time 模块</h2><h3 id="时间表示方式"><a href="#时间表示方式" class="headerlink" title="时间表示方式"></a>时间表示方式</h3><ul>
+<li><strong>时间戳 timestamp：</strong>表示的是从 1970 年1月1日 00:00:00 开始按秒计算的偏移量</li>
+<li><strong>UTC（Coordinated Universal Time, 世界协调时）</strong>亦即格林威治天文时间，世界标准时间。在中国为 UTC+8  DST(Daylight Saving Time) 即夏令时；</li>
+<li><strong>结构化时间（struct_time）</strong>： 由 9 个元素组成</li>
+</ul>
+<h3 id="结构化时间（struct-time）"><a href="#结构化时间（struct-time）" class="headerlink" title="结构化时间（struct_time）"></a>结构化时间（struct_time）</h3><p>使用 <code>time.localtime()</code> 等方法可以获得一个结构化时间</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> time</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.localtime()</span><br><span class="line">time.struct_time(tm_year=<span class="number">2021</span>, tm_mon=<span class="number">9</span>, tm_mday=<span class="number">1</span>, tm_hour=<span class="number">14</span>, tm_min=<span class="number">23</span>, tm_sec=<span class="number">29</span>, tm_wday=<span class="number">2</span>, tm_yday=<span class="number">244</span>, tm_isdst=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>结构化时间共有9个元素，按顺序排列如下表：</p>
+<table>
+<thead>
+<tr>
+<th>索引</th>
+<th>属性</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>tm_year（年）</td>
+<td>比如 2021</td>
+</tr>
+<tr>
+<td>1</td>
+<td>tm_mon（月）</td>
+<td>1 - 12</td>
+</tr>
+<tr>
+<td>2</td>
+<td>tm_mday（日）</td>
+<td>1 - 31</td>
+</tr>
+<tr>
+<td>3</td>
+<td>tm_hour（时）</td>
+<td>0 - 23</td>
+</tr>
+<tr>
+<td>4</td>
+<td>tm_min（分）</td>
+<td>0 - 59</td>
+</tr>
+<tr>
+<td>5</td>
+<td>tm_sec（秒）</td>
+<td>0 - 59</td>
+</tr>
+<tr>
+<td>6</td>
+<td>tm_wday（weekday）</td>
+<td>0 - 6（0表示周一，6表示周日）</td>
+</tr>
+<tr>
+<td>7</td>
+<td>tm_yday（一年中的第几天）</td>
+<td>1 - 366</td>
+</tr>
+<tr>
+<td>8</td>
+<td>tm_isdst（是否是夏令时）</td>
+<td>默认为-1</td>
+</tr>
+</tbody></table>
+<p>然结构化时间是一个序列，那么就可以通过索引进行取值，也可以进行分片，或者通过属性名获取对应的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> time</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t = time.localtime()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t</span><br><span class="line">time.struct_time(tm_year=<span class="number">2021</span>, tm_mon=<span class="number">9</span>, tm_mday=<span class="number">1</span>, tm_hour=<span class="number">14</span>, tm_min=<span class="number">23</span>, tm_sec=<span class="number">29</span>, tm_wday=<span class="number">2</span>, tm_yday=<span class="number">244</span>, tm_isdst=<span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t[<span class="number">3</span>]</span><br><span class="line"><span class="number">14</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t[<span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line">(<span class="number">9</span>, <span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.tm_mon</span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong></p>
+<p>但是要记住，<strong>Python的time类型是不可变类型，所有的时间值都只读，不能改</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.tm_mon = <span class="number">2</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">AttributeError: readonly attribute</span><br></pre></td></tr></table></figure>
+<h3 id="格式化时间字符串"><a href="#格式化时间字符串" class="headerlink" title="格式化时间字符串"></a>格式化时间字符串</h3><p>利用 <code>time.strftime(&#39;%Y-%m-%d %H:%M:%S&#39;)</code> 等方法可以获得一个格式化时间字符串</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> time</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>)</span><br><span class="line"><span class="string">&#x27;2021-09-01 02:39:23&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>注意其中的空格、短横线和冒号都是美观修饰符号，真正起控制作用的是百分符</p>
+<p>对于格式化控制字符串 <code>&quot;%Y-%m-%d %H:%M:%S</code>，其中每一个字母所代表的意思如下表所示，注意大小写的区别：</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>含义</th>
+<th>格式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%a</td>
+<td>本地简化星期名称</td>
+<td>%m</td>
+<td>月份（01 - 12）</td>
+</tr>
+<tr>
+<td>%A</td>
+<td>本地完整星期名称</td>
+<td>%M</td>
+<td>分钟数（00 - 59）</td>
+</tr>
+<tr>
+<td>%b</td>
+<td>本地简化月份名称</td>
+<td>%p</td>
+<td>本地am或者pm的相应符</td>
+</tr>
+<tr>
+<td>%B</td>
+<td>本地完整月份名称</td>
+<td>%S</td>
+<td>秒（01 - 59）</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>本地相应的日期和时间</td>
+<td>%U</td>
+<td>一年中的星期数（00 – 53，星期日是一个星期的开始）</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>一个月中的第几天（01 - 31）</td>
+<td>%w</td>
+<td>一个星期中的第几天（0 - 6，0是星期天）</td>
+</tr>
+<tr>
+<td>%H</td>
+<td>一天中的第几个小时（24小时制，00 - 23）</td>
+<td>%x</td>
+<td>本地相应日期</td>
+</tr>
+<tr>
+<td>%I</td>
+<td>第几个小时（12小时制，01 - 12）</td>
+<td>%X</td>
+<td>本地相应时间</td>
+</tr>
+<tr>
+<td>%j</td>
+<td>一年中的第几天（001 - 366）</td>
+<td>%y</td>
+<td>去掉世纪的年份（00 - 99）</td>
+</tr>
+<tr>
+<td>%Z</td>
+<td>时区的名字</td>
+<td>%Y</td>
+<td>完整的年份</td>
+</tr>
+</tbody></table>
+<h3 id="time-模块主要方法"><a href="#time-模块主要方法" class="headerlink" title="time 模块主要方法"></a>time 模块主要方法</h3><p><strong>1. time.sleep(t)</strong></p>
+<p>time 模块最常用的方法之一，用来睡眠或者暂停程序t秒，t可以是浮点数或整数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment"># 1. time.sleep(t): 用来睡眠或者暂停程序t秒</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">banzhuan</span>():</span></span><br><span class="line">    print(<span class="string">&quot;start...&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">3</span>)  <span class="comment"># 3s</span></span><br><span class="line">    print(<span class="string">&quot;end...&quot;</span>)</span><br><span class="line">banzhuan()  <span class="comment"># 调用函数</span></span><br></pre></td></tr></table></figure>
+<p><strong>2. time.time()</strong></p>
+<p>返回当前系统时间戳。时间戳可以做算术运算。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment"># 1. time.sleep(t): 用来睡眠或者暂停程序t秒</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">banzhuan</span>():</span></span><br><span class="line">    print(<span class="string">&quot;start...&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">3</span>)  <span class="comment"># 3s</span></span><br><span class="line">    print(<span class="string">&quot;end...&quot;</span>)</span><br><span class="line"><span class="comment"># 2. time.time(): 返回当前系统时间戳,可以做算术运算</span></span><br><span class="line"><span class="comment"># print(time.time())  # 1656314125.2967942</span></span><br><span class="line">start_time = time.time()  <span class="comment"># 记录开始的时间</span></span><br><span class="line">banzhuan()  <span class="comment"># 调用函数</span></span><br><span class="line">end_time = time.time()  <span class="comment"># 记录结束的时间</span></span><br><span class="line">print(<span class="string">&quot;耗时:&quot;</span>, end_time-start_time)</span><br></pre></td></tr></table></figure>
+<p><strong>3. time.gmtime([secs])</strong></p>
+<p>将一个时间戳转换为 <strong>UTC时区的结构化时间</strong>。可选参数secs的默认值为 <code>time.time()</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">t1 = time.gmtime()  <span class="comment"># time.gmtime(time.time())</span></span><br><span class="line">print(t1)</span><br><span class="line">print(t1[<span class="number">0</span>], t1[<span class="number">1</span>], t1[<span class="number">2</span>])  <span class="comment"># 年份 月份 日</span></span><br><span class="line">print(t1[:<span class="number">3</span>])  <span class="comment"># (年份 月份 日)</span></span><br><span class="line">print(t1.tm_hour, t1.tm_min, t1.tm_sec)  <span class="comment"># 时 分 秒</span></span><br></pre></td></tr></table></figure>
+<p><strong>4. time.localtime([secs])</strong></p>
+<p>将一个时间戳转换为 <strong>当前时区</strong> 的结构化时间。如果secs参数未提供，则以当前时间为准，即<code>time.time()</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">t2 = time.localtime(time.time()+<span class="number">60</span>*<span class="number">60</span>)</span><br><span class="line">print(t2)</span><br><span class="line">print(t2[<span class="number">0</span>], t2[<span class="number">1</span>], t2[<span class="number">2</span>])  <span class="comment"># 年份 月份 日</span></span><br><span class="line">print(t2[:<span class="number">3</span>])  <span class="comment"># (年份 月份 日)</span></span><br><span class="line">print(t2.tm_hour, t2.tm_min, t2.tm_sec)  <span class="comment"># 时 分 秒</span></span><br></pre></td></tr></table></figure>
+<p><strong>5. time.mktime(t)</strong></p>
+<p>结构化时间转换为时间戳，t(结构化时间)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">t3 = time.mktime(time.localtime())</span><br><span class="line">print(t3)  <span class="comment"># 1656316578.0</span></span><br></pre></td></tr></table></figure>
+<p><strong>6. time.strftime(format [, t])</strong></p>
+<p>返回格式化字符串表示的当地时间。把一个<code>struct_time</code>（如<code>time.localtime()</code>和<code>time.gmtime()</code>的返回值）转化为格式化的时间字符串，显示的格式由参数<code>format</code>决定。如果未指定t，默认传入<code>time.localtime()</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment"># %Y:年 %m:月 %d:日 %H:小时 %M:分钟 %S:秒</span></span><br><span class="line">t4 = time.strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;t4:&quot;</span>, t4)  <span class="comment"># 2022-06-27 16:20:27</span></span><br></pre></td></tr></table></figure>
+<p><strong>7. time.strptime(string[,format])</strong></p>
+<p><strong>将格式化时间字符串转化成结构化时间</strong></p>
+<ul>
+<li>该方法是 <code>time.strftime()</code>方法的逆操作。</li>
+<li><code>time.strptime()</code> 方法根据指定的格式把一个时间字符串解析为结构化时间。</li>
+<li>提供的字符串要和 <strong>format参数</strong> 的格式一一对应<ul>
+<li>如果string中日期间使用 “-” 分隔，format中也必须使用“-”分隔</li>
+<li>时间中使用冒号 “:” 分隔，后面也必须使用冒号分隔</li>
+</ul>
+</li>
+<li>并且值也要在合法的区间范围内</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">t5 = time.strptime(<span class="string">&quot;2099-06-09 13:13:13&quot;</span>,<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)</span><br><span class="line">print(t5)</span><br><span class="line">t6 = time.strptime(<span class="string">&quot;2011-12-12&quot;</span>, <span class="string">&quot;%Y-%m-%d&quot;</span>)</span><br><span class="line">print(t6)</span><br><span class="line">print(t5 &gt; t6)  <span class="comment"># True 结构化时间越靠后的越大</span></span><br></pre></td></tr></table></figure>
+<h3 id="时间格式之间的转换"><a href="#时间格式之间的转换" class="headerlink" title="时间格式之间的转换"></a>时间格式之间的转换</h3><p>Python的三种类型时间格式，可以互相进行转换</p>
+<table>
+<thead>
+<tr>
+<th>从</th>
+<th>到</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>时间戳</td>
+<td>UTC结构化时间</td>
+<td>gmtime()</td>
+</tr>
+<tr>
+<td>时间戳</td>
+<td>本地结构化时间</td>
+<td>localtime()</td>
+</tr>
+<tr>
+<td>本地结构化时间</td>
+<td>时间戳</td>
+<td>mktime()</td>
+</tr>
+<tr>
+<td>结构化时间</td>
+<td>格式化字符串</td>
+<td>strftime()</td>
+</tr>
+<tr>
+<td>格式化字符串</td>
+<td>结构化时间</td>
+<td>strptime()</td>
+</tr>
+</tbody></table>
+<h2 id="练习：取出指定时间段的日志"><a href="#练习：取出指定时间段的日志" class="headerlink" title="练习：取出指定时间段的日志"></a>练习：取出指定时间段的日志</h2><p><strong>需求</strong></p>
+<ol>
+<li><p>有一日志文件，按时间先后顺序记录日志</p>
+</li>
+<li><p>给定 <strong>时间范围</strong>，取出该范围内的日志</p>
+</li>
+<li><p>自定义日志文件 <strong>myweb.log</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vim /opt/myweb.log</span><br><span class="line">2030-01-02 08:01:43 aaaaaaaaaaaaaaaaa</span><br><span class="line">2030-01-02 08:34:23 bbbbbbbbbbbbbbbbbbbb</span><br><span class="line">2030-01-02 09:23:12 ccccccccccccccccccccc</span><br><span class="line">2030-01-02 10:56:13 ddddddddddddddddddddddddddd</span><br><span class="line">2030-01-02 11:38:19 eeeeeeeeeeeeeeee</span><br><span class="line">2030-01-02 12:02:28 ffffffffffffffff</span><br></pre></td></tr></table></figure>
+<p>【方案一】</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 取出指定时间段 [9点~12点] 的行</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment"># strptime(), 将字符时间&#x27;2030-01-02 09:00:00&#x27;，转换成时间对象</span></span><br><span class="line">t9 = time.strptime(<span class="string">&#x27;2030-01-02 09:00:00&#x27;</span>, <span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>)</span><br><span class="line">t12 = time.strptime(<span class="string">&#x27;2030-01-02 12:00:00&#x27;</span>, <span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取日志文件myweb.log中的数据</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;myweb.log&#x27;</span>, mode=<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> fobj:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> fobj.readlines():</span><br><span class="line">        <span class="comment"># strptime(), 将line[:19]截取的字符时间，转换成时间对象</span></span><br><span class="line">        t = time.strptime(line[:<span class="number">19</span>], <span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>)  </span><br><span class="line">        <span class="keyword">if</span> t9 &lt;= t &lt;= t12:  <span class="comment"># 此种判断会遍历日志文件中的每一行，有可能执行大量无效操作，效率低下</span></span><br><span class="line">            print(line, end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>【方案二】</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 日志文件中，时间点是从前往后不断增加的，所以只要遍历到有一行时间超过预计，则后面的所有行均是不满足条件的</span></span><br><span class="line"><span class="keyword">import</span>  time</span><br><span class="line"><span class="comment"># strptime(), 将字符时间&#x27;2030-01-02 09:00:00&#x27;，转换成时间对象</span></span><br><span class="line">t9 = time.strptime(<span class="string">&#x27;2030-01-02 09:00:00&#x27;</span>, <span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>)</span><br><span class="line">t12 = time.strptime(<span class="string">&#x27;2030-01-02 12:00:00&#x27;</span>, <span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;myweb.log&#x27;</span>, mode=<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> fobj:  <span class="comment"># 读取日志文件myweb.log中的数据，逐行进行遍历</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> fobj.readlines():</span><br><span class="line">        <span class="comment"># strptime(), 将line[:19]截取的字符时间，转换成时间对象</span></span><br><span class="line">        t = time.strptime(line[:<span class="number">19</span>], <span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> t &gt; t12:  <span class="comment"># 当时间大于12点时，退出循环</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> t &gt;= t9:  <span class="comment"># 当时间大于9点时，打印对应行</span></span><br><span class="line">            print(line, end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="python-语法风格和模块布局"><a href="#python-语法风格和模块布局" class="headerlink" title="python 语法风格和模块布局"></a>python 语法风格和模块布局</h1><h2 id="变量赋值"><a href="#变量赋值" class="headerlink" title="变量赋值"></a>变量赋值</h2><p><strong>1. python支持链式多重赋值</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = y = <span class="number">10</span>  <span class="comment"># 将10赋值给x和y</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x  <span class="comment"># 查看x的值</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y  <span class="comment"># 查看y的值</span></span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p><strong>2. 给列表使用多重赋值时，两个列表同时指向同一个列表空间，任何一个列表改变，另外一个随着改变</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>alist = blist = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>alist  <span class="comment"># 查看列表alist的值</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>blist  <span class="comment"># 查看列表blist的值</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>blist[-<span class="number">1</span>] = <span class="number">100</span>  <span class="comment"># 修改列表blist中的最后一个元素为100</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>alist  <span class="comment"># 当列表blist改变时，alist也会改变</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure>
+<p><strong>3. python 的多元赋值方法</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b = <span class="number">10</span>, <span class="number">20</span>  <span class="comment"># 将10和20, 分别赋值给a和b</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a  <span class="comment"># 查看变量a的值</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b  <span class="comment"># 查看变量a的值</span></span><br><span class="line"><span class="number">20</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c, d = <span class="string">&#x27;mn&#x27;</span>  <span class="comment"># 将m和n, 分别赋值给c和d</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c  <span class="comment"># 查看变量c的值</span></span><br><span class="line"><span class="string">&#x27;m&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d  <span class="comment"># 查看变量d的值</span></span><br><span class="line"><span class="string">&#x27;n&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>e,f = (<span class="number">100</span>, <span class="number">200</span>)  <span class="comment"># 将元组中的元素, 分别赋值给e和f</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>e  <span class="comment"># 查看变量e的值</span></span><br><span class="line"><span class="number">100</span>		</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f  <span class="comment"># 查看变量f的值</span></span><br><span class="line"><span class="number">200</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m, n = [<span class="string">&#x27;bob&#x27;</span>, <span class="string">&#x27;alice&#x27;</span>]  <span class="comment"># 将列表中的元素，分别赋值给变量m和变量n</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>m  <span class="comment"># 查看变量m的值</span></span><br><span class="line"><span class="string">&#x27;bob&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>n  <span class="comment"># 查看变量n的值</span></span><br><span class="line"><span class="string">&#x27;alice&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><strong>4. 在python中，完成两个变量值的互换</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b = <span class="number">100</span>, <span class="number">200</span>  <span class="comment"># 将100和200，分别赋值给变量a和变量b</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a, b = b, a  <span class="comment"># 将变量a和变量b的值，进行交换</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a  <span class="comment"># 查看变量a的值</span></span><br><span class="line"><span class="number">200</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b  <span class="comment"># 查看变量b的值</span></span><br><span class="line"><span class="number">100</span></span><br></pre></td></tr></table></figure>
+<h2 id="合法标识符"><a href="#合法标识符" class="headerlink" title="合法标识符"></a>合法标识符</h2><ul>
+<li>Python 标识符，字符串规则和其他大部分用 C 编写的高级语言相似</li>
+<li>第一个字符必须是 <strong>字母或下划线 _</strong></li>
+<li>剩下的字符可以是字母和数字或下划线</li>
+<li><strong>大小写敏感</strong></li>
+</ul>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><ul>
+<li>和其他的高级语言一样，python 也拥有一些被称作关键字的保留字符</li>
+<li>任何语言的关键字应该保持相对的稳定，但是因为 python 是一门不断成长和进化的语言，其关键字偶尔会更新</li>
+<li>关键字列表和 <strong>iskeyword()</strong> 函数都放入了 keyword 模块以便查阅</li>
+</ul>
+<h3 id="案例：查看，判断python中的关键字"><a href="#案例：查看，判断python中的关键字" class="headerlink" title="案例：查看，判断python中的关键字"></a>案例：查看，判断python中的关键字</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> keyword  <span class="comment"># 导入模块keyword</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>keyword.kwlist  <span class="comment"># 查看keyword模块中，包含的关键字</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;pass&#x27;</span> <span class="keyword">in</span> keyword.kwlist  <span class="comment"># 判断 &#x27;pass&#x27; 是否是python中的关键字，是</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>keyword.iskeyword(<span class="string">&#x27;abc&#x27;</span>)  <span class="comment"># 判断 &#x27;abc&#x27; 是否是python中的关键字，否</span></span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<h2 id="内建"><a href="#内建" class="headerlink" title="内建"></a>内建</h2><ul>
+<li>Python 为什么可以直接使用一些内建函数，而不用显式的导入它们？</li>
+<li>比如 <strong>str()、int()、id()、type()，len()</strong> 等，许多许多非常好用，快捷方便的函数。</li>
+<li>这些函数都是一个叫做 <code>builtins</code> 模块中定义的函数，而 <code>builtins</code> 模块默认 <strong>在Python环境启动的时候就自动导入</strong>，所以可以直接使用这些函数</li>
+</ul>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="格式化详解"><a href="#格式化详解" class="headerlink" title="格式化详解"></a>格式化详解</h2><ul>
+<li>百分号：可以使用格式化符号来表示特定含义</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>格式化字符</strong></th>
+<th><strong>转换方式</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%s</td>
+<td>优先用str()函数进行字符串转换</td>
+</tr>
+</tbody></table>
+<ul>
+<li>f 字符串：是 Python3.6 之后加入的标准库</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">name, age, list01 = <span class="string">&quot;benben&quot;</span>, <span class="number">25</span>, [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="comment"># name: benben, age: 25</span></span><br><span class="line"><span class="comment"># 拼接</span></span><br><span class="line">str01 = <span class="string">&quot;name: &quot;</span> + name + <span class="string">&quot;, age: &quot;</span> + <span class="built_in">str</span>(age)</span><br><span class="line">print(str01)</span><br><span class="line"><span class="comment"># 1. %s</span></span><br><span class="line">str02 = <span class="string">&quot;name: %s, age: %s, %s&quot;</span> % (name, age, list01)</span><br><span class="line">print(str02)</span><br><span class="line"><span class="comment"># 2. f字符串</span></span><br><span class="line">str03 = <span class="string">f&quot;name: <span class="subst">&#123;name&#125;</span>, age: <span class="subst">&#123;age&#125;</span>, <span class="subst">&#123;list01&#125;</span>&quot;</span></span><br><span class="line">print(str02)</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong></p>
+<ul>
+<li>可以传入任意类型的数据，如 <strong>整数、浮点数、列表、元组甚至字典</strong>，都会自动转成字符串类型</li>
+</ul>
+<h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s1 = <span class="string">&quot;hello world&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s1.startswith(<span class="string">&#x27;abc&#x27;</span>)		<span class="comment">#判断字符串s2，是否是以&#x27;abc&#x27;开头的，False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s1.startswith(<span class="string">&#x27;h&#x27;</span>)		<span class="comment">#判断字符串s2，是否是以&#x27;h&#x27;开头的，True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s1.startswith(<span class="string">&#x27;he&#x27;</span>)		<span class="comment">#判断字符串s2，是否是以&#x27;he&#x27;开头的，True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s1.endswith(<span class="string">&#x27;abc&#x27;</span>)		<span class="comment">#判断字符串s2，是否是以&#x27;abc&#x27;结尾的，False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s1.endswith(<span class="string">&#x27;rld&#x27;</span>)		<span class="comment">#判断字符串s2，是否是以&#x27;rld&#x27;结尾的，True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断字符串，经常使用is..进行判断</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s2 = <span class="string">&#x27;hello world&#x27;</span>		<span class="comment">#定义一个变量s2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s3 = <span class="string">&#x27;HELLO WORLD&#x27;</span>		<span class="comment">#定义一个变量s3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s2.islower()			<span class="comment">#判断变量s2，是否都是小写字母，True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s3.isupper()			<span class="comment">#判断变量s3，是否都是大写字母，True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># string.strip(): 删除 string 字符串两端的空白</span></span><br><span class="line"><span class="comment"># string.upper():  转换string 中的小写字母为大写</span></span><br><span class="line"><span class="comment"># string.split(&quot;xxxx&quot;):  以指定字符串为分隔符切分string</span></span><br><span class="line"><span class="comment"># 删除 string 字符串两端的空白</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s4 = <span class="string">&#x27;  hello world        &#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(s4)		<span class="comment">#打印s4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s4.strip()		<span class="comment">#去掉变量s4，左右两边的空白字符</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s4.lstrip()		<span class="comment">#去掉变量s4，左边的空白字符，右边空白字符保留</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s4.rstrip()		<span class="comment">#去掉变量s4，右边的空白字符，左边空白字符保留</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切割字符串，拼接字符串</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s2 = <span class="string">&#x27;hello world&#x27;</span>		<span class="comment">#定义一个字符串变量s2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s3 = <span class="string">&#x27;hello.tar.gz&#x27;</span>		<span class="comment">#定义一个变量s3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s2.split()		<span class="comment">#切割字符串s2, 存入列表中，默认以空格作为分隔符进行切割</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s3.split(<span class="string">&#x27;.&#x27;</span>)		<span class="comment">#切割字符串s3, 存入列表中，这里以&#x27;.&#x27;作为分隔符进行切割</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>alist = [<span class="string">&#x27;tom&#x27;</span>, <span class="string">&#x27;bob&#x27;</span>, <span class="string">&#x27;alice&#x27;</span>]		<span class="comment">#定义一个列表alist</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;_&#x27;</span>.join(alist)			<span class="comment">#以&#x27;_&#x27;作为连接符，将列表alist中的元素拼接在一起</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27; &#x27;</span>.join(alist)			<span class="comment">#以&#x27;.&#x27;作为连接符，将列表alist中的元素拼接在一起</span></span><br></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/python/" rel="tag"><i class="ic i-tag"></i> python</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-25 20:14:26" itemprop="dateModified" datetime="2022-11-25T20:14:26+08:00">2022-11-25</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2022/10/15/python/day04/" title="04.模块基础、时间模块、语法风格及布局、字符串详解">http://yoursite.com/2022/10/15/python/day04/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/10/14/python/day03/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclffsa1cj20zk0m811l.jpg" title="03.文件对象、文件读写操作、函数基础">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> python基础</span>
+  <h3>03.文件对象、文件读写操作、函数基础</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/10/16/python/day05/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipew8gmvyj20zk0m87wh.jpg" title="05.列表和元组、字典、集合">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> python基础</span>
+  <h3>05.列表和元组、字典、集合</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">模块基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97"><span class="toc-number">1.1.</span> <span class="toc-text">定义模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.1.</span> <span class="toc-text">基本概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97-import"><span class="toc-number">1.2.</span> <span class="toc-text">导入模块 (import)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97%EF%BC%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">为什么需要导入模块？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.2.</span> <span class="toc-text">常用的导入模块的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD-load"><span class="toc-number">1.3.</span> <span class="toc-text">模块加载 (load)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%89%B9%E6%80%A7%E5%8F%8A%E6%A1%88%E4%BE%8B"><span class="toc-number">1.4.</span> <span class="toc-text">模块特性及案例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%89%B9%E6%80%A7"><span class="toc-number">1.4.1.</span> <span class="toc-text">模块特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%9A%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E5%AF%86%E7%A0%81"><span class="toc-number">1.5.</span> <span class="toc-text">练习：生成随机密码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">时间模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#time-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.1.</span> <span class="toc-text">time 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="toc-number">2.1.1.</span> <span class="toc-text">时间表示方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E5%8C%96%E6%97%B6%E9%97%B4%EF%BC%88struct-time%EF%BC%89"><span class="toc-number">2.1.2.</span> <span class="toc-text">结构化时间（struct_time）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%97%B6%E9%97%B4%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">2.1.3.</span> <span class="toc-text">格式化时间字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#time-%E6%A8%A1%E5%9D%97%E4%B8%BB%E8%A6%81%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.4.</span> <span class="toc-text">time 模块主要方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.1.5.</span> <span class="toc-text">时间格式之间的转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%8F%96%E5%87%BA%E6%8C%87%E5%AE%9A%E6%97%B6%E9%97%B4%E6%AE%B5%E7%9A%84%E6%97%A5%E5%BF%97"><span class="toc-number">2.2.</span> <span class="toc-text">练习：取出指定时间段的日志</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python-%E8%AF%AD%E6%B3%95%E9%A3%8E%E6%A0%BC%E5%92%8C%E6%A8%A1%E5%9D%97%E5%B8%83%E5%B1%80"><span class="toc-number">3.</span> <span class="toc-text">python 语法风格和模块布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC"><span class="toc-number">3.1.</span> <span class="toc-text">变量赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E6%B3%95%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">3.2.</span> <span class="toc-text">合法标识符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">3.3.</span> <span class="toc-text">关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%9F%A5%E7%9C%8B%EF%BC%8C%E5%88%A4%E6%96%ADpython%E4%B8%AD%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">3.3.1.</span> <span class="toc-text">案例：查看，判断python中的关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%BB%BA"><span class="toc-number">3.4.</span> <span class="toc-text">内建</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">4.</span> <span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%AF%A6%E8%A7%A3"><span class="toc-number">4.1.</span> <span class="toc-text">格式化详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="toc-number">4.2.</span> <span class="toc-text">字符串函数</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2022/10/11/python/day01/" rel="bookmark" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></li><li><a href="/2022/10/12/python/day02/" rel="bookmark" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></li><li><a href="/2022/10/14/python/day03/" rel="bookmark" title="03.文件对象、文件读写操作、函数基础">03.文件对象、文件读写操作、函数基础</a></li><li class="active"><a href="/2022/10/15/python/day04/" rel="bookmark" title="04.模块基础、时间模块、语法风格及布局、字符串详解">04.模块基础、时间模块、语法风格及布局、字符串详解</a></li><li><a href="/2022/10/16/python/day05/" rel="bookmark" title="05.列表和元组、字典、集合">05.列表和元组、字典、集合</a></li><li><a href="/2022/10/17/python/day06/" rel="bookmark" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></li><li><a href="/2022/10/18/python/day07/" rel="bookmark" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></li><li><a href="/2022/10/19/python/day08/" rel="bookmark" title="08.OOP基础、OOP实践、OOP进阶">08.OOP基础、OOP实践、OOP进阶</a></li><li><a href="/2022/10/20/python/day09/" rel="bookmark" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></li><li><a href="/2022/10/21/python/day10/" rel="bookmark" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></li><li><a href="/2022/10/22/python/day11/" rel="bookmark" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">43</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/10/14/python/day03/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/10/16/python/day05/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" title="寄存器指令总结">寄存器指令总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/21/python/day10/" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" title="第三章 指令系统">第三章 指令系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/16/python/day05/" title="05.列表和元组、字典、集合">05.列表和元组、字典、集合</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/12/python/day02/" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" title="第六章 数组及常用算法">第六章 数组及常用算法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" title="第八章 函数初探">第八章 函数初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" title="第七章 常用数字接口电路">第七章 常用数字接口电路</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
+</div>
+
+    <span><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" title="关于linux基础的一些总结">关于linux基础的一些总结</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/10/15/python/day04/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//fastly.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

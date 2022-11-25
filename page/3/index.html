@@ -89,12 +89,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicis081o9j20zk0m8dmr.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicliierfjj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclimtf7dj20zk0m8qav.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giph4fomxoj20zk0m8axp.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexe4oykj20zk0m87ji.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclip4jbpj20zk0m87cv.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclgrvbd6j20zk0m8qv5.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipesng5oej20zk0m87d4.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
         </ul>
       </div>
     </header>
@@ -120,277 +120,521 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="url" title="第二章 8088&#x2F;8086微处理器"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipexe4oykj20zk0m87ji.jpg"></a>
+    <a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" itemprop="url" title="第七章 常用数字接口电路"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1giclffsa1cj20zk0m811l.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="创建时间：2020-12-23 14:52:25">
+  <span class="item" title="创建时间：2021-06-25 08:10:25">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2020-12-23T14:52:25+08:00">2020-12-23</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-06-25T08:10:25+08:00">2021-06-25</time>
   </span>
 </div>
 
-    <h3><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="url" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></h3>
+    <h3><a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" itemprop="url" title="第七章 常用数字接口电路">第七章 常用数字接口电路</a></h3>
     <div class="excerpt">
-        微机原理与接口技术(二)第二章 8088/8086微处理器特点：
+        微机原理与接口技术（七）内容提要：
+两种可编程并行接口芯片的应用
 
-采用并行流水线工作方式——通过设置指令预取队列实现
-对内存空间实行分段管理——将内存分为4个阶段并设置地址段寄存器，以实现对1MB空间的寻址
-支持协处理器
+可编程芯片：
+可以通过软件命令，控制芯片的工作方式
+数据传输方向
+输入/输出方式
 
-8088/8086...
+可编程定时器8253计数与定时
+定时/计算器的工作基准是时钟脉冲
+
+见图136
+
+计数脉冲周期恒定
+定时的时间长度取决于时钟脉冲的周期及脉冲数
+要求定时100秒，计数脉冲数：100
+100为计数初值，由需求和条件决定
+
+分为加法计数与减法计数
+
+8253芯片特点
+可编程的逻辑器件
+
+非通道型的接口，具有特定功能
+
+可实现计数和定时
+
+工作方式：
+
+减法计数
+计数值减为0时输出相应控制信号
+输出控制信号的形式可通过软件设置
+
+特点：
+①...
     </div>
     <div class="meta footer">
       <span>
         <a href="/categories/assembly/" itemprop="url" title="微机原理与接口技术-吴宁"><i class="ic i-flag"></i>微机原理与接口技术-吴宁</a>
       </span>
     </div>
-    <a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="url" title="第二章 8088&#x2F;8086微处理器" class="btn">more...</a>
+    <a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" itemprop="url" title="第七章 常用数字接口电路" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" itemprop="url" title="第一章 Hellow C语言"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></a>
+    <a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" itemprop="url" title="第六章 输入输出和中断技术"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1gicis081o9j20zk0m8dmr.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="创建时间：2020-12-22 15:45:25">
+  <span class="item" title="创建时间：2021-06-20 19:43:21">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2020-12-22T15:45:25+08:00">2020-12-22</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-06-20T19:43:21+08:00">2021-06-20</time>
   </span>
 </div>
 
-    <h3><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" itemprop="url" title="第一章 Hellow C语言">第一章 Hellow C语言</a></h3>
+    <h3><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" itemprop="url" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></h3>
     <div class="excerpt">
-        第一章 Hellow C语言简介C语言特点
+        微机原理与接口技术（六）输入输出技术概述
+I/O接口的基本功能
+I/O接口及其编址方式
+I/O地址编码
 
-结构化的程序设计语言
+1.I/O接口
+接口要解决的问题
+速度匹配→数据的缓冲与暂存
+信号的驱动能力→信号驱动
+信号形式和电平的匹配→信号类型转换
+信息格式→信号格式转换
+时序匹配（定时关系）
+总线隔离→三态门
 
-层次清晰，便于按模块化方式组织程序，易于调试和维护
-结构化的缺点也很明显，程序的可重用性差
+接口的基本构成见图104
 
-语言简洁
+2.I/O端口及其编址
+端口：接口电路中用于缓存数据及控制信息的部件
 
-适合作为编程入门语言，使用方便
+数据端口、状态端口、控制端口
 
-可移植性好
+见图105
 
-统计表面不同机器上的C语言编译程序80%的代码是公共的，C语言的编译程序便于移植
+I/O端口编址
+计算机系统中包含各类不同功能的接口电路
 
-功能强大
+每个接口中含1个或多个端口
+见图106
 
-即可用于系统软件的开发，也适合应用软件的开发
+端口编址
 
-第一个程序Hellow World
-123456#include &amp;lt;stdio.h&amp;gt;int main()&amp;#123;	printf(&amp;quot;Hellow...
+为确保CPU能够访问到每个不同的端口
+
+寻址端...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/assembly/" itemprop="url" title="微机原理与接口技术-吴宁"><i class="ic i-flag"></i>微机原理与接口技术-吴宁</a>
+      </span>
+    </div>
+    <a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" itemprop="url" title="第六章 输入输出和中断技术" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" itemprop="url" title="第五章 存储器系统"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1gicljitigmj20zk0m87fp.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2021-06-18 21:55:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-06-18T21:55:20+08:00">2021-06-18</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" itemprop="url" title="第五章 存储器系统">第五章 存储器系统</a></h3>
+    <div class="excerpt">
+        微机原理与接口技术（五）半导体存储器概述1.半导体存储器
+半导体存储器由能够表示二进制数“0”和“1”的，具有记忆功能的半导体器件组成
+能存放一位二进制数的半导体器件称为一个存储单元
+若干存储元构成一个存储单元，每个存储单元由8个存储元构成
+
+2.半导体存储器的分类
+内存储器
+随机存取存储器（RAM）
+只读存储器（ROM）
+
+随机存取存储器（RAM）
+RAM
+静态存储器（SRAM） 存储元为双稳态电路
+动态存储器（DRAM） 存储元为电容
+
+只读存储器（ROM）
+只读存储器
+掩膜ROM
+一次性可写ROM
+EPROM 可读写ROM
+EEPROM...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/assembly/" itemprop="url" title="微机原理与接口技术-吴宁"><i class="ic i-flag"></i>微机原理与接口技术-吴宁</a>
+      </span>
+    </div>
+    <a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" itemprop="url" title="第五章 存储器系统" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" itemprop="url" title="第四章 汇编语言程序"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1gipey0a334j20zk0m8qpt.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2021-04-04 16:59:10">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-04-04T16:59:10+08:00">2021-04-04</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" itemprop="url" title="第四章 汇编语言程序">第四章 汇编语言程序</a></h3>
+    <div class="excerpt">
+        微机原理与接口技术（四）1.汇编语言源程序与汇编程序
+汇编语言源程序→用助记符编写
+汇编程序→源程序的编译程序
+
+汇编语言源程序→汇编程序→机器语言目标程序
+汇编语言设计与执行过程
+
+输入汇编语言源程序(EDIT)→源文件.ASM
+
+汇编(MASM)→目标文件.OBJ
+
+链接(LINK)→可执行文件.EXE
+
+调试(TD)→最终程序
+
+2.汇编语言语句类型和格式汇编语言语句类型：
+
+指令性语句→CPU执行的语句，能够生成目标代码
+指示性语句→CPU不执行，而由汇编程序执行的语句，不生成目标代码
+
+汇编语言语句格式：
+
+指令性语句：
+[标号:] [前缀] 注记符 [操作数], [操作数]...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/assembly/" itemprop="url" title="微机原理与接口技术-吴宁"><i class="ic i-flag"></i>微机原理与接口技术-吴宁</a>
+      </span>
+    </div>
+    <a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" itemprop="url" title="第四章 汇编语言程序" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E7%BB%93%E6%9E%84%E4%BD%93/" itemprop="url" title="第十一章 结构体"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1gicivghyooj20zk0m8dir.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2021-01-16 17:10:50">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2021-01-16T17:10:50+08:00">2021-01-16</time>
+  </span>
+</div>
+
+    <h3><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E7%BB%93%E6%9E%84%E4%BD%93/" itemprop="url" title="第十一章 结构体">第十一章 结构体</a></h3>
+    <div class="excerpt">
+        第十一章 结构体结构
+定义：
+结构是一种构造数据类型，由若干数据项组合而成
+
+123456struct StructName&amp;#123;	//结构成员	DataType var1;	DataType var2;&amp;#125;;
+
+注意：
+1、结构定义并不预留内存
+2、结构定义一般放在程序的开始部分（头文件声明之后）
+3、结构定义仅用来描述结构的形式，使用结构需要声明结构变量
+
+使用结构123456789101112131415161718192021222324252627282930313233343536373839#include...
     </div>
     <div class="meta footer">
       <span>
         <a href="/categories/c/" itemprop="url" title="老九零基础学C语言笔记"><i class="ic i-flag"></i>老九零基础学C语言笔记</a>
       </span>
     </div>
-    <a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" itemprop="url" title="第一章 Hellow C语言" class="btn">more...</a>
+    <a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E7%BB%93%E6%9E%84%E4%BD%93/" itemprop="url" title="第十一章 结构体" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url" title="第一章 微型计算机系统"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclh3brzpj20zk0m8ann.jpg"></a>
+    <a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" itemprop="url" title="第十章 字符串"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1gicit31ffoj20zk0m8naf.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="创建时间：2020-12-21 15:45:11">
+  <span class="item" title="创建时间：2021-01-16 00:20:40">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2020-12-21T15:45:11+08:00">2020-12-21</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-01-16T00:20:40+08:00">2021-01-16</time>
   </span>
 </div>
 
-    <h3><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url" title="第一章 微型计算机系统">第一章 微型计算机系统</a></h3>
+    <h3><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" itemprop="url" title="第十章 字符串">第十章 字符串</a></h3>
     <div class="excerpt">
-        微机原理与接口技术(一)计算机的过程控制：
-计算机硬件技术
-输入输出接口控制技术(计算机的基础知识、微型计算机基本原理、微机接口控制)
+        第十章 字符串
+字符串（character String）；
 
-第一章...
+一个或多个字符的序列称为字符串
+c语言中形如“My heart siill.”
+双引号不是字符串的一部分，仅用来告知编译器括起来的是字符串
+
+C语言中的字符串
+
+使用字符数组存储
+
+见图l
+
+注意：
+空字符不要和NULL混淆
+空字符是字符串的终止符，而NULL是一个符号，表示不引用任何内容的内存地址
+
+字符串与字符数组
+使用字符数组存放字符串
+
+12345678#include &amp;lt;stdio.h&amp;gt;void main()&amp;#123;	char name1[8] =...
     </div>
     <div class="meta footer">
       <span>
-        <a href="/categories/assembly/" itemprop="url" title="微机原理与接口技术-吴宁"><i class="ic i-flag"></i>微机原理与接口技术-吴宁</a>
+        <a href="/categories/c/" itemprop="url" title="老九零基础学C语言笔记"><i class="ic i-flag"></i>老九零基础学C语言笔记</a>
       </span>
     </div>
-    <a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url" title="第一章 微型计算机系统" class="btn">more...</a>
+    <a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" itemprop="url" title="第十章 字符串" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url" title="数据结构与算法（一）"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1giclfw2t96j20zk0m8x6p.jpg"></a>
+    <a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" itemprop="url" title="第九章 函数进阶"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1giclj9410cj20zk0m8h12.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="创建时间：2020-12-20 13:07:10">
+  <span class="item" title="创建时间：2021-01-12 23:30:50">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2020-12-20T13:07:10+08:00">2020-12-20</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-01-12T23:30:50+08:00">2021-01-12</time>
   </span>
 </div>
 
-    <h3><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url" title="数据结构与算法（一）">数据结构与算法（一）</a></h3>
+    <h3><a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" itemprop="url" title="第九章 函数进阶">第九章 函数进阶</a></h3>
     <div class="excerpt">
-        数据结构与算法（一）==前言：数据结构是一门研究非数值计算的程序设计问题中的操作对象，以及他们之间的关系和操作等相关问题的学科。==
-数据结构：是相互之间存在一种或多种特定关系的数据元素的集合，我们把数据结构分为逻辑结构和物理结构。
-逻辑结构：是指数据对象中数据元素之间的相互关系。
-分为四种：集合结构、线性结构、树形结构、图形结构。
-物理结构：是指数据的逻辑结构在计算机中的存储形式。
-​...
+        第九章 函数进阶多函数程序的执行过程见图k
+
+变量的作用域和生存期
+代码示例：
+
+123456789101112131415#include &amp;lt;stdio.h&amp;gt;void main()&amp;#123;	int num1 = 99;	&amp;#123;//代码块		int num2 = 199;		printf(&amp;quot;%d\n&amp;quot;,num1 + num2);	&amp;#125;	printf(&amp;quot;%d\n&amp;quot;,num1 + num2);&amp;#125;/*报错：...
     </div>
     <div class="meta footer">
       <span>
-        <a href="/categories/algorithm/" itemprop="url" title="数据结构与算法笔记"><i class="ic i-flag"></i>数据结构与算法笔记</a>
+        <a href="/categories/c/" itemprop="url" title="老九零基础学C语言笔记"><i class="ic i-flag"></i>老九零基础学C语言笔记</a>
       </span>
     </div>
-    <a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url" title="数据结构与算法（一）" class="btn">more...</a>
+    <a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" itemprop="url" title="第九章 函数进阶" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" itemprop="url" title="C++ windows程序设计"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipeubcbajj20zk0m8h1h.jpg"></a>
+    <a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" itemprop="url" title="第八章 函数初探"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1gicis081o9j20zk0m8dmr.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="创建时间：2020-09-10 22:17:34">
+  <span class="item" title="创建时间：2021-01-12 21:00:00">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2020-09-10T22:17:34+08:00">2020-09-10</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-01-12T21:00:00+08:00">2021-01-12</time>
   </span>
 </div>
 
-    <h3><a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" itemprop="url" title="C++ windows程序设计">C++ windows程序设计</a></h3>
+    <h3><a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" itemprop="url" title="第八章 函数初探">第八章 函数初探</a></h3>
     <div class="excerpt">
-        C++ windows程序设计windows常用数据类型
+        第八章 函数初探函数（function）
+是完成特定任务的独立程序代码
 
-windows 常用API函数一、使用API下载文件(URLDownloadToFile)1234567891011121314151617#include &amp;lt;Windows.h&amp;gt;#include &amp;lt;tchar.h&amp;gt;#pragma comment(lib, &amp;quot;Urlmon.lib&amp;quot;)int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR...
+语法规则定义了函数的结构和使用方式
+
+好处：
+
+可以省去编写重复代码的苦闷
+可以让程序更加模块化，提高代码可读性
+方便后期修改、完善
+
+函数的种类
+种类
+
+内置函数
+由C语言系统提供
+需要在程序前包含定义函数的头文件
+
+见图h
+
+自定义函数
+不带参数
+带参数
+
+常用的内置函数见图i、j
+
+system函数常见用法：
+1、system(“pause”); //冻结屏幕，便于观察程序的执行结果
+2、system(“cls”); //清屏操作
+3、system(“color 4E”);...
     </div>
     <div class="meta footer">
       <span>
-        <a href="/categories/cpp/" itemprop="url" title="C++编程基础笔记"><i class="ic i-flag"></i>C++编程基础笔记</a>
+        <a href="/categories/c/" itemprop="url" title="老九零基础学C语言笔记"><i class="ic i-flag"></i>老九零基础学C语言笔记</a>
       </span>
     </div>
-    <a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" itemprop="url" title="C++ windows程序设计" class="btn">more...</a>
+    <a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" itemprop="url" title="第八章 函数初探" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2020/04/18/cpp/second/" itemprop="url" title="关于vs学习c&#x2F;c++中的一些总结"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipexw3o58j20zk0m8e81.jpg"></a>
+    <a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" itemprop="url" title="第七章 指针"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1gipew28b65j20zk0m8hdt.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="创建时间：2020-04-18 13:44:27">
+  <span class="item" title="创建时间：2021-01-05 19:09:40">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2020-04-18T13:44:27+08:00">2020-04-18</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-01-05T19:09:40+08:00">2021-01-05</time>
   </span>
 </div>
 
-    <h3><a href="/2020/04/18/cpp/second/" itemprop="url" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></h3>
+    <h3><a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" itemprop="url" title="第七章 指针">第七章 指针</a></h3>
     <div class="excerpt">
-        前言众所周知，vs对编程萌新及其的不友好，下面是我在vs中的踩坑（哭）
-vs中c语言编写上遇到的小问题 一、清空缓冲区 vs里不能用 fflush(stdin); 应使用 rewind(stdin); 二、接收用户输入 vs中不能用scanf();认为他不安全 应使用 scanf_s(); 三、scanf_s vs中scanf特殊增加一个参数——字符串长度，字符串长度可以直接给定某一个大于字符串真实长度的数字（至少比真实长度大一位，用来存放‘\0’），也可以使用sizeof(字符串名)。 scanf_s(“%s”, hero1.name,50); //vs输入字符串数组时要标明大小...
+        第七章 指针指针（pointer）简介
+指针是一个值为内存地址的变量（或数据对象）
+
+见图c
+
+声明即初始化指针变量
+基本用法：数据类型 * 指针变量名；
+
+例如：
+
+int * ptr_num;
+char * ptr_name;
+float * money_ptr;
+double * p_price;
+
+注意：
+在头文件&amp;lt;stdio.h&amp;gt;中，NULL被定义为常量
+int * ptr_num = NULL;
+指针的初始值设为空，表示指针不指向任何地址
+
+取地址符&amp;amp;见图d
+
+1234int num = 1024;int *...
     </div>
     <div class="meta footer">
       <span>
-        <a href="/categories/cpp/" itemprop="url" title="C++编程基础笔记"><i class="ic i-flag"></i>C++编程基础笔记</a>
+        <a href="/categories/c/" itemprop="url" title="老九零基础学C语言笔记"><i class="ic i-flag"></i>老九零基础学C语言笔记</a>
       </span>
     </div>
-    <a href="/2020/04/18/cpp/second/" itemprop="url" title="关于vs学习c&#x2F;c++中的一些总结" class="btn">more...</a>
+    <a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" itemprop="url" title="第七章 指针" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/2020/04/18/cpp/first-blog/" itemprop="url" title="关于C++中冻结屏幕"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gipeu7txpzj20zk0m81kx.jpg"></a>
+    <a href="/2021/01/05/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" itemprop="url" title="第六章 数组及常用算法"><img data-src="https://tva4.sinaimg.cn/mw690/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="创建时间：2020-04-18 13:12:21">
+  <span class="item" title="创建时间：2021-01-05 12:22:20">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2020-04-18T13:12:21+08:00">2020-04-18</time>
+    <time itemprop="dateCreated datePublished" datetime="2021-01-05T12:22:20+08:00">2021-01-05</time>
   </span>
 </div>
 
-    <h3><a href="/2020/04/18/cpp/first-blog/" itemprop="url" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></h3>
+    <h3><a href="/2021/01/05/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" itemprop="url" title="第六章 数组及常用算法">第六章 数组及常用算法</a></h3>
     <div class="excerpt">
-        system（”pause“）system(“pause”)可以实现冻结屏幕，便于观察程序的执行结果；
+        第六章 数组及常用算法数组数组的概念
+
+数组是一个变量，由数据类型相同的一组元素组成
+
+变量：内存中的一块空间
+数组：内存中的一串连续的空间
+
+数组的结构和基本要素
+
+标示符：数组的名称，用于区分不同的数组
+数组元素：向数组中存放的数据
+元素下标：对数组元素进行编号
+元素类型：数组元素的数据类型
+
+数组只有一个名称，即标识符（用来表示数组的变量名）
+
+元素下标标明了元素在数组中的位置，从零开始
+
+数组中的每个元素都可以通过下标来访问
+
+数组长度固定不变，避免数组越界
+
+见图b
+
+数组的使用
+
+一维数组
+
+学生单门学科的成绩
+某类别商品的单价
+某人N个月的工资
+
+语法：
+
+datatype...
     </div>
     <div class="meta footer">
       <span>
-        <a href="/categories/cpp/" itemprop="url" title="C++编程基础笔记"><i class="ic i-flag"></i>C++编程基础笔记</a>
+        <a href="/categories/c/" itemprop="url" title="老九零基础学C语言笔记"><i class="ic i-flag"></i>老九零基础学C语言笔记</a>
       </span>
     </div>
-    <a href="/2020/04/18/cpp/first-blog/" itemprop="url" title="关于C++中冻结屏幕" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" itemprop="url" title="C++远程线程注入MFC"><img data-src="https://tva2.sinaimg.cn/mw690/6833939bly1gicis081o9j20zk0m8dmr.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="创建时间：2020-03-18 20:16:30">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2020-03-18T20:16:30+08:00">2020-03-18</time>
-  </span>
-</div>
-
-    <h3><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" itemprop="url" title="C++远程线程注入MFC">C++远程线程注入MFC</a></h3>
-    <div class="excerpt">
-        C++远程线程注入MFC远程线程注入：指不同的进程地址空间的远程
-exe:操作系统都会给他分配一块4G的虚拟内存
-虚拟内存是在硬盘中分配一块区域作为虚拟内存通过操作系统映射给exe
-物理内存才是真正的内存设备
-进程之间是不能访问互相的数据的
-想要注入到别人的exe中需要：
-1.提升进程权限
-1234567HANDLE hToken;if (FALSE ==...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/cpp/" itemprop="url" title="C++编程基础笔记"><i class="ic i-flag"></i>C++编程基础笔记</a>
-      </span>
-    </div>
-    <a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" itemprop="url" title="C++远程线程注入MFC" class="btn">more...</a>
+    <a href="/2021/01/05/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" itemprop="url" title="第六章 数组及常用算法" class="btn">more...</a>
   </div>
 </article>
 
@@ -401,7 +645,7 @@ exe:操作系统都会给他分配一块4G的虚拟内存
   
   <nav class="pagination">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="ic i-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="ic i-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="ic i-angle-right" aria-label="下一页"></i></a>
     </div>
   </nav>
 
@@ -429,19 +673,19 @@ exe:操作系统都会给他分配一块4G的虚拟内存
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">28</span>
+        <span class="count">43</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">4</span>
+        <span class="count">6</span>
         <span class="name">分类</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">2</span>
+        <span class="count">4</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -477,6 +721,7 @@ exe:操作系统都会给他分配一块4G的虚拟内存
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
+        <a href="/page/4/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -497,10 +742,10 @@ exe:操作系统都会给他分配一块4G的虚拟内存
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></span>
+    <span><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E7%BB%93%E6%9E%84%E4%BD%93/" title="第十一章 结构体">第十一章 结构体</a></span>
   </li>
 
       
@@ -510,27 +755,47 @@ exe:操作系统都会给他分配一块4G的虚拟内存
 <a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" title="第八章 函数初探">第八章 函数初探</a></span>
+    <span><a href="/2022/01/05/c/c%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%A2%98/" title="C语言编程题">C语言编程题</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" title="第九章 函数进阶">第九章 函数进阶</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2020/04/18/cpp/first-blog/" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></span>
+    <span><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="第十章 字符串">第十章 字符串</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" title="寄存器指令总结">寄存器指令总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
+</div>
+
+    <span><a href="/2022/08/10/linux/cluster/" title="cluster">cluster</a></span>
   </li>
 
       
@@ -547,50 +812,30 @@ exe:操作系统都会给他分配一块4G的虚拟内存
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/17/python/day06/" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" title="第一章 Hellow C语言">第一章 Hellow C语言</a></span>
+    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="第一章 微型计算机系统">第一章 微型计算机系统</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/algorithm/" title="分类于 数据结构与算法笔记">数据结构与算法笔记</a>
-</div>
-
-    <span><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="数据结构与算法（一）">数据结构与算法（一）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
-</div>
-
-    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
-</div>
-
-    <span><a href="/2021/07/17/assembly/%E6%8C%87%E4%BB%A4%E5%85%A8%E9%9B%86/" title="指令全集">指令全集</a></span>
+    <span><a href="/2020/12/30/c/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84/" title="第三章 运算符和条件结构">第三章 运算符和条件结构</a></span>
   </li>
 
   </ul>

@@ -1,0 +1,725 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="python" />
+
+
+<link rel="canonical" href="http://yoursite.com/2022/10/14/python/day03/">
+
+
+
+  <title>
+03.文件对象、文件读写操作、函数基础 - python基础 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">03.文件对象、文件读写操作、函数基础
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-10-14 22:50:53">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-10-14T22:50:53+08:00">2022-10-14</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipey84bjtj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipew8gmvyj20zk0m87wh.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/python/" itemprop="item" rel="index" title="分类于 python基础"><span itemprop="name">python基础</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/10/14/python/day03/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="文件读写操作"><a href="#文件读写操作" class="headerlink" title="文件读写操作"></a>文件读写操作</h1><p>在 Linux 系统中万物皆文件，所以我们不可避免的要和文件打交道，我们会常常对文件进行读和写的操作。例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/password  # 读文件</span><br><span class="line">vim /etc/password  # 读写文件</span><br><span class="line">echo test &gt; /tmp/abc.txt  # 覆盖写文件</span><br><span class="line">echo text &gt;&gt; /tmp/abc.txt  # 追加写文件</span><br></pre></td></tr></table></figure>
+<p>而以上内容我们都是对文本文件进行读写，计算机中也存在对二进制文件的读写操作，那用 Python 如何实现呢？</p>
+<h2 id="文件的打开方法—open-内建函数"><a href="#文件的打开方法—open-内建函数" class="headerlink" title="文件的打开方法—open 内建函数"></a>文件的打开方法—open 内建函数</h2><p>不管是读文件还是写文件，我们第一步都是要将文件打开。</p>
+<p>作为打开文件之门的“钥匙”，内建函数 open() 提供了初始化输入/输出（I/O）操作的通用接口，成功打开文件后时候会返回一个文件对象，否则引发一个错误。</p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p><img data-src="day03.assets/image-20210810162704041.png" alt="image-20210810162704041"></p>
+<p>要以任何方式使用文件——哪怕仅仅是打印其内容，都得先打开打文件，这样才能访问它。</p>
+<h3 id="参数介绍"><a href="#参数介绍" class="headerlink" title="参数介绍"></a>参数介绍</h3><p><strong>file_name：</strong>表示我们要打开文件的路径</p>
+<p><strong>mode：</strong>以怎样的方式打开文件</p>
+<table>
+<thead>
+<tr>
+<th><strong>文件模式</strong></th>
+<th><strong>操  作</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>r</td>
+<td>以读方式打开（文件不存在则报错）</td>
+</tr>
+<tr>
+<td>w</td>
+<td>以写方式打开（文件存在则清空，不存在则创建）</td>
+</tr>
+<tr>
+<td>a</td>
+<td>以追加模式打开</td>
+</tr>
+<tr>
+<td>b</td>
+<td>以二进制模式打开</td>
+</tr>
+</tbody></table>
+<p><strong>file_object：</strong>文件操作对象，我们后续对文件的所有读写操作都需要通过这个对象，而不是直接操作文件中的数据。</p>
+<h2 id="文件读操作"><a href="#文件读操作" class="headerlink" title="文件读操作"></a>文件读操作</h2><p>要使用文本文件中的信息，首先需要将信息读取到内存中。为此，我们可以一次性读取文件的全部内容，也可以以每次一行的方式逐步读取。</p>
+<h3 id="read-方法-——-读取文件"><a href="#read-方法-——-读取文件" class="headerlink" title="read 方法 —— 读取文件"></a>read 方法 —— 读取文件</h3><ul>
+<li><code>open</code> 函数的第一个参数是要打开的文件名（文件名区分大小写）<ul>
+<li>如果文件 <strong>存在</strong>，返回 <strong>文件操作对象</strong></li>
+<li>如果文件 <strong>不存在</strong>，会 <strong>抛出异常</strong></li>
+</ul>
+</li>
+<li><code>read</code> 方法可以一次性 <strong>读入</strong> 并 <strong>返回</strong> 文件的 <strong>所有内容</strong></li>
+<li><code>close</code> 方法负责 <strong>关闭文件</strong><ul>
+<li>如果 <strong>忘记关闭文件</strong>，<strong>会造成系统资源消耗，而且会影响到后续对文件的访问</strong></li>
+</ul>
+</li>
+<li><strong>注意</strong>：<code>read</code> 方法执行后，会把 <strong>文件指针</strong> 移动到 <strong>文件的末尾</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.打开文件</span></span><br><span class="line">fr = <span class="built_in">open</span>(<span class="string">&quot;/etc/hosts&quot;</span>, mode=<span class="string">&quot;r&quot;</span>)  <span class="comment"># r: read</span></span><br><span class="line"><span class="comment"># 2.读取文件</span></span><br><span class="line">print(fr.read(<span class="number">5</span>))  <span class="comment"># 读取前5个字符</span></span><br><span class="line">print(fr.read(<span class="number">3</span>))  <span class="comment"># 接着向后读3个字符</span></span><br><span class="line">print(fr.read())   <span class="comment"># 读取文件剩余的所有内容</span></span><br><span class="line">print(fr.read())   <span class="comment"># 什么都读取不到，因为指针已经在末尾了</span></span><br><span class="line"><span class="comment"># 3.关闭资源</span></span><br><span class="line">fr.close()</span><br></pre></td></tr></table></figure>
+<h3 id="文件指针"><a href="#文件指针" class="headerlink" title="文件指针"></a>文件指针</h3><ul>
+<li><strong>文件指针</strong> 标记 <strong>从哪个位置开始读取数据</strong></li>
+<li><strong>第一次打开</strong> 文件时，通常 <strong>文件指针会指向文件的开始位置</strong></li>
+<li>当执行了 <code>read</code> 方法后，<strong>文件指针</strong> 会移动到 <strong>读取内容的末尾</strong><ul>
+<li>默认情况下会移动到 <strong>文件末尾</strong></li>
+</ul>
+</li>
+<li>重新打开文件时，<strong>文件指针</strong> 重新指向文件的最 <strong>开始位置</strong></li>
+</ul>
+<p><strong>图例</strong></p>
+<p><img data-src="day03.assets/image-20210820095215754.png" alt="image-20210820095215754"></p>
+<p><strong>思考</strong></p>
+<ul>
+<li>如果执行了一次 <code>read</code> 方法，读取了所有内容，那么再次调用 <code>read</code> 方法，还能够获得到内容吗？</li>
+</ul>
+<p><strong>答案</strong></p>
+<ul>
+<li>不能，因为第一次读取之后，文件指针移动到了文件末尾，再次调用不会读取到任何的内容</li>
+</ul>
+<h3 id="readline-方法-——-按行读取"><a href="#readline-方法-——-按行读取" class="headerlink" title="readline 方法 —— 按行读取"></a>readline 方法 —— 按行读取</h3><ul>
+<li><code>read</code> 方法默认会把文件的 <strong>所有内容</strong> <strong>一次性读取到内存</strong></li>
+<li>如果文件太大，对内存的占用会非常严重</li>
+<li><code>readline</code> 方法可以一次读取一行内容</li>
+<li>方法执行后，会把 <strong>文件指针</strong> 移动到下一行，准备再次读取</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.打开文件</span></span><br><span class="line">fr1 = <span class="built_in">open</span>(<span class="string">&quot;/etc/passwd&quot;</span>, mode=<span class="string">&quot;r&quot;</span>)  <span class="comment"># r:read</span></span><br><span class="line"><span class="comment"># 2.读取文件</span></span><br><span class="line">print(fr1.readline(), end=<span class="string">&quot;&quot;</span>)  <span class="comment"># 读取第一行数据</span></span><br><span class="line">print(fr1.readline(), end=<span class="string">&quot;&quot;</span>)  <span class="comment"># 读取第二行数据</span></span><br><span class="line"><span class="comment"># 3.关闭资源</span></span><br><span class="line">fr1.close()</span><br></pre></td></tr></table></figure>
+<h4 id="案例：读取大文件的正确姿势"><a href="#案例：读取大文件的正确姿势" class="headerlink" title="案例：读取大文件的正确姿势"></a>案例：读取大文件的正确姿势</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.打开文件</span></span><br><span class="line">fr = <span class="built_in">open</span>(<span class="string">&quot;/etc/passwd&quot;</span>, mode=<span class="string">&quot;r&quot;</span>)</span><br><span class="line"><span class="comment"># 2.读取文件</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:  <span class="comment"># 死循环</span></span><br><span class="line">    data = fr.readline()  <span class="comment"># 某一行数据</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data) == <span class="number">0</span>:  <span class="comment"># 文件读取完毕,终止循环</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(<span class="string">&quot;data:&quot;</span>, data, end=<span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="comment"># 3.关闭资源</span></span><br><span class="line">fr.close()</span><br></pre></td></tr></table></figure>
+<h3 id="readlines-方法"><a href="#readlines-方法" class="headerlink" title="readlines 方法"></a>readlines 方法</h3><p><code>readlines()</code>方法读取所有（剩余的）行然后把它们作为一个 <strong>字符串列表</strong> 返回</p>
+<p><strong>图例</strong></p>
+<p><img data-src="day03.assets/1650090753854.png" alt="1650090753854"></p>
+<ul>
+<li>如果需要逐行处理文件，可以结合 <strong>for 循环</strong>迭代文件</li>
+<li>迭代文件的方法与处理其他序列类型的数据类似</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.打开文件</span></span><br><span class="line">fr2 = <span class="built_in">open</span>(<span class="string">&quot;/etc/hosts&quot;</span>, mode=<span class="string">&quot;r&quot;</span>)</span><br><span class="line"><span class="comment"># 2.读取文件</span></span><br><span class="line"><span class="comment"># 和for连用</span></span><br><span class="line"><span class="comment"># data = fr2.readlines()</span></span><br><span class="line"><span class="comment"># print(&quot;data:&quot;, data)</span></span><br><span class="line"><span class="comment"># print(data[0])  # 第一行</span></span><br><span class="line"><span class="comment"># print(data[1])  # 第二行</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> fr2:  <span class="comment"># 相当于：for item in fr2.readlines():</span></span><br><span class="line">    print(item, end=<span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="comment"># 3.关闭资源</span></span><br><span class="line">fr2.close()</span><br></pre></td></tr></table></figure>
+<h2 id="文件写操作"><a href="#文件写操作" class="headerlink" title="文件写操作"></a>文件写操作</h2><h3 id="write-方法-——-写文件"><a href="#write-方法-——-写文件" class="headerlink" title="write 方法 —— 写文件"></a>write 方法 —— 写文件</h3><ul>
+<li>write() 内建方法功能与 <code>read()</code> 和 <code>readline()</code> 相反<ul>
+<li>它把含有 <strong>文本数据</strong> 或 <strong>二进制数据</strong> 的内容写入到文件中去</li>
+</ul>
+</li>
+</ul>
+<h3 id="writelines-方法"><a href="#writelines-方法" class="headerlink" title="writelines 方法"></a>writelines 方法</h3><ul>
+<li>和 <code>readlines()</code> 一样，<code>writelines()</code> 方法是针对 <strong>列表</strong> 的操作</li>
+<li>它接受一个 <strong>字符串列表</strong> 作为参数，将他们写入文件</li>
+<li>行结束符并不会被自动加入，所以如果需要的话，<strong>必须再调用 writelines() 前给每行结尾加上行结束符</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># write 方法</span></span><br><span class="line"><span class="comment"># 1.打开文件</span></span><br><span class="line">fw = <span class="built_in">open</span>(<span class="string">&quot;/opt/dc.txt&quot;</span>, mode=<span class="string">&quot;w&quot;</span>)  <span class="comment"># w: write</span></span><br><span class="line"><span class="comment"># 2.写文件</span></span><br><span class="line">fw.write(<span class="string">&quot;hello world\n&quot;</span>)</span><br><span class="line">fw.write(<span class="string">&quot;you are my baby girl~\n&quot;</span>)</span><br><span class="line"><span class="comment"># 3.关闭资源</span></span><br><span class="line">fw.close()</span><br></pre></td></tr></table></figure>
+<h4 id="案例-3：writelines"><a href="#案例-3：writelines" class="headerlink" title="案例 3：writelines"></a>案例 3：writelines</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># writelines 方法</span></span><br><span class="line">list01 = [<span class="string">&quot;hello\n&quot;</span>, <span class="string">&quot;world\n&quot;</span>, <span class="string">&quot;nfx\n&quot;</span>]</span><br><span class="line"><span class="comment"># 1.打开文件</span></span><br><span class="line">fw1 = <span class="built_in">open</span>(<span class="string">&quot;/opt/tc.txt&quot;</span>, mode=<span class="string">&quot;w&quot;</span>)</span><br><span class="line"><span class="comment"># 2.写文件</span></span><br><span class="line">fw1.writelines(list01)</span><br><span class="line"><span class="comment"># 3.关闭资源</span></span><br><span class="line">fw1.close()</span><br><span class="line"><span class="comment"># hello</span></span><br><span class="line"><span class="comment"># world</span></span><br><span class="line"><span class="comment"># nfx</span></span><br></pre></td></tr></table></figure>
+<p><strong>图例：</strong></p>
+<p><img data-src="day03.assets/image-20210820103515549.png" alt="image-20210820103515549"></p>
+<h2 id="with-子句"><a href="#with-子句" class="headerlink" title="with 子句"></a>with 子句</h2><ul>
+<li><p><strong>with语句</strong> 是用来简化代码的</p>
+</li>
+<li><p>在将打开文件的操作放在 with 语句中，代码块结束后，<strong>文件将自动关闭</strong></p>
+</li>
+<li><p>读写文件的逻辑没有变化，变得只是 <strong>写法</strong></p>
+</li>
+</ul>
+<h3 id="案例-4：with"><a href="#案例-4：with" class="headerlink" title="案例 4：with"></a>案例 4：with</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;/tmp/passwd&#x27;</span>, mode=<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="comment"># 文件的读写操作</span></span><br><span class="line">    <span class="comment"># ......</span></span><br></pre></td></tr></table></figure>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 模拟 cp 操作</span></span><br><span class="line"><span class="comment"># 1. 创建 cp.py 文件</span></span><br><span class="line"><span class="comment"># 2. 将 /usr/bin/ls   &quot;拷贝&quot; 到/tmp 目录下</span></span><br><span class="line"><span class="comment"># 3. 不要修改原始文件</span></span><br></pre></td></tr></table></figure>
+<h4 id="方案："><a href="#方案：" class="headerlink" title="方案："></a>方案：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fr = <span class="built_in">open</span>(<span class="string">&quot;/usr/bin/ls&quot;</span>, mode=<span class="string">&quot;rb&quot;</span>)  <span class="comment"># rb:读取二进制</span></span><br><span class="line">fw = <span class="built_in">open</span>(<span class="string">&quot;/tmp/myls&quot;</span>,mode=<span class="string">&quot;wb&quot;</span>)  <span class="comment"># wb:写二进制</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    data = fr.read(<span class="number">4096</span>)  <span class="comment"># 4096字节 = 4k</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data) == <span class="number">0</span>:  <span class="comment"># 文件读取完毕,终止循环</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    fw.write(data)  <span class="comment"># 将读到的数据写入文件</span></span><br><span class="line">fr.close()</span><br><span class="line">fw.close()</span><br></pre></td></tr></table></figure>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="快速体验"><a href="#快速体验" class="headerlink" title="快速体验"></a>快速体验</h2><ul>
+<li>所谓<strong>函数</strong>，就是把 <strong>具有独立功能的代码块</strong> 组织为一个小模块，在需要的时候 <strong>调用</strong></li>
+<li>函数的使用包含两个步骤：<ol>
+<li>定义函数 —— <strong>封装</strong> 独立的功能</li>
+<li>调用函数 —— 享受 <strong>封装</strong> 的成果</li>
+</ol>
+</li>
+</ul>
+<h3 id="案例：洗衣服"><a href="#案例：洗衣服" class="headerlink" title="案例：洗衣服"></a>案例：洗衣服</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 早上洗衣服</span></span><br><span class="line">print(<span class="string">&quot;打水&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;洗衣服&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;甩干&quot;</span>)</span><br><span class="line"><span class="comment"># 中午洗衣服</span></span><br><span class="line">print(<span class="string">&quot;打水&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;洗衣服&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;甩干&quot;</span>)</span><br><span class="line"><span class="comment"># 晚上洗衣服</span></span><br><span class="line">print(<span class="string">&quot;打水&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;洗衣服&quot;</span>)</span><br><span class="line">print(<span class="string">&quot;甩干&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>发现了问题：我们将有独立功能的代码封装成一个函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">washing_machine</span>():</span>  <span class="comment"># 洗衣机可以帮我们完成</span></span><br><span class="line">    print(<span class="string">&quot;打水&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;洗衣服&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;甩干&quot;</span>)</span><br><span class="line"><span class="comment"># 优化后代码</span></span><br><span class="line"><span class="comment"># 早上洗衣服</span></span><br><span class="line">washing_machine()  <span class="comment"># 打开洗衣机开关</span></span><br><span class="line"><span class="comment"># 中午洗衣服</span></span><br><span class="line">washing_machine()  <span class="comment"># 打开洗衣机开关</span></span><br><span class="line"><span class="comment"># 晚上洗衣服</span></span><br><span class="line">washing_machine()  <span class="comment"># 打开洗衣机开关</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数的创建与调用"><a href="#函数的创建与调用" class="headerlink" title="函数的创建与调用"></a>函数的创建与调用</h2><h3 id="创建函数"><a href="#创建函数" class="headerlink" title="创建函数"></a>创建函数</h3><p>函数用 <code>def</code> 语句创建，语法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> 函数名(<span class="params">参数列表</span>):</span>  <span class="comment"># 具体情况具体对待，参数可有可无</span></span><br><span class="line">	<span class="string">&quot;&quot;&quot;函数说明文档字符串&quot;&quot;&quot;</span></span><br><span class="line">    函数封装的代码</span><br><span class="line">    ……</span><br></pre></td></tr></table></figure>
+<p>标题行由 <code>def</code> 关键字，函数的名字，以及参数的集合（如果有的话）组成</p>
+<p><code>def</code> 子句的剩余部分包括了一个可选的<strong>文档字串</strong>，和<strong>必需的函数体</strong></p>
+<p><strong>函数名称</strong> 的命名应该 <strong>符合</strong> <strong>标识符的命名规则</strong></p>
+<ul>
+<li>可以由 <strong>字母</strong>、<strong>下划线</strong> 和 <strong>数字</strong> 组成</li>
+<li><strong>不能以数字开头</strong></li>
+<li><strong>不能与关键字重名</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">washing_machine</span>():</span>  <span class="comment"># 洗衣机可以帮我们完成</span></span><br><span class="line">    print(<span class="string">&quot;打水&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;洗衣服&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;甩干&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h3><p>使用一对圆括号 () 调用函数，如果没有圆括号，只是对函数的引用</p>
+<p>任何输入的参数都必须放置在括号中</p>
+<p><strong>图例：</strong></p>
+<p><img data-src="day03.assets/image-20210910010603248.png" alt="image-20210910010603248"></p>
+<h3 id="案例：加洗衣粉"><a href="#案例：加洗衣粉" class="headerlink" title="案例：加洗衣粉"></a>案例：加洗衣粉</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">washing_machine</span>():</span>  <span class="comment"># 洗衣机可以帮我们完成</span></span><br><span class="line">    print(<span class="string">&quot;打水&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;加洗衣粉！！！&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;洗衣服&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;甩干&quot;</span>)</span><br><span class="line"><span class="comment"># 早上洗衣服</span></span><br><span class="line">washing_machine()</span><br><span class="line"><span class="comment"># 中午洗衣服</span></span><br><span class="line">washing_machine()</span><br><span class="line"><span class="comment"># 晚上洗衣服</span></span><br><span class="line">washing_machine()</span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>定义好函数之后，只表示这个函数封装了一段代码而已</li>
+<li>如果不主动调用函数，函数是不会主动执行的</li>
+</ul>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><ul>
+<li><p>能否将 <strong>函数调用</strong> 放在 <strong>函数定义</strong> 的上方？</p>
+<ul>
+<li>不能！</li>
+<li>因为在 <strong>使用函数名</strong> 调用函数之前，必须要保证 <code>Python</code> 已经知道函数的存在</li>
+<li>否则控制台会提示 <code>NameError: name &#39;函数名&#39; is not defined</code> (<strong>名称错误：这个名字没有被定义</strong>)</li>
+</ul>
+</li>
+</ul>
+<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><h3 id="形参和实参"><a href="#形参和实参" class="headerlink" title="形参和实参"></a>形参和实参</h3><ul>
+<li><strong>形参</strong>：<strong>定义</strong> 函数时，小括号中的参数，是用来接收参数用的，在函数内部 <strong>作为变量使用</strong></li>
+<li><strong>实参</strong>：<strong>调用</strong> 函数时，小括号中的参数，是用来把数据传递到 <strong>函数内部</strong> 用的</li>
+</ul>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>当我们想洗其他的东西，要手动改方法内部的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">washing_machine</span>():</span>  <span class="comment"># 洗衣机可以帮我们完成</span></span><br><span class="line">    print(<span class="string">&quot;打水&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;加洗衣粉！！！&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;洗床单&quot;</span>)  <span class="comment"># 洗被套</span></span><br><span class="line">    print(<span class="string">&quot;甩干&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>在函数内部有一定的变化的值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">washing_machine</span>():</span>  <span class="comment"># 洗衣机可以帮我们完成</span></span><br><span class="line">    print(<span class="string">&quot;打水&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;加洗衣粉！！！&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;洗衣服&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;甩干&quot;</span>)</span><br><span class="line">washing_machine()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">washing_machine</span>():</span>  <span class="comment"># 洗衣机可以帮我们完成</span></span><br><span class="line">    print(<span class="string">&quot;打水&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;加洗衣粉！！！&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;洗床单&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;甩干&quot;</span>)</span><br><span class="line">washing_machine()</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p><strong>思考一下存在什么问题</strong></p>
+<blockquote>
+<p>函数只能处理 <strong>固定</strong> 的数据</p>
+</blockquote>
+<p><strong>如何解决？</strong></p>
+<ul>
+<li>如果能够把需要处理的数据，在调用函数时，传递到函数内部就好了！</li>
+</ul>
+<h3 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h3><ul>
+<li>在函数名的后面的小括号内部填写 <strong>参数</strong></li>
+<li>多个参数之间使用 <code>,</code> 分隔</li>
+<li>调用函数时，实参的个数需要与形参个数一致，实参将依次传递给形参</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">washing_machine</span>(<span class="params">something</span>):</span>  <span class="comment"># 洗衣机可以帮我们完成</span></span><br><span class="line">    print(<span class="string">&quot;打水&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;加洗衣粉！！！&quot;</span>)</span><br><span class="line">    print(<span class="string">&quot;洗&quot;</span> + something)</span><br><span class="line">    print(<span class="string">&quot;甩干&quot;</span>)</span><br><span class="line"><span class="comment"># 洗衣服</span></span><br><span class="line">washing_machine(<span class="string">&quot;衣服&quot;</span>)</span><br><span class="line"><span class="comment"># 洗床单</span></span><br><span class="line">washing_machine(<span class="string">&quot;床单&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>图例</strong></p>
+<p><img data-src="day03.assets/image-20210910011547852.png" alt="image-20210910011547852"></p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul>
+<li><strong>函数</strong>，把 <strong>具有独立功能的代码块</strong> 组织为一个小模块，在需要的时候 <strong>调用</strong></li>
+<li><strong>函数的参数</strong>，增加函数的 <strong>通用性</strong>，针对 <strong>相同的数据处理逻辑</strong>，能够 <strong>适应更多的数据</strong><ol>
+<li>在函数 <strong>内部</strong>，把参数当做 <strong>变量</strong> 使用，进行需要的数据处理</li>
+<li>函数调用时，按照函数定义的<strong>参数顺序</strong>，把 <strong>希望在函数内部处理的数据</strong>，<strong>通过参数</strong> 传递</li>
+</ol>
+</li>
+</ul>
+<h3 id="位置参数"><a href="#位置参数" class="headerlink" title="位置参数"></a>位置参数</h3><p>与 <code>shell</code> 脚本类似，程序名以及参数都以位置参数的方式传递给 python 程序，使用 <code>sys</code> 模块的 <code>argv</code> 列表接收</p>
+<p><strong>图例</strong></p>
+<p><img data-src="day03.assets/image-20210818160603298.png" alt="image-20210818160603298"></p>
+<h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3><p>默认参数就是声明了 <strong>默认值</strong> 的参数，因为给参数赋予了默认值，所以在函数调用时，不向该参数传入值也是允许的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认参数</span></span><br><span class="line"><span class="comment"># 1.如果没有手动给形参赋值，那么就用默认值</span></span><br><span class="line"><span class="comment"># 2.传递的实际参数优先级比默认参数要高</span></span><br><span class="line"><span class="comment"># 3.定义函数时,有默认值的参数一定放在没有默认值参数的后面</span></span><br><span class="line"><span class="comment"># 定义一个函数，计算两个数的和  num01  num02</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_sum</span>(<span class="params">num01, num02=<span class="number">100</span></span>):</span></span><br><span class="line">    print(num01+num02)</span><br><span class="line">get_sum(<span class="number">50</span>)  <span class="comment"># num01 = 50  num02 = 100</span></span><br><span class="line">get_sum(<span class="number">10</span>, <span class="number">20</span>)  <span class="comment"># num01 = 10  num02 = 20</span></span><br><span class="line">get_sum(<span class="number">1</span>, <span class="number">2</span>)  <span class="comment"># num01 = 1  num02 = 2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_sum2</span>(<span class="params">num01=<span class="number">30</span>, num02=<span class="number">40</span></span>):</span></span><br><span class="line">    print(num01+num02)</span><br><span class="line">get_sum2()  <span class="comment"># num01=30  num02=40</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># def get_sum1(num01=100, num02):  报错</span></span><br><span class="line"><span class="comment">#     print(num01+num02)</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h2><ul>
+<li>在程序开发中，有时候，会希望 <strong>一个函数执行结束后，告诉调用者一个结果</strong>，以便调用者针对具体的结果做后续的处理</li>
+<li><strong>返回值</strong> 是函数 <strong>完成工作</strong>后，<strong>最后</strong> 给调用者的 <strong>一个结果</strong></li>
+<li>在函数中使用 <code>return</code> 关键字可以返回结果</li>
+<li>调用函数一方，可以 <strong>使用变量</strong> 来 <strong>接收</strong> 函数的返回结果</li>
+</ul>
+<blockquote>
+<p>注意：<code>return</code> 表示返回，表示方法执行结束，后续的代码都不会被执行</p>
+</blockquote>
+<h3 id="案例：取钱和查余额"><a href="#案例：取钱和查余额" class="headerlink" title="案例：取钱和查余额"></a>案例：取钱和查余额</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查余额: 看,不带走,不能买东西</span></span><br><span class="line"><span class="comment"># 如果内部没有return语句,那么会默认返回None: return None</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">chaxun</span>():</span></span><br><span class="line">    print(<span class="number">100</span>)</span><br><span class="line">    <span class="comment"># return None</span></span><br><span class="line">money1 = chaxun()</span><br><span class="line">print(<span class="string">&quot;我取了:&quot;</span>, money1)  <span class="comment"># 我取了: None</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 取钱: 将钱放自己兜里带走,能买东西</span></span><br><span class="line"><span class="comment"># return后跟的数据，叫函数的返回值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quqian</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">100</span>  <span class="comment"># 将100放自己兜里带走</span></span><br><span class="line">money = quqian()  <span class="comment"># 调用quqian, 将100赋值给变量money</span></span><br><span class="line">print(<span class="string">&quot;我取了:&quot;</span>, money)  <span class="comment"># 我取了: 100</span></span><br><span class="line">money -= <span class="number">5</span></span><br><span class="line">print(<span class="string">&quot;我买了1个冰淇凌,花了5元,还剩&quot;</span>, money)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>图例说明</strong></p>
+<p><img data-src="day03.assets/image-20210910012326825.png" alt="image-20210910012326825"></p>
+<h3 id="没有-return"><a href="#没有-return" class="headerlink" title="没有 return"></a>没有 return</h3><p>如果方法内部没有 <code>return</code> 语句，那么会默认返回 None，即 <strong>return None</strong></p>
+<h3 id="练习-3：斐波那契数列函数"><a href="#练习-3：斐波那契数列函数" class="headerlink" title="练习 3：斐波那契数列函数"></a>练习 3：斐波那契数列函数</h3><p>斐波那契数列函数</p>
+<ul>
+<li>将斐波那契数列代码改为函数</li>
+<li>数列长度由用户指定</li>
+<li>要求把结果用 return 返回</li>
+</ul>
+<p><strong>版本一：方法内部直接打印</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gen_fib</span>():</span></span><br><span class="line">    fib = [<span class="number">0</span>, <span class="number">1</span>]  <span class="comment"># 定义列表，指定斐波那契数列的初始两个值</span></span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;长度： &#x27;</span>))  <span class="comment"># 定义变量n, 此变量为用户要看到的列表fib中的元素个数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">2</span>):</span><br><span class="line">        fib.append(fib[-<span class="number">1</span>] + fib[-<span class="number">2</span>])</span><br><span class="line">    print(fib)  <span class="comment"># 打印列表fib</span></span><br><span class="line"><span class="comment"># 调用两次函数gen_fib()</span></span><br><span class="line">gen_fib()</span><br><span class="line">gen_fib()</span><br></pre></td></tr></table></figure>
+<p><strong>版本二：带返回值</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gen_fib</span>():</span></span><br><span class="line">    fib = [<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;长度： &#x27;</span>))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">2</span>):</span><br><span class="line">        fib.append(fib[-<span class="number">1</span>] + fib[-<span class="number">2</span>])</span><br><span class="line">    <span class="keyword">return</span> fib  <span class="comment"># 返回最后生成的列表fib</span></span><br><span class="line"><span class="comment"># 调用函数gen_fib()</span></span><br><span class="line">print(gen_fib())</span><br></pre></td></tr></table></figure>
+<p><strong>版本三：带参数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gen_fib</span>(<span class="params">n</span>):</span></span><br><span class="line">    fib = [<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">2</span>):</span><br><span class="line">        fib.append(fib[-<span class="number">1</span>] + fib[-<span class="number">2</span>])</span><br><span class="line">    <span class="keyword">return</span> fib  <span class="comment"># 返回最后生成的列表fib</span></span><br><span class="line"><span class="comment"># 定义列表nlist, 将要产生的斐波那契数列的长度，作为列表nlist的元素</span></span><br><span class="line">nlist = [<span class="number">10</span>, <span class="number">8</span>, <span class="number">6</span>]</span><br><span class="line"><span class="comment"># 使用for循环，传递实参(nlist中的元素)给函数gen_fib(n)，得到三组斐波那契数列 </span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span>  nlist:</span><br><span class="line">    print(gen_fib(i))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="练习4：复制文件函数"><a href="#练习4：复制文件函数" class="headerlink" title="练习4：复制文件函数"></a>练习4：复制文件函数</h3><ul>
+<li>修改文件练习中的拷贝程序<ul>
+<li>将程序改为函数的形式</li>
+<li>源文件和目标文件要求通过参数进行传递</li>
+<li>实参要求来自于命令行</li>
+</ul>
+</li>
+</ul>
+<p><strong>版本1：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义函数copy()，实现指定单个文件拷贝的功能</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">copy</span>():</span></span><br><span class="line">    src_name = <span class="string">&#x27;/usr/bin/ls&#x27;</span></span><br><span class="line">    dst_name = <span class="string">&#x27;/tmp/list3&#x27;</span></span><br><span class="line">	<span class="comment"># 以只读字节的方式打开源文件，fr</span></span><br><span class="line">	<span class="comment"># 以写入字节的方式打开源文件，fw</span></span><br><span class="line">    fr = <span class="built_in">open</span>(src_name, mode=<span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">    fw = <span class="built_in">open</span>(dst_name, mode=<span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        data = fr.read(<span class="number">4096</span>)  </span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(data) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        fw.write(data)</span><br><span class="line">        </span><br><span class="line">    fr.close()</span><br><span class="line">    fw.close()    </span><br><span class="line">copy()  <span class="comment"># 调用拷贝文件的函数copy()</span></span><br></pre></td></tr></table></figure>
+<p><strong>版本2：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">copy</span>(<span class="params">src_name, dst_name</span>):</span>  <span class="comment"># 定义函数copy()，实现任意文件的拷贝操作</span></span><br><span class="line">	<span class="comment"># 以只读字节的方式打开源文件，赋值给变量fr</span></span><br><span class="line">    <span class="comment"># 以写入字节的方式打开源文件，赋值给变量fw</span></span><br><span class="line">    fr = <span class="built_in">open</span>(src_name, mode=<span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">    fw = <span class="built_in">open</span>(dst_name, mode=<span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        data = fr.read(<span class="number">4096</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(data) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        fw.write(data)</span><br><span class="line">    fr.close()</span><br><span class="line">    fw.close()  </span><br><span class="line">copy(源文件路径, 目标文件路径)</span><br></pre></td></tr></table></figure>
+
+      <div class="tags">
+          <a href="/tags/python/" rel="tag"><i class="ic i-tag"></i> python</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-25 20:14:01" itemprop="dateModified" datetime="2022-11-25T20:14:01+08:00">2022-11-25</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2022/10/14/python/day03/" title="03.文件对象、文件读写操作、函数基础">http://yoursite.com/2022/10/14/python/day03/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/10/12/python/day02/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipexw3o58j20zk0m8e81.jpg" title="02.判断语句、while循环、for循环">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> python基础</span>
+  <h3>02.判断语句、while循环、for循环</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/10/15/python/day04/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclfw2t96j20zk0m8x6p.jpg" title="04.模块基础、时间模块、语法风格及布局、字符串详解">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> python基础</span>
+  <h3>04.模块基础、时间模块、语法风格及布局、字符串详解</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">文件读写操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%93%E5%BC%80%E6%96%B9%E6%B3%95%E2%80%94open-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">文件的打开方法—open 内建函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.1.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.2.</span> <span class="toc-text">参数介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">文件读操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#read-%E6%96%B9%E6%B3%95-%E2%80%94%E2%80%94-%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text">read 方法 —— 读取文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%8C%87%E9%92%88"><span class="toc-number">1.2.2.</span> <span class="toc-text">文件指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#readline-%E6%96%B9%E6%B3%95-%E2%80%94%E2%80%94-%E6%8C%89%E8%A1%8C%E8%AF%BB%E5%8F%96"><span class="toc-number">1.2.3.</span> <span class="toc-text">readline 方法 —— 按行读取</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%EF%BC%9A%E8%AF%BB%E5%8F%96%E5%A4%A7%E6%96%87%E4%BB%B6%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">案例：读取大文件的正确姿势</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#readlines-%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.</span> <span class="toc-text">readlines 方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%86%99%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">文件写操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#write-%E6%96%B9%E6%B3%95-%E2%80%94%E2%80%94-%E5%86%99%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">write 方法 —— 写文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#writelines-%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.2.</span> <span class="toc-text">writelines 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-3%EF%BC%9Awritelines"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">案例 3：writelines</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#with-%E5%AD%90%E5%8F%A5"><span class="toc-number">1.4.</span> <span class="toc-text">with 子句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-4%EF%BC%9Awith"><span class="toc-number">1.4.1.</span> <span class="toc-text">案例 4：with</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-number">1.4.2.</span> <span class="toc-text">练习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">方案：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E4%BD%93%E9%AA%8C"><span class="toc-number">2.1.</span> <span class="toc-text">快速体验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%B4%97%E8%A1%A3%E6%9C%8D"><span class="toc-number">2.1.1.</span> <span class="toc-text">案例：洗衣服</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E8%B0%83%E7%94%A8"><span class="toc-number">2.2.</span> <span class="toc-text">函数的创建与调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.1.</span> <span class="toc-text">创建函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.2.</span> <span class="toc-text">调用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%8A%A0%E6%B4%97%E8%A1%A3%E7%B2%89"><span class="toc-number">2.2.3.</span> <span class="toc-text">案例：加洗衣粉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.2.4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%80%83"><span class="toc-number">2.2.5.</span> <span class="toc-text">思考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">2.3.</span> <span class="toc-text">函数的参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%A2%E5%8F%82%E5%92%8C%E5%AE%9E%E5%8F%82"><span class="toc-number">2.3.1.</span> <span class="toc-text">形参和实参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">2.3.2.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0"><span class="toc-number">2.3.3.</span> <span class="toc-text">传递参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">2.3.4.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0"><span class="toc-number">2.3.5.</span> <span class="toc-text">位置参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0"><span class="toc-number">2.3.6.</span> <span class="toc-text">默认参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">2.4.</span> <span class="toc-text">函数的返回值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%8F%96%E9%92%B1%E5%92%8C%E6%9F%A5%E4%BD%99%E9%A2%9D"><span class="toc-number">2.4.1.</span> <span class="toc-text">案例：取钱和查余额</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89-return"><span class="toc-number">2.4.2.</span> <span class="toc-text">没有 return</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0-3%EF%BC%9A%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.3.</span> <span class="toc-text">练习 3：斐波那契数列函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%83%E4%B9%A04%EF%BC%9A%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.4.</span> <span class="toc-text">练习4：复制文件函数</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2022/10/11/python/day01/" rel="bookmark" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></li><li><a href="/2022/10/12/python/day02/" rel="bookmark" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></li><li class="active"><a href="/2022/10/14/python/day03/" rel="bookmark" title="03.文件对象、文件读写操作、函数基础">03.文件对象、文件读写操作、函数基础</a></li><li><a href="/2022/10/15/python/day04/" rel="bookmark" title="04.模块基础、时间模块、语法风格及布局、字符串详解">04.模块基础、时间模块、语法风格及布局、字符串详解</a></li><li><a href="/2022/10/16/python/day05/" rel="bookmark" title="05.列表和元组、字典、集合">05.列表和元组、字典、集合</a></li><li><a href="/2022/10/17/python/day06/" rel="bookmark" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></li><li><a href="/2022/10/18/python/day07/" rel="bookmark" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></li><li><a href="/2022/10/19/python/day08/" rel="bookmark" title="08.OOP基础、OOP实践、OOP进阶">08.OOP基础、OOP实践、OOP进阶</a></li><li><a href="/2022/10/20/python/day09/" rel="bookmark" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></li><li><a href="/2022/10/21/python/day10/" rel="bookmark" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></li><li><a href="/2022/10/22/python/day11/" rel="bookmark" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">43</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/10/12/python/day02/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/10/15/python/day04/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/16/python/day05/" title="05.列表和元组、字典、集合">05.列表和元组、字典、集合</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" title="第四章 汇编语言程序">第四章 汇编语言程序</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" title="第八章 函数初探">第八章 函数初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/07/17/assembly/%E6%8C%87%E4%BB%A4%E5%85%A8%E9%9B%86/" title="指令全集">指令全集</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
+</div>
+
+    <span><a href="/2022/08/10/linux/cluster/" title="cluster">cluster</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/" title="第五章 循环结构进阶">第五章 循环结构进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/algorithm/" title="分类于 数据结构与算法笔记">数据结构与算法笔记</a>
+</div>
+
+    <span><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="数据结构与算法（一）">数据结构与算法（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/20/python/day09/" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" title="第五章 存储器系统">第五章 存储器系统</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/10/14/python/day03/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//fastly.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

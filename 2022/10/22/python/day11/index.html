@@ -1,0 +1,609 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="python" />
+
+
+<link rel="canonical" href="http://yoursite.com/2022/10/22/python/day11/">
+
+
+
+  <title>
+11.JSON、requests模块、案例练习 - python基础 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">11.JSON、requests模块、案例练习
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-10-22 21:36:25">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-10-22T21:36:25+08:00">2022-10-22</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicm0n457cj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/python/" itemprop="item" rel="index" title="分类于 python基础"><span itemprop="name">python基础</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/10/22/python/day11/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>JSON</strong> 是一种轻量级的数据交换格式。</p>
+<h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>数据交换格式那么多，为啥还要学个 <strong>JSON？</strong></p>
+<p><img data-src="day11.assets/image-20210919172932733.png" alt="image-20210919172932733"></p>
+<p>数据交换格式是不同平台、语言中进行数据传递的通用格式。比如 <strong>Python</strong> 和 <strong>Java</strong> 之间要对话，你直接传递给 <strong>Java</strong> 一个 <strong>dict 或 list</strong> 吗？<strong>Java</strong> 会问，这是什么鬼？虽然它也有字典和列表数据类型，但两种字典不是一个“物种”，根本无法相互理解。这个时候就需要用 <strong>Json</strong> 这种交换格式了，<strong>Python</strong> 和 <strong>Java</strong> 都能理解 <strong>Json</strong>。那么别的语言为什么能理解 <strong>Json</strong> 呢？因为这些语言都内置或提供了 <strong>Json</strong> 处理模块，比如 <strong>Python</strong> 的 <strong>json</strong> 模块。</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p><strong>JSON格式：</strong> 在各种语言中，都可以被读取，被用作不同语言的中间转换语言【类似翻译器】</p>
+<h3 id="主要结构"><a href="#主要结构" class="headerlink" title="主要结构"></a>主要结构</h3><ul>
+<li>“键/值” 对的集合；python 中主要对应 <strong>字典</strong></li>
+<li>值的有序列表；在大部分语言中，它被理解为 <strong>数组</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Python</strong></th>
+<th><strong>JSON</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dict</td>
+<td>object</td>
+</tr>
+<tr>
+<td>list, tuple</td>
+<td>array</td>
+</tr>
+<tr>
+<td>str</td>
+<td>string</td>
+</tr>
+<tr>
+<td>int, float</td>
+<td>number</td>
+</tr>
+<tr>
+<td>True</td>
+<td>true</td>
+</tr>
+<tr>
+<td>False</td>
+<td>false</td>
+</tr>
+<tr>
+<td>None</td>
+<td>null</td>
+</tr>
+</tbody></table>
+<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><ul>
+<li><strong>loads 方法</strong>：对编码后的 <strong>json</strong> 对象进行 <strong>decode</strong> 解密，得到原始数据，需要使用的 <strong>json.loads()</strong> 函数</li>
+<li><strong>dumps 方法：</strong>可以将原始数据转换为 <strong>json</strong> 格式</li>
+</ul>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost xxx]<span class="comment"># python3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> json  <span class="comment"># 导入json模块</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>adict = &#123;<span class="string">&#x27;user&#x27;</span>: <span class="string">&#x27;tom&#x27;</span>, <span class="string">&#x27;age&#x27;</span>: <span class="number">20</span>&#125;  <span class="comment"># 定义字典adict</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data = json.dumps(adict)  <span class="comment"># dumps()，将字典转换为json格式【字符串类型】，赋值给变量data</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>data  <span class="comment"># 查看变量的内容，字符串</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">type</span>(data)  <span class="comment"># 查看变量data的数据类型，为字符串类型</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>jdata = json.loads(data)  <span class="comment"># l将json格式【字符串类型】转换为字典，赋值给变量jdata</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>jdata  <span class="comment"># 查看变量data的值，字典</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">type</span>(jdata)  <span class="comment"># 查看jdata的数据类型，为字典类型</span></span><br></pre></td></tr></table></figure>
+<h1 id="requests-模块"><a href="#requests-模块" class="headerlink" title="requests 模块"></a>requests 模块</h1><h2 id="requests-简介"><a href="#requests-简介" class="headerlink" title="requests 简介"></a>requests 简介</h2><ol>
+<li>requests 是用 Python 语言编写的、优雅而简单的 HTTP 库</li>
+<li>requests 内部采用来 urillib3</li>
+<li>requests 使用起来肯定会比 urillib3 更简单便捷</li>
+<li>requests 需要单独安装</li>
+</ol>
+<h2 id="GET-和-POST"><a href="#GET-和-POST" class="headerlink" title="GET 和 POST"></a>GET 和 POST</h2><ul>
+<li>通过 requests 发送一个 GET 请求，需要在 URL 里请求的参数可通过 params 传递</li>
+<li>与 GET 不同的是，POST 请求新增了一个可选参数 data，需要通过 POST 请求传递 body 里的数据可以通过 data 传递</li>
+</ul>
+<h3 id="requests-发送-GET-请求"><a href="#requests-发送-GET-请求" class="headerlink" title="requests 发送 GET 请求"></a>requests 发送 GET 请求</h3><h4 id="案例-1：处理文本数据"><a href="#案例-1：处理文本数据" class="headerlink" title="案例 1：处理文本数据"></a>案例 1：处理文本数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost xxx]<span class="comment"># pip3 install requests  # 安装requests软件包</span></span><br><span class="line"><span class="comment"># 使用requests处理文本数据，使用text查看【get】</span></span><br><span class="line">[root@localhost xxx]<span class="comment"># python3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests  <span class="comment"># 导入requests模块</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>url = <span class="string">&#x27;http://www.163.com&#x27;</span>	<span class="comment"># 声明变量，定义要操作的网页</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(url)  <span class="comment"># 请求，获取网页内容，赋值给变量r</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.text  <span class="comment"># 查看网页内容，因为是文本类型的，采用text查看</span></span><br></pre></td></tr></table></figure>
+<h4 id="案例-2：处理图片视频音频等数据"><a href="#案例-2：处理图片视频音频等数据" class="headerlink" title="案例 2：处理图片视频音频等数据"></a>案例 2：处理图片视频音频等数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>url2 = <span class="string">&#x27;http://pic1.win4000.com/wallpaper/6/58f065330709a.jpg&#x27;</span>  <span class="comment"># 声明变量，定义查看的图片</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r2 = requests.get(url2)  <span class="comment"># 请求，获取bytes类型的图片数据，赋值给变量r</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r2.content  <span class="comment"># 查看图片内容，因为是图片类型的，采用content查看</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;/tmp/aaa.jpg&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> fobj:  <span class="comment"># 将图片数据保存在文件aaa.jpg中</span></span><br><span class="line"><span class="meta">... </span>    fobj.write(r2.content)</span><br><span class="line">[root@localhost xxx]<span class="comment"># eog /tmp/aaa.jpg 		#在终端使用eog打开图片aaa.jpg</span></span><br></pre></td></tr></table></figure>
+<h4 id="练习：下载新浪首页图片"><a href="#练习：下载新浪首页图片" class="headerlink" title="练习：下载新浪首页图片"></a>练习：下载新浪首页图片</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re,os,requests</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span>(<span class="params">url, fname</span>):</span>  <span class="comment"># 定义下载资源函数</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(fname, mode=<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> fw:</span><br><span class="line">        fw.write(requests.get(url).content)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_url</span>(<span class="params">fname, patt</span>):</span> <span class="comment"># patt: 匹配图片正则 fname: 正则匹配文本的路径</span></span><br><span class="line">    result = [] <span class="comment"># 定义存储图片url地址的列表</span></span><br><span class="line">    patt_obj = re.<span class="built_in">compile</span>(patt) <span class="comment"># 编译正则表达式 patt_obj: 正则对象，可用于匹配数据</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(fname, mode=<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> fr:</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> fr.readlines():</span><br><span class="line">            data = patt_obj.search(item) <span class="comment"># 匹配图片链接</span></span><br><span class="line">            <span class="keyword">if</span> data != <span class="literal">None</span>: <span class="comment"># 匹配成功</span></span><br><span class="line">                    result.append(data.group())</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">if</span> os.path.exists(<span class="string">&quot;/opt/myweb.html&quot;</span>) == <span class="literal">False</span>: <span class="comment"># 将网页源代码数据存到/opt/myweb.html</span></span><br><span class="line">        download(<span class="string">&quot;https://www.sina.com.cn/&quot;</span>, <span class="string">&quot;/opt/myweb.html&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> os.path.exists(<span class="string">&quot;/tmp/images&quot;</span>) == <span class="literal">False</span>: <span class="comment"># 指定图片下载的目录 /tmp/images</span></span><br><span class="line">        os.mkdir(<span class="string">&quot;/tmp/images&quot;</span>)</span><br><span class="line">    pic_patt = <span class="string">&quot;(http|https)://[\w\./-]+\.(jpg|jpeg|png)&quot;</span> <span class="comment"># 匹配图片的正则表达式</span></span><br><span class="line">    res_list = get_url(<span class="string">&quot;/opt/myweb.html&quot;</span>, pic_patt) <span class="comment"># 返回图片url列表</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> res_list:</span><br><span class="line">        download(item, <span class="string">&quot;/tmp/images/&quot;</span>+os.path.basename(item))</span><br></pre></td></tr></table></figure>
+<h4 id="案例-3：处理-json-格式的数据"><a href="#案例-3：处理-json-格式的数据" class="headerlink" title="案例 3：处理 json 格式的数据"></a>案例 3：处理 json 格式的数据</h4><p><strong>天气预报查询</strong></p>
+<ul>
+<li>搜索 <strong>中国天气网  城市代码查询</strong>， 查询城市代码</li>
+<li>城市天气情况接口<ul>
+<li>实况天气获取： <span class="exturl" data-url="aHR0cDovL3d3dy53ZWF0aGVyLmNvbS5jbi9kYXRhL3NrL+WfjuW4guS7o+eggS5odG1s">http://www.weather.com.cn/data/sk/城市代码.html</span></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>url3 = <span class="string">&#x27;http://www.weather.com.cn/data/sk/101130101.html&#x27;</span>  <span class="comment"># 声明变量，指定乌鲁木齐城市天气的网页路径</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r3 = requests.get(url3)  <span class="comment"># 请求，获取bytes类型的图片数据，赋值给变量r</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r3.json()  <span class="comment"># json(), 查看json类型的数据，乱码【字符集错误】</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r3.encoding  <span class="comment"># 查看获取网页数据的字符集</span></span><br><span class="line"><span class="string">&#x27;ISO-8859-1&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r3.encoding = <span class="string">&#x27;utf8&#x27;</span>  <span class="comment"># 将网页数据，转换为&#x27;utf8&#x27;格式</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r3.json()  <span class="comment"># json(), 查看json类型的数据【utf8】</span></span><br></pre></td></tr></table></figure>
+<h3 id="设定头部"><a href="#设定头部" class="headerlink" title="设定头部"></a>设定头部</h3><ul>
+<li>用户也可以自己设定请求头</li>
+<li>获取网站的【User-Agent】请求头信息</li>
+</ul>
+<p><img data-src="day11.assets/image-20211128175135797.png" alt="image-20211128175135797"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用户自己设定请求头，查看Forbidden禁止访问的网站</span></span><br><span class="line">[root@localhost xxx]<span class="comment"># python3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>js_url = <span class="string">&#x27;http://www.jianshu.com&#x27;</span>  <span class="comment"># 声明变量，指定简书的网站</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36&#x27;</span>&#125;					<span class="comment">#声明访问网站的请求头</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(js_url, headers=headers)		<span class="comment">#获取简书网页数据, 自定义请求头</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.text  <span class="comment"># 以文本的方式，查看数据内容【Forbidden 简书网站进行了反爬虫设置】</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h3><ul>
+<li>当访问一个 URL 时，我们经常需要发送一些查询的字段作为过滤信息，例如：httpbin.com/get?key=val，这里的 key=val 就是限定返回条件的参数键值对</li>
+<li>当利用 python 的 requests 去发送一个需要包含这些参数键值对时，可以将它们传给params</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">headers = &#123;</span><br><span class="line">	<span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 这是目标url</span></span><br><span class="line"><span class="comment"># url = &#x27;https://www.baidu.com/s?wd=python&#x27;</span></span><br><span class="line">url = <span class="string">&#x27;https://www.baidu.com/s?&#x27;</span></span><br><span class="line"><span class="comment"># 请求参数是一个字典 即wd=python</span></span><br><span class="line">kw = &#123;<span class="string">&#x27;wd&#x27;</span>: <span class="string">&#x27;python&#x27;</span>&#125;</span><br><span class="line"><span class="comment"># 带上请求参数发起请求，获取响应</span></span><br><span class="line">response = requests.get(url, headers=headers, params=kw)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+<h1 id="pickle-模块"><a href="#pickle-模块" class="headerlink" title="pickle 模块"></a>pickle 模块</h1><h2 id="模块简介"><a href="#模块简介" class="headerlink" title="模块简介"></a>模块简介</h2><ul>
+<li>把数据写入文件时，常规的文件方法只能把字符串对象写入。其他数据需先转换成字符串再写入文件</li>
+<li>python 提供了一个标准的模块，称为 <strong>pickle</strong>。使用它可以在一个文件中 <strong>存储任何 python 对象</strong>，之后又可以把它完整无缺地取出来</li>
+</ul>
+<h2 id="主要方法"><a href="#主要方法" class="headerlink" title="主要方法"></a>主要方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pickle.dump(obj, file)</td>
+<td>将 Python 数据转换并保存到 <strong>pickle 格式的文件内</strong></td>
+</tr>
+<tr>
+<td>pickle.load(file)</td>
+<td>从 pickle 格式的文件中读取数据并转换为 python 的类型</td>
+</tr>
+</tbody></table>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><ul>
+<li>常规方法写入数据，只能是字符串类型，其他类型无法写入，例如：int，字典，列表等类型；</li>
+<li>pickle模块，可以在文件中存储任何类型的数据，也可以完整取出任何类型的数据；</li>
+</ul>
+<h3 id="pickle-模块方法"><a href="#pickle-模块方法" class="headerlink" title="pickle 模块方法"></a>pickle 模块方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = <span class="built_in">open</span>(<span class="string">&#x27;/tmp/a.data&#x27;</span>, mode=<span class="string">&#x27;wb&#x27;</span>)  <span class="comment"># 打开文件/tmp/a.data，以字节的方式写入</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>user = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;tom&#x27;</span>, <span class="string">&#x27;age&#x27;</span>: <span class="number">20</span>&#125;  <span class="comment"># 定义字典user</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pickle  <span class="comment"># 导入模块pickle，可以写入和取出不同类型的数据</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pickle.dump(user,f)  <span class="comment"># pickle.dump(), 将字典user, 写入到对象f中【/tmp/a.data】</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.close()  <span class="comment"># 关闭打开的文件</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = <span class="built_in">open</span>(<span class="string">&#x27;/tmp/a.data&#x27;</span>, mode=<span class="string">&#x27;rb&#x27;</span>)  <span class="comment"># 打开文件/tmp/a.data，【以字节的方式读取】</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>adict = pickle.load(f)  <span class="comment"># 取出对象f中【/tmp/a.data】所有数据，赋值给变量adict</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>adict  <span class="comment"># 查看字典adict中内容</span></span><br></pre></td></tr></table></figure>
+<h3 id="案例：修改登录注册程序"><a href="#案例：修改登录注册程序" class="headerlink" title="案例：修改登录注册程序"></a>案例：修改登录注册程序</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_dict</span>():</span></span><br><span class="line">    <span class="comment"># 如果该文件不存在，才去初始化</span></span><br><span class="line">    <span class="keyword">if</span> os.path.exists(<span class="string">&quot;/tmp/user.data&quot;</span>) == <span class="literal">False</span>:</span><br><span class="line">        userdb = &#123;&#125;  <span class="comment"># 用户存储用户信息</span></span><br><span class="line">        fw = <span class="built_in">open</span>(<span class="string">&quot;/tmp/user.data&quot;</span>, mode=<span class="string">&quot;wb&quot;</span>)</span><br><span class="line">        pickle.dump(userdb, fw)</span><br><span class="line">        fw.close()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">register</span>():</span></span><br><span class="line">    username = <span class="built_in">input</span>(<span class="string">&quot;username:&quot;</span>)  <span class="comment"># 接收用户从键盘输入的用户名</span></span><br><span class="line">    <span class="comment"># 读取字典数据</span></span><br><span class="line">    fr = <span class="built_in">open</span>(<span class="string">&quot;/tmp/user.data&quot;</span>, mode=<span class="string">&quot;rb&quot;</span>)</span><br><span class="line">    user = pickle.load(fr)</span><br><span class="line">    fr.close()</span><br><span class="line">    <span class="keyword">if</span> username <span class="keyword">in</span> user.keys():</span><br><span class="line">        print(<span class="string">&quot;用户名已存在&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:  <span class="comment"># 用户名可用</span></span><br><span class="line">        password = <span class="built_in">input</span>(<span class="string">&quot;password: &quot;</span>) <span class="comment"># 提示用户输入密码</span></span><br><span class="line">        <span class="comment"># 将用户信息添加到字典</span></span><br><span class="line">        user[username] = password</span><br><span class="line">        <span class="comment"># 将修改后的user字典重新写入到文件当中</span></span><br><span class="line">        fw = <span class="built_in">open</span>(<span class="string">&quot;/tmp/user.data&quot;</span>, mode=<span class="string">&quot;wb&quot;</span>)</span><br><span class="line">        pickle.dump(user, fw)</span><br><span class="line">        fw.close()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span>():</span></span><br><span class="line">    username = <span class="built_in">input</span>(<span class="string">&quot;username:&quot;</span>)  <span class="comment"># 接收用户从键盘输入的用户名</span></span><br><span class="line">    password = <span class="built_in">input</span>(<span class="string">&quot;password:&quot;</span>)  <span class="comment"># 用户输入的密码</span></span><br><span class="line">    <span class="comment"># 读取字典数据</span></span><br><span class="line">    fr = <span class="built_in">open</span>(<span class="string">&quot;/tmp/user.data&quot;</span>, mode=<span class="string">&quot;rb&quot;</span>)</span><br><span class="line">    user = pickle.load(fr)</span><br><span class="line">    fr.close()</span><br><span class="line">    <span class="keyword">if</span> user.get(username) != password:</span><br><span class="line">        print(<span class="string">&quot;登陆失败&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">&quot;登陆成功&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_menu</span>():</span></span><br><span class="line">    write_dict()</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        choice = <span class="built_in">input</span>(<span class="string">&quot;1.register  2.login  3.退出  Please enter choice(1/2/3): &quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> choice <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">&quot;1&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;3&quot;</span>]:</span><br><span class="line">            print(<span class="string">&quot;请正确输入(1/2/3)!!!!&quot;</span>)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">elif</span> choice == <span class="string">&quot;3&quot;</span>:</span><br><span class="line">            print(<span class="string">&quot;Byebye~&quot;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">elif</span> choice == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">            register()  <span class="comment"># 注册函数</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            login()  <span class="comment"># 登陆函数</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    show_menu()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="模块练习"><a href="#模块练习" class="headerlink" title="模块练习"></a>模块练习</h1><h4 id="练习：创建系统用户"><a href="#练习：创建系统用户" class="headerlink" title="练习：创建系统用户"></a>练习：创建系统用户</h4><p><strong>需求</strong></p>
+<ul>
+<li>编写一个程序(函数)，实现创建用户的功能</li>
+<li>提示用户输入 <strong>用户名</strong></li>
+<li>随机生成 <strong>8位密码 (导入之前的模块文件)</strong></li>
+<li>创建用户并设置密码</li>
+<li>将用户相关信息</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> randpass2  <span class="comment"># 将randpass2.py作为模块调用</span></span><br><span class="line"><span class="keyword">import</span> subprocess  <span class="comment"># 调用subprocess模块，执行linux命令</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义函数adduser(), 创建用户，给用户设置密码，并保存用户信息到一个文件中</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">adduser</span>(<span class="params">user, passwd, fname</span>):</span></span><br><span class="line"><span class="comment"># 使用run()执行linux命令，检查用户是否存在，存在打印已存在，return返回none，退出</span></span><br><span class="line">    result = subprocess.run(<span class="string">&#x27;id %s &amp;&gt; /dev/null&#x27;</span> % user, shell=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> result.returncode == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;%s已存在&#x27;</span> % user)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 用户不存在，使用run()创建用户，非交互式给用户设置密码</span></span><br><span class="line">        subprocess.run(<span class="string">&#x27;useradd %s&#x27;</span> % user, shell=<span class="literal">True</span>)</span><br><span class="line">        subprocess.run(<span class="string">&#x27;echo %s | passwd --stdin %s&#x27;</span> % (passwd, user), shell=<span class="literal">True</span>)</span><br><span class="line">        <span class="comment"># 三引号，保留格式，用户记录用户的基本信息</span></span><br><span class="line">            info = <span class="string">&quot;&quot;&quot;用户信息：</span></span><br><span class="line"><span class="string">        用户名：%s</span></span><br><span class="line"><span class="string">        密码：%s</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span> % (user, passwd)</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(fname, <span class="string">&#x27;a&#x27;</span>) <span class="keyword">as</span> fobj:  <span class="comment"># a 以追加的方式打开文件,写入用户信息</span></span><br><span class="line">            fobj.write(info)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    passwd = randpass2.randpass()  <span class="comment"># 使用randpass2.py中的方法randpass()，生成一个8位的随机密码</span></span><br><span class="line">    adduser(<span class="string">&quot;zhangsan&quot;</span>, passwd, <span class="string">&#x27;/tmp/users.txt&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+      <div class="tags">
+          <a href="/tags/python/" rel="tag"><i class="ic i-tag"></i> python</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-25 20:17:40" itemprop="dateModified" datetime="2022-11-25T20:17:40+08:00">2022-11-25</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2022/10/22/python/day11/" title="11.JSON、requests模块、案例练习">http://yoursite.com/2022/10/22/python/day11/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/10/21/python/day10/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitzannuj20zk0m8b29.jpg" title="10.邮件编程、paramiko模块、PyMySQL模块">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> python基础</span>
+  <h3>10.邮件编程、paramiko模块、PyMySQL模块</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON"><span class="toc-number">1.</span> <span class="toc-text">JSON</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%A7%A3"><span class="toc-number">1.2.</span> <span class="toc-text">理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.1.</span> <span class="toc-text">主要结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.2.</span> <span class="toc-text">常用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#requests-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">requests 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#requests-%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.</span> <span class="toc-text">requests 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GET-%E5%92%8C-POST"><span class="toc-number">2.2.</span> <span class="toc-text">GET 和 POST</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#requests-%E5%8F%91%E9%80%81-GET-%E8%AF%B7%E6%B1%82"><span class="toc-number">2.2.1.</span> <span class="toc-text">requests 发送 GET 请求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-1%EF%BC%9A%E5%A4%84%E7%90%86%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">案例 1：处理文本数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-2%EF%BC%9A%E5%A4%84%E7%90%86%E5%9B%BE%E7%89%87%E8%A7%86%E9%A2%91%E9%9F%B3%E9%A2%91%E7%AD%89%E6%95%B0%E6%8D%AE"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">案例 2：处理图片视频音频等数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%9A%E4%B8%8B%E8%BD%BD%E6%96%B0%E6%B5%AA%E9%A6%96%E9%A1%B5%E5%9B%BE%E7%89%87"><span class="toc-number">2.2.1.3.</span> <span class="toc-text">练习：下载新浪首页图片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-3%EF%BC%9A%E5%A4%84%E7%90%86-json-%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">2.2.1.4.</span> <span class="toc-text">案例 3：处理 json 格式的数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E5%AE%9A%E5%A4%B4%E9%83%A8"><span class="toc-number">2.2.2.</span> <span class="toc-text">设定头部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0"><span class="toc-number">2.2.3.</span> <span class="toc-text">请求参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pickle-%E6%A8%A1%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text">pickle 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%AE%80%E4%BB%8B"><span class="toc-number">3.1.</span> <span class="toc-text">模块简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">主要方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">3.2.1.</span> <span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pickle-%E6%A8%A1%E5%9D%97%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.2.</span> <span class="toc-text">pickle 模块方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%EF%BC%9A%E4%BF%AE%E6%94%B9%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E7%A8%8B%E5%BA%8F"><span class="toc-number">3.2.3.</span> <span class="toc-text">案例：修改登录注册程序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%BB%83%E4%B9%A0"><span class="toc-number">4.</span> <span class="toc-text">模块练习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%88%9B%E5%BB%BA%E7%B3%BB%E7%BB%9F%E7%94%A8%E6%88%B7"><span class="toc-number">4.0.0.1.</span> <span class="toc-text">练习：创建系统用户</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2022/10/11/python/day01/" rel="bookmark" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></li><li><a href="/2022/10/12/python/day02/" rel="bookmark" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></li><li><a href="/2022/10/14/python/day03/" rel="bookmark" title="03.文件对象、文件读写操作、函数基础">03.文件对象、文件读写操作、函数基础</a></li><li><a href="/2022/10/15/python/day04/" rel="bookmark" title="04.模块基础、时间模块、语法风格及布局、字符串详解">04.模块基础、时间模块、语法风格及布局、字符串详解</a></li><li><a href="/2022/10/16/python/day05/" rel="bookmark" title="05.列表和元组、字典、集合">05.列表和元组、字典、集合</a></li><li><a href="/2022/10/17/python/day06/" rel="bookmark" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></li><li><a href="/2022/10/18/python/day07/" rel="bookmark" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></li><li><a href="/2022/10/19/python/day08/" rel="bookmark" title="08.OOP基础、OOP实践、OOP进阶">08.OOP基础、OOP实践、OOP进阶</a></li><li><a href="/2022/10/20/python/day09/" rel="bookmark" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></li><li><a href="/2022/10/21/python/day10/" rel="bookmark" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></li><li class="active"><a href="/2022/10/22/python/day11/" rel="bookmark" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">43</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/21/python/day10/" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/12/python/day02/" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/22/python/day11/" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/11/python/day01/" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" title="第六章 数组及常用算法">第六章 数组及常用算法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" title="寄存器指令总结">寄存器指令总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" title="第九章 函数进阶">第九章 函数进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2022/01/05/c/c%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%A2%98/" title="C语言编程题">C语言编程题</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/10/22/python/day11/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//fastly.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

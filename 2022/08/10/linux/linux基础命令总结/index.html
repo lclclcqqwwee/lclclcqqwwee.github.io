@@ -1,0 +1,820 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Linux" />
+
+
+<link rel="canonical" href="http://yoursite.com/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/">
+
+
+
+  <title>
+关于linux基础的一些总结 - Linux基础 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">关于linux基础的一些总结
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-08-10 19:15:25">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-08-10T19:15:25+08:00">2022-08-10</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclx6phq6j20zk0m8e36.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicli3sbvtj20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipetlbztpj20zk0m84qp.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/linux/" itemprop="item" rel="index" title="分类于 Linux基础"><span itemprop="name">Linux基础</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p><strong>列出内存信息:</strong>    cat /proc/meminfo</p>
+<p><strong>查看磁盘信息:</strong>    lsblk</p>
+<p><strong>内核版本:</strong>    uname -r</p>
+<p><strong>ls命令:</strong>    -l 详细信息    -d 显示目录本身    -A 显示全部文件    -R 递归显示文件</p>
+<p><strong>硬链接:</strong>    ln    源数据    快捷方式    (-s    软连接)</p>
+<p><strong>统计目录占硬盘空间:</strong>    du    -s    只统计参数所占总空间    -h    单位</p>
+<p><strong>压缩归档:</strong></p>
+<ul>
+<li><p>tar命令:    </p>
+<ul>
+<li>-z    -j    -J    /    .gz    .bz2    .xz    /    gzip    bzip2    xz</li>
+<li>-c    创建    -x    释放    -f    指定压缩包名(必写)    -t    显示归档文件    </li>
+<li>-C    指定释放路径</li>
+</ul>
+</li>
+<li><p>zip    -r    压缩包名    目标文件夹    /    unzip 压缩包名    目标文件夹    -l    查看压缩包文件</p>
+</li>
+</ul>
+<p><strong>find命令:</strong>    -type(f文件,d目录,l快捷)    -name    -size +/-大小(k m g)    -user    -mtime    -exec</p>
+<ul>
+<li>find /etc -name “*tab” -type f -exec cp {} /root/mytab ;</li>
+</ul>
+<p><strong>rpm包:</strong>    -qa    -q    -qi    -ql    -qf    -qpl    -qpi    –import    -i    -v    -h    -ivh    -evh</p>
+<p><strong>本地yum搭建:</strong>    </p>
+<ul>
+<li>1.挂载 2.写配置文件 ( [] , name , baseurl , enabled , gpgcheck ) 3.列出仓库信息 repolist</li>
+</ul>
+<p><strong>用户/组管理：</strong>    用户/组数据文件(passwd    shadow    group    gshadow)    </p>
+<ul>
+<li><p>useradd -u -d -G -s / userdel -r / usermod -l -u -s -d -G</p>
+</li>
+<li><p>groupadd  / gpasswd -a -d -M -A / gpass</p>
+</li>
+</ul>
+<p><strong>chmod:</strong>    修改权限(u,g,o    r,w,x /o+[t,T],g/u+[s,S]    4,2,1)    -R(递归)</p>
+<p><strong>chown:</strong>    修改归属    chown    属主：属组    文件</p>
+<p><strong>setfacl:</strong>    修改acl策略    setfacl 选项 u/g/o:用户:权限 文件夹    [-m    -x    -b    -R]</p>
+<p><strong>getfacl:</strong>    查看文件权限    <strong>umask:</strong>    权限掩码 -S    775    644</p>
+<p><strong>计划任务(周期性):</strong>    crontab 选项 [-u 用户名]    -e 编辑 -l查看 -r 清除</p>
+<p><strong>磁盘管理:</strong>    识别硬盘–分区–格式化–挂载     [blkid 磁盘设备路径] 查看系统文件类型</p>
+<ul>
+<li><p>分区:    [partprobe 刷新分区表]</p>
+<ul>
+<li>MBR分区模式:[fdisk 分区磁盘路径]    # m、p、n、d、q、w</li>
+<li>GPT分区模式:[parted 分区磁盘路径]    # help、mktable gpt、mkpart、print、rm、quit</li>
+</ul>
+</li>
+<li><p>格式化:    (-f 强制格式化)    mkfs.ext4    /    mkfs.xfs    /    blkid 查看</p>
+</li>
+<li><p>挂载:    [df -h] [df -h 挂载目录]    mount -a </p>
+<p>(挂载配置文件/etc/fstab 设备路径 挂载点 文件系统类型 参数 备份标记 检测顺序)</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">功能</th>
+<th>物理卷管理</th>
+<th>卷组管理</th>
+<th>逻辑卷管理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Scan扫描</td>
+<td>pvs</td>
+<td>vgs</td>
+<td>lvs</td>
+</tr>
+<tr>
+<td align="center">Create创建</td>
+<td>pvcreate</td>
+<td>vgcreate</td>
+<td>lvcreate</td>
+</tr>
+<tr>
+<td align="center">display显示</td>
+<td>pvdisplay</td>
+<td>vgdisplay</td>
+<td>lvdisplay</td>
+</tr>
+<tr>
+<td align="center">remove删除</td>
+<td>pvremove</td>
+<td>vgremove</td>
+<td>lvremove</td>
+</tr>
+<tr>
+<td align="center">extend扩展</td>
+<td>/</td>
+<td>vgextend</td>
+<td>lvextend</td>
+</tr>
+</tbody></table>
+<p><strong>RAID磁盘阵列:</strong>    RAID 0    RAID 1    RAID 5    RAID 6    RAID 0+1/RAID 1+0</p>
+<p><strong>交换空间</strong></p>
+<p>mkswap 硬盘路径 #格式化为wap文件系统    blkid 路径 #查看    free -h 查交换空间大小</p>
+<p>swapon 路径/swapoff 路径 #启用/停用交换分区    swapon #查看    swapon -a #检测</p>
+<p><strong>进程管理(PID)</strong></p>
+<p>[pstree命令 查看进程 -P 列出PID    -a 显示完整命令行]    [ps aux]    [ps -elf]    [top]</p>
+<p>[pgrep命令 -I 输出进程名 -u 检索用户进程 -x 精确匹配]    [jobs]    [fg]    [bg]    [kill/killall]</p>
+<p><strong>网卡配置</strong>    1.nmtui    2.nmcli    3.修改配置文件</p>
+<p>#hostnamectl set-hostname 主机名    #永久配置主机名</p>
+<p><strong>内核引导程序:</strong>    /etc/default/grub #修改网卡命名规则 quiet后加net.ifnames=0 biosdevname=0</p>
+<ul>
+<li>#grub2-mkconfig -o /boot/grub2/grub.cfg #重新生成网卡规则</li>
+</ul>
+<p>#nmcli connection show #查看</p>
+<p>#nmcli connection delete 网卡别名 #删除网卡别名</p>
+<p>#nmcli connection add type ethernet ifname 网卡名 con-name 网卡别名 #添加网卡命名</p>
+<p>#cat  /etc/sysconfig/network-scripts/ifcfg-网卡名 #查看</p>
+<p>#nmcli connection modify 网卡别名 ipv4.method manual ipv4.addresses ip地址/子网掩码 ipv4.gateway 网关 connection.autoconnect yes #永久修改ip、掩码、网关</p>
+<p>#nmcli connection up 网卡名 #激活</p>
+<p>#route -n #查看网关地址信息</p>
+<p><strong>修改配置文件配置网卡:</strong>    #vim /etc/sysconfig/network-script/ifcfg-网卡名 </p>
+<ul>
+<li>#ifdown 网卡名 #停用    #ifup 网卡名 #启用</li>
+</ul>
+<p><strong>远程管理</strong>    #ssh-keygen #创建公私钥 /root/.ssh/    #ssh-copy-id root@ip地址 #传递公钥</p>
+<ul>
+<li>ssh命令:    [ssh root@ip地址]    </li>
+<li>scp命令:    scp [-r] 用户名@IP地址:路径 本地路径    /    scp [-r] 本地路径 用户名@IP地址:路径 </li>
+</ul>
+<p><strong>日志管理:</strong>    users、who、w命令查看已登录信息    last、lastb命令查看最近登录成功/失败信息</p>
+<ul>
+<li>日志文件：/var/log/messages、dmesg、cron、maillog、secure</li>
+</ul>
+<p><strong>ip命令:</strong>    ip address show / ip a s    #ip  address  [add或del]  ip地址/掩码  dev  网卡名</p>
+<p><strong>Linux内核定义的事件紧急程度</strong>    分为 0~7 共8种优先级别其数值越小，表示对应事件越紧急/重要</p>
+<p><strong>SELinux概述:</strong>    enforcing（强制）、permissive（宽松）、disabled（彻底禁用,需要重启）</p>
+<ul>
+<li><p>getenforce    #查看当前运行模式    临时切换：setenforce 1或0</p>
+</li>
+<li><p>固定配置：/etc/selinux/config</p>
+</li>
+</ul>
+<p><strong>构建Web服务:</strong>    软件：httpd、Nginx、tomcat</p>
+<ul>
+<li>httpd:    (页面文件: /var/www/html/index.html)    #cirl 网址 #测试网址</li>
+</ul>
+<p><strong>构建FTP服务:</strong>     软件：vsftpd</p>
+<ul>
+<li>vsftpd:    (默认共享数据的主目录：/var/ftp/)</li>
+</ul>
+<p><strong>防火墙的策略管理:</strong>    系统服务：firewalld、iptables    管理工具：firewall-cmd、firewall-config</p>
+<ul>
+<li><p>预设区域:    public、trusted、block、drop</p>
+</li>
+<li><p>firewall-cmd  –get-default-zone  #查看默认区域</p>
+</li>
+<li><p>firewall-cmd   –set-default-zone=trusted #修改默认区域</p>
+</li>
+<li><p>firewall-cmd  –zone=public  –add-service=http #添加http协议给public</p>
+</li>
+<li><p>firewall-cmd  –zone=public  –list-all #查看</p>
+</li>
+<li><p>firewall-cmd –reload #加载防火墙永久策略</p>
+</li>
+<li><p>firewall-cmd –permanent  –zone=public   –add-service=ftp    #永久添加ftp协议给public</p>
+</li>
+<li><p>firewall-cmd –zone=block      –add-source=ip地址    #防火墙单独拒绝ip访问</p>
+</li>
+<li><p>firewall-cmd –zone=block      –remove-source=ip地址    #删除拒绝策略</p>
+</li>
+</ul>
+<p><strong>服务管理</strong></p>
+<p>#systemctl -t servtce –all #列出所有服务</p>
+<p>#systemctl restart 服务名 #重启服务</p>
+<p>#systemctl start 服务名 #开启服务</p>
+<p>#systemctl stop 服务名 #关闭服务</p>
+<p>#systemctl status 服务名 #查看服务当前状态</p>
+<p><strong>Web服务器简介</strong>    </p>
+<ul>
+<li><p>主配置文件：/etc/httpd/conf/httpd.conf</p>
+<ul>
+<li><p>DocumentRoot：网页文件根目录（默认/var/www/html）</p>
+</li>
+<li><Directory   />
+
+<p>Require all denied   #默认设置根下拒绝所有人访问</p>
+</Directory> 
+
+<p>&lt;Directory   “/var/www”&gt;</p>
+<p>  Require all granted    #默认设置/var/www允许所有人访问</p>
+</Directory>
+</li>
+<li><p>Listen：监听IP地址默认80</p>
+</li>
+</ul>
+</li>
+<li><p>虚拟web主机</p>
+<ul>
+<li><p>/etc/httpd/conf/httpd.conf #主配置文件</p>
+<p>/etc/httpd/conf.d/*.conf  #调用配置文件</p>
+</li>
+<li><p>&lt;VirtualHost   IP地址:端口&gt;</p>
+<p>​    ServerName 此站点的DNS名称(域名)</p>
+<p>​    DocumentRoot 此站点的网页根目录</p>
+</VirtualHost>
+</li>
+<li><p>可一台服务器提供多个不同的Web站点，一旦使用所有网站都必须虚拟web呈现</p>
+</li>
+</ul>
+</li>
+<li><p>配置/etc/hosts文件可只为本机解析域名</p>
+</li>
+</ul>
+<p><strong>NFS服务基础</strong>    软件包：nfs-utils    服务名：nfs-server</p>
+<ul>
+<li><p>服务端/etc/exports文件中添加    [文件夹路径    客户机地址权限]    例 [/public *(ro)]</p>
+</li>
+<li><p>客户端</p>
+<ul>
+<li>#showmount -e 服务端ip地址 #显示nfs共享</li>
+<li>#mount 服务端ip地址:文件夹路径 挂载目录 #把服务端文件夹挂载到本地</li>
+</ul>
+</li>
+<li><p>自动挂载时配置文件例：192.168.4.7<strong>:</strong>/public  /mnt  <strong>nfs</strong> defaults<strong>,_netdev</strong>  0  0</p>
+<p>触发挂载(autofs)：主配置文件 /etc/auto.master  挂载配置文件，比如 /etc/auto.misc</p>
+</li>
+</ul>
+<p><strong>DNS服务</strong>    主程序 /usr/sbin/named    服务名 named    默认端口 53    虚拟根 /var/named/chroot</p>
+<ul>
+<li><p>主配置文件：/etc/named.conf  #设置负责解析的域名 </p>
+<p>options {</p>
+<p>​    directory   “/var/named”;   #定义地址库文件存放路径</p>
+<p>​    #forwarders  {  192.168.4.7;  };    #转发给192.168.4.7缓存dns使用</p>
+<p>};</p>
+<p>zone “<strong>tedu.cn</strong>“  IN {      #定义负责的解析tedu.cn域名</p>
+<p>​    type <strong>master</strong>;        #权威主DNS服务器</p>
+<p>​    file  “<strong>tedu.cn.zone</strong>“;   #地址库文件名称</p>
+<p>};</p>
+</li>
+<li><p>地址库文件：/var/named/   #完全合格的主机名与IP地址对应关系</p>
+<p>#vim /var/named/tedu.cn.zone</p>
+<p>……此处省略一万字</p>
+<p>NS          svr7       #声明DNS服务器为svr7</p>
+<p>svr7         A     192.168.4.7 #svr7解析结果为192.168.4.7</p>
+<p>www        A     1.1.1.1</p>
+<p>ftp            A     2.2.2.2</p>
+<p>*               A     6.6.6.6</p>
+<p>tedu.cn.   A     7.7.7.7</p>
+<p>haha    CNAME  ftp    #haha解析结果与ftp解析结果一致</p>
+</li>
+<li><p>客户端</p>
+<ul>
+<li><p>#echo nameserver  192.168.4.7 &gt;  /etc/resolv.conf</p>
+</li>
+<li><p>#nslookup  <span class="exturl" data-url="aHR0cDovL3d3dy50ZWR1LmNu">www.tedu.cn</span> #查看链接是否成功</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>源码编译安装</strong>    所需软件gcc、make</p>
+<ol>
+<li>#./configure –prefix=/opt/myrpm #指定安装位置，此步骤不产生相应的目录</li>
+<li>#make</li>
+<li>#make install</li>
+</ol>
+<p><strong>数据同步</strong></p>
+<ul>
+<li><p>rsync [选项…] 源目录   目标目录</p>
+<p>-n 测试同步，不做修改 –delete 删除多余的文档 -a 归档模式 -v 显示详细操作信息 -X 保持acl策略</p>
+</li>
+<li><p>#rsync -avX –delete  user@host:远程目录  本地目录    </p>
+<p>#rsync -avX –delete  本地目录  user@host:远程目录</p>
+</li>
+</ul>
+<p><strong>监控目录内容变化工具</strong> inotifywait [选项] 目标文件夹        -m持续监控 -r递归监控 -q不输出-e指定监视</p>
+<p><strong>NTP时间服务器</strong>    包名chrony    配置文件 /etc/chrony.conf    服务名chronyd</p>
+<p><strong>邮件服务器</strong>    包名postfix    [mail  -s  ‘邮件标题’   -r  发件人  收件人]    [mail  [-u 用户名]]</p>
+<p><strong>自定义Yum与网络Yum仓库</strong></p>
+<ul>
+<li><p>createrepo –update  /tools/other/ #更新仓库数据文件</p>
+</li>
+<li><p>yum  makecache  #更新缓存数据</p>
+</li>
+<li><p>网络Yum仓库</p>
+</li>
+</ul>
+<p><strong>DHCP服务器</strong>    自动分配ip地址    软件包dhcp    服务名dhcpd    配置文件/etc/dhcp/dhcpd.conf</p>
+<p><strong>tftp服务</strong>    默认端口69    默认共享的主目录:/var/lib/tftpboot    包名tftp-server    服务名tftp</p>
+<p><strong>容器基础</strong>    </p>
+<p>#podman search 关键字 #查找镜像</p>
+<p>#podman pull 镜像名称:标签 #下载镜像</p>
+<p>#podman load -i 备份文件.tar.gz #导入镜像</p>
+<p>#podman images #查看镜像</p>
+<p>#podman rmi 镜像名称:镜像标签 #删除镜像</p>
+<ul>
+<li><p>启动容器    #podman run –选项 镜像名称:镜像标签 启动命令</p>
+<ul>
+<li>-i交互式    -t，终端    -d，后台运行    –name 容器名字</li>
+</ul>
+</li>
+<li><p>查看容器    #podman ps [ -a 所有容器id ] [ -q 只显示容器 id ]</p>
+</li>
+<li><p>删除容器    #podman rm 容器id</p>
+</li>
+<li><p>容器管理命令启动、停止、重启    #podman start|stop|restart 容器id</p>
+</li>
+<li><p>进入容器    #podman exec  -it  容器id  启动命令</p>
+</li>
+</ul>
+<p>#podman run –name abc01 -p 80:80 -v /opt:/var/www/html -d localhost/myos:httpd</p>
+<p><strong>数据库基础</strong>    包名：mariadb-server    服务名：mariadb</p>
+<p>#mysql       #进入数据库系统</p>
+<p>&gt; <strong>create database nsd01;</strong>   #创建nsd01数据库</p>
+<p>&gt; <strong>show  databases;</strong>        #查看所有数据库</p>
+<p>&gt; <strong>drop  database  nsd01;</strong>  #删除数据库nsd01</p>
+<p>&gt; <strong>show databases;</strong>         #查看所有数据库</p>
+<p>&gt; <strong>use  mysql;</strong>       #切换到mysql数据库</p>
+<p>&gt; <strong>show  tables;</strong>      #查看当前库中所有表格</p>
+<p>&gt; <strong>show  databases;</strong>   #查看所有数据库</p>
+<p>&gt; <strong>use  test;</strong>          #切换到test数据库</p>
+<p>#mysql  test  &lt; /root/users.sql  #导入mysql</p>
+<ul>
+<li>#select   表字段，表字段，……   from  库名.表名;</li>
+<li>#insert 表名   values (‘值’,‘值’,‘值’);</li>
+<li>#update 表名   set 表字段=‘新值’ where 表字段=’值’；</li>
+<li>#delete  from  base  where   id=’4’ ;</li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/Linux/" rel="tag"><i class="ic i-tag"></i> Linux</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-25 19:06:47" itemprop="dateModified" datetime="2022-11-25T19:06:47+08:00">2022-11-25</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" title="关于linux基础的一些总结">http://yoursite.com/2022/08/10/linux/linux基础命令总结/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/08/10/linux/shell/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4lm9i7j20zk0m84qp.jpg" title="shell">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Linux基础</span>
+  <h3>shell</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/08/10/linux/cluster/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4baakhj20zk0m8h5q.jpg" title="cluster">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Linux基础</span>
+  <h3>cluster</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2022/08/10/linux/ansible/" rel="bookmark" title="ansible">ansible</a></li><li><a href="/2022/08/10/linux/cluster/" rel="bookmark" title="cluster">cluster</a></li><li class="active"><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="关于linux基础的一些总结">关于linux基础的一些总结</a></li><li><a href="/2022/08/10/linux/shell/" rel="bookmark" title="shell">shell</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">43</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/08/10/linux/shell/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/08/10/linux/cluster/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/17/python/day06/" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" title="第九章 函数进阶">第九章 函数进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/30/c/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84/" title="第三章 运算符和条件结构">第三章 运算符和条件结构</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/22/python/day11/" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/07/17/assembly/%E6%8C%87%E4%BB%A4%E5%85%A8%E9%9B%86/" title="指令全集">指令全集</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/12/python/day02/" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
+</div>
+
+    <span><a href="/2022/08/10/linux/ansible/" title="ansible">ansible</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/first-blog/" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
+</div>
+
+    <span><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" title="关于linux基础的一些总结">关于linux基础的一些总结</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/08/10/linux/linux基础命令总结/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//fastly.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

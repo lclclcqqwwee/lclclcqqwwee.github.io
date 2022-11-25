@@ -1,0 +1,610 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="python" />
+
+
+<link rel="canonical" href="http://yoursite.com/2022/10/20/python/day09/">
+
+
+
+  <title>
+09.re模块、多线程编程、Python模块管理 - python基础 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">09.re模块、多线程编程、Python模块管理
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-10-20 21:35:19">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-10-20T21:35:19+08:00">2022-10-20</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicliierfjj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclg5ms2rj20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciundwu5j20zk0m8n9e.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/python/" itemprop="item" rel="index" title="分类于 python基础"><span itemprop="name">python基础</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/10/20/python/day09/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="正则表达式及re模块"><a href="#正则表达式及re模块" class="headerlink" title="正则表达式及re模块"></a>正则表达式及re模块</h1><h2 id="re-模块"><a href="#re-模块" class="headerlink" title="re 模块"></a>re 模块</h2><h3 id="match-函数"><a href="#match-函数" class="headerlink" title="match 函数"></a>match 函数</h3><ul>
+<li>尝试用正则表达式模式从字符串的 <strong>开头匹配</strong>，<strong>如果匹配成功，则返回一个匹配对象；否则返回 None</strong></li>
+</ul>
+<h4 id="案例：使用match函数匹配字符串"><a href="#案例：使用match函数匹配字符串" class="headerlink" title="案例：使用match函数匹配字符串"></a>案例：使用match函数匹配字符串</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment"># 1. re.match(正则字符串, 目标字符串):</span></span><br><span class="line"><span class="comment">#   判断目标字符串是不是以正则匹配到的内容开头,如果成功，返回匹配对象;否则，返回None</span></span><br><span class="line"><span class="comment"># \d: 表示一个数字字符串 &quot;0123456789&quot;</span></span><br><span class="line"><span class="comment"># &#123;3&#125;: 表示连续出现3次  \d&#123;3&#125;: 连续出现的三个数字</span></span><br><span class="line">result01 = re.match(<span class="string">&quot;\d&#123;3&#125;&quot;</span>, <span class="string">&quot;123aavvfdfsf&quot;</span>)</span><br><span class="line">print(result01)  <span class="comment"># &lt;_sre.SRE_Match object; span=(0, 3), match=&#x27;123&#x27;&gt;</span></span><br><span class="line">print(result01.group())  <span class="comment"># 获取匹配到的字符串  123</span></span><br></pre></td></tr></table></figure>
+<h3 id="search-函数"><a href="#search-函数" class="headerlink" title="search 函数"></a>search 函数</h3><ul>
+<li>在字符串中查找正则表达式模式的第一次出现，如果匹配成功，则返回一个匹配对象；否则返回 None。</li>
+</ul>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment"># 2. re.search(正则字符串, 目标字符串):</span></span><br><span class="line"><span class="comment">#   在字符串中查找正则表达式匹配的第一次出现, 如果成功，返回匹配对象;否则，返回None</span></span><br><span class="line">result02 = re.search(<span class="string">&quot;\d&#123;3&#125;&quot;</span>, <span class="string">&quot;abc666def456qqq&quot;</span>)</span><br><span class="line">print(result02)  <span class="comment"># &lt;_sre.SRE_Match object; span=(3, 6), match=&#x27;666&#x27;&gt;</span></span><br><span class="line">print(result02.group())  <span class="comment"># 获取匹配到的字符串  666</span></span><br></pre></td></tr></table></figure>
+<h3 id="findall-函数"><a href="#findall-函数" class="headerlink" title="findall 函数"></a>findall 函数</h3><ul>
+<li>在字符串中查找正则表达式模式的所有出现；返回一个匹配对象的列表</li>
+</ul>
+<h4 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment"># 3. re.findall(正则字符串, 目标字符串):</span></span><br><span class="line"><span class="comment">#   在字符串中查找正则表达式匹配的所有出现；返回一个匹配字符串的列表</span></span><br><span class="line">result03 = re.findall(<span class="string">&quot;\d&#123;3&#125;&quot;</span>, <span class="string">&quot;abc666def456qqq&quot;</span>)</span><br><span class="line">print(result03)  <span class="comment"># [&#x27;666&#x27;, &#x27;456&#x27;]</span></span><br></pre></td></tr></table></figure>
+<h3 id="finditer函数"><a href="#finditer函数" class="headerlink" title="finditer函数"></a>finditer函数</h3><ul>
+<li>查找字符串中所有匹配字符【返回迭代器】</li>
+</ul>
+<h4 id="案例-2"><a href="#案例-2" class="headerlink" title="案例"></a>案例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment"># 4. re.finditer(正则字符串, 目标字符串): 查找正则字符串中所有匹配字符【返回可迭代对象】</span></span><br><span class="line">result04 = re.finditer(<span class="string">&quot;\d&#123;3&#125;&quot;</span>, <span class="string">&quot;abc666def456qqq&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> result04:</span><br><span class="line">    print(item)</span><br><span class="line">    print(item.group())</span><br></pre></td></tr></table></figure>
+<h3 id="split-方法"><a href="#split-方法" class="headerlink" title="split 方法"></a>split 方法</h3><ul>
+<li>根据正则表达式中的分隔符把字符分割为一个列表，并返回成功匹配的列表</li>
+<li>字符串也有类似的方法，但是正则表达式更加灵活</li>
+</ul>
+<h4 id="案例-3"><a href="#案例-3" class="headerlink" title="案例"></a>案例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment"># 5. re.split(正则字符串, 目标字符串)</span></span><br><span class="line"><span class="comment">#   根据正则表达式中的分隔符把字符分割为一个列表，并返回成功分割的列表</span></span><br><span class="line">result05 = re.split(<span class="string">&quot;-|\.&quot;</span>, <span class="string">&quot;hello-tar.gz&quot;</span>)</span><br><span class="line">print(result05)  <span class="comment"># [&#x27;hello&#x27;, &#x27;tar&#x27;, &#x27;gz&#x27;]</span></span><br></pre></td></tr></table></figure>
+<h3 id="sub方法"><a href="#sub方法" class="headerlink" title="sub方法"></a>sub方法</h3><ul>
+<li>把字符串中所有匹配正则表达式的地方替换成新的字符串</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment"># 6. re.sub(正则字符串,替换字符串,目标字符串)</span></span><br><span class="line">result06 = re.sub(<span class="string">&quot;\d&#123;3&#125;&quot;</span>, <span class="string">&quot;benben&quot;</span>, <span class="string">&quot;Hi~123, nice to meet you, 456&quot;</span>)</span><br><span class="line">print(result06)  <span class="comment"># Hi~benben, nice to meet you, benben</span></span><br></pre></td></tr></table></figure>
+<h3 id="compile函数"><a href="#compile函数" class="headerlink" title="compile函数"></a>compile函数</h3><ul>
+<li>对正则表达式模式进行编译，返回一个正则表达式对象</li>
+<li>不是必须要用这种方式，但是在大量匹配的情况下，可以提升效率</li>
+</ul>
+<h4 id="案例-4"><a href="#案例-4" class="headerlink" title="案例"></a>案例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment"># 7. re.compile(正则字符串):  将字符串编译成正则对象</span></span><br><span class="line">patt_obj = re.<span class="built_in">compile</span>(<span class="string">&quot;\d&#123;3&#125;&quot;</span>)  <span class="comment"># patt_obj: 正则对象</span></span><br><span class="line"><span class="comment"># 一次编译多次匹配</span></span><br><span class="line">result07 = patt_obj.search(<span class="string">&quot;abc666def456qqq&quot;</span>)</span><br><span class="line">print(result07)  <span class="comment"># &lt;_sre.SRE_Match object; span=(3, 6), match=&#x27;666&#x27;&gt;</span></span><br><span class="line">print(result07.group())  <span class="comment"># 666</span></span><br><span class="line">result08 = patt_obj.split(<span class="string">&quot;abc123qwer890aaa&quot;</span>)</span><br><span class="line">print(result08)  <span class="comment"># [&#x27;abc&#x27;, &#x27;qwer&#x27;, &#x27;aaa&#x27;]</span></span><br></pre></td></tr></table></figure>
+<h2 id="练习：分析-apache-访问日志"><a href="#练习：分析-apache-访问日志" class="headerlink" title="练习：分析 apache 访问日志"></a>练习：分析 apache 访问日志</h2><p><strong>需求：编写一个apache 日志分析脚本(count_patt.py)：</strong></p>
+<ul>
+<li>统计每个客户端访问 apache 服务器的次数</li>
+<li>将统计信息通过字典的方式显示出来</li>
+<li>分别统计客户端是 Firefox 和 MSIE 的访问次数</li>
+</ul>
+<p><strong>第一步：创建新的python文件count_patt.py，使用正则表达式过滤出IP地址和浏览器</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  re						<span class="comment">#导入正则表达式的模块re</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_patt</span>(<span class="params">fname, patt</span>):</span>			<span class="comment">#函数count_patt(), 功能：分析apache访问日志</span></span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    fname = <span class="string">&#x27;/root/access_log&#x27;</span>       	<span class="comment">#指定文件名</span></span><br><span class="line">    ip = <span class="string">&#x27;(\d+\.)&#123;3&#125;\d+&#x27;</span>            		<span class="comment">#使用正则匹配出IP地址</span></span><br><span class="line">    br = <span class="string">&#x27;Chrome|MSIE|Firefox&#x27;</span>       	<span class="comment">#使用正则匹配出浏览器</span></span><br><span class="line">    result1 = count_patt(fname, ip)    	<span class="comment">#统计文件中的IP地址的个数  </span></span><br><span class="line">    result2 = count_patt(fname, br)    	<span class="comment">#统计文件中的浏览器的个数  </span></span><br><span class="line">    print(result1)         				<span class="comment">#打印result1</span></span><br><span class="line">    print(result2)</span><br></pre></td></tr></table></figure>
+<p><strong>第二步：编写函数count_patt()</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  re		<span class="comment">#导入正则表达式的模块res</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_patt</span>(<span class="params">fname, patt</span>):</span>	<span class="comment">#函数count_patt(), 功能：分析apache访问日志</span></span><br><span class="line">    patt_dict = &#123;&#125;              <span class="comment">#定义字典，存储结果数据</span></span><br><span class="line">    cpatt = re.<span class="built_in">compile</span>(patt)    <span class="comment">#编译正则表达式【这里指: IP或br】</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(fname, mode=<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> fobj:   <span class="comment">#以字符类型打开文件，遍历行</span></span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fobj.readlines():</span><br><span class="line">            m = cpatt.search(line)   <span class="comment">#使用正则cpatt匹配line中的字符</span></span><br><span class="line">            <span class="keyword">if</span> m:                    <span class="comment">#当行line中正则匹配成功时</span></span><br><span class="line">                key = m.group()      <span class="comment">#获取在行line中匹配到的内容</span></span><br><span class="line">                <span class="keyword">if</span> key <span class="keyword">not</span> <span class="keyword">in</span> patt_dict:</span><br><span class="line">                    patt_dict[key] = <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    patt_dict[key] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> patt_dict  </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    fname = <span class="string">&#x27;/root/access_log&#x27;</span>       <span class="comment">#指定文件名</span></span><br><span class="line">    ip = <span class="string">&#x27;(\d+\.)&#123;3&#125;\d+&#x27;</span>             <span class="comment">#使用正则匹配出IP地址</span></span><br><span class="line">    br = <span class="string">&#x27;Chrome|MSIE|Firefox&#x27;</span>       <span class="comment">#使用正则匹配出浏览器</span></span><br><span class="line">    result1 = count_patt(fname, ip)    <span class="comment">#统计文件中的IP地址的个数  </span></span><br><span class="line">    result2 = count_patt(fname, br)    <span class="comment">#统计文件中的浏览器的个数  </span></span><br><span class="line">    print(result1)         <span class="comment">#打印result1【IP地址出现的次数】</span></span><br><span class="line">    print(result2)         <span class="comment">#打印result2【不同浏览器出现的次数】</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试分析apache访问日志的程序</span></span><br><span class="line">[root@localhost xxx]<span class="comment"># python3 count_patt.py</span></span><br></pre></td></tr></table></figure>
+<h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="进程-1"><a href="#进程-1" class="headerlink" title="进程"></a>进程</h3><blockquote>
+<ol>
+<li><strong>计算机程序只不过是磁盘中可执行的二进制（或其他类型）的数据</strong></li>
+<li><strong>进程（有时被称为重量级进程）是程序的一次执行</strong></li>
+<li><strong>每个进程都有自己的地址空间、内存以及其它记录其运行轨迹的辅助数据（称之为上下文 context）</strong></li>
+<li><strong>操作系统管理在其上运行的所有进程，并为这些进程公平分配时间（CPU）</strong></li>
+</ol>
+</blockquote>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><blockquote>
+<ol>
+<li><strong>线程（有时被称为轻量级进程）跟进程有些类似，不同的是所有线程运行在同一个进程中，共享相同的运行环境</strong></li>
+<li><strong>一个进程中的各个线程之间共享同一片数据空间，所以线程之间可以比进程之间更方便的共享数据以及相互通讯</strong></li>
+</ol>
+</blockquote>
+<h3 id="理解（人话）"><a href="#理解（人话）" class="headerlink" title="理解（人话）"></a>理解（人话）</h3><p><img data-src="day09.assets/image-20210921121330058.png" alt="image-20210921121330058"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li><strong>进程是争夺 CPU 资源的最小单位，线程是程序执行的最小单位</strong></li>
+<li><strong>线程的执行离不开进程的资源，进程的流转离不开线程的工作</strong></li>
+</ol>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><ul>
+<li>在多线程（MT）编程出现之前，电脑程序的运行由 <strong>一个执行序列组成</strong>，执行序列按顺序在主机的<strong>中央处理器（CPU）中运行</strong></li>
+<li>无论是任务本身要求<strong>顺序执行还是整个程序是由多个子任务组成</strong>，程序都是按这种方式执行的</li>
+<li><strong>即使子任务相互独立，互相无关（即，一个子任务的结果不影响其它子任务的结果）时也是这样</strong></li>
+<li>如果并行运行这些相互独立的子任务可以大幅度地 <strong>提升整个任务的效率</strong></li>
+</ul>
+<h3 id="工作特点"><a href="#工作特点" class="headerlink" title="工作特点"></a>工作特点</h3><ul>
+<li>它们本质上就是 <strong>异步的</strong>，需要有多个并发事务</li>
+<li>各个事务的运行顺序可以是 <strong>不确定的，随机的，不可预测的</strong></li>
+<li>这样的编程任务可以被分成 <strong>多个执行流，每个流都有一个要完成的目标</strong></li>
+<li><strong>根据应用的不同，这些子任务可能都要计算出一个中间结果，用于合并得到最后的结果</strong></li>
+</ul>
+<h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><p><img data-src="day09.assets/image-20210921123514234.png" alt="image-20210921123514234"></p>
+<h3 id="多线程编程"><a href="#多线程编程" class="headerlink" title="多线程编程"></a>多线程编程</h3><h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><ul>
+<li>*<em>thread 和 threading *</em>模块允许程序员创建和管理线程</li>
+<li><strong>thread</strong> 模块提供了基本的线程和锁的支持，<strong>而 threading 提供了更高级别、功能更强的线程管理功能</strong></li>
+<li>推荐使用更高级别的 <strong>threading</strong> 模块</li>
+</ul>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul>
+<li>多线程编程有多种方法，传递函数给threading模块的Thread类是介绍的第一种方法</li>
+<li><strong>Thread</strong> 对象使用 <strong>start()</strong> 方法开始线程的执行，直到线程结束</li>
+</ul>
+<h4 id="案例：三秒后打印内容"><a href="#案例：三秒后打印内容" class="headerlink" title="案例：三秒后打印内容"></a>案例：三秒后打印内容</h4><p><strong>需求：使用多线程实现功能</strong></p>
+<p><strong>【一般方法】</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义方法say_hi()，功能: 打印信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say_hi</span>():</span></span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">    print(<span class="string">&#x27;Hello World!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line"><span class="comment"># 当前处于主线程下，通过for循环生成工作线程t, target指定线程运行的函数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">        say_hi()</span><br></pre></td></tr></table></figure>
+<p><strong>【多线程】</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入多线程的模块</span></span><br><span class="line"><span class="keyword">import</span>  threading</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义方法say_hi()，功能: 打印信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say_hi</span>():</span></span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">    print(<span class="string">&#x27;Hello World!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line"><span class="comment"># 当前处于主线程下，通过for循环生成工作线程t, target指定线程运行的函数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">        t = threading.Thread(target=say_hi)</span><br><span class="line">        t.start()     <span class="comment">#启动工作线程, 会运行target()【等同于say_hi()】</span></span><br></pre></td></tr></table></figure>
+<h4 id="练习：扫描存活主机"><a href="#练习：扫描存活主机" class="headerlink" title="练习：扫描存活主机"></a>练习：扫描存活主机</h4><p><strong>需求：</strong></p>
+<ol>
+<li>通过 <strong>ping</strong> 测试主机是否可达</li>
+<li>如果 <strong>ping</strong> 不通，不管什么原因都认为主机不可用</li>
+<li><strong>通过多线程方式实现并发扫描</strong></li>
+</ol>
+<p><strong>分析：</strong></p>
+<ul>
+<li>subprocess.run() 方法可以调用系统命令，其返回值是系统命令退出码，也就是如果系统命令成功执行，返回0，如果没有成功执行，返回非零值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ping</span>(<span class="params">host</span>):</span></span><br><span class="line">    result = subprocess.run(</span><br><span class="line">        <span class="string">&#x27;ping -c2 %s &amp;&gt; /dev/null&#x27;</span> % host,</span><br><span class="line">        shell=<span class="literal">True</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">if</span> result.returncode == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">&#x27;%s: up&#x27;</span> % host)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">&#x27;%s: down&#x27;</span> % host)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    ips = [<span class="string">&#x27;172.40.58.%s&#x27;</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">255</span>)]</span><br><span class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> ips:</span><br><span class="line">        <span class="comment"># 创建线程，ping是上面定义的函数, args是传给ping函数的参数</span></span><br><span class="line">        t = threading.Thread(target=ping, args=(ip,))</span><br><span class="line">        t.start()  <span class="comment"># 执行ping(ip)</span></span><br></pre></td></tr></table></figure>
+<h1 id="Python-模块安装"><a href="#Python-模块安装" class="headerlink" title="Python 模块安装"></a>Python 模块安装</h1><h2 id="通过pip本地安装python模块"><a href="#通过pip本地安装python模块" class="headerlink" title="通过pip本地安装python模块"></a>通过pip本地安装python模块</h2><ul>
+<li><strong>pip</strong> 是 <strong>Python</strong> 包管理工具</li>
+<li>提供了对 <strong>Python</strong> 包的查找、下载、安装、卸载的功能</li>
+<li>下载模块后解压缩并安装</li>
+</ul>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="下载模块"><a href="#下载模块" class="headerlink" title="下载模块"></a>下载模块</h4><p><img data-src="day09.assets/1653915704185.png" alt="1653915704185"></p>
+<p><img data-src="day09.assets/1653917428498.png" alt="1653917428498"></p>
+<p><img data-src="day09.assets/1653918961514.png" alt="1653918961514"></p>
+<h4 id="演示离线安装"><a href="#演示离线安装" class="headerlink" title="演示离线安装"></a>演示离线安装</h4><p>上传 wget-3.2.zip 到 pycharm 主机</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# unzip wget-3.2.zip  # 解压</span><br><span class="line">[root@localhost ~]# cd wget-3.2/  # 进入到wget解压目录下</span><br><span class="line">[root@localhost wget-3.2]# python3 setup.py install  # 安装wget</span><br><span class="line">[root@localhost wget-3.2]# pip3 list |grep -i wget  # 查看wget的版本</span><br></pre></td></tr></table></figure>
+<h3 id="在线安装模块"><a href="#在线安装模块" class="headerlink" title="在线安装模块"></a>在线安装模块</h3><h4 id="使用国内镜像站点"><a href="#使用国内镜像站点" class="headerlink" title="使用国内镜像站点"></a>使用国内镜像站点</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost xxx]# mkdir ~/.pip			#在root家目录下，创建隐藏目录.pip</span><br><span class="line">[root@localhost xxx]# vim ~/.pip/pip.conf		#创建，配置国内镜像源，index-url 指定国内镜像源路径，trusted-host 信任该镜像网站，否则无法使用</span><br><span class="line">[global]</span><br><span class="line">index-url=https://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+<h4 id="演示在线安装"><a href="#演示在线安装" class="headerlink" title="演示在线安装"></a>演示在线安装</h4><p>使用pip尝试安装，可以看到配置的国内镜像站点</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost xxx]# pip3 install wget</span><br></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/python/" rel="tag"><i class="ic i-tag"></i> python</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-25 20:16:41" itemprop="dateModified" datetime="2022-11-25T20:16:41+08:00">2022-11-25</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2022/10/20/python/day09/" title="09.re模块、多线程编程、Python模块管理">http://yoursite.com/2022/10/20/python/day09/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/10/19/python/day08/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4baakhj20zk0m8h5q.jpg" title="08.OOP基础、OOP实践、OOP进阶">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> python基础</span>
+  <h3>08.OOP基础、OOP实践、OOP进阶</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/10/21/python/day10/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclh0m9pdj20zk0m8hdt.jpg" title="10.邮件编程、paramiko模块、PyMySQL模块">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> python基础</span>
+  <h3>10.邮件编程、paramiko模块、PyMySQL模块</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8F%8Are%E6%A8%A1%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text">正则表达式及re模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#re-%E6%A8%A1%E5%9D%97"><span class="toc-number">1.1.</span> <span class="toc-text">re 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#match-%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">match 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%EF%BC%9A%E4%BD%BF%E7%94%A8match%E5%87%BD%E6%95%B0%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">案例：使用match函数匹配字符串</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#search-%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.2.</span> <span class="toc-text">search 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#findall-%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.3.</span> <span class="toc-text">findall 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-1"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#finditer%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.4.</span> <span class="toc-text">finditer函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-2"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#split-%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.5.</span> <span class="toc-text">split 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-3"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sub%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.6.</span> <span class="toc-text">sub方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#compile%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.7.</span> <span class="toc-text">compile函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-4"><span class="toc-number">1.1.7.1.</span> <span class="toc-text">案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%88%86%E6%9E%90-apache-%E8%AE%BF%E9%97%AE%E6%97%A5%E5%BF%97"><span class="toc-number">1.2.</span> <span class="toc-text">练习：分析 apache 访问日志</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">进程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B-1"><span class="toc-number">2.1.1.</span> <span class="toc-text">进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text">线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%EF%BC%88%E4%BA%BA%E8%AF%9D%EF%BC%89"><span class="toc-number">2.1.3.</span> <span class="toc-text">理解（人话）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.1.4.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%9C%BA"><span class="toc-number">2.2.1.</span> <span class="toc-text">动机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E7%89%B9%E7%82%B9"><span class="toc-number">2.2.2.</span> <span class="toc-text">工作特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3"><span class="toc-number">2.2.3.</span> <span class="toc-text">理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B"><span class="toc-number">2.2.4.</span> <span class="toc-text">多线程编程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="toc-number">2.2.4.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">2.2.4.2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%EF%BC%9A%E4%B8%89%E7%A7%92%E5%90%8E%E6%89%93%E5%8D%B0%E5%86%85%E5%AE%B9"><span class="toc-number">2.2.4.3.</span> <span class="toc-text">案例：三秒后打印内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%89%AB%E6%8F%8F%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA"><span class="toc-number">2.2.4.4.</span> <span class="toc-text">练习：扫描存活主机</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-%E6%A8%A1%E5%9D%97%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">Python 模块安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87pip%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85python%E6%A8%A1%E5%9D%97"><span class="toc-number">3.1.</span> <span class="toc-text">通过pip本地安装python模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.1.1.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E6%A8%A1%E5%9D%97"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">下载模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BC%94%E7%A4%BA%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85"><span class="toc-number">3.1.1.2.</span> <span class="toc-text">演示离线安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9D%97"><span class="toc-number">3.1.2.</span> <span class="toc-text">在线安装模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E7%AB%99%E7%82%B9"><span class="toc-number">3.1.2.1.</span> <span class="toc-text">使用国内镜像站点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BC%94%E7%A4%BA%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85"><span class="toc-number">3.1.2.2.</span> <span class="toc-text">演示在线安装</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2022/10/11/python/day01/" rel="bookmark" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></li><li><a href="/2022/10/12/python/day02/" rel="bookmark" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></li><li><a href="/2022/10/14/python/day03/" rel="bookmark" title="03.文件对象、文件读写操作、函数基础">03.文件对象、文件读写操作、函数基础</a></li><li><a href="/2022/10/15/python/day04/" rel="bookmark" title="04.模块基础、时间模块、语法风格及布局、字符串详解">04.模块基础、时间模块、语法风格及布局、字符串详解</a></li><li><a href="/2022/10/16/python/day05/" rel="bookmark" title="05.列表和元组、字典、集合">05.列表和元组、字典、集合</a></li><li><a href="/2022/10/17/python/day06/" rel="bookmark" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></li><li><a href="/2022/10/18/python/day07/" rel="bookmark" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></li><li><a href="/2022/10/19/python/day08/" rel="bookmark" title="08.OOP基础、OOP实践、OOP进阶">08.OOP基础、OOP实践、OOP进阶</a></li><li class="active"><a href="/2022/10/20/python/day09/" rel="bookmark" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></li><li><a href="/2022/10/21/python/day10/" rel="bookmark" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></li><li><a href="/2022/10/22/python/day11/" rel="bookmark" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">43</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/10/19/python/day08/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/10/21/python/day10/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="第一章 微型计算机系统">第一章 微型计算机系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" title="第八章 函数初探">第八章 函数初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/12/python/day02/" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/21/python/day10/" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" title="寄存器指令总结">寄存器指令总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/15/python/day04/" title="04.模块基础、时间模块、语法风格及布局、字符串详解">04.模块基础、时间模块、语法风格及布局、字符串详解</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" title="第七章 指针">第七章 指针</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/17/python/day06/" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" title="第九章 函数进阶">第九章 函数进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/10/20/python/day09/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//fastly.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

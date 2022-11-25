@@ -1,0 +1,669 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="python" />
+
+
+<link rel="canonical" href="http://yoursite.com/2022/10/17/python/day06/">
+
+
+
+  <title>
+06.shutil和os模块、subprocess模块、异常处理 - python基础 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">06.shutil和os模块、subprocess模块、异常处理
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-10-17 20:18:43">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-10-17T20:18:43+08:00">2022-10-17</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipevgoki5j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/python/" itemprop="item" rel="index" title="分类于 python基础"><span itemprop="name">python基础</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/10/17/python/day06/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="shutil-模块"><a href="#shutil-模块" class="headerlink" title="shutil 模块"></a>shutil 模块</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li><code>shutil</code> 可以简单地理解为 <code>sh + util</code>，<strong>shell 工具</strong> 的意思</li>
+<li><code>shutil</code> 模块是对 <code>os</code> 模块的补充，主要针对文件的 <strong>拷贝、删除、移动、压缩和解压</strong> 操作</li>
+</ul>
+<h2 id="shutil-模块的主要方法"><a href="#shutil-模块的主要方法" class="headerlink" title="shutil 模块的主要方法"></a>shutil 模块的主要方法</h2><h3 id="复制和移动"><a href="#复制和移动" class="headerlink" title="复制和移动"></a>复制和移动</h3><h4 id="shutil-copyfileobj-fsrc-fdst"><a href="#shutil-copyfileobj-fsrc-fdst" class="headerlink" title="shutil.copyfileobj(fsrc, fdst)"></a>shutil.copyfileobj(fsrc, fdst)</h4><ul>
+<li>将文件的对象 <strong>fsrc</strong> 的内容复制到文件的对象 <strong>fdst</strong></li>
+</ul>
+<p><strong>案例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="comment"># 复制</span></span><br><span class="line"><span class="comment"># 1. shutil.copyfileobj(源文件管家,目标文件管家)：只能复制文件的内容，无法复制权限</span></span><br><span class="line">fr = <span class="built_in">open</span>(<span class="string">&quot;/etc/hosts&quot;</span>, mode=<span class="string">&quot;r&quot;</span>)</span><br><span class="line">fw = <span class="built_in">open</span>(<span class="string">&quot;/opt/myhosts&quot;</span>, mode=<span class="string">&quot;w&quot;</span>)</span><br><span class="line">shutil.copyfileobj(fr, fw)</span><br><span class="line">fr.close()</span><br><span class="line">fw.close()</span><br></pre></td></tr></table></figure>
+<h4 id="shutil-copyfile-src-dst"><a href="#shutil-copyfile-src-dst" class="headerlink" title="shutil.copyfile(src, dst)"></a>shutil.copyfile(src, dst)</h4><ul>
+<li>将名为 <strong>src</strong> 的文件的内容复制到名为 <strong>dst</strong> 的文件</li>
+</ul>
+<p><strong>案例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil    </span><br><span class="line"><span class="comment"># 2. shutil.copyfile(源文件路径, 目标文件路径)：只能复制文件的内容，无法复制权限</span></span><br><span class="line">shutil.copyfile(<span class="string">&quot;/usr/bin/ls&quot;</span>, <span class="string">&quot;/opt/myls&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="shutil-copy-src-dst"><a href="#shutil-copy-src-dst" class="headerlink" title="shutil.copy(src, dst)"></a>shutil.copy(src, dst)</h4><p>将文件 <strong>src</strong> 复制到文件或目录 <strong>dst</strong>，包括权限</p>
+<p><strong>案例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil  <span class="comment"># 导入模块(如果已经导入，则不需要再次导入)</span></span><br><span class="line"><span class="comment"># 3. shutil.copy(源文件路径, 目标文件路径)：既能复制文件的内容，也能复制权限</span></span><br><span class="line">shutil.copy(<span class="string">&quot;/usr/bin/ls&quot;</span>, <span class="string">&quot;/opt/myls2&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="shutil-move-src-dst"><a href="#shutil-move-src-dst" class="headerlink" title="shutil.move(src, dst)"></a>shutil.move(src, dst)</h4><ul>
+<li>递归地将文件或目录（<strong>src</strong>）移动到另一个位置（<strong>dst</strong>），并返回目标</li>
+</ul>
+<p><strong>案例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil  <span class="comment"># 导入模块(如果已经导入，则不需要再次导入)</span></span><br><span class="line">shutil.move(<span class="string">&quot;/opt/myls2&quot;</span>, <span class="string">&quot;/opt/myls3&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><h4 id="shutil-copytree-src-dst"><a href="#shutil-copytree-src-dst" class="headerlink" title="shutil.copytree(src, dst)"></a>shutil.copytree(src, dst)</h4><ul>
+<li>递归地复制以 <strong>src</strong> 为根的整个目录树，返回目标目录。由 <strong>dst</strong> 命名的目标目录不能已经存在</li>
+</ul>
+<p><strong>案例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil  <span class="comment"># 导入模块(如果已经导入，则不需要再次导入)</span></span><br><span class="line">shutil.copytree(<span class="string">&#x27;/etc/security&#x27;</span>, <span class="string">&#x27;/opt/security&#x27;</span>)  <span class="comment"># 使用copytree()时，需要指定一个不存在的目录，否则报错</span></span><br></pre></td></tr></table></figure>
+<h4 id="shutil-rmtree-path"><a href="#shutil-rmtree-path" class="headerlink" title="shutil.rmtree(path)"></a>shutil.rmtree(path)</h4><ul>
+<li>删除整个目录树； *<em>路径 *</em>必须指向目录， 空目录或者非空目录都可使用</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil  <span class="comment"># 导入模块(如果已经导入，则不需要再次导入)</span></span><br><span class="line">shutil.rmtree(<span class="string">&quot;/opt/security&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h3><h4 id="shutil-copymode-src-dst"><a href="#shutil-copymode-src-dst" class="headerlink" title="shutil.copymode(src, dst)"></a>shutil.copymode(src, dst)</h4><ul>
+<li>将权限位从 <strong>src</strong> 复制到 <strong>dst</strong></li>
+<li>文件内容，<strong>所有者和组不受影响</strong></li>
+<li><strong>src</strong> 和 <strong>dst</strong> 是以字符串形式给出的路径名称</li>
+</ul>
+<p><strong>案例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil  <span class="comment"># 导入模块(如果已经导入，则不需要再次导入)</span></span><br><span class="line"><span class="comment"># 使用shutil模块的copymode()功能【只拷贝权限】</span></span><br><span class="line">shutil.copymode(<span class="string">&quot;/usr/bin/ls&quot;</span>, <span class="string">&quot;/opt/myhosts&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="shutil-chown-path-user-None-group-None"><a href="#shutil-chown-path-user-None-group-None" class="headerlink" title="shutil.chown(path, user=None, group=None)"></a>shutil.chown(path, user=None, group=None)</h4><ul>
+<li>更改给定 <strong>路径</strong> 的所有者 <strong>用户</strong> 和 <strong>组</strong></li>
+</ul>
+<p><strong>案例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shutil  <span class="comment"># 导入模块(如果已经导入，则不需要再次导入)</span></span><br><span class="line">shutil.chown(<span class="string">&quot;/opt/myhosts&quot;</span>,user=<span class="string">&quot;cuihua&quot;</span>,group=<span class="string">&quot;cuihua&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="os-模块"><a href="#os-模块" class="headerlink" title="os 模块"></a>os 模块</h1><ul>
+<li>对文件系统的访问大多通过 python 的 os 模块实现</li>
+<li>该模块是 python 访问操作系统功能的主要接口</li>
+<li>有些方法，如：<strong>copy</strong> 等，并没有提供，可以使用 <strong>shutil</strong> 模块作为补充</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># os模块的常用方法</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> os				<span class="comment">#导入os系统模块</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.						<span class="comment">#os.&lt;Tab&gt;&lt;Tab&gt; 查看os模块的所以方法</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.getcwd()				<span class="comment">#getcwd(),查看当前所处的文件路径，类似于: pwd</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.listdir()			<span class="comment">#listdir(), 查看当前目录下的所有文件(包括隐藏文件)，类似于：ls -a</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.listdir(<span class="string">&#x27;/tmp&#x27;</span>)		<span class="comment">#listdir(&#x27;/tmp&#x27;), 查看/tmp目录下的内容，类似于：ls /tmp</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.mkdir(<span class="string">&#x27;/tmp/mytest&#x27;</span>)		<span class="comment">#mkdir(), 创建目录，类似于：mkdir /tmp/mytest</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.mkdir(<span class="string">&#x27;/tmp/demo/abc&#x27;</span>)			<span class="comment">#只能创建单级目录，父目录无法创建</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.makedirs(<span class="string">&#x27;/tmp/demo/abc&#x27;</span>)		<span class="comment">#创建目录时，父目录不存在，会自动创建，类似于: mkdir -p ...</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.chdir(<span class="string">&#x27;/tmp/demo&#x27;</span>)		<span class="comment">#chdir(), 切换当前所处的文件位置，类似于：cd /tmp/demo</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.getcwd()				<span class="comment">#getcwd(),查看当前所处的文件路径，类似于: pwd</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.listdir()			<span class="comment">#listdir(), 查看当前目录下的所有文件(包括隐藏文件)，类似于：ls -a</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.symlink(<span class="string">&#x27;/etc/passwd&#x27;</span>, <span class="string">&#x27;mima&#x27;</span>)		<span class="comment">#symlink(), 为/etc/passwd建立软链接mima，类似于: ln -s /etc/passwd  mima</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.remove(<span class="string">&#x27;abc&#x27;</span>)		<span class="comment">#remove(), 只能删除单个文件，不能删除目录</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.rmdir(<span class="string">&#x27;abc&#x27;</span>)			<span class="comment">#rmdir(),只能删除空目录；要删除非空目录要使用shutil.rmtree()</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.rmdir(<span class="string">&#x27;/var/tmp&#x27;</span>)		<span class="comment">#rmdir(),只能删除空目录；要删除非空目录要使用shutil.rmtree()</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.unlink(<span class="string">&#x27;mima&#x27;</span>)		<span class="comment">#unlink(),取消删除链接文件</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.				<span class="comment">#查看os.path子模块的所有方法</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.mkdir(<span class="string">&#x27;abc&#x27;</span>)			<span class="comment">#mkdir(), 在当前路径下，创建一个目录&#x27;abc&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.abspath(<span class="string">&#x27;abc&#x27;</span>)		<span class="comment">#abspath(), 获取abc文件的路径</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.basename(<span class="string">&#x27;/tmp/demo/abc&#x27;</span>)		<span class="comment">#获取最右边&#x27;/&#x27;，右边的数据‘abc’</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.basename(<span class="string">&#x27;/tmp/demo/abc/&#x27;</span>)		<span class="comment">#basename(),获取最右边&#x27;/&#x27;，右边的数据&#x27;&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.dirname(<span class="string">&#x27;/tmp/demo/abc&#x27;</span>)		<span class="comment">#dirname(), 获取最右边&#x27;/&#x27;，左边的数据&#x27;/tmp/demo&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.split(<span class="string">&#x27;/tmp/demo/abc&#x27;</span>)		<span class="comment">#split(), 路径切割，从最右边&#x27;/&#x27;开始，进行切割</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.join(<span class="string">&#x27;/tmp/demo&#x27;</span>, <span class="string">&#x27;abc&#x27;</span>)		<span class="comment">#join(), 路径的拼接</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.<span class="keyword">is</span>						<span class="comment">#os.path.is&lt;Tab&gt;&lt;Tab&gt;, 列出所有判断的方法</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.isabs(<span class="string">&#x27;tmp/abc/xyz&#x27;</span>)		<span class="comment">#&#x27;tmp/abc/xyz&#x27;是否是绝对路径，不管文件是否存在，False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.isabs(<span class="string">&#x27;/tmp/abc/xyz&#x27;</span>)		<span class="comment">#&#x27;/tmp/abc/xyz&#x27;是否是绝对路径，不管文件是否存在，True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.isdir(<span class="string">&#x27;/tmp/demo/abc&#x27;</span>)		<span class="comment"># 字符串是否为目录(文件必须存在，且必须是目录) ，True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.isdir(<span class="string">&#x27;/tmp/demo/xyz&#x27;</span>)		<span class="comment"># 字符串是否为目录(文件必须存在，且必须是目录)，False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.isfile(<span class="string">&#x27;/etc/hosts&#x27;</span>)		<span class="comment">#字符串是否是文件(文件必须存在，且必须是文件)，True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.isfile(<span class="string">&#x27;/etc/&#x27;</span>)			<span class="comment">#字符串是否是文件(文件必须存在，且必须是文件)，False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.islink(<span class="string">&#x27;/etc/grub2.cfg&#x27;</span>)			<span class="comment">#字符串是否是链接文件(文件必须存在，且必须是链接文件)，True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>os.path.exists(<span class="string">&#x27;/etc/hostname&#x27;</span>)			<span class="comment">#判断字符串是否存在，/etc/hostname，True</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="subprocess-模块"><a href="#subprocess-模块" class="headerlink" title="subprocess 模块"></a>subprocess 模块</h1><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><ul>
+<li>subprocess 模块主要用于执行 <strong>系统命令</strong></li>
+<li>subprocess 模块允许你产生新的进程，并获得它们的返回状态</li>
+<li>通俗地说就是通过这个模块，你可以在 Python 的代码里执行操作系统级别的命令，比如 <strong>“ifconfig” 、”du -sh”</strong> 等等</li>
+</ul>
+<h2 id="run-方法"><a href="#run-方法" class="headerlink" title="run 方法"></a>run 方法</h2><p><strong>功能：执行 args 参数所表示的命令，等待命令结束，并返回一个 CompletedProcess 类型对象</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; import subprocess</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; subprocess.run([<span class="string">&#x27;ls&#x27;</span>])  <span class="comment"># 将命令写到列表中，执行linux命令</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; subprocess.run([<span class="string">&#x27;ls&#x27;</span>, <span class="string">&#x27;/home&#x27;</span>])  <span class="comment"># 将命令和操作的目录写到列表中，执行linux命令</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; subprocess.run(<span class="string">&#x27;ls /home&#x27;</span>)  <span class="comment"># 以字符串形式执行linux命令，无法区分命令和目标文件，错误，会把&#x27;ls /home 当做一个整体</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; subprocess.run(<span class="string">&#x27;ls /home&#x27;</span>, shell=True)  <span class="comment"># 若想以字符串形式执行，指定shell解释器</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="通过-shell-执行命令"><a href="#通过-shell-执行命令" class="headerlink" title="通过 shell 执行命令"></a>通过 shell 执行命令</h3><ul>
+<li><code>subprocess.run([&#39;ls&#39;, &#39;/home&#39;])</code> 这种方式不支持环境变量，不支持命令的扩展，不支持 <strong>shell解释器</strong> 下执行命令，所以使用字符串的方式执行 <strong>linux命令</strong></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; subprocess.run(<span class="string">&#x27;echo $HOME&#x27;</span>, shell=True)  <span class="comment"># 使用run()查看当前用户的家目录，使用shell执行命令</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; subprocess.run(<span class="string">&#x27;ls /root&#x27;</span>, shell=True)</span></span><br></pre></td></tr></table></figure>
+<h3 id="run-方法返回值"><a href="#run-方法返回值" class="headerlink" title="run 方法返回值"></a>run 方法返回值</h3><ul>
+<li>run 方法查看上一级目录下的内容，使用 <strong>shell 执行命令</strong></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; subprocess.run(<span class="string">&#x27;ls ..&#x27;</span>, shell=True)  <span class="comment"># 最后一行为返回值</span></span></span><br><span class="line">day01  day02  day03  day04</span><br><span class="line">CompletedProcess(args=&#x27;ls ..&#x27;, returncode=0)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> run方法查看上一级目录下的内容，赋值给变量result</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; result = subprocess.run(<span class="string">&#x27;ls ..&#x27;</span>, shell=True)</span></span><br><span class="line">day01  day02  day03  day04</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看变量result的值，为run()的返回值</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; result</span></span><br><span class="line">CompletedProcess(args=&#x27;ls ..&#x27;, returncode=0)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看result中args列表的内容，为linux命令</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; result.args</span></span><br><span class="line">&#x27;ls ..&#x27;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看result中returncode的值，为0；returncode 为状态码</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 上一条命令执行成功，结果为0；反之，结果为非零值</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; result.returncode</span></span><br><span class="line">&#x27;0&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>subprocess 模块虽然可以支持所有的 linux 命令，但不可乱用，放弃其他的模块</li>
+<li>subprocess 模块编写的代码，<strong>不具有跨平台性，不能在 windows，mac 等系统使用</strong></li>
+</ul>
+<h2 id="练习-1：调用-ping-命令"><a href="#练习-1：调用-ping-命令" class="headerlink" title="练习 1：调用 ping 命令"></a>练习 1：调用 ping 命令</h2><p><strong>需求</strong></p>
+<ul>
+<li><strong>调用 ping 命令</strong><ul>
+<li>编写 <strong>ping 函数</strong></li>
+<li>用于测试远程主机的联通性</li>
+<li>ping 通显示：<strong>x.x.x.x:up</strong></li>
+<li>ping 不通显示：<strong>x.x.x.x:down</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess  <span class="comment"># 导入subprocess模块，用于执行linux的ping命令</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ping</span>(<span class="params">host</span>):</span>  <span class="comment"># 使用def定义函数ping(),用于检测主机的联通性</span></span><br><span class="line"><span class="comment"># subprocess.run() 在shell解释器下，执行linux命令；ping -c 2 发送两个数据包；</span></span><br><span class="line"><span class="comment"># %s 为占位符；&amp;&gt; /dev/null 将错误和正确信息都写入黑洞设备；</span></span><br><span class="line"><span class="comment"># result 获得run()得放回信息，returncode为状态码(0 指命令成功；非0 指失败)</span></span><br><span class="line">    result = subprocess.run(<span class="string">&#x27;ping -c 2 %s &amp;&gt; /dev/null&#x27;</span> % host, shell=<span class="literal">True</span>)    </span><br><span class="line">    <span class="keyword">if</span> result.returncode == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;%s:up&#x27;</span> % host</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;%s:down&#x27;</span> % host</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试代码块，__name__作为python文件调用时，执行该代码块</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">	print(ping(<span class="string">&quot;127.0.0.1&quot;</span>))</span><br></pre></td></tr></table></figure>
+<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h2 id="什么是异常"><a href="#什么是异常" class="headerlink" title="什么是异常"></a>什么是异常</h2><p>程序在运行时，如果 <code>Python 解释器</code> <strong>遇到</strong> 到一个错误，<strong>会停止程序的执行，并且提示一些错误信息</strong>，这就是 <strong>异常</strong></p>
+<p>异常是因为程序出现了错误，而在正常控制流以外采取的行为</p>
+<ul>
+<li>这个行为又分为两个阶段：<ul>
+<li>首先是引起异常发生的错误</li>
+<li>然后是检测（和采取可能的措施）阶段</li>
+</ul>
+</li>
+</ul>
+<h2 id="Python-中的异常"><a href="#Python-中的异常" class="headerlink" title="Python 中的异常"></a>Python 中的异常</h2><p>当程序运行时，因遇到未解的错误而导致中止运行，便会出现 <strong>traceback</strong> 消息，打印异常</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">KeyboardInterrupt     <span class="comment"># Ctrl + C，会产生用户中断执行错误</span></span><br><span class="line">EOFError              <span class="comment"># Ctrl + D，会产出此错误</span></span><br></pre></td></tr></table></figure>
+<h3 id="python-中异常演示"><a href="#python-中异常演示" class="headerlink" title="python 中异常演示"></a>python 中异常演示</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a + <span class="number">5</span>							<span class="comment"># NameError，变量a没有定义</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&#x27;hello&#x27;</span>[<span class="number">5</span>]						<span class="comment"># IndexError，字符串hello的最长索引下标为4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">10</span>			</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">if</span> a = <span class="number">10</span>:						<span class="comment"># SyntaxError，python中的等于号使用&#x27;==&#x27;表示</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>n = <span class="built_in">input</span>(<span class="string">&#x27;number:&#x27;</span> )			<span class="comment"># 要求输入number时，Ctrl + D, 产生EOFError</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>n = <span class="built_in">input</span>(<span class="string">&#x27;number: &#x27;</span>)			<span class="comment"># Ctrl + C，产生KeyboardInterrupt，用户中断执行</span></span><br></pre></td></tr></table></figure>
+<h3 id="错误类型捕获"><a href="#错误类型捕获" class="headerlink" title="错误类型捕获"></a>错误类型捕获</h3><ul>
+<li>在程序执行时，可能会遇到 <strong>不同类型的异常</strong>，并且需要 <strong>针对不同类型的异常，做出不同的响应</strong>，这个时候，就需要捕获错误类型了</li>
+<li>语法如下：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># 尝试执行的代码</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">except</span> 错误类型<span class="number">1</span>:</span><br><span class="line">    <span class="comment"># 针对错误类型1，对应的代码处理</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">except</span> (错误类型<span class="number">2</span>, 错误类型<span class="number">3</span>):</span><br><span class="line">    <span class="comment"># 针对错误类型2 和 3，对应的代码处理</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> result:</span><br><span class="line">    print(<span class="string">&quot;未知错误 %s&quot;</span> % result)</span><br></pre></td></tr></table></figure>
+<h4 id="try-except-语句"><a href="#try-except-语句" class="headerlink" title="try-except 语句"></a>try-except 语句</h4><ul>
+<li>定义了进行异常监控的一段代码，并且提供了处理异常的机制</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;number: &#x27;</span>))  <span class="comment"># 没有输入任何值，回车，产生ValueError异常</span></span><br><span class="line">    print(n)</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">    print(<span class="string">&#x27;无效的输入&#x27;</span>)  <span class="comment"># 当异常ValueError发生时，执行print()</span></span><br></pre></td></tr></table></figure>
+<h4 id="带有多个-excepct-的-try-语句"><a href="#带有多个-excepct-的-try-语句" class="headerlink" title="带有多个 excepct 的 try 语句"></a>带有多个 excepct 的 try 语句</h4><ul>
+<li>可以把多个 except 语句连接在一起，处理一个try 块中可能发生的多种异常</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用多个excepct 的try语句，处理异常</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;number: &#x27;</span>))  <span class="comment"># 没有输入任何值，回车，产生ValueError异常</span></span><br><span class="line">    print(n)</span><br><span class="line"><span class="keyword">except</span> ValueError:  <span class="comment"># 当异常ValueError发生时，执行print()</span></span><br><span class="line">    print(<span class="string">&#x27;无效的输入&#x27;</span>)</span><br><span class="line"><span class="keyword">except</span> KeyboardInterrupt:  <span class="comment"># Ctrl + C，产生KeyboardInterrupt，用户中断执行</span></span><br><span class="line">    print(<span class="string">&#x27;\nBye-bye&#x27;</span>)</span><br><span class="line"><span class="keyword">except</span> EOFError:  <span class="comment"># Ctrl + D, 产生EOFError, 没有内建输入</span></span><br><span class="line">    print(<span class="string">&#x27;\nBye-bye&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>检测上述模块中异常处理结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost xxx] <span class="comment"># python3 day01.py </span></span><br><span class="line">number:  <span class="comment"># 回车，ValueError异常，s输入错误类型</span></span><br><span class="line">无效的输入</span><br><span class="line">[root@localhost xxx] <span class="comment"># python3 day01.py </span></span><br><span class="line">number: ^CBye-bye  <span class="comment"># Ctrl + C，KeyboardInterrupt异常，用户操作中断</span></span><br><span class="line">[root@localhost xxx]<span class="comment"># python day01.py </span></span><br><span class="line">number: Bye-bye  <span class="comment"># Ctrl + D, EOFError异常, 没有内建输入</span></span><br></pre></td></tr></table></figure>
+<h4 id="捕获未知错误"><a href="#捕获未知错误" class="headerlink" title="捕获未知错误"></a>捕获未知错误</h4><ul>
+<li>在开发时，<strong>要预判到所有可能出现的错误</strong>，还是有一定难度的</li>
+<li>如果希望程序 <strong>无论出现任何错误</strong>，都不会因为 <code>Python</code> 解释器 <strong>抛出异常而被终止</strong>，可以再增加一个 <code>except</code></li>
+</ul>
+<p>语法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> result:</span><br><span class="line">    print(<span class="string">&quot;未知错误 %s&quot;</span> % result)</span><br></pre></td></tr></table></figure>
+<h3 id="异常参数-e"><a href="#异常参数-e" class="headerlink" title="异常参数 e"></a>异常参数 e</h3><ul>
+<li>异常也可以有参数，异常引发后它会被传递给异常处理器</li>
+<li>当异常被引发后参数是作为附加帮助信息传递给异常处理器的</li>
+</ul>
+<p><strong>查看异常提示信息</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;number: &#x27;</span>))</span><br><span class="line">number:  <span class="comment"># 回车，ValueError异常</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">ValueError: invalid literal <span class="keyword">for</span> <span class="built_in">int</span>() <span class="keyword">with</span> base <span class="number">10</span>: <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><strong>使用多个except的try语句，实现异常参数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;number: &#x27;</span>))    </span><br><span class="line">    print(n)</span><br><span class="line"><span class="keyword">except</span> ValueError <span class="keyword">as</span> e:  <span class="comment"># 当异常ValueError发生时，将异常信息赋值给变量e</span></span><br><span class="line">    print(<span class="string">&#x27;无效的输入&#x27;</span>, e)  <span class="comment"># print(), 打印异常信息</span></span><br><span class="line"><span class="keyword">except</span> KeyboardInterrupt:    </span><br><span class="line">    print(<span class="string">&#x27;\nBye-bye&#x27;</span>)</span><br><span class="line"><span class="keyword">except</span> EOFError:            </span><br><span class="line">    print(<span class="string">&#x27;\nBye-bye&#x27;</span>)</span><br><span class="line"></span><br><span class="line">[root@localhost day01]<span class="comment"># python day01.py </span></span><br><span class="line">number:  <span class="comment"># 回车，ValueError异常</span></span><br><span class="line">无效的输入 invalid literal <span class="keyword">for</span> <span class="built_in">int</span>() <span class="keyword">with</span> base <span class="number">10</span>: <span class="string">&#x27;&#x27;</span>  <span class="comment"># 输出异常信息</span></span><br></pre></td></tr></table></figure>
+<p><strong>使用多个except的try语句，捕获多个异常</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;number: &#x27;</span>))    </span><br><span class="line">    print(n)</span><br><span class="line"><span class="keyword">except</span> ValueError <span class="keyword">as</span> e:        </span><br><span class="line">    print(<span class="string">&#x27;无效的输入&#x27;</span>, e)       </span><br><span class="line"><span class="keyword">except</span> (KeyboardInterrupt, EOFError):  <span class="comment"># 使用except捕获多个异常  </span></span><br><span class="line">    print(<span class="string">&#x27;\nBye-bye&#x27;</span>)</span><br><span class="line"></span><br><span class="line">[root@localhost day01]<span class="comment"># python3 day01.py </span></span><br><span class="line">number: ^C  <span class="comment"># Ctrl + C，产生KeyboardInterrupt，用户中断执行</span></span><br><span class="line">Bye-bye</span><br><span class="line">[root@localhost day01]<span class="comment"># python3 day01.py </span></span><br><span class="line">number:  <span class="comment"># Ctrl + D, EOFError异常, 没有内建输入</span></span><br><span class="line">Bye-bye</span><br></pre></td></tr></table></figure>
+<h3 id="else-子句"><a href="#else-子句" class="headerlink" title="else 子句"></a>else 子句</h3><ul>
+<li>在 try 范围中没有异常被检测到时，执行 else 子句</li>
+<li>在else 范围中的任何代码运行前，try 中的所有代码必须完全成功</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># else子句的使用</span></span><br><span class="line"><span class="keyword">try</span>:  <span class="comment"># 有可能发生异常的代码块</span></span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;number: &#x27;</span>))</span><br><span class="line"><span class="keyword">except</span> ValueError <span class="keyword">as</span> e:  <span class="comment"># 当异常ValueError发生时，将异常信息赋值给变量e</span></span><br><span class="line">    print(<span class="string">&#x27;无效的输入&#x27;</span>, e)  <span class="comment"># print(), 打印异常信息</span></span><br><span class="line"><span class="keyword">except</span> (KeyboardInterrupt, EOFError):   </span><br><span class="line">    print(<span class="string">&#x27;\nBye-bye&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:  <span class="comment"># 当不发生异常时，要执行的代码块</span></span><br><span class="line">    print(n)</span><br><span class="line"></span><br><span class="line">[root@localhost day01] <span class="comment"># python day01.py </span></span><br><span class="line">number: <span class="number">19</span>  <span class="comment"># 正常输入，打印else</span></span><br><span class="line"><span class="number">19</span></span><br></pre></td></tr></table></figure>
+<h3 id="finally子句"><a href="#finally子句" class="headerlink" title="finally子句"></a>finally子句</h3><ul>
+<li>finally 子句是 <strong>无论异常是否发生，是否捕捉都会执行的一段代码</strong></li>
+<li>如果打开文件后，因为发生异常导致文件没有关闭，可能会发生数据损坏，<strong>使用finally 可以保证文件总是能正常的关闭</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># finally子句的使用</span></span><br><span class="line"><span class="keyword">try</span>:                            <span class="comment"># 有可能发生异常的代码块</span></span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;number: &#x27;</span>))</span><br><span class="line"><span class="keyword">except</span> ValueError <span class="keyword">as</span> e:         <span class="comment"># 当异常ValueError发生时，将异常信息赋值给变量e</span></span><br><span class="line">    print(<span class="string">&#x27;无效的输入&#x27;</span>, e)        <span class="comment"># print(), 打印异常信息</span></span><br><span class="line"><span class="keyword">except</span> (KeyboardInterrupt, EOFError):   </span><br><span class="line">    print(<span class="string">&#x27;\nBye-bye&#x27;</span>)</span><br><span class="line">    exit()                      <span class="comment"># 退出程序</span></span><br><span class="line"><span class="keyword">else</span>:                           <span class="comment"># 当不发生异常时，要执行的代码块</span></span><br><span class="line">    print(n)</span><br><span class="line"><span class="keyword">finally</span>:                        <span class="comment"># 不管异常是否发生都会执行代码块</span></span><br><span class="line">	print(<span class="string">&#x27;Done&#x27;</span>)</span><br><span class="line"></span><br><span class="line">[root@localhost day01]<span class="comment"># python day01.py </span></span><br><span class="line">number:            <span class="comment"># Ctrl + D, EOFError异常, 没有内建输入</span></span><br><span class="line">Bye-bye</span><br><span class="line">Done               <span class="comment"># 出现异常，finally 继续执行</span></span><br><span class="line"></span><br><span class="line">[root@localhost day01]<span class="comment"># python day01.py </span></span><br><span class="line">number: <span class="number">19</span>         <span class="comment"># 正常输入整数，打印结果</span></span><br><span class="line"><span class="number">19</span></span><br><span class="line">Done               <span class="comment"># 没有出现异常，finally 还是继续执行</span></span><br></pre></td></tr></table></figure>
+<h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><h3 id="抛出异常—raise"><a href="#抛出异常—raise" class="headerlink" title="抛出异常—raise"></a>抛出异常—raise</h3><h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li>在开发中，除了 <strong>代码执行出错</strong> <code>Python</code> 解释器会 <strong>抛出</strong> 异常之外</li>
+<li>还可以根据 <strong>应用程序</strong> <strong>特有的业务需求</strong> <strong>主动抛出异常</strong></li>
+</ul>
+<p><strong>示例</strong></p>
+<ul>
+<li>提示用户 <strong>输入密码</strong>，如果 <strong>长度少于 8</strong>，抛出 <strong>异常</strong></li>
+</ul>
+<p><img data-src="day06.assets/image-20210901174254244.png" alt="image-20210901174254244"></p>
+<p><strong>注意</strong></p>
+<ul>
+<li>当前函数 <strong>只负责</strong> 提示用户输入密码，如果 <strong>密码长度不正确，需要其他的函数进行额外处理</strong></li>
+<li>因此可以 <strong>抛出异常</strong>，由其他需要处理的函数 <strong>捕获异常</strong></li>
+</ul>
+<h3 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h3><ul>
+<li><code>Python</code> 中提供了一个 <code>Exception</code> <strong>异常类</strong></li>
+<li>在开发时，如果满足 <strong>特定业务需求时</strong>，希望 <strong>抛出异常</strong>，可以：<ol>
+<li><strong>创建</strong> 一个 <code>Exception</code> 的 <strong>对象</strong></li>
+<li>使用 <code>raise</code> <strong>关键字</strong> 抛出 <strong>异常对象</strong></li>
+</ol>
+</li>
+</ul>
+<p><strong>需求</strong></p>
+<ul>
+<li>定义 <code>input_password</code> 函数，提示用户输入密码</li>
+<li>如果用户输入长度 &lt; 8，抛出异常</li>
+<li>如果用户输入长度 &gt;= 8，返回输入的密码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">input_password</span>():</span></span><br><span class="line">    <span class="comment"># 1. 提示用户输入密码</span></span><br><span class="line">    pwd = <span class="built_in">input</span>(<span class="string">&quot;请输入密码：&quot;</span>)</span><br><span class="line">    <span class="comment"># 2. 判断密码长度，如果长度 &gt;= 8，返回用户输入的密码</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(pwd) &gt;= <span class="number">8</span>:</span><br><span class="line">        <span class="keyword">return</span> pwd</span><br><span class="line">    <span class="comment"># 3. 密码长度不够，需要抛出异常</span></span><br><span class="line">    <span class="comment">#   1&gt; 创建异常对象 - 使用异常的错误信息字符串作为参数</span></span><br><span class="line">    ex = Exception(<span class="string">&quot;密码长度不够&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#   2&gt; 抛出异常对象</span></span><br><span class="line">    <span class="keyword">raise</span> ex</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    user_pwd = input_password()</span><br><span class="line">    print(user_pwd)</span><br></pre></td></tr></table></figure>
+<h3 id="练习-4：自定义异常"><a href="#练习-4：自定义异常" class="headerlink" title="练习 4：自定义异常"></a>练习 4：自定义异常</h3><p><strong>需求</strong></p>
+<ul>
+<li>编写一个函数，接收姓名和年龄，如果年龄不在1到120之间，产生 <strong>ValueError</strong> 异常</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编写函数get_info()，在文件user_info.py上操作</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_info</span>(<span class="params">name, age</span>):</span>  <span class="comment"># 定义函数，接收姓名和年龄</span></span><br><span class="line">    <span class="comment"># 异常触发ValueError，提示信息为：无效的年龄(1 ~ 119)</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="number">0</span> &lt; age &lt; <span class="number">120</span>:            </span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&#x27;无效的年龄(1 ~ 119)&#x27;</span>)</span><br><span class="line">    <span class="comment"># 当age在0 ~ 120的范围，else代码块执行    </span></span><br><span class="line">    <span class="keyword">else</span>:         </span><br><span class="line">        print(<span class="string">&#x27;%s is %s years old&#x27;</span> %(name, age))</span><br></pre></td></tr></table></figure>
+
+      <div class="tags">
+          <a href="/tags/python/" rel="tag"><i class="ic i-tag"></i> python</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-25 20:15:22" itemprop="dateModified" datetime="2022-11-25T20:15:22+08:00">2022-11-25</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2022/10/17/python/day06/" title="06.shutil和os模块、subprocess模块、异常处理">http://yoursite.com/2022/10/17/python/day06/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/10/16/python/day05/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicljgocqbj20zk0m8e81.jpg" title="05.列表和元组、字典、集合">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> python基础</span>
+  <h3>05.列表和元组、字典、集合</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/10/18/python/day07/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeuibk9fj20zk0m8ay2.jpg" title="07.函数高级应用、生成器、模块详解">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> python基础</span>
+  <h3>07.函数高级应用、生成器、模块详解</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#shutil-%E6%A8%A1%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text">shutil 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shutil-%E6%A8%A1%E5%9D%97%E7%9A%84%E4%B8%BB%E8%A6%81%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">shutil 模块的主要方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E5%92%8C%E7%A7%BB%E5%8A%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">复制和移动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#shutil-copyfileobj-fsrc-fdst"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">shutil.copyfileobj(fsrc, fdst)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shutil-copyfile-src-dst"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">shutil.copyfile(src, dst)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shutil-copy-src-dst"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">shutil.copy(src, dst)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shutil-move-src-dst"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">shutil.move(src, dst)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.2.</span> <span class="toc-text">目录操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#shutil-copytree-src-dst"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">shutil.copytree(src, dst)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shutil-rmtree-path"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">shutil.rmtree(path)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.3.</span> <span class="toc-text">权限管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#shutil-copymode-src-dst"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">shutil.copymode(src, dst)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shutil-chown-path-user-None-group-None"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">shutil.chown(path, user&#x3D;None, group&#x3D;None)</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#os-%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">os 模块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#subprocess-%E6%A8%A1%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text">subprocess 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">3.1.</span> <span class="toc-text">基础概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#run-%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">run 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-shell-%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4"><span class="toc-number">3.2.1.</span> <span class="toc-text">通过 shell 执行命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#run-%E6%96%B9%E6%B3%95%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">3.2.2.</span> <span class="toc-text">run 方法返回值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">3.3.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0-1%EF%BC%9A%E8%B0%83%E7%94%A8-ping-%E5%91%BD%E4%BB%A4"><span class="toc-number">3.4.</span> <span class="toc-text">练习 1：调用 ping 命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8"><span class="toc-number">4.</span> <span class="toc-text">异常</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%82%E5%B8%B8"><span class="toc-number">4.1.</span> <span class="toc-text">什么是异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8"><span class="toc-number">4.2.</span> <span class="toc-text">Python 中的异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#python-%E4%B8%AD%E5%BC%82%E5%B8%B8%E6%BC%94%E7%A4%BA"><span class="toc-number">4.2.1.</span> <span class="toc-text">python 中异常演示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B%E6%8D%95%E8%8E%B7"><span class="toc-number">4.2.2.</span> <span class="toc-text">错误类型捕获</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#try-except-%E8%AF%AD%E5%8F%A5"><span class="toc-number">4.2.2.1.</span> <span class="toc-text">try-except 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%A6%E6%9C%89%E5%A4%9A%E4%B8%AA-excepct-%E7%9A%84-try-%E8%AF%AD%E5%8F%A5"><span class="toc-number">4.2.2.2.</span> <span class="toc-text">带有多个 excepct 的 try 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8D%95%E8%8E%B7%E6%9C%AA%E7%9F%A5%E9%94%99%E8%AF%AF"><span class="toc-number">4.2.2.3.</span> <span class="toc-text">捕获未知错误</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%8F%82%E6%95%B0-e"><span class="toc-number">4.2.3.</span> <span class="toc-text">异常参数 e</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#else-%E5%AD%90%E5%8F%A5"><span class="toc-number">4.2.4.</span> <span class="toc-text">else 子句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#finally%E5%AD%90%E5%8F%A5"><span class="toc-number">4.2.5.</span> <span class="toc-text">finally子句</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="toc-number">4.3.</span> <span class="toc-text">自定义异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E2%80%94raise"><span class="toc-number">4.3.1.</span> <span class="toc-text">抛出异常—raise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">4.3.2.</span> <span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="toc-number">4.3.3.</span> <span class="toc-text">抛出异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0-4%EF%BC%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="toc-number">4.3.4.</span> <span class="toc-text">练习 4：自定义异常</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2022/10/11/python/day01/" rel="bookmark" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></li><li><a href="/2022/10/12/python/day02/" rel="bookmark" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></li><li><a href="/2022/10/14/python/day03/" rel="bookmark" title="03.文件对象、文件读写操作、函数基础">03.文件对象、文件读写操作、函数基础</a></li><li><a href="/2022/10/15/python/day04/" rel="bookmark" title="04.模块基础、时间模块、语法风格及布局、字符串详解">04.模块基础、时间模块、语法风格及布局、字符串详解</a></li><li><a href="/2022/10/16/python/day05/" rel="bookmark" title="05.列表和元组、字典、集合">05.列表和元组、字典、集合</a></li><li class="active"><a href="/2022/10/17/python/day06/" rel="bookmark" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></li><li><a href="/2022/10/18/python/day07/" rel="bookmark" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></li><li><a href="/2022/10/19/python/day08/" rel="bookmark" title="08.OOP基础、OOP实践、OOP进阶">08.OOP基础、OOP实践、OOP进阶</a></li><li><a href="/2022/10/20/python/day09/" rel="bookmark" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></li><li><a href="/2022/10/21/python/day10/" rel="bookmark" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></li><li><a href="/2022/10/22/python/day11/" rel="bookmark" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">43</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/10/16/python/day05/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/10/18/python/day07/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" title="第四章 循环初探">第四章 循环初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/17/python/day06/" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/22/python/day11/" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/18/python/day07/" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" title="第一章 Hellow C语言">第一章 Hellow C语言</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/15/python/day04/" title="04.模块基础、时间模块、语法风格及布局、字符串详解">04.模块基础、时间模块、语法风格及布局、字符串详解</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/21/python/day10/" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" title="第六章 数组及常用算法">第六章 数组及常用算法</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/10/17/python/day06/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//fastly.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

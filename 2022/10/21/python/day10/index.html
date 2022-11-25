@@ -1,0 +1,588 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="python" />
+
+
+<link rel="canonical" href="http://yoursite.com/2022/10/21/python/day10/">
+
+
+
+  <title>
+10.邮件编程、paramiko模块、PyMySQL模块 - python基础 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">10.邮件编程、paramiko模块、PyMySQL模块
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-10-21 22:40:38">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-10-21T22:40:38+08:00">2022-10-21</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicitf0kl1j20zk0m87fe.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclh3brzpj20zk0m8ann.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexe4oykj20zk0m87ji.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclimtf7dj20zk0m8qav.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/python/" itemprop="item" rel="index" title="分类于 python基础"><span itemprop="name">python基础</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/10/21/python/day10/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="邮件编程"><a href="#邮件编程" class="headerlink" title="邮件编程"></a>邮件编程</h1><h2 id="在Linux的终端上，查看邮件服务器是否开启"><a href="#在Linux的终端上，查看邮件服务器是否开启" class="headerlink" title="在Linux的终端上，查看邮件服务器是否开启"></a>在Linux的终端上，查看邮件服务器是否开启</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">rpm -q postfix || yum -y install postfix</span><br><span class="line">yum -y install mailx</span><br><span class="line">systemctl start postfix</span><br><span class="line">netstat -utnlp | grep :25</span><br><span class="line">[root@localhost xx]# useradd bob</span><br><span class="line">[root@localhost xx]# useradd alice</span><br><span class="line">vim /etc/hosts  # 把自己的主机名和127地址绑定</span><br><span class="line">127.0.0.1 xxx localhost</span><br><span class="line">:wq!</span><br></pre></td></tr></table></figure>
+<h2 id="发送并设置邮件"><a href="#发送并设置邮件" class="headerlink" title="发送并设置邮件"></a>发送并设置邮件</h2><p>标准邮件需要三个头部信息</p>
+<ul>
+<li>From：发件人</li>
+<li>To：收件人</li>
+<li>Subject：主题</li>
+</ul>
+<h2 id="SMTP"><a href="#SMTP" class="headerlink" title="SMTP"></a>SMTP</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>SMTP（Simple Mail Transfer Protocol） 即简单邮件传输协议，使用 TCP 协议 25 端口</li>
+<li>它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式</li>
+<li>python 的 <strong>smtplib</strong> 提供了一种很方便的途径发送电子邮件。它对 <strong>smtp 协议进行了简单的封装</strong></li>
+</ul>
+<h3 id="SMTP对象"><a href="#SMTP对象" class="headerlink" title="SMTP对象"></a>SMTP对象</h3><ul>
+<li>Python 发送邮件，<strong>第一步是创建 SMTP 对象</strong></li>
+<li>创建 SMTP 对象也可以不给定参数，之后再通过对象的其他方法进行绑定</li>
+</ul>
+<h3 id="sendmail-方法"><a href="#sendmail-方法" class="headerlink" title="sendmail 方法"></a>sendmail 方法</h3><ul>
+<li>Python SMTP 对象使用 <strong>sendmail</strong> 方法发送邮件</li>
+<li>sendmail 方法三个必须的参数有：<ul>
+<li><strong>收件人</strong></li>
+<li><strong>发件人</strong></li>
+<li><strong>消息主体 msg 是一个字符串，表示邮件</strong></li>
+</ul>
+</li>
+<li>将准备好的邮件发送</li>
+</ul>
+<h2 id="案例：通过本机发送邮件"><a href="#案例：通过本机发送邮件" class="headerlink" title="案例：通过本机发送邮件"></a>案例：通过本机发送邮件</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
+<li>创建 <strong>bob</strong> 和 <strong>alice</strong> 账号</li>
+<li>编写发送邮件程序，发件人为 <strong>root</strong>，收件人是本机的 <strong>bob *<em>和 *</em>alice</strong> 账号</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost xxx]# useradd bob  # 创建接收邮件的用户bob和alice</span><br><span class="line">[root@localhost xxx]# useradd alice</span><br><span class="line">[root@localhost xxx]# mail -u bob  # 查看用户bob的邮件，成功</span><br><span class="line">[root@localhost xxx]# mail -u alice</span><br></pre></td></tr></table></figure>
+<h3 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># local_mail.py，使用本机的root用户，发送邮件给bob和alice用户  </span></span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span>  MIMEText  <span class="comment"># 导入邮件主体内容的类</span></span><br><span class="line"><span class="keyword">from</span>  email.header <span class="keyword">import</span> Header  <span class="comment"># 导入邮件头部信息的类</span></span><br><span class="line"><span class="keyword">import</span>  smtplib	 <span class="comment"># 导入发送邮件的模块</span></span><br><span class="line"></span><br><span class="line">msg = MIMEText(<span class="string">&#x27;python 本地邮件测试\n&#x27;</span>, <span class="string">&#x27;plain&#x27;</span>, <span class="string">&#x27;utf8&#x27;</span>)  <span class="comment"># 定义文件的内容；&#x27;plain&#x27; 表示纯文本【类似vim 编写的文件】，富文本【包含图片，字体颜色等】，文本类型为&#x27;utf8&#x27;</span></span><br><span class="line">msg[<span class="string">&#x27;From&#x27;</span>] = Header(<span class="string">&#x27;发送者&#x27;</span>, <span class="string">&#x27;utf8&#x27;</span>)  <span class="comment"># 声明邮件的发件人，类型为&#x27;utf8&#x27;</span></span><br><span class="line">msg[<span class="string">&#x27;To&#x27;</span>] = Header(<span class="string">&#x27;接收者们&#x27;</span>, <span class="string">&#x27;utf8&#x27;</span>)  <span class="comment"># 声明接收邮件方，类型为&#x27;utf8&#x27;</span></span><br><span class="line">msg[<span class="string">&#x27;Subject&#x27;</span>] = Header(<span class="string">&#x27;py test&#x27;</span>, <span class="string">&#x27;utf8&#x27;</span>)  <span class="comment"># 声明邮件的主题【标题】</span></span><br><span class="line">smtp = smtplib.SMTP(<span class="string">&#x27;127.0.0.1&#x27;</span>)  <span class="comment"># 创建对象，声明发送邮件的服务器</span></span><br><span class="line">sender = <span class="string">&#x27;root&#x27;</span>  <span class="comment"># 声明发送邮件的用户</span></span><br><span class="line">receivers = [<span class="string">&#x27;bob&#x27;</span>, <span class="string">&#x27;alice&#x27;</span>]  <span class="comment"># 声明接收邮件的用户，发送邮件给多个用户，用列表表示</span></span><br><span class="line"><span class="comment"># 从当前本机的邮件服务器上，发送邮件，指定发件人，接收方，发送的邮件【包含邮件主体，发件人，收件人，邮件标题】</span></span><br><span class="line"><span class="comment"># msg.as_bytes() 指定以字节的方式发送邮件</span></span><br><span class="line">smtp.sendmail(sender, receivers, msg.as_bytes())</span><br></pre></td></tr></table></figure>
+<h1 id="paramiko-模块应用"><a href="#paramiko-模块应用" class="headerlink" title="paramiko 模块应用"></a>paramiko 模块应用</h1><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>实现对 SSH 的相关功能，例如：要对服务器进行远程管理的操作，就需要使用此模块</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost xxx]<span class="comment"># pip3 install paramiko  # 使用pip，安装paramiko模块</span></span><br></pre></td></tr></table></figure>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="常用方法解释说明"><a href="#常用方法解释说明" class="headerlink" title="常用方法解释说明"></a>常用方法解释说明</h3><ul>
+<li><strong>SSHClient：</strong>创建用于连接 ssh 服务器的实例</li>
+<li><strong>paramiko.AutoAddPolicy：</strong>设置自动添加主机密钥</li>
+<li><strong>ssh.connect：</strong>连接ssh服务器</li>
+<li><strong>ssh.exec_command：</strong>在ssh 服务器上执行指定命令</li>
+</ul>
+<h3 id="案例：实现ssh远程连接服务器"><a href="#案例：实现ssh远程连接服务器" class="headerlink" title="案例：实现ssh远程连接服务器"></a>案例：实现ssh远程连接服务器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost xxx]# python3</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; import paramiko  <span class="comment"># 导入paramiko，远程连接模块</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; ssh = paramiko.SSHClient()  <span class="comment"># 声明一个远程连接的客户端对象</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  <span class="comment"># 设置远程连接的提示【类似：ssh 远程连接时，提示&#x27;yes/no&#x27;, 要选择yes的操作】</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; ssh.connect(<span class="string">&#x27;127.0.0.1&#x27;</span>, username=<span class="string">&#x27;root&#x27;</span>, password=<span class="string">&#x27;123456&#x27;</span>)  <span class="comment"># 使用客户端对象ssh，连接服务器【指定服务器的IP地址，用户名和密码】</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; result = ssh.exec_command(<span class="string">&#x27;id root; id zhangsan&#x27;</span>)  <span class="comment"># 将结果返回值保存到变量result中，返回值为：输入，输出和错误的类文件对象</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; result  <span class="comment"># 查看变量result中返回值信息【result为元组】</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; len(result)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; result[0]  <span class="comment"># 查看元组result中，【输入信息】的类文件对象</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; result[1]  <span class="comment"># 查看元组result中，【输出信息】的类文件对象</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; result[2]  <span class="comment"># 查看元组result中，【错误信息】的类文件对象</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; out = result[1].<span class="built_in">read</span>()  <span class="comment"># 读取【输出信息】内容，赋值给变量out</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; err = result[2].<span class="built_in">read</span>()  <span class="comment"># 读取【错误信息】内容，赋值给变量err</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; out						<span class="comment"># 查看【输出信息】内容，以bytes字节方式显示</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; err						<span class="comment"># 查看【错误信息】内容，以bytes字节方式显示</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; out.decode()			<span class="comment"># 查看【输出信息】内容，使用decode()，转换为字符类型</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; ssh.close()				<span class="comment"># 断开ssh连接</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="练习：paramiko-实例"><a href="#练习：paramiko-实例" class="headerlink" title="练习：paramiko 实例"></a>练习：paramiko 实例</h2><p><strong>需求：</strong></p>
+<ul>
+<li>创建 SSHClient 实例</li>
+<li>设置添加主机密钥策略</li>
+<li>连接 ssh 服务器</li>
+<li>执行指定命令</li>
+<li>在 shell 命令行中接收用于连接远程服务器的密码以及在远程主机上执行的命令</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建新的python文件rcmd.py ，使用paramiko, 实现ssh远程连接服务器</span></span><br><span class="line"><span class="keyword">import</span>  paramiko		<span class="comment">#导入模块parmiko</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rcmd</span>(<span class="params">host, user, passwd, port=<span class="number">22</span>, cmds=<span class="literal">None</span></span>):</span>  <span class="comment"># 定义函数rcmd(), 功能：实现ssh的远程连接，port=22 cmds=None  如果不传递参数，则使用默认值</span></span><br><span class="line">    ssh = paramiko.SSHClient()  <span class="comment"># 声明一个远程连接的客户端对象</span></span><br><span class="line">    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  <span class="comment"># 设置远程连接的提示【类似：ssh 远程连接时，提示&#x27;yes/no&#x27;, 要选择yes的操作】</span></span><br><span class="line">    ssh.connect(host, username=user, password=passwd, port=port)  <span class="comment"># 使用客户端对象ssh，连接服务器【指定服务器的IP地址，端口，用户名和密码】</span></span><br><span class="line">    stdin, stdout, stderr = ssh.exec_command(cmds)  <span class="comment"># 将元组中的元素，分别赋值给三个变量</span></span><br><span class="line">    out = stdout.read()  <span class="comment"># 读取输出信息和错误信息</span></span><br><span class="line">    err = stderr.read()</span><br><span class="line">    <span class="keyword">if</span> out:  <span class="comment"># 输出信息out为绿色显示，错误信息err为红色显示</span></span><br><span class="line">        print(<span class="string">&#x27;[%s]OUT:\n%s&#x27;</span> %(host, out.decode()))</span><br><span class="line">    <span class="keyword">if</span> err:</span><br><span class="line">        print(<span class="string">&#x27;[%s]ERROR:\n%s&#x27;</span> % (host, err.decode()))</span><br><span class="line">    ssh.close()  <span class="comment"># 关闭ssh的连接</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">	<span class="comment"># 调用函数，指定服务器IP地址，用户名，密码和要执行的命令，采用默认端口22</span></span><br><span class="line">    rcmd(<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;123456&#x27;</span>, cmds=<span class="string">&#x27;id root; id zhangsan&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="PyMySQL"><a href="#PyMySQL" class="headerlink" title="PyMySQL"></a>PyMySQL</h1><h2 id="准备数据库"><a href="#准备数据库" class="headerlink" title="准备数据库"></a>准备数据库</h2><ol>
+<li>安装 mariadb-server</li>
+<li>启动服务</li>
+<li>创建名为 tedu1 的数据库【utf8】</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# yum -y install gcc</span><br><span class="line">[root@localhost ~]# yum -y install mariadb-server</span><br><span class="line">[root@localhost ~]# systemctl start mariadb</span><br><span class="line">[root@localhost ~]# systemctl enable mariadb</span><br><span class="line">[root@localhost ~]# ss -ntulp | grep mysql</span><br><span class="line">[root@localhost ~]# mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建数据库 tedu1</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> none：表示当前在哪个数据库操作</span></span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE tedu1 CHARSET utf8;</span><br></pre></td></tr></table></figure>
+<h2 id="PyMySQL-模块应用"><a href="#PyMySQL-模块应用" class="headerlink" title="PyMySQL 模块应用"></a>PyMySQL 模块应用</h2><h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><p>创建连接是访问数据库的第一步</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line">conn = pymysql.connect(</span><br><span class="line">    host=<span class="string">&#x27;127.0.0.1&#x27;</span>, </span><br><span class="line">    port=<span class="number">3306</span>, </span><br><span class="line">    user=<span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    db=<span class="string">&#x27;tedu1&#x27;</span>, </span><br><span class="line">    charset=<span class="string">&#x27;utf8&#x27;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h3><ul>
+<li>游标（cursor）就是游动的标识</li>
+<li>通俗的说，一条sql取出对应n条结果资源的接口/句柄，就是游标，沿着游标可以一次取出一行</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur = conn.cursor()  <span class="comment"># 创建游标【对数据库进行增删改查】</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立部门表，员工表，工资表</span></span><br><span class="line"><span class="comment"># 定义创建departments【部门表】sql命令</span></span><br><span class="line">create_dep = <span class="string">&#x27;&#x27;&#x27;CREATE TABLE departments(</span></span><br><span class="line"><span class="string">	dep_id INT, dep_name VARCHAR(50)</span></span><br><span class="line"><span class="string">)&#x27;&#x27;&#x27;</span></span><br><span class="line">cur.execute(create_dep)  <span class="comment"># 执行sql语句create_dep</span></span><br></pre></td></tr></table></figure>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p>对数据库表做修改操作，必须要 <strong>commit</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#向部门表中插入数据</span></span><br><span class="line">insert_dep = <span class="string">&#x27;INSERT INTO departments VALUES (%s, %s)&#x27;</span>	<span class="comment"># 定义插入数据的变量，%s为占位符</span></span><br><span class="line">cur.execute(insert_dep, (<span class="number">1</span>, <span class="string">&#x27;人事部&#x27;</span>))  <span class="comment"># 执行sql语句insert_dep, 插入一条记录</span></span><br><span class="line">cur.executemany(  <span class="comment"># executemany(), 执行sql语句insert_dep, 同时插入多条记录</span></span><br><span class="line">    insert_dep, </span><br><span class="line">    [(<span class="number">2</span>, <span class="string">&#x27;运维部&#x27;</span>), (<span class="number">3</span>, <span class="string">&#x27;开发部&#x27;</span>), (<span class="number">4</span>, <span class="string">&#x27;测试部&#x27;</span>), (<span class="number">5</span>, <span class="string">&#x27;财务部&#x27;</span>), (<span class="number">6</span>, <span class="string">&#x27;市场部&#x27;</span>)]</span><br><span class="line">)</span><br><span class="line">conn.commit()</span><br></pre></td></tr></table></figure>
+<h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><p>可以取出表中一条、多条或全部记录</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sql4 = <span class="string">&quot;SELECT * FROM departments&quot;</span></span><br><span class="line">cur.execute(sql4)</span><br><span class="line">result = cur.fetchone()</span><br><span class="line">print(result)</span><br><span class="line"></span><br><span class="line">result2 = cur.fetchmany(<span class="number">2</span>)</span><br><span class="line">print(result2)</span><br><span class="line"></span><br><span class="line">result3 = cur.fetchall()</span><br><span class="line">print(result3)</span><br></pre></td></tr></table></figure>
+<h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><p>通过 update 修改某一字段的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新部门表【departments】中的数据</span></span><br><span class="line">update_dep = <span class="string">&#x27;UPDATE departments SET dep_name=%s WHERE dep_name=%s&#x27;</span></span><br><span class="line">cur.execute(update_dep, (<span class="string">&#x27;人力资源部&#x27;</span>, <span class="string">&#x27;人事部&#x27;</span>))</span><br><span class="line">conn.commit()</span><br></pre></td></tr></table></figure>
+<h3 id="删除记录"><a href="#删除记录" class="headerlink" title="删除记录"></a>删除记录</h3><p>通过 delete 删除记录</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#删除部门表【departments】中的id为6的数据</span></span><br><span class="line">del_dep = <span class="string">&#x27;DELETE FROM departments WHERE  dep_id=%s&#x27;</span></span><br><span class="line">cur.execute(del_dep, (<span class="number">6</span>,))</span><br><span class="line">conn.commit()</span><br></pre></td></tr></table></figure>
+<h2 id="练习-：员工表-EMPLOYEE-相关操作"><a href="#练习-：员工表-EMPLOYEE-相关操作" class="headerlink" title="练习 ：员工表 (EMPLOYEE) 相关操作"></a>练习 ：员工表 (EMPLOYEE) 相关操作</h2><p><strong>需求</strong>：</p>
+<ol>
+<li>员工表有 FIRST_NAME VARCHAR(20)，LAST_NAME VARCHAR(20)，AGE INT，SEX VARCHAR(1)，INCOME FLOAT字段</li>
+<li>使用 PyMySQL 创建该表</li>
+<li>使用 PyMySQL 添加以下三条数据<ol>
+<li>‘Mac’, ‘A’, 20, ‘M’, 20000</li>
+<li>‘Tom’, ‘B’, 20, ‘F’, 30000</li>
+<li>‘Bob’, ‘C’, 20, ‘M’, 40000</li>
+</ol>
+</li>
+<li>使用 PyMySQL 查询所有用户信息，并打印结果</li>
+<li>将 FIRST_NAME  为 Mac 的用户工资改成 10000</li>
+<li>删除 FIRST_NAME  为 Tom 的用户信息</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="comment"># 打开数据库连接</span></span><br><span class="line">db = pymysql.connect(</span><br><span class="line">    host=<span class="string">&#x27;127.0.0.1&#x27;</span>, </span><br><span class="line">    port=<span class="number">3306</span>, </span><br><span class="line">    user=<span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    db=<span class="string">&#x27;tedu1&#x27;</span>, </span><br><span class="line">    charset=<span class="string">&#x27;utf8&#x27;</span></span><br><span class="line">)</span><br><span class="line"><span class="comment"># 使用 cursor() 方法创建一个游标对象 cursor</span></span><br><span class="line">cur = db.cursor()</span><br><span class="line"></span><br><span class="line"><span class="comment">##########################################################</span></span><br><span class="line"><span class="comment"># 创建表</span></span><br><span class="line">sql = <span class="string">&quot;&quot;&quot;CREATE TABLE EMPLOYEE (</span></span><br><span class="line"><span class="string">    FIRST_NAME  VARCHAR(20) NOT NULL,</span></span><br><span class="line"><span class="string">    LAST_NAME  VARCHAR(20),</span></span><br><span class="line"><span class="string">    AGE INT,  </span></span><br><span class="line"><span class="string">    SEX VARCHAR(1),</span></span><br><span class="line"><span class="string">    INCOME FLOAT </span></span><br><span class="line"><span class="string">)&quot;&quot;&quot;</span></span><br><span class="line">cur.execute(sql)</span><br><span class="line"><span class="comment">##########################################################</span></span><br><span class="line"><span class="comment"># SQL 插入语句</span></span><br><span class="line">sql = <span class="string">&quot;&quot;&quot;INSERT INTO EMPLOYEE(FIRST_NAME,</span></span><br><span class="line"><span class="string">         LAST_NAME, AGE, SEX, INCOME)</span></span><br><span class="line"><span class="string">         VALUES (%s, %s, %s, %s, %s)&quot;&quot;&quot;</span></span><br><span class="line">cur.executemany(  <span class="comment"># executemany(), 执行sql语句, 同时插入多条记录</span></span><br><span class="line">    sql, [</span><br><span class="line">        (<span class="string">&#x27;Mac&#x27;</span>, <span class="string">&#x27;A&#x27;</span>, <span class="number">20</span>, <span class="string">&#x27;M&#x27;</span>, <span class="number">20000</span>), </span><br><span class="line">        (<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="number">20</span>, <span class="string">&#x27;F&#x27;</span>, <span class="number">30000</span>), </span><br><span class="line">        (<span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="number">20</span>, <span class="string">&#x27;M&#x27;</span>, <span class="number">40000</span>)</span><br><span class="line">    ]</span><br><span class="line">)</span><br><span class="line">db.commit()</span><br><span class="line"><span class="comment">##########################################################</span></span><br><span class="line">sql = <span class="string">&quot;SELECT * FROM EMPLOYEE&quot;</span></span><br><span class="line">cur.execute(sql)</span><br><span class="line">result = cur.fetchone()</span><br><span class="line">print(result)</span><br><span class="line">result2 = cur.fetchmany(<span class="number">2</span>)</span><br><span class="line">print(result2)</span><br><span class="line"><span class="comment">##########################################################</span></span><br><span class="line">sql = <span class="string">&#x27;UPDATE EMPLOYEE SET INCOME=%s WHERE FIRST_NAME=%s&#x27;</span></span><br><span class="line">cur.execute(sql, (<span class="number">10000</span>, <span class="string">&#x27;Mac&#x27;</span>))</span><br><span class="line">db.commit()</span><br><span class="line"><span class="comment">##########################################################</span></span><br><span class="line">sql = <span class="string">&#x27;DELETE FROM EMPLOYEE WHERE FIRST_NAME=%s&#x27;</span></span><br><span class="line">cur.execute(sql, (<span class="string">&quot;Tom&quot;</span>,))</span><br><span class="line">db.commit()</span><br><span class="line"><span class="comment"># 关闭数据库连接</span></span><br><span class="line">cur.close()</span><br><span class="line">db.close()</span><br></pre></td></tr></table></figure>
+
+      <div class="tags">
+          <a href="/tags/python/" rel="tag"><i class="ic i-tag"></i> python</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-25 20:17:06" itemprop="dateModified" datetime="2022-11-25T20:17:06+08:00">2022-11-25</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2022/10/21/python/day10/" title="10.邮件编程、paramiko模块、PyMySQL模块">http://yoursite.com/2022/10/21/python/day10/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/10/20/python/day09/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipew28b65j20zk0m8hdt.jpg" title="09.re模块、多线程编程、Python模块管理">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> python基础</span>
+  <h3>09.re模块、多线程编程、Python模块管理</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/10/22/python/day11/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipewkhf1zj20zk0m81kx.jpg" title="11.JSON、requests模块、案例练习">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> python基础</span>
+  <h3>11.JSON、requests模块、案例练习</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%82%AE%E4%BB%B6%E7%BC%96%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">邮件编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8Linux%E7%9A%84%E7%BB%88%E7%AB%AF%E4%B8%8A%EF%BC%8C%E6%9F%A5%E7%9C%8B%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AF"><span class="toc-number">1.1.</span> <span class="toc-text">在Linux的终端上，查看邮件服务器是否开启</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E5%B9%B6%E8%AE%BE%E7%BD%AE%E9%82%AE%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">发送并设置邮件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SMTP"><span class="toc-number">1.3.</span> <span class="toc-text">SMTP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.3.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SMTP%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.3.2.</span> <span class="toc-text">SMTP对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sendmail-%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.3.</span> <span class="toc-text">sendmail 方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%EF%BC%9A%E9%80%9A%E8%BF%87%E6%9C%AC%E6%9C%BA%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">案例：通过本机发送邮件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.4.1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%BC%96%E5%86%99"><span class="toc-number">1.4.2.</span> <span class="toc-text">代码编写</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#paramiko-%E6%A8%A1%E5%9D%97%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">paramiko 模块应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">2.1.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">2.3.</span> <span class="toc-text">基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E8%A7%A3%E9%87%8A%E8%AF%B4%E6%98%8E"><span class="toc-number">2.3.1.</span> <span class="toc-text">常用方法解释说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%AE%9E%E7%8E%B0ssh%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.3.2.</span> <span class="toc-text">案例：实现ssh远程连接服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%EF%BC%9Aparamiko-%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.4.</span> <span class="toc-text">练习：paramiko 实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PyMySQL"><span class="toc-number">3.</span> <span class="toc-text">PyMySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.1.</span> <span class="toc-text">准备数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PyMySQL-%E6%A8%A1%E5%9D%97%E5%BA%94%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">PyMySQL 模块应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.2.1.</span> <span class="toc-text">连接数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%A0%87"><span class="toc-number">3.2.2.</span> <span class="toc-text">游标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8"><span class="toc-number">3.2.3.</span> <span class="toc-text">创建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.4.</span> <span class="toc-text">插入数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.5.</span> <span class="toc-text">查询数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.6.</span> <span class="toc-text">修改数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%AE%B0%E5%BD%95"><span class="toc-number">3.2.7.</span> <span class="toc-text">删除记录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0-%EF%BC%9A%E5%91%98%E5%B7%A5%E8%A1%A8-EMPLOYEE-%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C"><span class="toc-number">3.3.</span> <span class="toc-text">练习 ：员工表 (EMPLOYEE) 相关操作</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2022/10/11/python/day01/" rel="bookmark" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></li><li><a href="/2022/10/12/python/day02/" rel="bookmark" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></li><li><a href="/2022/10/14/python/day03/" rel="bookmark" title="03.文件对象、文件读写操作、函数基础">03.文件对象、文件读写操作、函数基础</a></li><li><a href="/2022/10/15/python/day04/" rel="bookmark" title="04.模块基础、时间模块、语法风格及布局、字符串详解">04.模块基础、时间模块、语法风格及布局、字符串详解</a></li><li><a href="/2022/10/16/python/day05/" rel="bookmark" title="05.列表和元组、字典、集合">05.列表和元组、字典、集合</a></li><li><a href="/2022/10/17/python/day06/" rel="bookmark" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></li><li><a href="/2022/10/18/python/day07/" rel="bookmark" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></li><li><a href="/2022/10/19/python/day08/" rel="bookmark" title="08.OOP基础、OOP实践、OOP进阶">08.OOP基础、OOP实践、OOP进阶</a></li><li><a href="/2022/10/20/python/day09/" rel="bookmark" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></li><li class="active"><a href="/2022/10/21/python/day10/" rel="bookmark" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></li><li><a href="/2022/10/22/python/day11/" rel="bookmark" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">43</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/10/20/python/day09/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/10/22/python/day11/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/18/python/day07/" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
+</div>
+
+    <span><a href="/2022/08/10/linux/cluster/" title="cluster">cluster</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/15/python/day04/" title="04.模块基础、时间模块、语法风格及布局、字符串详解">04.模块基础、时间模块、语法风格及布局、字符串详解</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/12/python/day02/" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/" title="第九章 函数进阶">第九章 函数进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" title="第八章 函数初探">第八章 函数初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" title="第四章 汇编语言程序">第四章 汇编语言程序</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" title="第三章 指令系统">第三章 指令系统</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/10/21/python/day10/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//fastly.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
