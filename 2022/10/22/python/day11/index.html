@@ -102,12 +102,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicm0n457cj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitspjpbj20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
         </ul>
       </div>
     </header>
@@ -155,7 +155,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 
     <h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>JSON</strong> 是一种轻量级的数据交换格式。</p>
 <h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>数据交换格式那么多，为啥还要学个 <strong>JSON？</strong></p>
-<p><img data-src="day11.assets/image-20210919172932733.png" alt="image-20210919172932733"></p>
+<p><img data-src="/day11.assets/image-20210919172932733.png" alt="image-20210919172932733"></p>
 <p>数据交换格式是不同平台、语言中进行数据传递的通用格式。比如 <strong>Python</strong> 和 <strong>Java</strong> 之间要对话，你直接传递给 <strong>Java</strong> 一个 <strong>dict 或 list</strong> 吗？<strong>Java</strong> 会问，这是什么鬼？虽然它也有字典和列表数据类型，但两种字典不是一个“物种”，根本无法相互理解。这个时候就需要用 <strong>Json</strong> 这种交换格式了，<strong>Python</strong> 和 <strong>Java</strong> 都能理解 <strong>Json</strong>。那么别的语言为什么能理解 <strong>Json</strong> 呢？因为这些语言都内置或提供了 <strong>Json</strong> 处理模块，比如 <strong>Python</strong> 的 <strong>json</strong> 模块。</p>
 <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p><strong>JSON格式：</strong> 在各种语言中，都可以被读取，被用作不同语言的中间转换语言【类似翻译器】</p>
 <h3 id="主要结构"><a href="#主要结构" class="headerlink" title="主要结构"></a>主要结构</h3><ul>
@@ -229,7 +229,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <li>用户也可以自己设定请求头</li>
 <li>获取网站的【User-Agent】请求头信息</li>
 </ul>
-<p><img data-src="day11.assets/image-20211128175135797.png" alt="image-20211128175135797"></p>
+<p><img data-src="/day11.assets/image-20211128175135797.png" alt="image-20211128175135797"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用户自己设定请求头，查看Forbidden禁止访问的网站</span></span><br><span class="line">[root@localhost xxx]<span class="comment"># python3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>js_url = <span class="string">&#x27;http://www.jianshu.com&#x27;</span>  <span class="comment"># 声明变量，指定简书的网站</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>headers = &#123;<span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36&#x27;</span>&#125;					<span class="comment">#声明访问网站的请求头</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(js_url, headers=headers)		<span class="comment">#获取简书网页数据, 自定义请求头</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r.text  <span class="comment"># 以文本的方式，查看数据内容【Forbidden 简书网站进行了反爬虫设置】</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h3><ul>
 <li>当访问一个 URL 时，我们经常需要发送一些查询的字段作为过滤信息，例如：httpbin.com/get?key=val，这里的 key=val 就是限定返回条件的参数键值对</li>
@@ -285,7 +285,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2022-11-25 20:17:40" itemprop="dateModified" datetime="2022-11-25T20:17:40+08:00">2022-11-25</time>
+    <time title="修改时间：2022-11-29 00:46:33" itemprop="dateModified" datetime="2022-11-29T00:46:33+08:00">2022-11-29</time>
   </span>
 </div>
 
@@ -340,7 +340,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <div class="item left">
       
 
-  <a href="/2022/10/21/python/day10/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitzannuj20zk0m8b29.jpg" title="10.邮件编程、paramiko模块、PyMySQL模块">
+  <a href="/2022/10/21/python/day10/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipexw3o58j20zk0m8e81.jpg" title="10.邮件编程、paramiko模块、PyMySQL模块">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> python基础</span>
   <h3>10.邮件编程、paramiko模块、PyMySQL模块</h3>
@@ -382,7 +382,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">43</span>
+        <span class="count">46</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -450,86 +450,6 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
-</div>
-
-    <span><a href="/2022/10/21/python/day10/" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
-</div>
-
-    <span><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
-</div>
-
-    <span><a href="/2022/10/12/python/day02/" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
-</div>
-
-    <span><a href="/2022/10/22/python/day11/" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
-</div>
-
-    <span><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
-</div>
-
-    <span><a href="/2022/10/11/python/day01/" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2021/01/05/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" title="第六章 数组及常用算法">第六章 数组及常用算法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
-</div>
-
-    <span><a href="/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" title="寄存器指令总结">寄存器指令总结</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
@@ -540,10 +460,90 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="第一章 微型计算机系统">第一章 微型计算机系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" title="第七章 常用数字接口电路">第七章 常用数字接口电路</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/20/python/day09/" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/algorithm/" title="分类于 数据结构与算法笔记">数据结构与算法笔记</a>
+</div>
+
+    <span><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="数据结构与算法（一）">数据结构与算法（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/24/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%89%EF%BC%89/" title="第三章 指令系统">第三章 指令系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2022/01/05/c/c%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%A2%98/" title="C语言编程题">C语言编程题</a></span>
+    <span><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="第十章 字符串">第十章 字符串</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" title="第四章 汇编语言程序">第四章 汇编语言程序</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/11/python/day01/" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></span>
   </li>
 
   </ul>

@@ -1,0 +1,503 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Linux" />
+
+
+<link rel="canonical" href="http://yoursite.com/2022/09/29/linux/vpn%E5%92%8Crpm/">
+
+
+
+  <title>
+vpn和rpm - Linux基础 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">vpn和rpm
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-09-29 20:35:06">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-09-29T20:35:06+08:00">2022-09-29</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicli9lfebj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh5u05ej20zk0m87df.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeu7txpzj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/linux/" itemprop="item" rel="index" title="分类于 Linux基础"><span itemprop="name">Linux基础</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/09/29/linux/vpn%E5%92%8Crpm/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="将源码包转换为rpm包"><a href="#将源码包转换为rpm包" class="headerlink" title="将源码包转换为rpm包"></a>将源码包转换为rpm包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[root@proxy ~]# yum -y install  rpm-build    &#x2F;&#x2F;安装制作rpm包的工具</span><br><span class="line">[root@proxy ~]# rpmbuild  -ba  nginx.spec  &#x2F;&#x2F;制作rpm包，但是没有配置文件会报错，报错也需要敲，会产生所需的目录</span><br><span class="line">[root@proxy ~]# ls    &#x2F;&#x2F;可以看到一个rpmbuild目录</span><br><span class="line">[root@proxy ~]# cp  ~&#x2F;nginx-1.17.6.tar.gz  rpmbuild&#x2F;SOURCES&#x2F;  &#x2F;&#x2F;拷贝源码包到rpmbuild的工作目录</span><br><span class="line">[root@proxy ~]# yum -y install  gcc  make  pcre-devel  openssl-devel</span><br><span class="line">vim  rpmbuild&#x2F;SPECS&#x2F;nginx.spec  &#x2F;&#x2F;编写将nginx转换为rpm包的配置文件</span><br><span class="line">Name:nginx     &#x2F;&#x2F;软件名</span><br><span class="line">Version:1.17.6    &#x2F;&#x2F;版本</span><br><span class="line">Release:1       &#x2F;&#x2F;发布的rpm包的版本</span><br><span class="line">Summary:test~    &#x2F;&#x2F;简单描述</span><br><span class="line">#Group:</span><br><span class="line">License:GPL    &#x2F;&#x2F;授权协议 ，GPL表示自由软件</span><br><span class="line">URL:www.abc.com    &#x2F;&#x2F;网址</span><br><span class="line">Source0:nginx-1.17.6.tar.gz     &#x2F;&#x2F;源码包 </span><br><span class="line">#BuildRequires:   </span><br><span class="line">#Requires:</span><br><span class="line">%description    &#x2F;&#x2F;详细描述</span><br><span class="line">test~ test~ </span><br><span class="line">%post      &#x2F;&#x2F;可以添加安装rpm包之后执行的命令，不是必须</span><br><span class="line">useradd  nginx</span><br><span class="line">%prep</span><br><span class="line">%setup -q</span><br><span class="line">%build</span><br><span class="line">.&#x2F;configure  &#x2F;&#x2F;配置，如果要添加选项或者模块可以继续写</span><br><span class="line">make %&#123;?_smp_mflags&#125;     &#x2F;&#x2F;编译</span><br><span class="line">%install</span><br><span class="line">make install DESTDIR&#x3D;%&#123;buildroot&#125;    &#x2F;&#x2F;安装</span><br><span class="line">%files</span><br><span class="line">%doc</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;*     &#x2F;&#x2F;将改路径下文件打包成rpm</span><br><span class="line">%changelog</span><br><span class="line">rpmbuild  -ba  rpmbuild&#x2F;SPECS&#x2F;nginx.spec  &#x2F;&#x2F;根据上述文件制作rpm包</span><br><span class="line">ls  rpmbuild&#x2F;RPMS&#x2F;x86_64&#x2F;nginx-1.17.6-1.x86_64.rpm  &#x2F;&#x2F;查看最终结果，已经产生nginx的rpm包则成功</span><br></pre></td></tr></table></figure>
+<h2 id="VPN-虚拟专用网"><a href="#VPN-虚拟专用网" class="headerlink" title="VPN 虚拟专用网"></a>VPN 虚拟专用网</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">1，使用gre技术搭建vpn，适用于linux环境</span><br><span class="line">[root@web1 ~]# modprobe  ip_gre    &#x2F;&#x2F;在内核中开启gre功能</span><br><span class="line">[root@web1 ~]# lsmod | grep  gre  &#x2F;&#x2F;检查，可以看到gre字样信息即可</span><br><span class="line">ip tunnel add tun0 mode gre remote 192.168.99.200 local 192.168.99.100    &#x2F;&#x2F;创建</span><br><span class="line">vpn隧道，名字叫tun0，mode是使用gre技术，与99.200连接，自己ip是99.100</span><br><span class="line">ip  tunnel  del  tun0   &#x2F;&#x2F;如果错误，可以删除重配</span><br><span class="line">ip addr add 10.10.10.100&#x2F;8 peer 10.10.10.200&#x2F;8 dev tun0  &#x2F;&#x2F;在tun0隧道(dev)中使</span><br><span class="line">用私有ip地址，本机是10.100 ，对面(peer)是10.200</span><br><span class="line">ip addr del 10.10.10.100&#x2F;8 peer 10.10.10.200&#x2F;8 dev tun0  &#x2F;&#x2F;如果错误可以删除</span><br><span class="line">ip link set tun0 up    &#x2F;&#x2F;激活tun0</span><br><span class="line">ip addr show tun0   &#x2F;&#x2F;查看</span><br><span class="line"></span><br><span class="line">2，使用xl2tp搭建vpn，支持windows环境</span><br><span class="line">第一个环节，配置加密：</span><br><span class="line">[root@web1 vpn]# yum  -y  install  libreswan   &#x2F;&#x2F;安装加密工具</span><br><span class="line">[root@web1 vpn]# cp  myipsec.conf  &#x2F;etc&#x2F;ipsec.d&#x2F;   &#x2F;&#x2F;复制配置文件到</span><br><span class="line">ipsec.d目录</span><br><span class="line">[root@web1 vpn]# vim  &#x2F;etc&#x2F;ipsec.d&#x2F;myipsec.conf    &#x2F;&#x2F;修改配置第16行</span><br><span class="line">left&#x3D;192.168.99.100    &#x2F;&#x2F;设置为本机ip</span><br><span class="line">vim  &#x2F;etc&#x2F;ipsec.secrets   &#x2F;&#x2F;修改配置，添加加密信息</span><br><span class="line">192.168.99.100  %any:  PSK  &quot;randpass&quot;   &#x2F;&#x2F;另起一行，添加99.100是本机</span><br><span class="line">ip，%any:是允许任何客户机连接本服务器，PSK是预共享密钥，randpass</span><br><span class="line">是密码，等windows客户连接vpn服务器时需要该密码</span><br><span class="line"></span><br><span class="line">然后安装vpn工具</span><br><span class="line">rpm  -ivh  xl2tpd-1.3.8-2.el7.x86_64.rpm</span><br><span class="line">vim  &#x2F;etc&#x2F;xl2tpd&#x2F;xl2tpd.conf    &#x2F;&#x2F;打开配置文件，32、33行</span><br><span class="line">ip range &#x3D; 10.10.10.10-10.10.10.18  &#x2F;&#x2F;给客户分配的ip</span><br><span class="line">local ip &#x3D; 192.168.99.100    &#x2F;&#x2F;本机ip</span><br><span class="line">vim  &#x2F;etc&#x2F;ppp&#x2F;options.xl2tpd   &#x2F;&#x2F;修改配置文件，将第10、16行</span><br><span class="line">注释掉，删除掉21行的#以及空格，就可以启用加密</span><br><span class="line"></span><br><span class="line">创建账户</span><br><span class="line">yum  -y  install  ppp   &#x2F;&#x2F;安装vpn依赖软件包</span><br><span class="line">vim  &#x2F;etc&#x2F;ppp&#x2F;chap-secrets   &#x2F;&#x2F;定义windows客户机的用户名和密码</span><br><span class="line">tom  *  123456  *     &#x2F;&#x2F;另起一行创建用户tom，配置密码123456</span><br><span class="line"></span><br><span class="line">开启服务</span><br><span class="line">systemctl  start  ipsec   &#x2F;&#x2F;开启加密服务</span><br><span class="line">netstat  -ntulp |grep  :500    &#x2F;&#x2F;之后检查加密服务</span><br><span class="line">systemctl  start  xl2tpd  &#x2F;&#x2F;开启xl2tpd服务</span><br><span class="line">netstat  -ntulp |grep  xl2tpd</span><br><span class="line"> </span><br><span class="line">最下面输入用户名tom   密码 123456</span><br><span class="line"></span><br><span class="line">如果配置没有问题，但依然无法成功（比如报了789之类的错误代码），那么可以尝试下面方法修改windows的注册表</span><br><span class="line">    单击&quot;开始&quot;，单击&quot;运行&quot;，键入&quot;regedit&quot;，然后单击&quot;确定&quot;</span><br><span class="line">    找到下面的注册表子项，然后单击它：</span><br><span class="line">    HKEY_LOCAL_MACHINE\ System\CurrentControlSet\Services\Rasman\Parameters</span><br><span class="line">    在&quot;编辑&quot;菜单上，单击&quot;新建&quot;-&gt;&quot;DWORD值&quot;</span><br><span class="line">    在&quot;名称&quot;框中，键入&quot;ProhibitIpSec&quot;</span><br><span class="line">    在&quot;数值数据&quot;框中，键入&quot;1&quot;，然后单击&quot;确定&quot;</span><br><span class="line">    退出注册表编辑器，然后重新启动计算机</span><br></pre></td></tr></table></figure>
+
+      <div class="tags">
+          <a href="/tags/Linux/" rel="tag"><i class="ic i-tag"></i> Linux</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-11-28 22:56:25" itemprop="dateModified" datetime="2022-11-28T22:56:25+08:00">2022-11-28</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2022/09/29/linux/vpn%E5%92%8Crpm/" title="vpn和rpm">http://yoursite.com/2022/09/29/linux/vpn和rpm/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/09/21/linux/tomcat/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclhtuo6nj20zk0m8ttm.jpg" title="tomcat">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Linux基础</span>
+  <h3>tomcat</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/10/11/python/day01/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitzannuj20zk0m8b29.jpg" title="01.Python概述、环境准备、Python起步、数据类型概述">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> python基础</span>
+  <h3>01.Python概述、环境准备、Python起步、数据类型概述</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%BA%90%E7%A0%81%E5%8C%85%E8%BD%AC%E6%8D%A2%E4%B8%BArpm%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">将源码包转换为rpm包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPN-%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91"><span class="toc-number">2.</span> <span class="toc-text">VPN 虚拟专用网</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2022/08/10/linux/cluster/" rel="bookmark" title="cluster">cluster</a></li><li><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="关于linux基础的一些总结">关于linux基础的一些总结</a></li><li><a href="/2022/08/10/linux/ansible/" rel="bookmark" title="ansible">ansible</a></li><li><a href="/2022/08/10/linux/shell/" rel="bookmark" title="shell">shell</a></li><li><a href="/2022/09/20/linux/nginx/" rel="bookmark" title="nginx基础">nginx基础</a></li><li><a href="/2022/09/21/linux/tomcat/" rel="bookmark" title="tomcat">tomcat</a></li><li class="active"><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" rel="bookmark" title="vpn和rpm">vpn和rpm</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">46</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/09/21/linux/tomcat/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/10/11/python/day01/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/19/python/day08/" title="08.OOP基础、OOP实践、OOP进阶">08.OOP基础、OOP实践、OOP进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/12/python/day02/" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/04/18/cpp/first-blog/" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/30/c/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84/" title="第三章 运算符和条件结构">第三章 运算符和条件结构</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" title="第五章 存储器系统">第五章 存储器系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
+</div>
+
+    <span><a href="/2022/09/20/linux/nginx/" title="nginx基础">nginx基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/" title="第五章 循环结构进阶">第五章 循环结构进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="第一章 微型计算机系统">第一章 微型计算机系统</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2022/01/02/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%AE%80%E7%AD%94%E9%A2%98/" title="微机原理简答题">微机原理简答题</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/09/29/linux/vpn和rpm/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//fastly.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
