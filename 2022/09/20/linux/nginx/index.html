@@ -32,9 +32,9 @@
 
 
   <title>
-nginx基础 - Linux基础 |
+nginx基础 - Linux运维基础 |
 Yume Shoka = 未来の期間 = 勿負韶華</title>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
   <div id="loading">
     <div class="cat">
@@ -102,12 +102,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/5ec5e6a577b47f3d9b70654073f8b881.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/9b626c5ba21d7cb4dbcba2b507688bbb.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/5b5adebbec99efe0ce45af5f815b58ed.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/8a8076ea9cbc7d677dd42ad84d4e3ebd.jpg"></li>
           <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/23/6928788f3d68c2e7e3b92222301a30c2.png"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/d757e4c9c546cd7dba16ee5e23dc2d9d.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/dcd5178b4c81cd15d7465af2a33c0d6d.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/ebaf5d5dbf78e8c31831feb203aa81fb.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/601b4c1b1f50f3ceb9e8080e1957a890.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/67694352e9c5cbbcf5c1bb98312aab55.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/f584675dfc4ef47fcf19442f0e2ea18b.jpg"></li>
         </ul>
       </div>
     </header>
@@ -133,7 +133,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
 <span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/linux/" itemprop="item" rel="index" title="分类于 Linux基础"><span itemprop="name">Linux基础</span></a>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/linux/" itemprop="item" rel="index" title="分类于 Linux运维基础"><span itemprop="name">Linux运维基础</span></a>
 <meta itemprop="position" content="1" /></span>
 </div>
 
@@ -167,6 +167,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 </li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">worker_processes  1;</span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    sendfile        on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line">    #server &#123;</span><br><span class="line"><span class="meta">	#</span><span class="bash">listen 80; <span class="comment">#监听端口号</span></span></span><br><span class="line"><span class="meta">	#</span><span class="bash">server_name www.b.com; <span class="comment">#域名，默认的虚拟主机改成www.a.com</span></span></span><br><span class="line"><span class="meta">	#</span><span class="bash">root html_b; <span class="comment">#存放网页的目录</span></span> </span><br><span class="line"><span class="meta">	#</span><span class="bash">index index.html;  <span class="comment">#默认页名字</span></span></span><br><span class="line"><span class="meta">	#</span><span class="bash">&#125;</span></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost#www.a.com; #记得要有dns或本地host解析域名</span><br><span class="line">        #auth_basic  &quot;password&quot;; #网页弹出的提示信息,此信息可能会根据不同浏览器显示效果不一，有的浏览器甚至不显示，但不影响认证功能</span><br><span class="line">        #auth_basic_user_file  &quot;/usr/local/nginx/pass&quot;; #存放网站账户的文件,创建pass文件，里面创建tom账户输入命令htpasswd -c  pass  tom，之后会要求输入两次密码</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    #server &#123;#此处的虚拟主机自带ssl安全加密功能，将其范围的注释取消即可</span><br><span class="line">    #    listen       443 ssl;</span><br><span class="line">    #    server_name  localhost;      </span><br><span class="line">    #    ssl_certificate      cert.pem; #证书，包含公钥</span><br><span class="line">    #    ssl_certificate_key  cert.key; #私钥</span><br><span class="line">    #    #命令创建私钥和证书</span><br><span class="line">    #    #openssl genrsa &gt; conf/cert.key   //创建私钥</span><br><span class="line">    #    #openssl req -x509 -key conf/cert.key &gt; conf/cert.pem 创建证书，证书中包含公钥，生成过程会询问诸如你在哪个国家之类的问题，可以随意回答，但要走完全过程</span><br><span class="line">    #    ssl_session_cache    shared:SSL:1m;</span><br><span class="line">    #    ssl_session_timeout  5m;</span><br><span class="line">    #    ssl_ciphers  HIGH:!aNULL:!MD5;</span><br><span class="line">    #    ssl_prefer_server_ciphers  on;</span><br><span class="line">    #    location / &#123;</span><br><span class="line">    #        root   https; #这里修改页面存储目录</span><br><span class="line">    #        index  index.html index.htm;</span><br><span class="line">    #    &#125;</span><br><span class="line">    #&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="部署LNMP环境"><a href="#部署LNMP环境" class="headerlink" title="部署LNMP环境"></a>部署LNMP环境</h2><ul>
 <li>L linux    N nginx    M mariadb(mysql)    P  php</li>
 </ul>
@@ -187,7 +188,8 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <li><p>拷贝动态网站到html目录</p>
 </li>
 <li><p>修改Nginx配置文件，默认为注释</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;   &#x2F;&#x2F;~是使用正则表达式，匹配以.php结尾</span><br><span class="line">            root           html;     &#x2F;&#x2F;网站页面位置，不用改，保持默认</span><br><span class="line">            fastcgi_pass   127.0.0.1:9000;  &#x2F;&#x2F;一旦用户访问了.php结尾的文</span><br><span class="line">件，就让nginx找后台的php-fpm（端口号9000）</span><br><span class="line">            fastcgi_index  index.php;    &#x2F;&#x2F;动态网站的默认页面，无需修改</span><br><span class="line">        #   fastcgi_param  SCRIPT_FILENAME  &#x2F;scripts$fastcgi_script_name;   </span><br><span class="line"> &#x2F;&#x2F;无用行，保持注释状态</span><br><span class="line">            include        fastcgi.conf;  &#x2F;&#x2F;这里是另外一个配置文件，需要改扩展名</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;   &#x2F;&#x2F;~是使用正则表达式，匹配以.php结尾</span><br><span class="line">            root           html;     &#x2F;&#x2F;网站页面位置，不用改，保持默认</span><br><span class="line">            fastcgi_pass   127.0.0.1:9000;  &#x2F;&#x2F;一旦用户访问了.php结尾的文</span><br><span class="line">件，就让nginx找后台的php-fpm（端口号9000）</span><br><span class="line">            fastcgi_index  index.php;    &#x2F;&#x2F;动态网站的默认页面，无需修改</span><br><span class="line">        #   fastcgi_param  SCRIPT_FILENAME  &#x2F;scripts$fastcgi_script_name;   </span><br><span class="line"> &#x2F;&#x2F;无用行，保持注释状态</span><br><span class="line">            include        fastcgi.conf;  &#x2F;&#x2F;这里是另外一个配置文件，需要改扩展名</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>启Nginx服务或重新加载配置文件</p>
 </li>
 <li><p>拷贝数据库文件到html目录，进入数据库创建测试账户</p>
@@ -196,61 +198,77 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 </li>
 </ul>
 <h3 id="地址重写"><a href="#地址重写" class="headerlink" title="地址重写"></a>地址重写</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">worker_processes  1;</span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line">    sendfile        on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line">        #rewrite  /a.html  /b.html; #用户访问的路径中包含a.html的话就跳转到b.html页面；（后面加last可以让网站跳转后不再读其他rewrite；加break将不再读其他语句。）</span><br><span class="line">        #rewrite ^/a\.html$ /b.html redirect; #问网站时，地址栏同时发生变化;redirect临时重定向；permanent永久重定向</span><br><span class="line">        #rewrite / http://www.baidu.com; #访问192.168.99.5的网站可以跳转到www.baidu.com</span><br><span class="line"><span class="meta">		#</span><span class="bash">rewrite /(.*) http://www.baidu.com/<span class="variable">$1</span>; <span class="comment">#访问老网站会跳到新网站，同时会携带所访问的页面，()是正则，代表保留(复制)  $1表示粘贴之前第一个小括号保留的内容</span></span></span><br><span class="line">		</span><br><span class="line">		if  ($http_user_agent  ~*  firefox)&#123; #如果用户使用了火狐浏览器</span><br><span class="line">			rewrite  /(.*)  /firefox/$1; #就进行地址重写操作，让用户看到火狐专属页面</span><br><span class="line">		&#125;   #$http_user_agent是nginx的内置变量，存储了用户的信息，比如用的什么浏览器，  ~匹配正则  *忽略大小写</span><br><span class="line">		</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="Nginx代理功能"><a href="#Nginx代理功能" class="headerlink" title="Nginx代理功能"></a>Nginx代理功能</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">upstream web &#123; #在http&#123;&#125;中server&#123;&#125;外上面，创建集群，集群名称叫web</span><br><span class="line">		server  192.168.99.100:80;  #这里是集群中的服务器ip与端口</span><br><span class="line">		server  192.168.99.200:80;  #第二台集群主机</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        。。。。</span><br><span class="line">        location / &#123;</span><br><span class="line">			proxy_pass  http://web;  #在sever&#123;&#125;中，调用集群</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="集群优化"><a href="#集群优化" class="headerlink" title="集群优化"></a>集群优化</h2><ul>
 <li>1、调节权重定义集群主机任务的分配量</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server 192.168.99.200:80 weight&#x3D;2;   &#x2F;&#x2F;为性能较强的集群主机配置权重</span><br><span class="line">，权重越大任务的分配量就越大</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>2、配置健康检查</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server 192.168.99.200:80 max_fails&#x3D;2 fail_timeout&#x3D;30; &#x2F;&#x2F;检测两次如果失败，则认为集群中的主机故障，之后等待30秒再次测试</span><br><span class="line">&#x2F;&#x2F;输入sbin&#x2F;nginx -s reload重置配置文件</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>3、相同客户机访问相同服务器</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream web &#123;</span><br><span class="line">ip_hash;   &#x2F;&#x2F;相同客户机访问相同服务器，让一个客户机访问集群时锁定一个后台服务器，避免重复登陆的问题</span><br><span class="line">server 192.168.99.100:80;</span><br><span class="line">server 192.168.99.200:80;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>4、添加down标记</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream web &#123;</span><br><span class="line">server 192.168.99.100:80;</span><br><span class="line">server 192.168.99.200:80 down;  &#x2F;&#x2F;down标记可以让集群主机暂时不参与集群活动</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="nginx功能"><a href="#nginx功能" class="headerlink" title="nginx功能"></a>nginx功能</h2><ul>
 <li>网站服务，网站代理（网站业务），四层代理（其他业务）</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure  --with-stream  --with-http_stub_status_module  &#x2F;&#x2F;这里的--with-stream 是添加四层代理模块，可以用来创建其他业务集群，--with-http_stub_status_module是后面实验所需模块另外，如果更新模块，但不想删除之前nginx数据，可以将nginx源码目录下的objs目录中的nginx文件拷贝到nginx的sbin目录下替代现有主程序，然后killall  nginx 再重启即可</span><br><span class="line"></span><br><span class="line">打开nginx主配置文件，在16行左右(http上面)，添加以下内容</span><br><span class="line">stream &#123;         &#x2F;&#x2F;创建新业务</span><br><span class="line">upstream backend &#123;    &#x2F;&#x2F;创建名叫backend的集群</span><br><span class="line">server 192.168.99.100:22;    &#x2F;&#x2F;集群中的主机使用22端口对外提供服务</span><br><span class="line">server 192.168.99.200:22;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">listen 12345;    &#x2F;&#x2F;监听端口号</span><br><span class="line">proxy_pass backend;    &#x2F;&#x2F;调用集群</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>如果配置没有错误，但无法反复登陆web1与web2，可以按下列方式解决:</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ~&#x2F;.ssh&#x2F;known_hosts   &#x2F;&#x2F;每登录一次之后在proxy中删除记录文件</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>其他：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ss命令可以查看系统中启动的端口信息，该命令常用选项如下：</span><br><span class="line">-a显示所有端口的信息</span><br><span class="line">-n以数字格式显示端口号</span><br><span class="line">-t显示TCP连接的端口</span><br><span class="line">-u显示UDP连接的端口</span><br><span class="line">-l显示服务正在监听的端口信息，如httpd启动后，会一直监听80端口</span><br><span class="line">-p显示监听端口的服务名称是什么（也就是程序名称）</span><br><span class="line">注意：在RHEL7系统中可以使用ss命令替代netstat命令，功能一样，选</span><br><span class="line">项一样。</span><br></pre></td></tr></table></figure>
+
 <h2 id="nginx问题处理"><a href="#nginx问题处理" class="headerlink" title="nginx问题处理"></a>nginx问题处理</h2><ul>
 <li><strong>404报错页面图片替换</strong></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">打开配置文件，在默认的虚拟主机里面的location下面修改</span><br><span class="line">error_page  404      &#x2F;test.jpg;  &#x2F;&#x2F;这里把#注释去掉，后面改成test.jpg,效果是如果客户访问了不存在的页面就显示test.jpg的内容</span><br><span class="line">然后找一个图片扔到&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;html里面，命名为test.jpg</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><strong>查看网站后台数据</strong></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;用到--with-http_stub_status_module模块</span><br><span class="line">&#x2F;&#x2F;打开配置文件</span><br><span class="line">location &#x2F;status  &#123;   &#x2F;&#x2F;在error_page行上面添加此内容</span><br><span class="line">stub_status on;    &#x2F;&#x2F;显示后台的数据</span><br><span class="line">allow 192.168.99.5;    &#x2F;&#x2F;只允许proxy查看</span><br><span class="line">deny all;   &#x2F;&#x2F;拒绝其他</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">使用curl  192.168.99.5&#x2F;status   查看</span><br><span class="line">Active connections：当前活动的连接数量（当前有多少用户访问该网站）。</span><br><span class="line">Accepts：已经接受客户端的连接总数量。</span><br><span class="line">Handled：已经处理客户端的连接总数量。</span><br><span class="line">Requests：客户端发送的请求数量。</span><br><span class="line">Reading：当前服务器正在读取客户端请求头的数量。</span><br><span class="line">Writing：当前服务器正在写响应信息的数量。</span><br><span class="line">Waiting：当前多少客户端在等待服务器的响应。</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><strong>缓存文件在客户端</strong></li>
 </ul>
 <p><strong>用户如果反复访问服务器的相同文件可以缓存到客户机，避免服务器反复传送相同文件，节约时间</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">打开配置文件，在默认的location下面添加一个location</span><br><span class="line">location ~* \.(jpg|html|txt|mp3)$ &#123;     &#x2F;&#x2F;当发现用户访问的是</span><br><span class="line">以.jpg或者.html等等结尾的页面时</span><br><span class="line">expires 30d;   &#x2F;&#x2F;就把上述访问的文件在客户机缓存30天</span><br><span class="line">&#125;</span><br><span class="line">sbin&#x2F;nginx -s reload  &#x2F;&#x2F;配置完后重加载配置文件</span><br><span class="line">&#x2F;&#x2F;使用火狐浏览器清空历史记录，然后访问192.168.99.5&#x2F;a.html然后地址栏输入about:cache查看disk文件的列表，找到被访问文件看最后倒数第2列(Expires)信息显示多久过期可以看到该文件的过期时间是一个月之后，说明缓存成功。</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><strong>支持超长地址栏</strong></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;默认情况下nginx无法支持长地址栏，会报414错误</span><br><span class="line">&#x2F;&#x2F;打开配置文件,在默认的虚拟主机上方添加两行</span><br><span class="line">client_header_buffer_size 200k;   &#x2F;&#x2F;第一行表示,用户访问网站的头部信息(包含地址栏)长度支持200k大小</span><br><span class="line">large_client_header_buffers 4 200k;  &#x2F;&#x2F;第二行表示,如果200k不够,再给4个200k</span><br><span class="line"></span><br><span class="line">sbin&#x2F;nginx  -s  reload   &#x2F;&#x2F;重加载配置</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><strong>优化nginx并发</strong></li>
 </ul>
 <p>1.安装使用阿帕奇自带网站压力测试工具</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@web1 ~]# yum -y install httpd-tools   </span><br><span class="line">ab -c 200 -n 200 http:&#x2F;&#x2F;192.168.99.5&#x2F;     &#x2F;&#x2F;用压力测试工具模拟200人，每人1次，一共200次对99.5的网站发起访问，成功</span><br></pre></td></tr></table></figure>
+
 <p>2.设置nginx访问量</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">打开nginx配置文件修改第3行，第13行</span><br><span class="line"> 	 worker_processes  2;   &#x2F;&#x2F;开启的nginx进程数量，通常是随cpu的核心数一致</span><br><span class="line">     worker_connections  50000;   &#x2F;&#x2F;每个nginx进程支持的并发访问量</span><br></pre></td></tr></table></figure>
+
 <p>3.查看设置系统文件访问次数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ulimit -n     &#x2F;&#x2F;查询系统打开文件数量的大小</span><br><span class="line">ulimit -n 100000   &#x2F;&#x2F;临时定义文件可以同时被打开的次数为10万</span><br><span class="line">vim &#x2F;etc&#x2F;security&#x2F;limits.conf   &#x2F;&#x2F;打开配置文件实现永久修改</span><br><span class="line">修改第53、54行</span><br><span class="line">*               soft    nofile          100000</span><br><span class="line">*               hard    nofile         100000</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><strong>解决集群主机过多而导致用户重复登陆网站的问题</strong></li>
 </ul>
@@ -258,9 +276,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <p><strong>为了统一session存储的位置（该存储方式通常被称为session共享），需要安装专门的数据库工具</strong></p>
 <p><strong>memcache</strong> <strong>可以利用内存读写数据的数据库服务</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum  -y  install  memcached  telnet    &#x2F;&#x2F;安装软件包</span><br><span class="line">systemctl  start  memcached   &#x2F;&#x2F;开启服务</span><br><span class="line">telnet  127.0.0.1  11211   &#x2F;&#x2F;连接memcache，进行检测</span><br><span class="line">测试memcached：</span><br><span class="line">set abc 0 200 3     &#x2F;&#x2F;创建变量abc(如果abc已经存在就是覆盖)，0是不压缩数据，数据存储时间200秒，存3个字符，回车之后比如输入xyz就是存储这3个字符</span><br><span class="line">get abc    &#x2F;&#x2F;获取变量abc</span><br><span class="line">replace abc 0 200 3   &#x2F;&#x2F;覆盖abc，此时变量abc必须存在</span><br><span class="line">delete abc   &#x2F;&#x2F;删除abc</span><br><span class="line">add abc 0 200 3  &#x2F;&#x2F;添加abc变量，如果abc已经存在则会添加失败</span><br><span class="line">flush_all   &#x2F;&#x2F;删除所有数据</span><br><span class="line">quit  &#x2F;&#x2F;退出</span><br></pre></td></tr></table></figure>
+
 <p><strong>修改存储session文件的位置</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim  &#x2F;etc&#x2F;php-fpm.d&#x2F;www.conf   &#x2F;&#x2F;到最后一页</span><br><span class="line">php_value[session.save_handler] &#x3D; memcache  &#x2F;&#x2F;这里改成memcache，表示session</span><br><span class="line">的存储不在是本地的普通文件，而是去找memcache</span><br><span class="line">php_value[session.save_path] &#x3D; tcp:&#x2F;&#x2F;192.168.99.5:11211   &#x2F;&#x2F;这里的路径修改为</span><br><span class="line">安装了memcache服务的服务器地址与端口</span><br><span class="line"></span><br><span class="line">yum -y install php-pecl-memcache   &#x2F;&#x2F;安装php与memcached服务关联的软件包</span><br><span class="line">systemctl restart php-fpm</span><br></pre></td></tr></table></figure>
+
 <h2 id="编写Unit文件，使systemctl命令控制nginx"><a href="#编写Unit文件，使systemctl命令控制nginx" class="headerlink" title="编写Unit文件，使systemctl命令控制nginx"></a>编写Unit文件，使systemctl命令控制nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cd  &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system </span><br><span class="line">cp httpd.service nginx.service    &#x2F;&#x2F;拷贝模板</span><br><span class="line">vim  nginx.service   &#x2F;&#x2F;修改</span><br><span class="line">[Service]</span><br><span class="line">Type&#x3D;forking  &#x2F;&#x2F;nginx是多进程类型程序，要设置为forking</span><br><span class="line">ExecStart&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx  &#x2F;&#x2F;当执行了systemctl start nginx之后执行的命令</span><br><span class="line">ExecReload&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -s reload   &#x2F;&#x2F;当执行了systemctl reload nginx之后执行的命令</span><br><span class="line">ExecStop&#x3D;&#x2F;bin&#x2F;kill -s QUIT $MAINPID    &#x2F;&#x2F;当执行了systemctl stop nginx之后执行的命令，这里是用kill命令发送退出信号给nginx的进程号，相当于停止nginx服务，-s QUIT是发送退出信号，使nginx优雅关闭（处理完客户请求才退出），$MAINPID是变量，里面存了nginx的进程号</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy&#x3D;multi-user.target   &#x2F;&#x2F;支持开机自启</span><br><span class="line"></span><br><span class="line">1.	systemctl daemon-reload      &#x2F;&#x2F;激活刚才的test.service文件，但有时可能不好使，可以重启系统</span><br><span class="line">然后重启服务之后可以用systemctl等命令控制nginx</span><br><span class="line">提示：必须要提前先安装好nginx服务，并且没有其他服务占用80端口！</span><br></pre></td></tr></table></figure>
+
 
       <div class="tags">
           <a href="/tags/Linux/" rel="tag"><i class="ic i-tag"></i> Linux</a>
@@ -275,7 +296,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2022-11-28 22:58:19" itemprop="dateModified" datetime="2022-11-28T22:58:19+08:00">2022-11-28</time>
+    <time title="修改时间：2024-03-26 09:52:55" itemprop="dateModified" datetime="2024-03-26T09:52:55+08:00">2024-03-26</time>
   </span>
 </div>
 
@@ -330,20 +351,20 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <div class="item left">
       
 
-  <a href="/2022/08/10/linux/cluster/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;140009170121c1a23f1a969d29c46fee.jpg" title="cluster">
+  <a href="/2022/08/10/linux/ansible/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;dcb8f9f223a5db821d797261469b6a17.jpg" title="ansible基础">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> Linux基础</span>
-  <h3>cluster</h3>
+  <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
+  <h3>ansible基础</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2022/09/21/linux/tomcat/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;dfd09dea1d70c93080a0c2bce3143a54.jpg" title="tomcat">
+  <a href="/2022/09/21/linux/tomcat/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;6481fffb5173a5621c7af0848ed50fa7.jpg" title="tomcat部署搭建">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> Linux基础</span>
-  <h3>tomcat</h3>
+  <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
+  <h3>tomcat部署搭建</h3>
   </a>
 
     </div>
@@ -366,7 +387,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2022/08/10/linux/cluster/" rel="bookmark" title="cluster">cluster</a></li><li><a href="/2022/08/10/linux/ansible/" rel="bookmark" title="ansible">ansible</a></li><li><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="关于linux基础的一些总结">关于linux基础的一些总结</a></li><li><a href="/2022/08/10/linux/shell/" rel="bookmark" title="shell">shell</a></li><li class="active"><a href="/2022/09/20/linux/nginx/" rel="bookmark" title="nginx基础">nginx基础</a></li><li><a href="/2022/09/21/linux/tomcat/" rel="bookmark" title="tomcat">tomcat</a></li><li><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" rel="bookmark" title="vpn和rpm">vpn和rpm</a></li><li><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" rel="bookmark" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></li><li><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" rel="bookmark" title="zabbix和prometheus对比">zabbix和prometheus对比</a></li><li><a href="/2023/02/12/linux/CDN/" rel="bookmark" title="CDN概念基本介绍">CDN概念基本介绍</a></li><li><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" rel="bookmark" title="Mysql数据库基础">Mysql数据库基础</a></li>
+          <li><a href="/2022/08/10/linux/ansible/" rel="bookmark" title="ansible基础">ansible基础</a></li><li><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="关于linux基础的命令总结">关于linux基础的命令总结</a></li><li><a href="/2022/08/10/linux/shell/" rel="bookmark" title="shell一些知识点">shell一些知识点</a></li><li><a href="/2022/08/10/linux/LVS/" rel="bookmark" title="LVS集群介绍">LVS集群介绍</a></li><li class="active"><a href="/2022/09/20/linux/nginx/" rel="bookmark" title="nginx基础">nginx基础</a></li><li><a href="/2022/09/21/linux/tomcat/" rel="bookmark" title="tomcat部署搭建">tomcat部署搭建</a></li><li><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" rel="bookmark" title="vpn和rpm">vpn和rpm</a></li><li><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" rel="bookmark" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></li><li><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" rel="bookmark" title="zabbix和prometheus对比">zabbix和prometheus对比</a></li><li><a href="/2023/02/12/linux/CDN/" rel="bookmark" title="CDN概念基本介绍">CDN概念基本介绍</a></li><li><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" rel="bookmark" title="Mysql数据库基础">Mysql数据库基础</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -423,7 +444,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2022/08/10/linux/cluster/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2022/08/10/linux/ansible/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
@@ -450,10 +471,70 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2022/10/12/python/day02/" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></span>
+    <span><a href="/2022/10/22/python/day11/" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/" title="第五章 循环结构进阶">第五章 循环结构进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/17/python/day06/" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/" title="第八章 模拟量的输入输出">第八章 模拟量的输入输出</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/30/c/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84/" title="第三章 运算符和条件结构">第三章 运算符和条件结构</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/algorithm/" title="分类于 数据结构与算法笔记">数据结构与算法笔记</a>
+</div>
+
+    <span><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="数据结构与算法（一）">数据结构与算法（一）</a></span>
   </li>
 
       
@@ -470,60 +551,10 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
 </div>
 
-    <span><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" title="第一章 Hellow C语言">第一章 Hellow C语言</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
-</div>
-
-    <span><a href="/2022/10/18/python/day07/" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
-</div>
-
-    <span><a href="/2022/10/20/python/day09/" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
-</div>
-
-    <span><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" title="vpn和rpm">vpn和rpm</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2022/01/05/c/c%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%A2%98/" title="C语言编程题">C语言编程题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
-</div>
-
-    <span><a href="/2022/09/20/linux/nginx/" title="nginx基础">nginx基础</a></span>
+    <span><a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
   </li>
 
       
@@ -533,17 +564,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
 </div>
 
-    <span><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
-</div>
-
-    <span><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" title="关于linux基础的一些总结">关于linux基础的一些总结</a></span>
+    <span><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" title="第四章 汇编语言程序">第四章 汇编语言程序</a></span>
   </li>
 
   </ul>
@@ -558,7 +579,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <div class="copyright">
     
     &copy; 2010 – 
-    <span itemprop="copyrightYear">2023</span>
+    <span itemprop="copyrightYear">2024</span>
     <span class="with-love">
       <i class="ic i-sakura rotate"></i>
     </span>

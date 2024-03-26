@@ -32,9 +32,9 @@
 
 
   <title>
-shell - Linux基础 |
+shell一些知识点 - Linux运维基础 |
 Yume Shoka = 未来の期間 = 勿負韶華</title>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
   <div id="loading">
     <div class="cat">
@@ -60,7 +60,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">shell
+  <h1 itemprop="name headline">shell一些知识点
   </h1>
   
 <div class="meta">
@@ -102,12 +102,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/8cf4932745804d12b330608b12a53aca.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/06c037c72fad3d5b41a9bd40457b8744.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/15ab06b7fe711067fca78ee15eb32391.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/1fca97d4bee5434e2dec3c0a4a75bc64.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/9e00cb8944af8ad12fd6b7fd7eb24ebc.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/a1f3404a5032323ea4857ac5a6354d2f.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/18a32c514eae0d32a8b4b2a75853a08b.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/767d892afd9db5bda9fd978ea0a7cb0b.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/e5221f7d85b0900837a45fb933fa34ec.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/2e0802e6e5cfd05c700bc3f911f9351c.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/68fb5832b107119e9f351a83be51ed2f.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/d0ac01ff6ebfeb4159b53fff4ce860d0.jpg"></li>
         </ul>
       </div>
     </header>
@@ -133,7 +133,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
 <span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/linux/" itemprop="item" rel="index" title="分类于 Linux基础"><span itemprop="name">Linux基础</span></a>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/linux/" itemprop="item" rel="index" title="分类于 Linux运维基础"><span itemprop="name">Linux运维基础</span></a>
 <meta itemprop="position" content="1" /></span>
 </div>
 
@@ -280,6 +280,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sed -n  &#39;2,4p&#39;  user   &#x2F;&#x2F;输出2~4行</span><br><span class="line">sed -n  &#39;2p;4p&#39;  user   &#x2F;&#x2F;输出第2行与第4行</span><br><span class="line">sed -n &#39;3,+1p&#39; user   &#x2F;&#x2F;输出第3行以及后面1行</span><br><span class="line">sed -n &#39;&#x2F;^root&#x2F;p&#39; user   &#x2F;&#x2F;输出以root开头的行  </span><br><span class="line">sed -n &#39;&#x2F;root&#x2F;p&#39; user   &#x2F;&#x2F;输出包含root的行</span><br><span class="line">sed -nr &#39;&#x2F;^root|^bin&#x2F;p&#39; user   &#x2F;&#x2F;输出以root开头的行或bin开头的行，|是扩展正则，需要r选项</span><br><span class="line">sed -n &#39;1!p&#39; user   &#x2F;&#x2F;输出除了第1行的内容，!是取反</span><br><span class="line">sed -n &#39;$p&#39;  user  &#x2F;&#x2F;输出最后一行</span><br><span class="line">sed -n &#39;&#x3D;&#39;  user   &#x2F;&#x2F;输出行号，如果是$&#x3D;就是最后一行的行号</span><br><span class="line">sed &#39;3s&#x2F;2017&#x2F;6666&#x2F;3&#39; shu.txt  &#x2F;&#x2F;把第3行的第3个2017替换成6666</span><br><span class="line">sed &#39;s&#x2F;2017&#x2F;6666&#x2F;g&#39; shu.txt   &#x2F;&#x2F;所有行的所有个2017都替换</span><br><span class="line">sed &#39;&#x2F;2024&#x2F;s&#x2F;2017&#x2F;6666&#x2F;g&#39; shu.txt   &#x2F;&#x2F;找含有2024的行，将里面的所有2017替换成6666</span><br><span class="line">sed &#39;&#x2F;^bin&#x2F;a 666&#39; user   &#x2F;&#x2F;在以bin开头的行的下面追加666</span><br><span class="line">sed &#39;$i 666&#39; user  &#x2F;&#x2F;最后1行的上面添加666</span><br><span class="line">sed &#39;c 666&#39; user   &#x2F;&#x2F;所有行都替换成666</span><br></pre></td></tr></table></figure>
+
 <h2 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h2><ul>
 <li><p>可以实现精确搜索并输出,逐行处理</p>
 </li>
@@ -302,7 +303,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2022-11-25 19:52:06" itemprop="dateModified" datetime="2022-11-25T19:52:06+08:00">2022-11-25</time>
+    <time title="修改时间：2024-03-26 09:54:06" itemprop="dateModified" datetime="2024-03-26T09:54:06+08:00">2024-03-26</time>
   </span>
 </div>
 
@@ -338,7 +339,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2022/08/10/linux/shell/" title="shell">http://yoursite.com/2022/08/10/linux/shell/</a>
+    <a href="http://yoursite.com/2022/08/10/linux/shell/" title="shell一些知识点">http://yoursite.com/2022/08/10/linux/shell/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -357,20 +358,20 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <div class="item left">
       
 
-  <a href="/2022/01/05/c/c%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%A2%98/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;5e31374bf28e62a34775694f9acb06a9.jpg" title="C语言编程题">
+  <a href="/2022/08/10/linux/LVS/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;767d892afd9db5bda9fd978ea0a7cb0b.jpg" title="LVS集群介绍">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> 老九零基础学C语言笔记</span>
-  <h3>C语言编程题</h3>
+  <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
+  <h3>LVS集群介绍</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;ccb0052481047ba79b4121da73ca7e5e.jpg" title="关于linux基础的一些总结">
+  <a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;08909482bc207d17564c06ef2496e12f.jpg" title="关于linux基础的命令总结">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> Linux基础</span>
-  <h3>关于linux基础的一些总结</h3>
+  <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
+  <h3>关于linux基础的命令总结</h3>
   </a>
 
     </div>
@@ -393,7 +394,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2022/08/10/linux/cluster/" rel="bookmark" title="cluster">cluster</a></li><li><a href="/2022/08/10/linux/ansible/" rel="bookmark" title="ansible">ansible</a></li><li><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="关于linux基础的一些总结">关于linux基础的一些总结</a></li><li class="active"><a href="/2022/08/10/linux/shell/" rel="bookmark" title="shell">shell</a></li><li><a href="/2022/09/20/linux/nginx/" rel="bookmark" title="nginx基础">nginx基础</a></li><li><a href="/2022/09/21/linux/tomcat/" rel="bookmark" title="tomcat">tomcat</a></li><li><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" rel="bookmark" title="vpn和rpm">vpn和rpm</a></li><li><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" rel="bookmark" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></li><li><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" rel="bookmark" title="zabbix和prometheus对比">zabbix和prometheus对比</a></li><li><a href="/2023/02/12/linux/CDN/" rel="bookmark" title="CDN概念基本介绍">CDN概念基本介绍</a></li><li><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" rel="bookmark" title="Mysql数据库基础">Mysql数据库基础</a></li>
+          <li><a href="/2022/08/10/linux/ansible/" rel="bookmark" title="ansible基础">ansible基础</a></li><li><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="关于linux基础的命令总结">关于linux基础的命令总结</a></li><li class="active"><a href="/2022/08/10/linux/shell/" rel="bookmark" title="shell一些知识点">shell一些知识点</a></li><li><a href="/2022/08/10/linux/LVS/" rel="bookmark" title="LVS集群介绍">LVS集群介绍</a></li><li><a href="/2022/09/20/linux/nginx/" rel="bookmark" title="nginx基础">nginx基础</a></li><li><a href="/2022/09/21/linux/tomcat/" rel="bookmark" title="tomcat部署搭建">tomcat部署搭建</a></li><li><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" rel="bookmark" title="vpn和rpm">vpn和rpm</a></li><li><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" rel="bookmark" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></li><li><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" rel="bookmark" title="zabbix和prometheus对比">zabbix和prometheus对比</a></li><li><a href="/2023/02/12/linux/CDN/" rel="bookmark" title="CDN概念基本介绍">CDN概念基本介绍</a></li><li><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" rel="bookmark" title="Mysql数据库基础">Mysql数据库基础</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -450,7 +451,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2022/01/05/c/c%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%A2%98/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2022/08/10/linux/LVS/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
@@ -477,20 +478,10 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
 </div>
 
-    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" title="第七章 指针">第七章 指针</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" title="第一章 Hellow C语言">第一章 Hellow C语言</a></span>
+    <span><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></span>
   </li>
 
       
@@ -500,37 +491,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2022/10/22/python/day11/" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
-</div>
-
-    <span><a href="/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/" title="第八章 模拟量的输入输出">第八章 模拟量的输入输出</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
-</div>
-
-    <span><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
-</div>
-
-    <span><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" title="第五章 存储器系统">第五章 存储器系统</a></span>
+    <span><a href="/2022/10/15/python/day04/" title="04.模块基础、时间模块、语法风格及布局、字符串详解">04.模块基础、时间模块、语法风格及布局、字符串详解</a></span>
   </li>
 
       
@@ -540,17 +501,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" title="第四章 循环初探">第四章 循环初探</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
-</div>
-
-    <span><a href="/2022/10/11/python/day01/" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></span>
+    <span><a href="/2022/01/05/c/c%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%A2%98/" title="C语言编程题">C语言编程题</a></span>
   </li>
 
       
@@ -567,10 +518,60 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+</div>
+
+    <span><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" title="关于linux基础的命令总结">关于linux基础的命令总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+</div>
+
+    <span><a href="/2022/08/10/linux/LVS/" title="LVS集群介绍">LVS集群介绍</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" title="第七章 指针">第七章 指针</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2022/10/18/python/day07/" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></span>
+    <span><a href="/2022/10/14/python/day03/" title="03.文件对象、文件读写操作、函数基础">03.文件对象、文件读写操作、函数基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/16/python/day05/" title="05.列表和元组、字典、集合">05.列表和元组、字典、集合</a></span>
   </li>
 
   </ul>
@@ -585,7 +586,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <div class="copyright">
     
     &copy; 2010 – 
-    <span itemprop="copyrightYear">2023</span>
+    <span itemprop="copyrightYear">2024</span>
     <span class="with-love">
       <i class="ic i-sakura rotate"></i>
     </span>

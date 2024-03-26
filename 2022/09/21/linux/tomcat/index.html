@@ -32,9 +32,9 @@
 
 
   <title>
-tomcat - Linux基础 |
+tomcat部署搭建 - Linux运维基础 |
 Yume Shoka = 未来の期間 = 勿負韶華</title>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
   <div id="loading">
     <div class="cat">
@@ -60,7 +60,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">tomcat
+  <h1 itemprop="name headline">tomcat部署搭建
   </h1>
   
 <div class="meta">
@@ -102,12 +102,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/5bf6cc840c1eee492a78927590510321.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/132a88e4e5cfe7e3847ed93deae688d2.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/6e7c7d241bbd3f8bacac3372cbe3c6ba.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/8d7796d053eb27e494dc1b848bda144c.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/8491109c4ae2ac88bbf9659a4f6d5ed2.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/2642d17296be87c670c540b75c0562b3.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/d0ac01ff6ebfeb4159b53fff4ce860d0.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/2aaa20665dd5e5704a35cf4f6de766db.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/ef045383a43332483ca476d6851cf9b8.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/471188138f7f9597f65d16889f1ade0e.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/e10fa1dac1ea1b1bf06ccdd62eb0f9f0.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/a645009f08917c96e3c883e675f5aa58.jpg"></li>
         </ul>
       </div>
     </header>
@@ -133,7 +133,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
 <span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/linux/" itemprop="item" rel="index" title="分类于 Linux基础"><span itemprop="name">Linux基础</span></a>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/linux/" itemprop="item" rel="index" title="分类于 Linux运维基础"><span itemprop="name">Linux运维基础</span></a>
 <meta itemprop="position" content="1" /></span>
 </div>
 
@@ -154,26 +154,36 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     
 
     <h3 id="使用tomcat搭建网站服务"><a href="#使用tomcat搭建网站服务" class="headerlink" title="使用tomcat搭建网站服务"></a>使用tomcat搭建网站服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar  -xf  apache-tomcat-8.0.30.tar.gz     &#x2F;&#x2F;释放tomcat软件包</span><br><span class="line">cp  -r  apache-tomcat-8.0.30  &#x2F;usr&#x2F;local&#x2F;tomcat</span><br><span class="line">cd  &#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;</span><br><span class="line">yum -y install java-1.8.0-openjdk    &#x2F;&#x2F;安装java程序运行环境包</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>tomcat目录：bin 存放主程序、log 存放日志、conf 配置文件、webapps 存放网站页面、lib 存放库文件、work 存放编译后页面文件</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin&#x2F;startup.sh  &#x2F;&#x2F;开启服务</span><br><span class="line">netstat -ntulp | grep java  &#x2F;&#x2F;检查如果有8005、8009、8080端口则正常</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>由于tomcat服务开启时需要大量随机字符，但系统中随机字符不够多的话会导致tomcat服务启动失败</li>
 </ul>
 <p>解决方案1：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv &#x2F;dev&#x2F;random &#x2F;dev&#x2F;random.bak  &#x2F;&#x2F;将random改名</span><br><span class="line">ln -s &#x2F;dev&#x2F;urandom &#x2F;dev&#x2F;random  &#x2F;&#x2F;用urandom替换random</span><br></pre></td></tr></table></figure>
+
 <p>解决方案2：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum -y install rng-tools</span><br><span class="line">systemctl start rngd</span><br><span class="line">killall  java  &#x2F;&#x2F;杀掉所有java程序</span><br><span class="line">bin&#x2F;startup.sh  &#x2F;&#x2F;重新开启服务</span><br><span class="line">netstat -ntulp | grep java  &#x2F;&#x2F;检查如果有8005、8009、8080端口则正常</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><strong>测试静态页面：</strong></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cd  &#x2F;usr&#x2F;local&#x2F;tomcat</span><br><span class="line">echo  &quot;tomcat-test~~~~&quot;  &gt;  webapps&#x2F;ROOT&#x2F;test01.html</span><br><span class="line">http:&#x2F;&#x2F;192.168.99.5:8080&#x2F;test01.html   火狐访问测试</span><br><span class="line"></span><br><span class="line">测试动态页面</span><br><span class="line">vim webapps&#x2F;ROOT&#x2F;test02.jsp		</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;center&gt;</span><br><span class="line">Now time is: &lt;%&#x3D;new java.util.Date()%&gt;</span><br><span class="line">&lt;&#x2F;center&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br><span class="line">http:&#x2F;&#x2F;192.168.99.5:8080&#x2F;test02.jsp   火狐访问测试</span><br></pre></td></tr></table></figure>
+
 <h4 id="使用tomcat创建虚拟主机"><a href="#使用tomcat创建虚拟主机" class="headerlink" title="使用tomcat创建虚拟主机"></a>使用tomcat创建虚拟主机</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">vim conf&#x2F;server.xml  &#x2F;&#x2F;打开配置文件在122行添加虚拟主机配置</span><br><span class="line">&lt;Host  name&#x3D;&quot;www.b.com&quot;  appBase&#x3D;&quot;web_b&quot;&gt;      &#x2F;&#x2F;这里顺便把下面的默认的</span><br><span class="line">虚拟主机的name&#x3D;&quot;localhost&quot;改成 name&#x3D;&quot;www.a.com&quot;</span><br><span class="line">&lt;&#x2F;Host&gt;</span><br><span class="line"></span><br><span class="line">mkdir -p web_b&#x2F;ROOT    &#x2F;&#x2F;之后创建b网站的目录</span><br><span class="line">echo &quot;tomcat-A~~~&quot; &gt; webapps&#x2F;ROOT&#x2F;index.html</span><br><span class="line">echo &quot;tomcat-B~~~&quot; &gt; web_b&#x2F;ROOT&#x2F;index.html</span><br><span class="line">tail -1 &#x2F;etc&#x2F;hosts   &#x2F;&#x2F;查看域名解析</span><br><span class="line">192.168.99.5  www.a.com  www.b.com </span><br><span class="line">bin&#x2F;shutdown.sh   &#x2F;&#x2F;关闭tomcat</span><br><span class="line">bin&#x2F;startup.sh   &#x2F;&#x2F;开启</span><br><span class="line"></span><br><span class="line">查看虚拟主机www.a.com的配置</span><br><span class="line">unpackWARs&#x3D;&quot;true&quot;      &#x2F;&#x2F;自动解war包</span><br><span class="line">autoDeploy&#x3D;&quot;true&quot;      &#x2F;&#x2F;自动更新开发工程师编写的网站功能</span><br><span class="line"></span><br><span class="line">[root@proxy tomcat]# yum -y install java-1.8.0-openjdk-devel  &#x2F;&#x2F;安装可以制作war包的工具</span><br><span class="line">[root@proxy tomcat]# jar  -cf  a.war  &#x2F;var&#x2F;log   &#x2F;&#x2F;之后可以使用jar命令打war包</span><br><span class="line">[root@proxy tomcat]# cp  a.war  webapps    &#x2F;&#x2F;将war包放入虚拟主机的网页目录</span><br><span class="line">[root@proxy tomcat]# ls  webapps    &#x2F;&#x2F;检查，可以看到已经自动解开,以尝试重启tomcat</span><br></pre></td></tr></table></figure>
+
 <h4 id="tomcat访问路径与页面位置"><a href="#tomcat访问路径与页面位置" class="headerlink" title="tomcat访问路径与页面位置"></a>tomcat访问路径与页面位置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">测试 1：</span><br><span class="line">&lt;Host name&#x3D;&quot;www.b.com&quot; appBase&#x3D;&quot;web_b&quot;</span><br><span class="line">unpackWARs&#x3D;&quot;true&quot; autoDeploy&#x3D;&quot;true&quot;&gt;			</span><br><span class="line">&lt;Context  path&#x3D;&quot;&quot;  docBase&#x3D;&quot;&quot;  &#x2F;&gt;	       </span><br><span class="line">&lt;&#x2F;Host&gt;</span><br><span class="line"></span><br><span class="line">echo &quot;web_b&#x2F;ROOT&#x2F;index.html&quot; &gt; web_b&#x2F;ROOT&#x2F;index.html   &#x2F;&#x2F;默认页面路径</span><br><span class="line">echo &quot;web_b&#x2F;index.html&quot; &gt; web_b&#x2F;index.html   &#x2F;&#x2F;创建素材，定义新路径</span><br><span class="line">curl  www.b.com:8080   &#x2F;&#x2F;测试可以看到的是默认的页面路径</span><br><span class="line">web_b&#x2F;ROOT&#x2F;index.html</span><br><span class="line">之后重启tomcat</span><br><span class="line">curl  www.b.com:8080    &#x2F;&#x2F;重启后测试可以看到新路径</span><br><span class="line">web_b&#x2F;index.html</span><br><span class="line"></span><br><span class="line">测试 2：</span><br><span class="line">&lt;Host name&#x3D;&quot;www.b.com&quot; appBase&#x3D;&quot;web_b&quot;</span><br><span class="line">unpackWARs&#x3D;&quot;true&quot; autoDeploy&#x3D;&quot;true&quot;&gt;</span><br><span class="line">&lt;Context  path&#x3D;&quot;&quot;  docBase&#x3D;&quot;abc&quot;  &#x2F;&gt;   &#x2F;&#x2F;修改成abc</span><br><span class="line">&lt;&#x2F;Host&gt;</span><br><span class="line"></span><br><span class="line">mkdir  web_b&#x2F;abc    &#x2F;&#x2F;创建测试目录</span><br><span class="line">echo &quot;web_b&#x2F;abc&#x2F;index.html&quot;  &gt;  web_b&#x2F;abc&#x2F;index.html  &#x2F;&#x2F;测试页面</span><br><span class="line">重启tomcat</span><br><span class="line">[root@proxy tomcat]# curl www.b.com:8080   &#x2F;&#x2F;查看，见到新路径</span><br><span class="line">web_b&#x2F;abc&#x2F;index.html</span><br><span class="line"></span><br><span class="line">测试 3：</span><br><span class="line">&lt;Host name&#x3D;&quot;www.b.com&quot; appBase&#x3D;&quot;web_b&quot;</span><br><span class="line">unpackWARs&#x3D;&quot;true&quot; autoDeploy&#x3D;&quot;true&quot;&gt;</span><br><span class="line">&lt;Context  path&#x3D;&quot;&quot;  docBase&#x3D;&quot;&#x2F;abc&quot;  &#x2F;&gt;   &#x2F;&#x2F;修改成&#x2F;abc</span><br><span class="line">&lt;&#x2F;Host&gt;</span><br><span class="line"></span><br><span class="line">mkdir  &#x2F;abc  &#x2F;&#x2F;创建测试目录</span><br><span class="line">echo  &quot;&#x2F;abc&#x2F;index.html&quot;  &gt; &#x2F;abc&#x2F;index.html    &#x2F;&#x2F;创建测试文件</span><br><span class="line">重启tomcat</span><br><span class="line">[root@proxy tomcat]# curl www.b.com:8080    &#x2F;&#x2F;得到新路径</span><br><span class="line">&#x2F;abc&#x2F;index.html</span><br><span class="line"></span><br><span class="line">测试 4：</span><br><span class="line">&lt;Host name&#x3D;&quot;www.b.com&quot; appBase&#x3D;&quot;web_b&quot;</span><br><span class="line">unpackWARs&#x3D;&quot;true&quot; autoDeploy&#x3D;&quot;true&quot;&gt;</span><br><span class="line">&lt;Context  path&#x3D;&quot;&#x2F;test&quot;  docBase&#x3D;&quot;&#x2F;abc&quot;  &#x2F;&gt;   &#x2F;&#x2F;path后面添加内容可以匹配</span><br><span class="line">用户访问路径，当用户访问www.b.com:8080&#x2F;test&#x2F;时，看到的是&#x2F;abc的内容，如果</span><br><span class="line">访问www.b.com:8080就看到web_b&#x2F;ROOT的内容</span><br><span class="line">&lt;&#x2F;Host&gt;</span><br><span class="line"></span><br><span class="line">重启tomcat</span><br><span class="line">[root@proxy tomcat]# curl www.b.com:8080&#x2F;test&#x2F;</span><br><span class="line">&#x2F;abc&#x2F;index.html</span><br><span class="line">[root@proxy tomcat]# curl www.b.com:8080</span><br><span class="line">web_b&#x2F;ROOT&#x2F;index.html</span><br><span class="line"></span><br><span class="line">测试 5：</span><br><span class="line">&lt;Host name&#x3D;&quot;www.b.com&quot; appBase&#x3D;&quot;web_b&quot;</span><br><span class="line">unpackWARs&#x3D;&quot;true&quot; autoDeploy&#x3D;&quot;true&quot;&gt;</span><br><span class="line">&lt;Context  path&#x3D;&quot;&#x2F;test&quot;  docBase&#x3D;&quot;abc&quot;  &#x2F;&gt;     &#x2F;&#x2F;将&#x2F;abc改成abc</span><br><span class="line">当用户访问www.b.com:8080&#x2F;test&#x2F;时，可以看到web_b&#x2F;abc里的内容</span><br><span class="line">当用户访问www.b.com:8080时就看到web_b&#x2F;ROOT的内容</span><br><span class="line">重启tomcat</span><br><span class="line">[root@proxy tomcat]# curl www.b.com:8080&#x2F;test&#x2F;		 </span><br><span class="line">web_b&#x2F;abc&#x2F;index.html</span><br><span class="line">[root@proxy tomcat]# curl www.b.com:8080</span><br><span class="line">web_b&#x2F;ROOT&#x2F;index.html</span><br></pre></td></tr></table></figure>
+
 <h4 id="给新创建的虚拟主机添加日志功能"><a href="#给新创建的虚拟主机添加日志功能" class="headerlink" title="给新创建的虚拟主机添加日志功能"></a>给新创建的虚拟主机添加日志功能</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim conf&#x2F;server.xml   &#x2F;&#x2F;修改配置文件，复制最后一页默认虚拟主机的日志配置</span><br><span class="line">其中prefix是日志名称，suffix是日志后缀名</span><br><span class="line">&lt;Host name&#x3D;&quot;www.b.com&quot; appBase&#x3D;&quot;test01&quot;</span><br><span class="line">unpackWARs&#x3D;&quot;true&quot; autoDeploy&#x3D;&quot;true&quot;&gt;</span><br><span class="line">&lt;Context path&#x3D;&quot;&quot; docBase&#x3D;&quot;abc&quot; &#x2F;&gt;</span><br><span class="line">     &lt;Valve className&#x3D;&quot;org.apache.catalina.valves.AccessLogValve&quot; directory&#x3D;&quot;logs&quot;</span><br><span class="line">               prefix&#x3D;&quot;www_b_com&quot; suffix&#x3D;&quot;.log&quot;</span><br><span class="line">               pattern&#x3D;&quot;%h %l %u %t &quot;%r&quot; %s %b&quot; &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;Host&gt;</span><br><span class="line">配置好之后开启或者重启tomcat服务</span><br><span class="line">curl  www.b.com:8080   &#x2F;&#x2F;访问一次网站，可以产生日志记录</span><br><span class="line">[root@proxy tomcat]# ls logs&#x2F;    查看日志目录可以看到b网站的日志名称</span><br></pre></td></tr></table></figure>
+
 <h4 id="通过maven构建项目"><a href="#通过maven构建项目" class="headerlink" title="通过maven构建项目"></a>通过maven构建项目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">maven是一个项目管理工具</span><br><span class="line">apache-maven-3.6.3-bin.tar.gz     &#x2F;&#x2F;maven工具包</span><br><span class="line">cms.tar.gz    &#x2F;&#x2F;网站项目，代码已经都编写完毕</span><br><span class="line">m2.tar.gz   &#x2F;&#x2F;依赖程序，释放之后是隐藏目录.m2</span><br><span class="line">如果有软件包无法释放可以尝试安装bzip2软件包</span><br><span class="line"></span><br><span class="line">2，配置maven</span><br><span class="line">mv  apache-maven-3.6.3  &#x2F;usr&#x2F;local&#x2F;maven   &#x2F;&#x2F;将maven移动到&#x2F;usr&#x2F;local下</span><br><span class="line">yum -y install  java-1.8.0-openjdk</span><br><span class="line">yum -y install  java-devel					</span><br><span class="line">vim  &#x2F;usr&#x2F;local&#x2F;maven&#x2F;conf&#x2F;settings.xml   &#x2F;&#x2F;打开配置文件在第158下面添加</span><br><span class="line">公网服务器地址</span><br><span class="line">&lt;mirror&gt;								</span><br><span class="line">          &lt;id&gt;nexus-aliyun&lt;&#x2F;id&gt;</span><br><span class="line">          &lt;mirrorOf&gt;*&lt;&#x2F;mirrorOf&gt;</span><br><span class="line">          &lt;name&gt;Nexus aliyun&lt;&#x2F;name&gt;</span><br><span class="line">          &lt;url&gt;http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&lt;&#x2F;url&gt; </span><br><span class="line">&lt;&#x2F;mirror&gt;</span><br><span class="line"></span><br><span class="line">3，配置数据库</span><br><span class="line">yum -y  install  mariadb  mariadb-server</span><br><span class="line">systemctl  start  mariadb</span><br><span class="line">[root@proxy ~]# cd  ~&#x2F;CMS&#x2F;</span><br><span class="line">cp  src&#x2F;main&#x2F;resources&#x2F;shishuocms.properties  .  &#x2F;&#x2F;拷贝网站数据库</span><br><span class="line">配置文件到当前目录，该文件定义了数据的用户名和密码等信息</span><br><span class="line">mysql  -uroot  -p  &lt;  sql&#x2F;install.sql    &#x2F;&#x2F;导入网站相关数据库文件</span><br><span class="line">Enter password:    直接回车</span><br><span class="line">mysqladmin password    &#x2F;&#x2F;修改数据库密码</span><br><span class="line">New password:      &#x2F;&#x2F;接下来输入12345678</span><br><span class="line">Confirm new password:     &#x2F;&#x2F;在输入一次12345678</span><br><span class="line"></span><br><span class="line">---------------------------------------------------------</span><br><span class="line">如果密码输入错误</span><br><span class="line">mysqladmin password -uroot -p</span><br><span class="line">先输入旧密码，然后输入两次新密码</span><br><span class="line"></span><br><span class="line">如果密码忘记</span><br><span class="line">systemctl stop mariadb    &#x2F;&#x2F;停服务</span><br><span class="line">yum -y remove mariadb-server   &#x2F;&#x2F;删除</span><br><span class="line">rm -rf &#x2F;var&#x2F;lib&#x2F;mysql&#x2F;    &#x2F;&#x2F;删除数据库文件，这样密码就没了</span><br><span class="line">yum -y install mariadb-server   &#x2F;&#x2F;重装</span><br><span class="line">systemctl start mariadb   &#x2F;&#x2F;启动数据库</span><br><span class="line">-------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">4，利用maven打包项目</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;maven&#x2F;bin&#x2F;mvn  clean  package    &#x2F;&#x2F;按照之前定义的公网服务器地址、数据库配置等内容打包项目，注意该命令要在CMS目录进行</span><br><span class="line">rm  -rf  &#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;webapps&#x2F;ROOT   &#x2F;&#x2F;删除原有默认页面目录</span><br><span class="line">cp  target&#x2F;shishuocms-2.0.1.war  &#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;webapps&#x2F;ROOT.war  </span><br><span class="line"> &#x2F;&#x2F;将新项目移动到tomcat中，然后会自动解包</span><br><span class="line">打开浏览器  访问 www.a.com:8080   看到页面则成功</span><br></pre></td></tr></table></figure>
+
 <h4 id="使用tomcat搭建https网站"><a href="#使用tomcat搭建https网站" class="headerlink" title="使用tomcat搭建https网站"></a>使用tomcat搭建https网站</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">cp  -r  apache-tomcat-8.0.30  &#x2F;usr&#x2F;local&#x2F;tomcat</span><br><span class="line">yum -y install  java-1.8.0-openjdk</span><br><span class="line">cd  &#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;</span><br><span class="line">bin&#x2F;startup.sh    &#x2F;&#x2F;开启服务</span><br><span class="line">netstat -ntulp | grep java   &#x2F;&#x2F;检查端口，需要看到8005、8009、8080端口</span><br><span class="line">vim conf&#x2F;server.xml   &#x2F;&#x2F;修改配置文件，打开找到85行，将前后的注释删除 &lt;!--   --&gt;</span><br><span class="line">    &lt;Connector port&#x3D;&quot;8443&quot; protocol&#x3D;&quot;org.apache.coyote.http11.Http11NioProtocol&quot;</span><br><span class="line">               maxThreads&#x3D;&quot;150&quot; SSLEnabled&#x3D;&quot;true&quot; scheme&#x3D;&quot;https&quot; secure&#x3D;&quot;true&quot;</span><br><span class="line">               clientAuth&#x3D;&quot;false&quot; sslProtocol&#x3D;&quot;TLS&quot;</span><br><span class="line">keystoreFile&#x3D;&quot;&#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;keystore&quot;</span><br><span class="line">keystorePass&#x3D;&quot;123456&quot;  &#x2F;&gt;   &#x2F;&#x2F;这里添加keystoreFile(指定公钥私钥文件)和keystorePass(公钥私钥文件密码)</span><br><span class="line">keytool  -genkeypair  -alias  tomcat  -keyalg RSA  </span><br><span class="line">-keystore  &#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;keystore  &#x2F;&#x2F;创建密钥对，别名是tomcat，加密算法是RSA，最后是存储位置</span><br><span class="line">输入密钥库口令: 输入123456</span><br><span class="line">再次输入新口令: 再次输入123456</span><br><span class="line">您的名字与姓氏是什么?</span><br><span class="line">  [Unknown]:  dc</span><br><span class="line">。。。。。</span><br><span class="line">CN&#x3D;dc, OU&#x3D;dc, O&#x3D;dc, L&#x3D;dc, ST&#x3D;dc, C&#x3D;dc是否正确?			</span><br><span class="line">  [否]:  y</span><br><span class="line">输入 &lt;tomcat&gt; 的密钥口令</span><br><span class="line">        (如果和密钥库口令相同, 按回车):   直接回车</span><br><span class="line">Warning:</span><br><span class="line">ls  &#x2F;&#x2F;检查下&#x2F;usr&#x2F;local&#x2F;tomcat下面会产生keystore则成功</span><br><span class="line"></span><br><span class="line">bin&#x2F;shutdown.sh    &#x2F;&#x2F;重启tomcat</span><br><span class="line">bin&#x2F;startup.sh</span><br><span class="line">netstat -ntulp | grep java    &#x2F;&#x2F;检查可以看到8443端口</span><br><span class="line">echo  &quot;tomcat-https~~&quot;  &gt;  webapps&#x2F;ROOT&#x2F;index.html   &#x2F;&#x2F;准备测试页面</span><br><span class="line">curl  -k  https:&#x2F;&#x2F;192.168.99.5:8443   &#x2F;&#x2F;访问安全加密网站</span><br></pre></td></tr></table></figure>
+
 
       <div class="tags">
           <a href="/tags/Linux/" rel="tag"><i class="ic i-tag"></i> Linux</a>
@@ -188,7 +198,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2022-11-28 22:51:14" itemprop="dateModified" datetime="2022-11-28T22:51:14+08:00">2022-11-28</time>
+    <time title="修改时间：2024-03-26 09:54:42" itemprop="dateModified" datetime="2024-03-26T09:54:42+08:00">2024-03-26</time>
   </span>
 </div>
 
@@ -224,7 +234,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2022/09/21/linux/tomcat/" title="tomcat">http://yoursite.com/2022/09/21/linux/tomcat/</a>
+    <a href="http://yoursite.com/2022/09/21/linux/tomcat/" title="tomcat部署搭建">http://yoursite.com/2022/09/21/linux/tomcat/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -243,9 +253,9 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <div class="item left">
       
 
-  <a href="/2022/09/20/linux/nginx/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;db2a95362955b963ac39e3b449f84fa0.jpg" title="nginx基础">
+  <a href="/2022/09/20/linux/nginx/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;e4b3ac43a8014fcfa62690bfbb906743.jpg" title="nginx基础">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> Linux基础</span>
+  <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
   <h3>nginx基础</h3>
   </a>
 
@@ -253,9 +263,9 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <div class="item right">
       
 
-  <a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;d39fac026faa9551f5138968af027183.jpg" title="vpn和rpm">
+  <a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;2f015bf5c14d8b24eba440ef80422b8d.jpg" title="vpn和rpm">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> Linux基础</span>
+  <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
   <h3>vpn和rpm</h3>
   </a>
 
@@ -279,7 +289,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2022/08/10/linux/cluster/" rel="bookmark" title="cluster">cluster</a></li><li><a href="/2022/08/10/linux/ansible/" rel="bookmark" title="ansible">ansible</a></li><li><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="关于linux基础的一些总结">关于linux基础的一些总结</a></li><li><a href="/2022/08/10/linux/shell/" rel="bookmark" title="shell">shell</a></li><li><a href="/2022/09/20/linux/nginx/" rel="bookmark" title="nginx基础">nginx基础</a></li><li class="active"><a href="/2022/09/21/linux/tomcat/" rel="bookmark" title="tomcat">tomcat</a></li><li><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" rel="bookmark" title="vpn和rpm">vpn和rpm</a></li><li><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" rel="bookmark" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></li><li><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" rel="bookmark" title="zabbix和prometheus对比">zabbix和prometheus对比</a></li><li><a href="/2023/02/12/linux/CDN/" rel="bookmark" title="CDN概念基本介绍">CDN概念基本介绍</a></li><li><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" rel="bookmark" title="Mysql数据库基础">Mysql数据库基础</a></li>
+          <li><a href="/2022/08/10/linux/ansible/" rel="bookmark" title="ansible基础">ansible基础</a></li><li><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="关于linux基础的命令总结">关于linux基础的命令总结</a></li><li><a href="/2022/08/10/linux/shell/" rel="bookmark" title="shell一些知识点">shell一些知识点</a></li><li><a href="/2022/08/10/linux/LVS/" rel="bookmark" title="LVS集群介绍">LVS集群介绍</a></li><li><a href="/2022/09/20/linux/nginx/" rel="bookmark" title="nginx基础">nginx基础</a></li><li class="active"><a href="/2022/09/21/linux/tomcat/" rel="bookmark" title="tomcat部署搭建">tomcat部署搭建</a></li><li><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" rel="bookmark" title="vpn和rpm">vpn和rpm</a></li><li><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" rel="bookmark" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></li><li><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" rel="bookmark" title="zabbix和prometheus对比">zabbix和prometheus对比</a></li><li><a href="/2023/02/12/linux/CDN/" rel="bookmark" title="CDN概念基本介绍">CDN概念基本介绍</a></li><li><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" rel="bookmark" title="Mysql数据库基础">Mysql数据库基础</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -363,80 +373,60 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+</div>
+
+    <span><a href="/2022/08/10/linux/ansible/" title="ansible基础">ansible基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" title="第七章 指针">第七章 指针</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
 </div>
 
-    <span><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" title="zabbix和prometheus对比">zabbix和prometheus对比</a></span>
+    <span><a href="/2022/09/20/linux/nginx/" title="nginx基础">nginx基础</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
 </div>
 
-    <span><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" title="第四章 汇编语言程序">第四章 汇编语言程序</a></span>
+    <span><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" title="Mysql数据库基础">Mysql数据库基础</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
+<a href="/categories/algorithm/" title="分类于 数据结构与算法笔记">数据结构与算法笔记</a>
 </div>
 
-    <span><a href="/2022/10/16/python/day05/" title="05.列表和元组、字典、集合">05.列表和元组、字典、集合</a></span>
+    <span><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="数据结构与算法（一）">数据结构与算法（一）</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" title="vpn和rpm">vpn和rpm</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
-</div>
-
-    <span><a href="/2022/10/17/python/day06/" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
-</div>
-
-    <span><a href="/2022/01/02/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%AE%80%E7%AD%94%E9%A2%98/" title="微机原理简答题">微机原理简答题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
-</div>
-
-    <span><a href="/2022/10/19/python/day08/" title="08.OOP基础、OOP实践、OOP进阶">08.OOP基础、OOP实践、OOP进阶</a></span>
+    <span><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" title="第一章 Hellow C语言">第一章 Hellow C语言</a></span>
   </li>
 
       
@@ -453,10 +443,30 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
 </div>
 
-    <span><a href="/2021/01/05/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" title="第六章 数组及常用算法">第六章 数组及常用算法</a></span>
+    <span><a href="/2021/07/17/assembly/%E6%8C%87%E4%BB%A4%E5%85%A8%E9%9B%86/" title="指令全集">指令全集</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/11/python/day01/" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/18/python/day07/" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></span>
   </li>
 
   </ul>
@@ -471,7 +481,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <div class="copyright">
     
     &copy; 2010 – 
-    <span itemprop="copyrightYear">2023</span>
+    <span itemprop="copyrightYear">2024</span>
     <span class="with-love">
       <i class="ic i-sakura rotate"></i>
     </span>

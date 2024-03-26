@@ -32,9 +32,9 @@
 
 
   <title>
-ansible - Linux基础 |
+ansible基础 - Linux运维基础 |
 Yume Shoka = 未来の期間 = 勿負韶華</title>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
   <div id="loading">
     <div class="cat">
@@ -60,7 +60,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">ansible
+  <h1 itemprop="name headline">ansible基础
   </h1>
   
 <div class="meta">
@@ -102,12 +102,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/ab0127aa2427fa655db33a097d7e215e.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/24012099cbcef21e4a8b250374efe959.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/d0ac01ff6ebfeb4159b53fff4ce860d0.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/fb083e70a3b8e24a3ce23b2c8e2fbc50.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/84792bda8699365f11e183429da41a63.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/8bc89f9a0de13b6480bf8c2ace43f806.jpg"></li>
           <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/ef128de47d4db8fad3281150b16d7793.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/1135e8eb0ca0a462aa1c2f6ecb6a5ae2.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/ef045383a43332483ca476d6851cf9b8.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/c370ed4ee6c8ac92941a49e11209fc78.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/23/6928788f3d68c2e7e3b92222301a30c2.png"></li>
         </ul>
       </div>
     </header>
@@ -133,7 +133,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
 <span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/linux/" itemprop="item" rel="index" title="分类于 Linux基础"><span itemprop="name">Linux基础</span></a>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/linux/" itemprop="item" rel="index" title="分类于 Linux运维基础"><span itemprop="name">Linux运维基础</span></a>
 <meta itemprop="position" content="1" /></span>
 </div>
 
@@ -158,9 +158,11 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <li><p>创建ansible工作目录，并进入，目录名自己定义，不是固定的。</p>
 </li>
 <li><p>创建配置文件。默认的配置文件是/etc/ansible/ansible.cfg，但是一般不使用它，而是在工作目录下创建自己的配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim ansible.cfg</span><br><span class="line">[defaults]</span><br><span class="line">inventory &#x3D; hosts    # 管理的主机，配置在当前目录的hosts文件中，hosts名是自定义的。&#x3D;号两边空格可有可无。</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim ansible.cfg</span><br><span class="line">[defaults]</span><br><span class="line">inventory &#x3D; hosts    # 管理的主机，配置在当前目录的hosts文件中，hosts名是自定义的。&#x3D;号两边空格可有可无。</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>创建主机清单文件。写在[]里的是组名，[]下面的是组内的主机名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[test]</span><br><span class="line">node1</span><br><span class="line"></span><br><span class="line">[proxy]</span><br><span class="line">node2</span><br><span class="line"></span><br><span class="line">[webservers]</span><br><span class="line">node[3:4]     # node3和node4的简化写法，表示从3到4</span><br><span class="line"></span><br><span class="line">[database]</span><br><span class="line">node5</span><br><span class="line"></span><br><span class="line"># cluster是组名，自定义的；:children是固定写法，表示下面的组名是cluster的子组。</span><br><span class="line">[cluster:children]</span><br><span class="line">webservers</span><br><span class="line">database</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[test]</span><br><span class="line">node1</span><br><span class="line"></span><br><span class="line">[proxy]</span><br><span class="line">node2</span><br><span class="line"></span><br><span class="line">[webservers]</span><br><span class="line">node[3:4]     # node3和node4的简化写法，表示从3到4</span><br><span class="line"></span><br><span class="line">[database]</span><br><span class="line">node5</span><br><span class="line"></span><br><span class="line"># cluster是组名，自定义的；:children是固定写法，表示下面的组名是cluster的子组。</span><br><span class="line">[cluster:children]</span><br><span class="line">webservers</span><br><span class="line">database</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>ansible all –list-hosts  # 查看主机。注意，一定在工作目录下执行命令。</p>
 </li>
 <li><p>ansible webservers –list-hosts # 查看webservers组中所有的主机</p>
@@ -168,6 +170,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 </ul>
 <p><strong>临时命令语法</strong>：#ansible 主机或组列表 -m 模块 -a “参数”    # -a是可选的</p>
 <h2 id="ansible常用模块"><a href="#ansible常用模块" class="headerlink" title="ansible常用模块"></a>ansible常用模块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ansible-doc -l | grep yum  # 查看与yum相关的模块</span><br><span class="line">ansible-doc yum  # 查看yum模块的使用说明，主要查看下方的EXAMPLE示例</span><br></pre></td></tr></table></figure>
+
 <p>command 执行命令的模块</p>
 <p>shell 执行命令的模块</p>
 <p>script 远程执行脚本的模块</p>
@@ -188,13 +191,18 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <p>firewalld 配置防火墙模块</p>
 <p>template 可以上传具有特定格式的文件(包含变量可自动转换)的模块</p>
 <h2 id="Playbook剧本"><a href="#Playbook剧本" class="headerlink" title="Playbook剧本"></a>Playbook剧本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 文件位置和名字是固定的，用于设置vim的格式</span><br><span class="line">[root@control ansible]# vim ~&#x2F;.vimrc</span><br><span class="line">set ai        # 设置自动缩进</span><br><span class="line">set ts&#x3D;2      # 设置按tab键，缩进2个空格</span><br><span class="line">set et        # 将tab转换成相应个数的空格</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>执行剧本：#  ansible-playbook     *.yml</p>
 </li>
 <li><p>剧本例子</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">- name: install pkgs</span><br><span class="line">  hosts: test</span><br><span class="line">  tasks:</span><br><span class="line">    - name: install web pkgs</span><br><span class="line">      yum:</span><br><span class="line">        name: </span><br><span class="line">          - httpd</span><br><span class="line">          - php</span><br><span class="line">          - php-mysqlnd</span><br><span class="line">        state: present</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">- name: block tasks</span><br><span class="line">  hosts: test</span><br><span class="line">  tasks:</span><br><span class="line">    - name: define a group of tasks</span><br><span class="line">      block:  # 任务块可多个任务组合在一起</span><br><span class="line">        - name: install httpd   # 通过yum安装httpd</span><br><span class="line">          yum:</span><br><span class="line">            name: httpd</span><br><span class="line">            state: present</span><br><span class="line"></span><br><span class="line">        - name: start httpd     # 通过service启动httpd服务</span><br><span class="line">          service:</span><br><span class="line">            name: httpd</span><br><span class="line">            state: started</span><br><span class="line">            enabled: yes</span><br><span class="line"></span><br><span class="line">      when: ansible_distribution&#x3D;&#x3D;&quot;RedHat&quot;   # 条件为真才会执行上面的任务</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">- name: create users</span><br><span class="line">  hosts: test</span><br><span class="line">  tasks:</span><br><span class="line">    - name: create multiple users</span><br><span class="line">      user:</span><br><span class="line">        name: &quot;&#123;&#123;item.uname&#125;&#125;&quot;</span><br><span class="line">        password: &quot;&#123;&#123;item.upass|password_hash(&#39;sha512&#39;)&#125;&#125;&quot;</span><br><span class="line">      loop:</span><br><span class="line">        - &#123;&quot;uname&quot;: &quot;zhangsan&quot;, &quot;upass&quot;: &quot;123&quot;&#125;</span><br><span class="line">        - &#123;&quot;uname&quot;: &quot;lisi&quot;, &quot;upass&quot;: &quot;456&quot;&#125;</span><br></pre></td></tr></table></figure></li>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">- name: create users</span><br><span class="line">  hosts: test</span><br><span class="line">  tasks:</span><br><span class="line">    - name: create multiple users</span><br><span class="line">      user:</span><br><span class="line">        name: &quot;&#123;&#123;item.uname&#125;&#125;&quot;</span><br><span class="line">        password: &quot;&#123;&#123;item.upass|password_hash(&#39;sha512&#39;)&#125;&#125;&quot;</span><br><span class="line">      loop:</span><br><span class="line">        - &#123;&quot;uname&quot;: &quot;zhangsan&quot;, &quot;upass&quot;: &quot;123&quot;&#125;</span><br><span class="line">        - &#123;&quot;uname&quot;: &quot;lisi&quot;, &quot;upass&quot;: &quot;456&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
 <p><strong>任务失败继续执行：</strong> ignore_errors: yes  </p>
 <p><strong>when条件：</strong> 只有满足某一条件时，才执行当前模块任务</p>
@@ -220,12 +228,14 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 显示远程主机的主机名和内存大小。在ansible中，变量使用&#123;&#123;&#125;&#125;表示</span><br><span class="line"># debug模块用于输出信息，常用的参数是msg，用于输出指定内容</span><br><span class="line">---</span><br><span class="line">- name: display host info</span><br><span class="line">  hosts: test</span><br><span class="line">  tasks:</span><br><span class="line">    - name: display hostname and memory</span><br><span class="line">      debug:    # debug是模块，它的选项msg可以输出指定信息</span><br><span class="line">        msg: &quot;hostname: &#123;&#123;ansible_hostname&#125;&#125;; mem: &#123;&#123;ansible_memtotal_mb&#125;&#125; MB&quot;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 显示远程主机的主机名和内存大小。在ansible中，变量使用&#123;&#123;&#125;&#125;表示</span><br><span class="line"># debug模块用于输出信息，常用的参数是msg，用于输出指定内容</span><br><span class="line">---</span><br><span class="line">- name: display host info</span><br><span class="line">  hosts: test</span><br><span class="line">  tasks:</span><br><span class="line">    - name: display hostname and memory</span><br><span class="line">      debug:    # debug是模块，它的选项msg可以输出指定信息</span><br><span class="line">        msg: &quot;hostname: &#123;&#123;ansible_hostname&#125;&#125;; mem: &#123;&#123;ansible_memtotal_mb&#125;&#125; MB&quot;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>自定义变量</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 在playbook中定义变量</span><br><span class="line"># 在test组中的主机上创建用户jack，他的密码是123456</span><br><span class="line">---</span><br><span class="line">- name: create user</span><br><span class="line">  hosts: test</span><br><span class="line">  vars:    # 固定格式，用于声明变量</span><br><span class="line">    username: &quot;jack&quot;    # 此处引号可有可无</span><br><span class="line">    mima: &quot;123456&quot;      # 此处引号是需要的，表示数字字符</span><br><span class="line">  tasks:</span><br><span class="line">    - name: create some users</span><br><span class="line">      user:</span><br><span class="line">        name: &quot;&#123;&#123;username&#125;&#125;&quot;   # &#123;&#125;出现在开头，必须有引号</span><br><span class="line">        state: present</span><br><span class="line">        password: &quot;&#123;&#123;mima|password_hash(&#39;sha512&#39;)&#125;&#125;&quot;</span><br><span class="line"># 也可将变量定义在文件中，vars_files用于声明变量文件后使用变量</span><br></pre></td></tr></table></figure>
-<h3 id="role角色"><a href="#role角色" class="headerlink" title="role角色"></a>role角色</h3></li>
+
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"># 使用常规playbook，修改&#x2F;etc&#x2F;motd的内容</span><br><span class="line"># 1. 修改默认配置</span><br><span class="line">[root@control ansible]# vim ansible.cfg </span><br><span class="line">[defaults]</span><br><span class="line">inventory &#x3D; hosts</span><br><span class="line"></span><br><span class="line"># 2. 创建motd模板文件</span><br><span class="line">[root@control ansible]# vim motd.j2</span><br><span class="line">Hostname: &#123;&#123;ansible_hostname&#125;&#125;     # facts变量，主机名</span><br><span class="line">Date: &#123;&#123;ansible_date_time.date&#125;&#125;   #  facts变量，日期</span><br><span class="line">Contact to: &#123;&#123;admin&#125;&#125;              # 自定义变量</span><br><span class="line"></span><br><span class="line"># 3. 编写playbook</span><br><span class="line">[root@control ansible]# vim motd.yml</span><br><span class="line">---</span><br><span class="line">- name: modifty &#x2F;etc&#x2F;motd</span><br><span class="line">  hosts: test</span><br><span class="line">  vars:</span><br><span class="line">    admin: root@tedu.cn            # 自定义名为admin的变量</span><br><span class="line">  tasks:</span><br><span class="line">    - name: modify motd</span><br><span class="line">      template:</span><br><span class="line">        src: motd.j2</span><br><span class="line">        dest: &#x2F;etc&#x2F;motd</span><br><span class="line"></span><br><span class="line">[root@control ansible]# ansible-playbook motd.yml</span><br><span class="line">[root@node1 ~]# cat &#x2F;etc&#x2F;motd </span><br><span class="line">Hostname: node1</span><br><span class="line">Date: 2021-11-01</span><br><span class="line">Contact to: root@tedu.cn</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 创建角色</span><br><span class="line"># 1. 声明角色存放的位置</span><br><span class="line">[root@control ansible]# vim ansible.cfg </span><br><span class="line">[defaults]</span><br><span class="line">inventory &#x3D; hosts</span><br><span class="line">roles_path &#x3D; roles    # 定义角色存在当前目录的roles子目录中</span><br><span class="line"></span><br><span class="line"># 2. 创建角色目录</span><br><span class="line">[root@control ansible]# mkdir roles</span><br><span class="line"></span><br><span class="line"># 3. 创建名为motd的角色</span><br><span class="line">[root@control ansible]# ansible-galaxy init roles&#x2F;motd</span><br><span class="line">[root@control ansible]# ls roles&#x2F;</span><br><span class="line">motd     # 生成了motd角色目录</span><br><span class="line">[root@control ansible]# yum install -y tree</span><br><span class="line">[root@control ansible]# tree roles&#x2F;motd&#x2F;</span><br><span class="line">roles&#x2F;motd&#x2F;</span><br><span class="line">├── defaults         # 定义变量的目录，优先级最低</span><br><span class="line">│    └── main.yml</span><br><span class="line">├── files            # 保存上传的文件（如copy模块用到的文件）</span><br><span class="line">├── handlers         # handlers任务写到这个目录的main.yml中</span><br><span class="line">│    └── main.yml</span><br><span class="line">├── meta             # 保存说明数据，如角色作者、版本等</span><br><span class="line">│    └── main.yml</span><br><span class="line">├── README.md        # 保存角色如何使用之类的说明</span><br><span class="line">├── tasks            # 保存任务</span><br><span class="line">│    └── main.yml</span><br><span class="line">├── templates        # 保存template模块上传的模板文件</span><br><span class="line">├── tests            # 保存测试用的playbook。可选</span><br><span class="line">│    ├── inventory</span><br><span class="line">│    └── test.yml</span><br><span class="line">└── vars             # 定义变量的位置，推荐使用的位置</span><br><span class="line">     └── main.yml</span><br><span class="line"></span><br><span class="line"># 4. 将不同的内容分别写到对应目录的main.yml中</span><br><span class="line"># 4.1 创建motd.j2模板文件</span><br><span class="line">[root@control ansible]# vim roles&#x2F;motd&#x2F;templates&#x2F;motd.j2</span><br><span class="line">Hostname: &#123;&#123;ansible_hostname&#125;&#125;</span><br><span class="line">Date: &#123;&#123;ansible_date_time.date&#125;&#125;</span><br><span class="line">Contact to: &#123;&#123;admin&#125;&#125;</span><br><span class="line"></span><br><span class="line"># 4.2 创建变量</span><br><span class="line">[root@control ansible]# vim roles&#x2F;motd&#x2F;vars&#x2F;main.yml  # 追加一行</span><br><span class="line">admin: zzg@tedu.cn</span><br><span class="line"></span><br><span class="line"># 4.3 创建任务</span><br><span class="line">[root@control ansible]# vim roles&#x2F;motd&#x2F;tasks&#x2F;main.yml  # 追加</span><br><span class="line">- name: modify motd</span><br><span class="line">  template:</span><br><span class="line">    src: motd.j2      # 这里的文件，自动到templates目录下查找</span><br><span class="line">    dest: &#x2F;etc&#x2F;motd</span><br><span class="line"></span><br><span class="line"># 5. 创建playbook，调用motd角色</span><br><span class="line">[root@control ansible]# vim role_motd.yml</span><br><span class="line">---</span><br><span class="line">- name: modify motd with role</span><br><span class="line">  hosts: test</span><br><span class="line">  roles:</span><br><span class="line">    - motd</span><br><span class="line"></span><br><span class="line"># 6. 执行playbook</span><br><span class="line">[root@control ansible]# ansible-playbook role_motd.yml </span><br></pre></td></tr></table></figure>
+<h3 id="role角色"><a href="#role角色" class="headerlink" title="role角色"></a>role角色</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"># 使用常规playbook，修改&#x2F;etc&#x2F;motd的内容</span><br><span class="line"># 1. 修改默认配置</span><br><span class="line">[root@control ansible]# vim ansible.cfg </span><br><span class="line">[defaults]</span><br><span class="line">inventory &#x3D; hosts</span><br><span class="line"></span><br><span class="line"># 2. 创建motd模板文件</span><br><span class="line">[root@control ansible]# vim motd.j2</span><br><span class="line">Hostname: &#123;&#123;ansible_hostname&#125;&#125;     # facts变量，主机名</span><br><span class="line">Date: &#123;&#123;ansible_date_time.date&#125;&#125;   #  facts变量，日期</span><br><span class="line">Contact to: &#123;&#123;admin&#125;&#125;              # 自定义变量</span><br><span class="line"></span><br><span class="line"># 3. 编写playbook</span><br><span class="line">[root@control ansible]# vim motd.yml</span><br><span class="line">---</span><br><span class="line">- name: modifty &#x2F;etc&#x2F;motd</span><br><span class="line">  hosts: test</span><br><span class="line">  vars:</span><br><span class="line">    admin: root@tedu.cn            # 自定义名为admin的变量</span><br><span class="line">  tasks:</span><br><span class="line">    - name: modify motd</span><br><span class="line">      template:</span><br><span class="line">        src: motd.j2</span><br><span class="line">        dest: &#x2F;etc&#x2F;motd</span><br><span class="line"></span><br><span class="line">[root@control ansible]# ansible-playbook motd.yml</span><br><span class="line">[root@node1 ~]# cat &#x2F;etc&#x2F;motd </span><br><span class="line">Hostname: node1</span><br><span class="line">Date: 2021-11-01</span><br><span class="line">Contact to: root@tedu.cn</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 创建角色</span><br><span class="line"># 1. 声明角色存放的位置</span><br><span class="line">[root@control ansible]# vim ansible.cfg </span><br><span class="line">[defaults]</span><br><span class="line">inventory &#x3D; hosts</span><br><span class="line">roles_path &#x3D; roles    # 定义角色存在当前目录的roles子目录中</span><br><span class="line"></span><br><span class="line"># 2. 创建角色目录</span><br><span class="line">[root@control ansible]# mkdir roles</span><br><span class="line"></span><br><span class="line"># 3. 创建名为motd的角色</span><br><span class="line">[root@control ansible]# ansible-galaxy init roles&#x2F;motd</span><br><span class="line">[root@control ansible]# ls roles&#x2F;</span><br><span class="line">motd     # 生成了motd角色目录</span><br><span class="line">[root@control ansible]# yum install -y tree</span><br><span class="line">[root@control ansible]# tree roles&#x2F;motd&#x2F;</span><br><span class="line">roles&#x2F;motd&#x2F;</span><br><span class="line">├── defaults         # 定义变量的目录，优先级最低</span><br><span class="line">│    └── main.yml</span><br><span class="line">├── files            # 保存上传的文件（如copy模块用到的文件）</span><br><span class="line">├── handlers         # handlers任务写到这个目录的main.yml中</span><br><span class="line">│    └── main.yml</span><br><span class="line">├── meta             # 保存说明数据，如角色作者、版本等</span><br><span class="line">│    └── main.yml</span><br><span class="line">├── README.md        # 保存角色如何使用之类的说明</span><br><span class="line">├── tasks            # 保存任务</span><br><span class="line">│    └── main.yml</span><br><span class="line">├── templates        # 保存template模块上传的模板文件</span><br><span class="line">├── tests            # 保存测试用的playbook。可选</span><br><span class="line">│    ├── inventory</span><br><span class="line">│    └── test.yml</span><br><span class="line">└── vars             # 定义变量的位置，推荐使用的位置</span><br><span class="line">     └── main.yml</span><br><span class="line"></span><br><span class="line"># 4. 将不同的内容分别写到对应目录的main.yml中</span><br><span class="line"># 4.1 创建motd.j2模板文件</span><br><span class="line">[root@control ansible]# vim roles&#x2F;motd&#x2F;templates&#x2F;motd.j2</span><br><span class="line">Hostname: &#123;&#123;ansible_hostname&#125;&#125;</span><br><span class="line">Date: &#123;&#123;ansible_date_time.date&#125;&#125;</span><br><span class="line">Contact to: &#123;&#123;admin&#125;&#125;</span><br><span class="line"></span><br><span class="line"># 4.2 创建变量</span><br><span class="line">[root@control ansible]# vim roles&#x2F;motd&#x2F;vars&#x2F;main.yml  # 追加一行</span><br><span class="line">admin: zzg@tedu.cn</span><br><span class="line"></span><br><span class="line"># 4.3 创建任务</span><br><span class="line">[root@control ansible]# vim roles&#x2F;motd&#x2F;tasks&#x2F;main.yml  # 追加</span><br><span class="line">- name: modify motd</span><br><span class="line">  template:</span><br><span class="line">    src: motd.j2      # 这里的文件，自动到templates目录下查找</span><br><span class="line">    dest: &#x2F;etc&#x2F;motd</span><br><span class="line"></span><br><span class="line"># 5. 创建playbook，调用motd角色</span><br><span class="line">[root@control ansible]# vim role_motd.yml</span><br><span class="line">---</span><br><span class="line">- name: modify motd with role</span><br><span class="line">  hosts: test</span><br><span class="line">  roles:</span><br><span class="line">    - motd</span><br><span class="line"></span><br><span class="line"># 6. 执行playbook</span><br><span class="line">[root@control ansible]# ansible-playbook role_motd.yml </span><br></pre></td></tr></table></figure>
       <div class="tags">
           <a href="/tags/Linux/" rel="tag"><i class="ic i-tag"></i> Linux</a>
       </div>
@@ -239,7 +249,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2022-11-25 19:51:18" itemprop="dateModified" datetime="2022-11-25T19:51:18+08:00">2022-11-25</time>
+    <time title="修改时间：2024-03-26 09:44:00" itemprop="dateModified" datetime="2024-03-26T09:44:00+08:00">2024-03-26</time>
   </span>
 </div>
 
@@ -275,7 +285,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2022/08/10/linux/ansible/" title="ansible">http://yoursite.com/2022/08/10/linux/ansible/</a>
+    <a href="http://yoursite.com/2022/08/10/linux/ansible/" title="ansible基础">http://yoursite.com/2022/08/10/linux/ansible/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -294,20 +304,20 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <div class="item left">
       
 
-  <a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;9544aaed0500309bfed0ddfc0321f933.jpg" title="关于linux基础的一些总结">
+  <a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;6edf0eae0c5c58dadd09198c6c3c9f6d.jpg" title="关于linux基础的命令总结">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> Linux基础</span>
-  <h3>关于linux基础的一些总结</h3>
+  <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
+  <h3>关于linux基础的命令总结</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2022/08/10/linux/cluster/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;db2a95362955b963ac39e3b449f84fa0.jpg" title="cluster">
+  <a href="/2022/09/20/linux/nginx/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;a1371e98178f2c3ca0e479a8df77c486.jpg" title="nginx基础">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> Linux基础</span>
-  <h3>cluster</h3>
+  <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
+  <h3>nginx基础</h3>
   </a>
 
     </div>
@@ -330,7 +340,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2022/08/10/linux/cluster/" rel="bookmark" title="cluster">cluster</a></li><li class="active"><a href="/2022/08/10/linux/ansible/" rel="bookmark" title="ansible">ansible</a></li><li><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="关于linux基础的一些总结">关于linux基础的一些总结</a></li><li><a href="/2022/08/10/linux/shell/" rel="bookmark" title="shell">shell</a></li><li><a href="/2022/09/20/linux/nginx/" rel="bookmark" title="nginx基础">nginx基础</a></li><li><a href="/2022/09/21/linux/tomcat/" rel="bookmark" title="tomcat">tomcat</a></li><li><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" rel="bookmark" title="vpn和rpm">vpn和rpm</a></li><li><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" rel="bookmark" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></li><li><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" rel="bookmark" title="zabbix和prometheus对比">zabbix和prometheus对比</a></li><li><a href="/2023/02/12/linux/CDN/" rel="bookmark" title="CDN概念基本介绍">CDN概念基本介绍</a></li><li><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" rel="bookmark" title="Mysql数据库基础">Mysql数据库基础</a></li>
+          <li class="active"><a href="/2022/08/10/linux/ansible/" rel="bookmark" title="ansible基础">ansible基础</a></li><li><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="关于linux基础的命令总结">关于linux基础的命令总结</a></li><li><a href="/2022/08/10/linux/shell/" rel="bookmark" title="shell一些知识点">shell一些知识点</a></li><li><a href="/2022/08/10/linux/LVS/" rel="bookmark" title="LVS集群介绍">LVS集群介绍</a></li><li><a href="/2022/09/20/linux/nginx/" rel="bookmark" title="nginx基础">nginx基础</a></li><li><a href="/2022/09/21/linux/tomcat/" rel="bookmark" title="tomcat部署搭建">tomcat部署搭建</a></li><li><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" rel="bookmark" title="vpn和rpm">vpn和rpm</a></li><li><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" rel="bookmark" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></li><li><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" rel="bookmark" title="zabbix和prometheus对比">zabbix和prometheus对比</a></li><li><a href="/2023/02/12/linux/CDN/" rel="bookmark" title="CDN概念基本介绍">CDN概念基本介绍</a></li><li><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" rel="bookmark" title="Mysql数据库基础">Mysql数据库基础</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -392,7 +402,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2022/08/10/linux/cluster/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2022/09/20/linux/nginx/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -414,20 +424,10 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
-</div>
-
-    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2022/10/16/python/day05/" title="05.列表和元组、字典、集合">05.列表和元组、字典、集合</a></span>
+    <span><a href="/2022/10/20/python/day09/" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></span>
   </li>
 
       
@@ -437,7 +437,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
 </div>
 
-    <span><a href="/2021/06/26/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AB%EF%BC%89/" title="第八章 模拟量的输入输出">第八章 模拟量的输入输出</a></span>
+    <span><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" title="第五章 存储器系统">第五章 存储器系统</a></span>
   </li>
 
       
@@ -447,27 +447,17 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
 </div>
 
-    <span><a href="/2022/01/02/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%AE%80%E7%AD%94%E9%A2%98/" title="微机原理简答题">微机原理简答题</a></span>
+    <span><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="第一章 微型计算机系统">第一章 微型计算机系统</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2022/08/10/linux/cluster/" title="cluster">cluster</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
-</div>
-
-    <span><a href="/2022/10/15/python/day04/" title="04.模块基础、时间模块、语法风格及布局、字符串详解">04.模块基础、时间模块、语法风格及布局、字符串详解</a></span>
+    <span><a href="/2022/01/05/c/c%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%A2%98/" title="C语言编程题">C语言编程题</a></span>
   </li>
 
       
@@ -477,7 +467,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2022/10/14/python/day03/" title="03.文件对象、文件读写操作、函数基础">03.文件对象、文件读写操作、函数基础</a></span>
+    <span><a href="/2022/10/12/python/day02/" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></span>
   </li>
 
       
@@ -487,17 +477,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2022/10/21/python/day10/" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
-</div>
-
-    <span><a href="/2022/09/21/linux/tomcat/" title="tomcat">tomcat</a></span>
+    <span><a href="/2022/10/11/python/day01/" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></span>
   </li>
 
       
@@ -508,6 +488,36 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 </div>
 
     <span><a href="/2022/10/18/python/day07/" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/19/python/day08/" title="08.OOP基础、OOP实践、OOP进阶">08.OOP基础、OOP实践、OOP进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+</div>
+
+    <span><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" title="关于linux基础的命令总结">关于linux基础的命令总结</a></span>
   </li>
 
   </ul>
@@ -522,7 +532,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <div class="copyright">
     
     &copy; 2010 – 
-    <span itemprop="copyrightYear">2023</span>
+    <span itemprop="copyrightYear">2024</span>
     <span class="with-love">
       <i class="ic i-sakura rotate"></i>
     </span>

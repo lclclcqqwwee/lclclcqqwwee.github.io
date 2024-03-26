@@ -32,9 +32,9 @@
 
 
   <title>
-Mysql数据库基础 - Linux基础 |
+Mysql数据库基础 - Linux运维基础 |
 Yume Shoka = 未来の期間 = 勿負韶華</title>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
   <div id="loading">
     <div class="cat">
@@ -102,12 +102,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/662d37b8a580b466da309ec795b7ae55.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/f85e0c5cc31d609ad0b6e48a88040ecb.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/2642d17296be87c670c540b75c0562b3.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/ac67892be446a3283c5a470d464a010b.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/3c4316b68ee81cc6a059ffc346752e5b.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/a645009f08917c96e3c883e675f5aa58.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/bb198758f050283f6a89670ee083687a.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/132a88e4e5cfe7e3847ed93deae688d2.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/50d682207f8e6513884d523e2e0895f7.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/dcb8f9f223a5db821d797261469b6a17.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/de8e4ab9f6942742165c7e05ff1e1f4f.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/ef1cb9e134515173776afdeb20f35051.jpg"></li>
         </ul>
       </div>
     </header>
@@ -133,7 +133,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
 <span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/linux/" itemprop="item" rel="index" title="分类于 Linux基础"><span itemprop="name">Linux基础</span></a>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/linux/" itemprop="item" rel="index" title="分类于 Linux运维基础"><span itemprop="name">Linux运维基础</span></a>
 <meta itemprop="position" content="1" /></span>
 </div>
 
@@ -159,6 +159,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <p>mysql常用数据类型：<strong>整型(ini或tinyint)</strong>、<strong>字符类型(char或varchar)</strong>、<strong>日期时间类型(datetime或timestamp)</strong>、<strong>浮点型(float或double)</strong></p>
 <p>数据语言分类：数据查询语言、数据定义语言、数据操纵语言、数据控制语言。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">show databases;    #显示服务器上已有的库</span><br><span class="line">select user();     #显示当前登录的用户名和客户端地址</span><br><span class="line">select version();  #显示数据库服务软件的版本号</span><br><span class="line">slect database();  #显示当前所在库 类似pwd</span><br><span class="line">use 库名;           #进入该库名的库 类似cd</span><br><span class="line">show tables;       #显示所在库下已有的表</span><br><span class="line">desc 表名;          #显示表结构</span><br><span class="line"></span><br><span class="line">create database  库名; #创建库  </span><br><span class="line">drop database  库名;  #删除库</span><br><span class="line">create table 库名.表名(表头名1 数据类型,表头名2 数据类型);#创建表 </span><br><span class="line">drop table 库名.表名(表头名1 数据类型,表头名2 数据类型);#删除表</span><br><span class="line">alter table 库名.表名 操作命令[add|drop|modify|change|rename]; #修改表</span><br><span class="line">create table 库名.表名 select * from  库名.表名; #复制表</span><br></pre></td></tr></table></figure>
+
 <p>基本增删改查命令：增insert into、删delete、改update、查select</p>
 <p><strong>常用基本命令使用：</strong></p>
 <p>1、定义别名 使用 as 或 空格  </p>
@@ -173,10 +174,13 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <p>​      <strong>select 字段名列表 from 库名.表名 where  字段名  regexp ‘正则表达式’;</strong></p>
 <p><strong>字符函数的使用 ：</strong>处理字符或字符类型表头</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LENGTH(str)	        	返字符串长度，以字节为单位</span><br><span class="line">CHAR_LENGTH(str)		返回字符串长度，以字符为单位</span><br><span class="line">UPPER(str)和UCASE(str)  将字符串中的字母全部转换成大写</span><br><span class="line">LOWER(str)和LCASE(str)  将str中的字母全部转换成小写</span><br><span class="line">SUBSTR(s, start,end) 	从s的start位置开始取出到end长度的子串</span><br><span class="line">INSTR(str,str1)		    返回str1参数，在str参数内的位置</span><br><span class="line">TRIM(s)			        返回字符串s删除了两边空格之后的字符串</span><br></pre></td></tr></table></figure>
+
 <p><strong>数学函数:</strong> 处理数字或数值类型表头</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ABS(x)               返回x的绝对值</span><br><span class="line">PI()                 返回圆周率π，默认显示6位小数</span><br><span class="line">MOD(x,y)	         返回x被y除后的余数 </span><br><span class="line">CEIL(x)、CEILING(x)	返回不小于x的最小整数 (x 是小数)</span><br><span class="line">FLOOR(x）			返回不大于x的最大整数 (x 是小数)</span><br><span class="line">ROUND(x)		     返回最接近于x的整数，即对x进行四舍五入 (x 是小数)</span><br><span class="line">ROUND(x,y) 		     返回最接近x的数，其值保留到小数点后面y位，若y为负值，则将保留到x到小数点左边y位 (x 是小数)</span><br></pre></td></tr></table></figure>
+
 <p><strong>聚集函数：</strong>数据统计命令 ，输出的值只有1个</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">avg(表头名)			&#x2F;&#x2F;计算平均值</span><br><span class="line">sum(表头名) 			&#x2F;&#x2F;求和</span><br><span class="line">min(表头名) 			&#x2F;&#x2F;获取最小值</span><br><span class="line">max(表头名) 			&#x2F;&#x2F;获取最大值</span><br><span class="line">count(表头名) 		    &#x2F;&#x2F;统计表头值个数</span><br></pre></td></tr></table></figure>
+
 <p><strong>日期时间函数</strong> ： mysql服务自带命令 获取系统日期和时间</p>
 <table>
 <thead>
@@ -239,9 +243,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <p><strong>数学计算:</strong>  加减乘除取余 +  -   *  /   %</p>
 <p><strong>if语句:</strong> </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if(条件,v1,v2)  如果条件是TRUE则返回v1，否则返回v2</span><br><span class="line">ifnull(v1,v2)  如果v1不为NULL，则返回v1，否则返回v2</span><br></pre></td></tr></table></figure>
+
 <p><strong>case语句:</strong> 如果字段名等于某个值，则返回对应位置then后面的结果，如果与所有值都不相等，则返回else后面的结果。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CASE 表头名              </span><br><span class="line">WHEN 值1 THEN 结果 </span><br><span class="line">WHEN 值2 THEN 结果  </span><br><span class="line">WHEN 值3 THEN 结果 </span><br><span class="line">ELSE 结果  </span><br><span class="line">END </span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CASE              </span><br><span class="line">WHEN  判断条件 THEN 结果 </span><br><span class="line">WHEN  判断条件  THEN 结果  </span><br><span class="line">WHEN  判断条件 THEN 结果 </span><br><span class="line">ELSE 结果  </span><br><span class="line">END </span><br></pre></td></tr></table></figure>
+
 <p><strong>查询结果处理</strong></p>
 <ul>
 <li><p>分组:  <strong>Select查询命令  group by  表头名；</strong></p>
@@ -258,6 +265,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <li>内连接</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT  字段列表  FROM  表1  别名</span><br><span class="line">INNER JOIN  表2  别名  ON 连接条件  INNER JOIN  表3  别名  ON 连接条件 ;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>外连接<ul>
 <li><strong>左外连接  LEFT JOIN</strong></li>
@@ -438,30 +446,43 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 </tbody></table>
 <h2 id="数据批量处理"><a href="#数据批量处理" class="headerlink" title="数据批量处理"></a>数据批量处理</h2><p><strong>数据导入</strong>：把系统文件的内容存储到数据库服务的表里 文件的内容要规律</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">load   data  infile   &quot;&#x2F;检索目录&#x2F;文件名&quot;   into  table    库名.表名   </span><br><span class="line">fields  terminated by  &quot;文件中列的间隔符号&quot;   </span><br><span class="line">lines   terminated by   &quot;\n&quot;  ;</span><br></pre></td></tr></table></figure>
+
 <p><strong>数据导出:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段名列表 from 库.表 where 条件 into outfile &quot;&#x2F;检索目录&#x2F;文件名&quot;;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select 字段名列表 from 库.表 where 条件  </span><br><span class="line">into outfile &quot;&#x2F;检索命令名&#x2F;文件名&quot; fields terminated by &quot;符号&quot;;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段名列表 from 库.表 where 条件 into outfile &quot;&#x2F;检索命令名&#x2F;文件名&quot; fields terminated by &quot;符号&quot; lines terminated by &quot;符号&quot;;</span><br></pre></td></tr></table></figure>
+
 <h2 id="字段约束"><a href="#字段约束" class="headerlink" title="字段约束"></a>字段约束</h2><p><strong>字段约束：</strong> <strong>设置在表头上</strong> <strong>，用来限制字段赋值；每种约束都有各自的功能。</strong></p>
 <p><strong>NOT NULL ：</strong>非空，用于保证表头的值不能为空。</p>
 <p><strong>DEFAULT：</strong>默认值，不给表头赋值时，保证表头有值。</p>
 <p><strong>UNIQUE：</strong>唯一索引，用于保证表头的值具有唯一性，可以为空。</p>
 <p><strong>主键 (primary key)：</strong> 表头值不允许重复，且不允许赋NULL值</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create  table  库.表（ 表头名 数据类型  primary key  , 表头名  数据类型 , ..... ）;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create  table  库.表（ 字段名 类型 , 字段名 类型 , primary key（字段名） ）;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter  table   库.表   drop primary  key ;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter  table  库.表  add  primary key(表头名);</span><br></pre></td></tr></table></figure>
+
 <p><strong>主键与auto_increment连用:可以实现自增长</strong></p>
 <p><strong>复合主键的约束方式: 多条记录 主键的值不允许同时相同</strong></p>
 <p><strong>外键:</strong> 用于主键与其他子表建立联系，数据同步。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table   库.表(</span><br><span class="line">表头列表 , </span><br><span class="line">foreign key(表头名)        #指定外键</span><br><span class="line">references 库.表(表头名)   #指定参考的表头名</span><br><span class="line">on update  cascade         #同步更新</span><br><span class="line">on  delete  cascade        #同步删除</span><br><span class="line">)engine&#x3D;innodb;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table  库.表  drop foreign  key    外键名;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alter table 库.表 add  foreign key(表头名)  references 库.表(表头名)</span><br><span class="line">on update cascade  on delete cascade;</span><br></pre></td></tr></table></figure>
+
 <h2 id="数据备份与恢复"><a href="#数据备份与恢复" class="headerlink" title="数据备份与恢复"></a>数据备份与恢复</h2><ul>
 <li><strong>完全备份</strong></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump   -uroot    -p密码   库名   &gt;  &#x2F;目录名&#x2F;备份文件名.sql   #备份</span><br><span class="line">mysql   -uroot    -p密码   [库名]  &lt;  &#x2F;目录名&#x2F;备份文件名.sql      #恢复</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">库名的表示方式：</span><br><span class="line">	库名  表名                  #备份一张的所有数据	</span><br><span class="line">	库名  表名1   表名2          #备份多张表的所有数据</span><br><span class="line">	-B  库名                    #备份1个库的所数据</span><br><span class="line">	-B  库名1     库名2         #备份多个库的所数据</span><br><span class="line">	-A  或   --all-databases   #备份服务器的所有数据</span><br></pre></td></tr></table></figure>
+
 <p><strong>mysqldump的备份缺点：</strong> </p>
 <p>1、mysqldump 在备份数据和恢复数据的时候会锁表</p>
 <p>2、使用 mysqldump备份命令生成备份文件恢复数据，只能把数据恢复备份时刻的数据。</p>
@@ -472,14 +493,18 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <p>特点:在线热备不锁表 适合生产环境下备份业务。</p>
 <p>软件包：libev-4.15-1.el6.rf.x86_64.rpm、percona-xtrabackup-24-2.4.7-1.el7.x86_64.rpm</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">innobackupex   -uroot     -p密码   &#x2F;备份目录名  --no-timestamp #首次完全备份命令</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">innobackupex   -uroot     -p密码   --incremental   &#x2F;目录名   --incremental-basedir&#x3D;&#x2F;目录名   --no-timestamp     #增量备份命令</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">innobackupex   --apply-log   --redo-only   &#x2F;首次备份目录名    #准备恢复数据</span><br><span class="line">innobackupex   --apply-log   --redo-only   &#x2F;首次备份目录名   --incremental-dir&#x3D;&#x2F;目录名                                           #合并数据 （合并的顺序要与增量备份的顺序一致） </span><br><span class="line">innobackupex   --copy-back &#x2F;完全备份目录   #拷贝数据</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><strong>实时备份 (启用mysql服务的binlog日志实现)</strong></li>
 </ul>
 <p><strong>binlog日志介绍：</strong><br>        也叫二进制日志，是MySQL服务日志文件的一种，记录在数据库服务器上执行的除查询之外的sql命令，启用日志能够达到对数据做备份的目的，搭建MySQL主从同步存储结构的必要条件，默认MySQL服务没有启用binlog日志。</p>
 <p><strong>启用binlog日志</strong>：在/etc/my.cnf中[mysqld]下添加server_id=50和log_bin(此处可定义文件目录)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">show  master status ;   #查看binlog日志信息</span><br><span class="line">flush logs;   #创建新日志文件</span><br><span class="line">show binary  logs; #查看数据库服务器当前已有全部 binlog日志文件</span><br><span class="line">purge master logs to &quot;db50.000004&quot;; #删除编号之前的所有日志文件</span><br><span class="line">reset master ; #删除当前所有的日志文件重新创建新日志文件和索引文件</span><br><span class="line">[root@host ~]# mysqlbinlog   &#x2F;mylog&#x2F;db50.000001 #查看日志文件内容</span><br><span class="line">show binlog events in &quot;db50.000001&quot; ; #查看日志文件内容</span><br><span class="line">[root@host ~]# mysqlbinlog   &#x2F;目录名&#x2F;日志文件名   |   mysql  -uroot   -p密码 #恢复数据</span><br></pre></td></tr></table></figure>
+
 
 
 
@@ -510,7 +535,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-02-25 19:27:08" itemprop="dateModified" datetime="2023-02-25T19:27:08+08:00">2023-02-25</time>
+    <time title="修改时间：2024-03-26 09:51:56" itemprop="dateModified" datetime="2024-03-26T09:51:56+08:00">2024-03-26</time>
   </span>
 </div>
 
@@ -565,9 +590,9 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <div class="item left">
       
 
-  <a href="/2023/02/12/linux/CDN/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;9d916994e193f2640e3660e986b3226d.jpg" title="CDN概念基本介绍">
+  <a href="/2023/02/12/linux/CDN/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;67694352e9c5cbbcf5c1bb98312aab55.jpg" title="CDN概念基本介绍">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> Linux基础</span>
+  <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
   <h3>CDN概念基本介绍</h3>
   </a>
 
@@ -593,7 +618,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2022/08/10/linux/cluster/" rel="bookmark" title="cluster">cluster</a></li><li><a href="/2022/08/10/linux/ansible/" rel="bookmark" title="ansible">ansible</a></li><li><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="关于linux基础的一些总结">关于linux基础的一些总结</a></li><li><a href="/2022/08/10/linux/shell/" rel="bookmark" title="shell">shell</a></li><li><a href="/2022/09/20/linux/nginx/" rel="bookmark" title="nginx基础">nginx基础</a></li><li><a href="/2022/09/21/linux/tomcat/" rel="bookmark" title="tomcat">tomcat</a></li><li><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" rel="bookmark" title="vpn和rpm">vpn和rpm</a></li><li><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" rel="bookmark" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></li><li><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" rel="bookmark" title="zabbix和prometheus对比">zabbix和prometheus对比</a></li><li><a href="/2023/02/12/linux/CDN/" rel="bookmark" title="CDN概念基本介绍">CDN概念基本介绍</a></li><li class="active"><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" rel="bookmark" title="Mysql数据库基础">Mysql数据库基础</a></li>
+          <li><a href="/2022/08/10/linux/ansible/" rel="bookmark" title="ansible基础">ansible基础</a></li><li><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="关于linux基础的命令总结">关于linux基础的命令总结</a></li><li><a href="/2022/08/10/linux/shell/" rel="bookmark" title="shell一些知识点">shell一些知识点</a></li><li><a href="/2022/08/10/linux/LVS/" rel="bookmark" title="LVS集群介绍">LVS集群介绍</a></li><li><a href="/2022/09/20/linux/nginx/" rel="bookmark" title="nginx基础">nginx基础</a></li><li><a href="/2022/09/21/linux/tomcat/" rel="bookmark" title="tomcat部署搭建">tomcat部署搭建</a></li><li><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" rel="bookmark" title="vpn和rpm">vpn和rpm</a></li><li><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" rel="bookmark" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></li><li><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" rel="bookmark" title="zabbix和prometheus对比">zabbix和prometheus对比</a></li><li><a href="/2023/02/12/linux/CDN/" rel="bookmark" title="CDN概念基本介绍">CDN概念基本介绍</a></li><li class="active"><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" rel="bookmark" title="Mysql数据库基础">Mysql数据库基础</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -675,17 +700,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E7%BB%93%E6%9E%84%E4%BD%93/" title="第十一章 结构体">第十一章 结构体</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
 </div>
 
     <span><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" title="Mysql数据库基础">Mysql数据库基础</a></span>
@@ -695,10 +710,10 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
 </div>
 
-    <span><a href="/2022/10/21/python/day10/" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></span>
+    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
   </li>
 
       
@@ -708,17 +723,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2022/10/14/python/day03/" title="03.文件对象、文件读写操作、函数基础">03.文件对象、文件读写操作、函数基础</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
-</div>
-
-    <span><a href="/2022/10/20/python/day09/" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></span>
+    <span><a href="/2022/10/12/python/day02/" title="02.判断语句、while循环、for循环">02.判断语句、while循环、for循环</a></span>
   </li>
 
       
@@ -728,17 +733,17 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
 </div>
 
-    <span><a href="/2021/07/17/assembly/%E6%8C%87%E4%BB%A4%E5%85%A8%E9%9B%86/" title="指令全集">指令全集</a></span>
+    <span><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
 </div>
 
-    <span><a href="/2022/10/15/python/day04/" title="04.模块基础、时间模块、语法风格及布局、字符串详解">04.模块基础、时间模块、语法风格及布局、字符串详解</a></span>
+    <span><a href="/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" title="寄存器指令总结">寄存器指令总结</a></span>
   </li>
 
       
@@ -748,7 +753,27 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2020/12/30/c/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84/" title="第三章 运算符和条件结构">第三章 运算符和条件结构</a></span>
+    <span><a href="/2021/01/12/c/%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E5%87%BD%E6%95%B0%E5%88%9D%E6%8E%A2/" title="第八章 函数初探">第八章 函数初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/22/python/day11/" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2022/01/05/c/c%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%A2%98/" title="C语言编程题">C语言编程题</a></span>
   </li>
 
       
@@ -758,17 +783,17 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
 </div>
 
-    <span><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="第一章 微型计算机系统">第一章 微型计算机系统</a></span>
+    <span><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux基础">Linux基础</a>
+<a href="/categories/algorithm/" title="分类于 数据结构与算法笔记">数据结构与算法笔记</a>
 </div>
 
-    <span><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></span>
+    <span><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="数据结构与算法（一）">数据结构与算法（一）</a></span>
   </li>
 
   </ul>
@@ -783,7 +808,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <div class="copyright">
     
     &copy; 2010 – 
-    <span itemprop="copyrightYear">2023</span>
+    <span itemprop="copyrightYear">2024</span>
     <span class="with-love">
       <i class="ic i-sakura rotate"></i>
     </span>
