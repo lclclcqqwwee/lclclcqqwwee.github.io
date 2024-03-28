@@ -89,12 +89,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/d424b2656229a0e3718abfd0a05bbff7.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/7074b57c75454b3ab1aba920a32a5d97.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/4368c702fcf1129cac003f7c2f181875.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/a956521148df0241038d6f6838a9806f.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/6a834199cae04e75c335d444704c2060.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/df5603d07727270fb9df59cff26f0b9a.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/5b5adebbec99efe0ce45af5f815b58ed.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/0a30d7eca259366c104d2fbfe515dc0e.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/7dad57904e56f14df7975109aaf03bc2.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/c370ed4ee6c8ac92941a49e11209fc78.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/42bab566f107b9a16542343e0368fb77.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/23/6928788f3d68c2e7e3b92222301a30c2.png"></li>
         </ul>
       </div>
     </header>
@@ -254,12 +254,12 @@
             <li><a title="LVS集群介绍" href="/2022/08/10/linux/LVS/">LVS集群介绍</a></li>
             <li><a title="Mysql数据库基础" href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/">Mysql数据库基础</a></li>
             <li><a title="ansible基础" href="/2022/08/10/linux/ansible/">ansible基础</a></li>
+            <li><a title="ipmitool工具使用" href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/">ipmitool工具使用</a></li>
             <li><a title="nginx基础" href="/2022/09/20/linux/nginx/">nginx基础</a></li>
-            <li><a title="shell一些知识点" href="/2022/08/10/linux/shell/">shell一些知识点</a></li>
         </ul>
         <div class="meta footer">
           <span>
-            <i class="ic i-file"></i>11 篇文章
+            <i class="ic i-file"></i>14 篇文章
           </span>
         </div>
         <a href="/categories/linux/" itemprop="url" title="Linux运维基础" class="btn">more...</a>
@@ -273,7 +273,124 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" itemprop="url" title="Mysql数据库基础"><img data-src="https://img.timelessq.com/images/2022/07/26/c341350a62c22109f3b283ce0aa83871.jpg"></a>
+    <a href="/2023/11/27/linux/nmcli/" itemprop="url" title="nmcli网络配置命令"><img data-src="https://img.timelessq.com/images/2022/07/26/560306a4274d1fc26eb475dd52237387.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-11-27 23:24:16">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-11-27T23:24:16+08:00">2023-11-27</time>
+  </span>
+</div>
+
+    <h3><a href="/2023/11/27/linux/nmcli/" itemprop="url" title="nmcli网络配置命令">nmcli网络配置命令</a></h3>
+    <div class="excerpt">
+        ● 常用命令
+
+查看网卡状态
+nmcli c show
+
+启动网卡
+*nmcli c up &amp;lt;ifname/UUID&amp;gt; *
+
+关闭网卡
+*nmcli c down &amp;lt;ifname/UUID&amp;gt; *
+
+删除网卡
+nmcli c delete &amp;lt;ifname/UUID&amp;gt;
+
+修改网卡
+nmcli c modify bond2.208 mtu 9000 nmcli c up bond2.208
+
+将接口加入 bond
+nmcli c add con-name enp59s0f0 type bond-slave...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/linux/" itemprop="url" title="Linux运维基础"><i class="ic i-flag"></i>Linux运维基础</a>
+      </span>
+    </div>
+    <a href="/2023/11/27/linux/nmcli/" itemprop="url" title="nmcli网络配置命令" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" itemprop="url" title="ipmitool工具使用"><img data-src="https://img.timelessq.com/images/2022/07/26/767d892afd9db5bda9fd978ea0a7cb0b.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-11-26 22:32:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-11-26T22:32:13+08:00">2023-11-26</time>
+  </span>
+</div>
+
+    <h3><a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" itemprop="url" title="ipmitool工具使用">ipmitool工具使用</a></h3>
+    <div class="excerpt">
+        ● ipmitool工具基本命令使用
+
+lanplus： IPMI v2.0 RMCP+ LAN Interface
+
+chassis
+chassis 获取机箱状态并设置电源状态 1. 电源状态ipmitool -I lanplus -H -U Administrator -P ctyun@123 power &amp;lt;status/on/off/reset&amp;gt;ipmitool -I lanplus -H -U Administrator -P ctyun@123 chassis power &amp;lt;status/on/off/reset&amp;gt; 2....
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/linux/" itemprop="url" title="Linux运维基础"><i class="ic i-flag"></i>Linux运维基础</a>
+      </span>
+    </div>
+    <a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" itemprop="url" title="ipmitool工具使用" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/11/26/linux/raid%E5%B7%A5%E5%85%B7/" itemprop="url" title="raid工具"><img data-src="https://img.timelessq.com/images/2022/07/26/18a32c514eae0d32a8b4b2a75853a08b.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-11-26 22:32:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-11-26T22:32:13+08:00">2023-11-26</time>
+  </span>
+</div>
+
+    <h3><a href="/2023/11/26/linux/raid%E5%B7%A5%E5%85%B7/" itemprop="url" title="raid工具">raid工具</a></h3>
+    <div class="excerpt">
+        1. arcconf MSCC SmartRAID
+
+#查询设备信息
+arcconf getconfig controller_id **controller_id硬盘所在RAID卡的IDad 表示查询控制器属性ld 表示查询虚拟磁盘属性d_id虚拟磁盘的IDpd 表示查询物理硬盘属性channel_id硬盘所在Channel的ID** slot_id硬盘槽位号mc表示查询maxCache信息al 表示查询所有信息
+
+raid
+创建raid 5
+#arcconf create controller_id logicaldrive stripesize stripesize method...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/linux/" itemprop="url" title="Linux运维基础"><i class="ic i-flag"></i>Linux运维基础</a>
+      </span>
+    </div>
+    <a href="/2023/11/26/linux/raid%E5%B7%A5%E5%85%B7/" itemprop="url" title="raid工具" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" itemprop="url" title="Mysql数据库基础"><img data-src="https://img.timelessq.com/images/2022/07/26/c97ba7c95fea6f32b4bfb028c8898607.jpg"></a>
   </div>
   <div class="info">
     
@@ -303,7 +420,7 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/12/linux/CDN/" itemprop="url" title="CDN概念基本介绍"><img data-src="https://img.timelessq.com/images/2022/07/26/a1f3404a5032323ea4857ac5a6354d2f.jpg"></a>
+    <a href="/2023/02/12/linux/CDN/" itemprop="url" title="CDN概念基本介绍"><img data-src="https://img.timelessq.com/images/2022/07/26/9d916994e193f2640e3660e986b3226d.jpg"></a>
   </div>
   <div class="info">
     
@@ -334,7 +451,7 @@ CDN的全称是Content Delivery...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" itemprop="url" title="zabbix和prometheus对比"><img data-src="https://img.timelessq.com/images/2022/07/26/68fb5832b107119e9f351a83be51ed2f.jpg"></a>
+    <a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" itemprop="url" title="zabbix和prometheus对比"><img data-src="https://img.timelessq.com/images/2022/07/26/536315e4defca264dab1b39dc99bb2dc.jpg"></a>
   </div>
   <div class="info">
     
@@ -365,7 +482,7 @@ zabbix：Zabbix是由Alexei...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" itemprop="url" title="负载均衡之LVS与Nginx对比"><img data-src="https://img.timelessq.com/images/2022/07/26/1e0e51b2eb4c4caf1702ce9c575fbb4d.jpg"></a>
+    <a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" itemprop="url" title="负载均衡之LVS与Nginx对比"><img data-src="https://img.timelessq.com/images/2022/07/26/31105e606c74614c7f8f7b1d08e1619a.jpg"></a>
   </div>
   <div class="info">
     
@@ -394,7 +511,7 @@ zabbix：Zabbix是由Alexei...
         
 <article class="item">
   <div class="cover">
-    <a href="/2022/10/22/python/day11/" itemprop="url" title="11.JSON、requests模块、案例练习"><img data-src="https://img.timelessq.com/images/2022/07/26/9d916994e193f2640e3660e986b3226d.jpg"></a>
+    <a href="/2022/10/22/python/day11/" itemprop="url" title="11.JSON、requests模块、案例练习"><img data-src="https://img.timelessq.com/images/2022/07/26/d0ac01ff6ebfeb4159b53fff4ce860d0.jpg"></a>
   </div>
   <div class="info">
     
@@ -426,7 +543,7 @@ zabbix：Zabbix是由Alexei...
         
 <article class="item">
   <div class="cover">
-    <a href="/2022/10/21/python/day10/" itemprop="url" title="10.邮件编程、paramiko模块、PyMySQL模块"><img data-src="https://img.timelessq.com/images/2022/07/26/252916b13cdf9428f497f9c3da8b2aa7.jpg"></a>
+    <a href="/2022/10/21/python/day10/" itemprop="url" title="10.邮件编程、paramiko模块、PyMySQL模块"><img data-src="https://img.timelessq.com/images/2022/07/26/a05ebdd3b7f197e626fa1253c6521ef5.jpg"></a>
   </div>
   <div class="info">
     
@@ -455,7 +572,7 @@ zabbix：Zabbix是由Alexei...
         
 <article class="item">
   <div class="cover">
-    <a href="/2022/10/20/python/day09/" itemprop="url" title="09.re模块、多线程编程、Python模块管理"><img data-src="https://img.timelessq.com/images/2022/07/26/08909482bc207d17564c06ef2496e12f.jpg"></a>
+    <a href="/2022/10/20/python/day09/" itemprop="url" title="09.re模块、多线程编程、Python模块管理"><img data-src="https://img.timelessq.com/images/2022/07/26/5ec5e6a577b47f3d9b70654073f8b881.jpg"></a>
   </div>
   <div class="info">
     
@@ -484,122 +601,6 @@ zabbix：Zabbix是由Alexei...
   </div>
 </article>
 
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2022/10/19/python/day08/" itemprop="url" title="08.OOP基础、OOP实践、OOP进阶"><img data-src="https://img.timelessq.com/images/2022/07/26/4c0b0c164bd2511ebcbfec05cd2a7b58.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="创建时间：2022-10-19 21:30:27">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2022-10-19T21:30:27+08:00">2022-10-19</time>
-  </span>
-</div>
-
-    <h3><a href="/2022/10/19/python/day08/" itemprop="url" title="08.OOP基础、OOP实践、OOP进阶">08.OOP基础、OOP实践、OOP进阶</a></h3>
-    <div class="excerpt">
-        面向对象编程基础面向过程基本概念面向过程是一种以事件为中心的编程思想，编程的时候把解决问题的步骤分析出来，然后用函数把这些步骤实现，在一步一步的具体步骤中再按顺序调用函数。
-
-关注焦点 —— 怎么做？
-把完成某一个需求的 所有步骤 从头到尾 逐步实现
-根据开发需求，将某些 功能独立 的代码 封装 成一个又一个 函数
-最后完成的代码，就是顺序地调用 不同的函数
-
-特点
-
-注重 步骤与过程，不注重职责分工
-如果需求复杂，代码会变得很复杂
-开发复杂项目，没有固定的套路，开发难度很大！
-
-开个饭店—自力更生
-面向过程 的设计思路是首先分析 饭店经营 的步骤 —...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/python/" itemprop="url" title="python基础"><i class="ic i-flag"></i>python基础</a>
-      </span>
-    </div>
-    <a href="/2022/10/19/python/day08/" itemprop="url" title="08.OOP基础、OOP实践、OOP进阶" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2022/10/18/python/day07/" itemprop="url" title="07.函数高级应用、生成器、模块详解"><img data-src="https://img.timelessq.com/images/2022/07/26/7be8b3a111f54a504dd1d9f7e4099e46.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="创建时间：2022-10-18 21:48:53">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2022-10-18T21:48:53+08:00">2022-10-18</time>
-  </span>
-</div>
-
-    <h3><a href="/2022/10/18/python/day07/" itemprop="url" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></h3>
-    <div class="excerpt">
-        函数进阶创建函数def 语句
-标题行由 def 关键字、函数的名字，以及参数的集合（如果有的话）组成
-def 子句的剩余部分包括了一个虽然可选但是强烈推荐的文档字串，和必需的函数体
-
-前向引用
-函数不允许在函数未声明之前，对其进行引用或者调用
-
-12345678def foo(): # 定义函数foo()，先调用bar()函数，报错，下面定义以后，报错取消 print(&amp;#x27;in foo&amp;#x27;)bar()def bar():			# 定义函数bar()	print(&amp;#x27;in bar&amp;#x27;)foo()				#...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/python/" itemprop="url" title="python基础"><i class="ic i-flag"></i>python基础</a>
-      </span>
-    </div>
-    <a href="/2022/10/18/python/day07/" itemprop="url" title="07.函数高级应用、生成器、模块详解" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2022/10/17/python/day06/" itemprop="url" title="06.shutil和os模块、subprocess模块、异常处理"><img data-src="https://img.timelessq.com/images/2022/07/26/17cfb1570685a3f62652e085962fe2a9.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="创建时间：2022-10-17 20:18:43">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2022-10-17T20:18:43+08:00">2022-10-17</time>
-  </span>
-</div>
-
-    <h3><a href="/2022/10/17/python/day06/" itemprop="url" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></h3>
-    <div class="excerpt">
-        shutil 模块基本概念
-shutil 可以简单地理解为 sh + util，shell 工具 的意思
-shutil 模块是对 os 模块的补充，主要针对文件的 拷贝、删除、移动、压缩和解压 操作
-
-shutil 模块的主要方法复制和移动shutil.copyfileobj(fsrc, fdst)
-将文件的对象 fsrc 的内容复制到文件的对象 fdst
-
-案例
-12345678import shutil# 复制# 1. shutil.copyfileobj(源文件管家,目标文件管家)：只能复制文件的内容，无法复制权限fr =...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/python/" itemprop="url" title="python基础"><i class="ic i-flag"></i>python基础</a>
-      </span>
-    </div>
-    <a href="/2022/10/17/python/day06/" itemprop="url" title="06.shutil和os模块、subprocess模块、异常处理" class="btn">more...</a>
-  </div>
-</article>
-
     </div>
 
   </div>
@@ -607,7 +608,7 @@ shutil 模块的主要方法复制和移动shutil.copyfileobj(fsrc, fdst)
   
   <nav class="pagination">
     <div class="inner">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="ic i-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="ic i-angle-right" aria-label="下一页"></i></a>
     </div>
   </nav>
 
@@ -635,7 +636,7 @@ shutil 模块的主要方法复制和移动shutil.copyfileobj(fsrc, fdst)
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">50</span>
+        <span class="count">53</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -703,10 +704,30 @@ shutil 模块的主要方法复制和移动shutil.copyfileobj(fsrc, fdst)
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" title="第七章 常用数字接口电路">第七章 常用数字接口电路</a></span>
+    <span><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E7%BB%93%E6%9E%84%E4%BD%93/" title="第十一章 结构体">第十一章 结构体</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%B8%83%E7%AB%A0%20%E6%8C%87%E9%92%88/" title="第七章 指针">第七章 指针</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+</div>
+
+    <span><a href="/2022/09/20/linux/nginx/" title="nginx基础">nginx基础</a></span>
   </li>
 
       
@@ -716,7 +737,17 @@ shutil 模块的主要方法复制和移动shutil.copyfileobj(fsrc, fdst)
 <a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2022/10/17/python/day06/" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></span>
+    <span><a href="/2022/10/16/python/day05/" title="05.列表和元组、字典、集合">05.列表和元组、字典、集合</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" title="第六章 数组及常用算法">第六章 数组及常用算法</a></span>
   </li>
 
       
@@ -733,50 +764,20 @@ shutil 模块的主要方法复制和移动shutil.copyfileobj(fsrc, fdst)
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2022/01/05/c/c%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E9%A2%98/" title="C语言编程题">C语言编程题</a></span>
+    <span><a href="/2022/10/20/python/day09/" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2022/01/02/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%AE%80%E7%AD%94%E9%A2%98/" title="微机原理简答题">微机原理简答题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" title="第一章 Hellow C语言">第一章 Hellow C语言</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
-</div>
-
-    <span><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/algorithm/" title="分类于 数据结构与算法笔记">数据结构与算法笔记</a>
-</div>
-
-    <span><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="数据结构与算法（一）">数据结构与算法（一）</a></span>
+    <span><a href="/2022/10/11/python/day01/" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></span>
   </li>
 
       
@@ -786,17 +787,17 @@ shutil 模块的主要方法复制和移动shutil.copyfileobj(fsrc, fdst)
 <a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
 </div>
 
-    <span><a href="/2022/08/10/linux/ansible/" title="ansible基础">ansible基础</a></span>
+    <span><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" title="Mysql数据库基础">Mysql数据库基础</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2020/12/21/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="第一章 微型计算机系统">第一章 微型计算机系统</a></span>
+    <span><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" title="第四章 循环初探">第四章 循环初探</a></span>
   </li>
 
   </ul>

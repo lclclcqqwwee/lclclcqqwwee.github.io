@@ -1,0 +1,607 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="未来の期間" href="http://yoursite.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="未来の期間" href="http://yoursite.com/atom.xml" />
+<link rel="alternate" type="application/json" title="未来の期間" href="http://yoursite.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Linux" />
+
+
+<link rel="canonical" href="http://yoursite.com/2023/11/26/linux/raid%E5%B7%A5%E5%85%B7/">
+
+
+
+  <title>
+raid工具 - Linux运维基础 |
+Yume Shoka = 未来の期間 = 勿負韶華</title>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">raid工具
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-11-26 22:32:13">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-11-26T22:32:13+08:00">2023-11-26</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yume Shoka</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/2f015bf5c14d8b24eba440ef80422b8d.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/b416eece3185a1756886f95ea0603d53.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/e5221f7d85b0900837a45fb933fa34ec.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/4ac9e89ebedbc831ce278f4ad5bbfc58.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/bb198758f050283f6a89670ee083687a.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/52607e127cb45c155489002e506f7b5d.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/linux/" itemprop="item" rel="index" title="分类于 Linux运维基础"><span itemprop="name">Linux运维基础</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/11/26/linux/raid%E5%B7%A5%E5%85%B7/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Chen">
+    <meta itemprop="description" content="勿負韶華, 记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="未来の期間">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="1-arcconf"><a href="#1-arcconf" class="headerlink" title="1. arcconf"></a>1. <strong>arcconf</strong></h1><p> <strong>MSCC SmartRAID</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>#查询设备信息</strong></th>
+<th><strong>arcconf getconfig controller_id</strong> <strong>**<br /></strong>controller_id硬盘所在RAID卡的ID<strong><br /></strong>ad 表示查询控制器属性<strong><br /></strong>ld 表示查询虚拟磁盘属性<strong><br /></strong>d_id虚拟磁盘的ID<strong><br /></strong>pd 表示查询物理硬盘属性<strong><br /></strong>channel_id硬盘所在Channel的ID** <strong>slot_id硬盘槽位号</strong><br /><strong>mc表示查询maxCache信息</strong><br /><strong>al 表示查询所有信息</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>raid</strong></td>
+<td><strong>创建raid 5</strong></td>
+<td><strong>#arcconf create controller_id logicaldrive stripesize stripesize method mode capacity raid_level channel_id1 slot_id1 channel_id2…..</strong><br /><strong>./Arcconf create  1   logicaldrive stripesize 64     method build MAX     5     0     2    0 3  0 4</strong><br /><strong>./Arcconf delete 1      logicaldrive 1</strong></td>
+</tr>
+<tr>
+<td><strong>热备</strong></td>
+<td><strong>创建全局热备</strong><br /><strong>局部热备</strong></td>
+<td><strong>arcconf setstate 1 device 0 6 hsp array 0 sparetype 2</strong><br /><strong>arcconf setstate controller_id device channel_id slot_id hsp [logicaldrive ld_id1 ld_id2]</strong><br /><strong>logicaldrive ld_id1 ld_id2，表示设置局部热备盘。</strong></td>
+</tr>
+</tbody></table>
+<h1 id="2-storcli"><a href="#2-storcli" class="headerlink" title="2. storcli"></a>2. <strong>storcli</strong></h1><p><strong>Broadcom提供 ，适用于新一代控制器</strong>   <strong>用于管理LSI /Avago /Broadcom MegaRAID</strong> </p>
+<table>
+<thead>
+<tr>
+<th><strong>信息</strong></th>
+<th><strong>查看控制卡的详细信息</strong>             <strong>./storcli show</strong><br /><br /><strong>查看控制卡数量</strong>                        <strong>./storcli show ctrlcount</strong><br /><strong>查看紧急热备</strong>                            <strong>./storcli /c0 show  eghs</strong><br /><strong>查看迁移</strong>                                    <strong>./storcli /c0 show  migrate</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>状态</strong></td>
+<td>查看插槽ID 及状态            <strong>./storcli /call/eall/sall show</strong><br /><strong>设为good状态</strong>             <strong>./storcli /c0/eall/sall  set good  force</strong><br /><strong>将硬盘上线/离线</strong>         <strong>./storcli /c0/e32/s1   set online/offline</strong><br /><strong>使用该参数，会将目标硬盘脱离RAID组，导致具有冗余功能的RAID组降级</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Foreign</strong></td>
+<td>查看Foreign状态      <strong>./storcli /c0  /fall show</strong><br />导入Foreign          <strong>./storcli /c0 /fall import</strong><br /><strong>清空</strong>                        <strong>./storcli /c0 /fall delete</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>RAID</strong></td>
+<td><strong>查看raid</strong>         <strong>./storcli /call/vall show all</strong><br /><strong>创建raid5</strong>       <strong>./storcli /c0 add vd r5 drives=32:0-3</strong><br /><strong>初始化raid</strong>         <strong>./storcli /c0/v0 start init</strong><br /><strong>删除raid</strong>           <strong>./storcli /c0/vall del force</strong><br /><strong>查看迁移</strong>          <strong>./storcli /c0 show migrate</strong><br /><strong>扩容/迁移</strong>        <strong>./storcli  /c0/v0  start  migrate type=r5 option=add drives=32:3</strong><br />           ● <strong>与原RAID级别相同时，该命令为扩大RAID容量。</strong><br />           ● <strong>与原RAID级别不同时，该命令为RAID级别迁移。</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>JBOD</strong></td>
+<td><strong>打开/关闭</strong>      <strong>./storcli /c0 set jbod=on/off force</strong><br /><strong>查看</strong>            <strong>./storcli /c0 show jbod</strong><br /><strong>设置单块直通状态</strong>       <strong>./storcli /c0/e32/s1  set JBOD  force</strong><br />把所有磁盘设为JBOD      <strong>./storcli /c0/eall/sall set JBOD  force</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>热备</strong></td>
+<td><strong>查看紧急热备</strong>          <strong>./storcli /c0 show  eghs</strong> <br /><strong>开启紧急热备</strong>      <strong>./storcli /c0 set eghs eug=on</strong><br /><strong>添加全局热备</strong>      <strong>./storcli /c0/e32/s0  add hotsparedrive</strong><br /><strong>添加局部热备</strong>   <strong>./storcli /c0/e32/s0  add hotsparedrive</strong> <strong>dgs=0</strong><br /><strong>移除热备</strong>       <strong>./storcli /call/eall/sall del hotsparedrive</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>定位灯</strong></td>
+<td><strong>打开定位灯</strong>            <strong>./storcli /c0/e32/s1 start  locate</strong><br /><strong>关闭定位灯</strong>            <strong>./storcli /c0/e32/s1 stop  locate</strong><br /></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="3-sas3lrcu"><a href="#3-sas3lrcu" class="headerlink" title="3. sas3lrcu"></a>3. sas3lrcu</h1><p><strong>Broadcom提供</strong>  <strong>用于  LSI SAS卡</strong> </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="4-perccli"><a href="#4-perccli" class="headerlink" title="4. perccli"></a>4. <strong>perccli</strong></h1><p>语法同 storcli  ，仅适用dell 服务器</p>
+<p>下载地址 <strong><span class="exturl" data-url="aHR0cHM6Ly9kb3dubG9hZHMuZGVsbC5jb20vRk9MREVSMDM1NTkzOTZNLzEvcGVyY2NsaS0xLjE3LjEwLTEubm9hcmNoLnJwbQ==">https://downloads.dell.com/FOLDER03559396M/1/perccli-1.17.10-1.noarch.rpm</span></strong></p>
+<h1 id="5-megacli"><a href="#5-megacli" class="headerlink" title="5. megacli"></a>5. megacli</h1><p><strong>Broadcom提供</strong>    <strong>LSI /Avago /Broadcom MegaRAID 、</strong>  <strong>MSCC SmartRAID</strong> </p>
+<table>
+<thead>
+<tr>
+<th><strong>Adp 适配器( RAID卡)</strong></th>
+<th><strong>查看设备信息</strong>        <strong>MegaCli64 -ShowSummary -aALL</strong><br /><strong>显示Raid设置</strong>  <strong>MegaCli64 -cfgdsply -aALL</strong><br /><strong>显示RAID卡个数</strong>  <strong>MegaCli64 -AdpCount</strong><br /><strong>显示所有RAID卡信息</strong>   <strong>MegaCli64 -AdpAllInfo  -aAll</strong><br /><strong>显示 RAID 卡的缓存策略</strong>  <strong>MegaCli64 -LDGetProp -Cache -LAll -aAll</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>状态</strong></td>
+<td><strong>查看磁盘信息</strong>     <strong>MegaCli64 -PDList -aAll</strong><br /><strong>查看 ID及插槽</strong>      <strong>MegaCli64 -PDList -aALL | egrep ‘Enclosure Device ID|Slot Number’</strong><br /><strong>查看状态</strong>   MegaCli64 -PDList -aALL | egrep ‘Slot Number | Firmware state’<br /><strong>将盘设置为 good</strong>    <strong>MegaCli64 -PDMakeGood -PhysDrv [32:3] -Force -a0</strong></td>
+</tr>
+<tr>
+<td><strong>Foreign</strong></td>
+<td><strong>查看</strong>       MegaCli64   -PDlist -aALL | grep   “Foreign State”<br /><strong>查看外部盘</strong>    <strong>MegaCli64  -CfgForeign -Scan -a0</strong><br /><strong>清空外部盘</strong>      <strong>MegaCli64 -CfgForeign -Clear -aALL</strong><br /></td>
+</tr>
+<tr>
+<td><strong>JBOD</strong></td>
+<td><strong>设置JBOD</strong>   <strong>MegaCli64  -PDMakeJBOD -PhysDrv[32:3] -a0</strong><br /><strong>禁用直通模式</strong>  <strong>-AdpSetProp -EnableJBOD -0 -aALL</strong><br /><strong>启用直通模式</strong>   <strong>-AdpSetProp -EnableJBOD -1 -aALL</strong></td>
+</tr>
+<tr>
+<td><strong>RAID</strong></td>
+<td><strong>查看raid信息</strong>   <strong>MegaCli64  -LDInfo -Lall -aAll</strong><br /><strong>创建raid 5</strong>  <strong>MegaCli64  -CfgLdAdd r5[32:1,32:2,32:3] -a0</strong><br /><strong>清空配置</strong>  <strong>MegaCli64  -CfgClr -aALL</strong></td>
+</tr>
+<tr>
+<td><strong>HSP热备</strong></td>
+<td><strong>-EnclAffinity</strong> <strong>是一个可选的参数，用于设置热备份驱动器的关联性，热备份驱动器将与同一扩展柜（Enclosure）中的其他磁盘关联，如果不指定，可以用于替换任何发生故障的磁盘，不仅限于同一扩展柜中的磁盘</strong> <strong>-nonRevertible</strong> <strong>，热备份驱动器被设置为非可逆状态。这意味着一旦热备份驱动器被激活用于替换故障磁盘后，它将永久地留在阵列中，不会自动恢复到热备份状态。</strong><br /><strong>全局热备</strong>  <strong>MegaCli64 -PDHSP  -set -PhysDrv [32:3] -a0MegaCli64 -PDHSP  -set [-EnclAffinity] [-nonRevertible] -PhysDrv[32:3] -a0</strong><br /><strong>局部热备</strong>   <strong>MegaCli64 -PDHSP  -set  -Dedicated -Array0 -physdrv[23:3] -a0</strong><br /><strong>移除热备</strong>   <strong>MegaCli64 -PDHSP -Rmv -PhysDrv[32:3] –aALL</strong><br /><strong>查看热备类型</strong>   <strong>MegaCli64 -PDList -aALL | grep -A 1 “Hotspare Information”</strong></td>
+</tr>
+</tbody></table>
+
+      <div class="tags">
+          <a href="/tags/Linux/" rel="tag"><i class="ic i-tag"></i> Linux</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-03-28 22:42:05" itemprop="dateModified" datetime="2024-03-28T22:42:05+08:00">2024-03-28</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Chen 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Chen 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Chen 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Chen <i class="ic i-at"><em>@</em></i>未来の期間
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2023/11/26/linux/raid%E5%B7%A5%E5%85%B7/" title="raid工具">http://yoursite.com/2023/11/26/linux/raid工具/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;45f3e5855eee8430aabb492836518779.jpg" title="Mysql数据库基础">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
+  <h3>Mysql数据库基础</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;6e7c7d241bbd3f8bacac3372cbe3c6ba.jpg" title="ipmitool工具使用">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
+  <h3>ipmitool工具使用</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-arcconf"><span class="toc-number">1.</span> <span class="toc-text">1. arcconf</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-storcli"><span class="toc-number">2.</span> <span class="toc-text">2. storcli</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-sas3lrcu"><span class="toc-number">3.</span> <span class="toc-text">3. sas3lrcu</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-perccli"><span class="toc-number">4.</span> <span class="toc-text">4. perccli</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-megacli"><span class="toc-number">5.</span> <span class="toc-text">5. megacli</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2022/08/10/linux/ansible/" rel="bookmark" title="ansible基础">ansible基础</a></li><li><a href="/2022/08/10/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/" rel="bookmark" title="关于linux基础的命令总结">关于linux基础的命令总结</a></li><li><a href="/2022/08/10/linux/shell/" rel="bookmark" title="shell一些知识点">shell一些知识点</a></li><li><a href="/2022/08/10/linux/LVS/" rel="bookmark" title="LVS集群介绍">LVS集群介绍</a></li><li><a href="/2022/09/20/linux/nginx/" rel="bookmark" title="nginx基础">nginx基础</a></li><li><a href="/2022/09/21/linux/tomcat/" rel="bookmark" title="tomcat部署搭建">tomcat部署搭建</a></li><li><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" rel="bookmark" title="vpn和rpm">vpn和rpm</a></li><li><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" rel="bookmark" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></li><li><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" rel="bookmark" title="zabbix和prometheus对比">zabbix和prometheus对比</a></li><li><a href="/2023/02/12/linux/CDN/" rel="bookmark" title="CDN概念基本介绍">CDN概念基本介绍</a></li><li><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" rel="bookmark" title="Mysql数据库基础">Mysql数据库基础</a></li><li><a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" rel="bookmark" title="ipmitool工具使用">ipmitool工具使用</a></li><li class="active"><a href="/2023/11/26/linux/raid%E5%B7%A5%E5%85%B7/" rel="bookmark" title="raid工具">raid工具</a></li><li><a href="/2023/11/27/linux/nmcli/" rel="bookmark" title="nmcli网络配置命令">nmcli网络配置命令</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Chen"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Chen</p>
+  <div class="description" itemprop="description">记住迄今为止每一次失败时有心无力的感受，“为了更美好的明天而战”。</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">53</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;github.com&#x2F;yourname"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;yourname"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPXlvdXJpZA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;yourid"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+</div>
+
+    <span><a href="/2022/09/20/linux/nginx/" title="nginx基础">nginx基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" title="第一章 Hellow C语言">第一章 Hellow C语言</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" title="寄存器指令总结">寄存器指令总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+</div>
+
+    <span><a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" title="ipmitool工具使用">ipmitool工具使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2022/01/02/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%AE%80%E7%AD%94%E9%A2%98/" title="微机原理简答题">微机原理简答题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" title="第四章 循环初探">第四章 循环初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+</div>
+
+    <span><a href="/2022/08/10/linux/shell/" title="shell一些知识点">shell一些知识点</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/18/python/day07/" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chen @ Yume Shoka</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/11/26/linux/raid工具/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//fastly.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":175,"height":350},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
