@@ -102,12 +102,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/5ec5e6a577b47f3d9b70654073f8b881.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/7074b57c75454b3ab1aba920a32a5d97.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/9e00cb8944af8ad12fd6b7fd7eb24ebc.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/e1077c43120f41fdab6a5b79cc10a94b.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/4c481240fd5e6e7b076ca8fe50da6e52.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/f85e0c5cc31d609ad0b6e48a88040ecb.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/67487d98c148b67bef002f2fa291f18a.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/b4993dcc18b931060093920da621db79.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/2aabaeb8aca379b991071d1c41632741.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/488297bfd0233b6c6a444f1860e55d45.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/b7dd27ac7273dd91b0085c941520d6f5.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/2aaa20665dd5e5704a35cf4f6de766db.jpg"></li>
         </ul>
       </div>
     </header>
@@ -157,18 +157,23 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <table>
 <thead>
 <tr>
-<th></th>
-<th align="left"><strong>#查询设备信息</strong></th>
-<th align="left"><strong>arcconf getconfig controller_id</strong> &lt;ad |  ld ld_id | pd channel_id slot_id | mc | al&gt; <br /><strong>controller_id硬盘所在RAID卡的ID</strong><br /><strong>ad 表示查询控制器属性</strong><br /><strong>ld 表示查询虚拟磁盘属性</strong><br /><strong>d_id虚拟磁盘的ID</strong><br /><strong>pd 表示查询物理硬盘属性</strong><br /><strong>channel_id硬盘所在Channel的ID</strong> <strong>slot_id硬盘槽位号</strong><br /><strong>mc表示查询maxCache信息</strong><br /><strong>al 表示查询所有信息</strong></th>
+<th align="left"></th>
+<th align="left"></th>
+<th align="left"></th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>raid</strong></td>
+<td align="left"></td>
+<td align="left"><strong>#查询设备信息</strong></td>
+<td align="left"><strong>arcconf getconfig controller_id</strong> &lt;ad |  ld ld_id | pd channel_id slot_id | mc | al&gt; <br /><strong>controller_id硬盘所在RAID卡的ID</strong><br /><strong>ad 表示查询控制器属性</strong><br /><strong>ld 表示查询虚拟磁盘属性</strong><br /><strong>d_id虚拟磁盘的ID</strong><br /><strong>pd 表示查询物理硬盘属性</strong><br /><strong>channel_id硬盘所在Channel的ID</strong> <strong>slot_id硬盘槽位号</strong><br /><strong>mc表示查询maxCache信息</strong><br /><strong>al 表示查询所有信息</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>raid</strong></td>
 <td align="left"><strong>创建raid 5</strong></td>
 <td align="left"><strong>#arcconf create controller_id logicaldrive stripesize stripesize method mode capacity raid_level channel_id1 slot_id1 channel_id2…..</strong><br /><strong>./Arcconf create  1   logicaldrive stripesize 64     method build MAX     5     0     2    0 3  0 4</strong><br /><strong>./Arcconf delete 1      logicaldrive 1</strong></td>
 </tr>
 <tr>
-<td><strong>热备</strong></td>
+<td align="left"><strong>热备</strong></td>
 <td align="left"><strong>创建全局热备</strong><br /><strong>局部热备</strong></td>
 <td align="left"><strong>arcconf setstate 1 device 0 6 hsp array 0 sparetype 2</strong><br /><strong>arcconf setstate controller_id device channel_id slot_id hsp [logicaldrive ld_id1 ld_id2]</strong><br /><strong>logicaldrive ld_id1 ld_id2，表示设置局部热备盘。</strong></td>
 </tr>
@@ -177,40 +182,37 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <table>
 <thead>
 <tr>
-<th><strong>信息</strong></th>
-<th><strong>查看控制卡的详细信息</strong>             <strong>./storcli show</strong><br /><br /><strong>查看控制卡数量</strong>                        <strong>./storcli show ctrlcount</strong><br /><strong>查看紧急热备</strong>                            <strong>./storcli /c0 show  eghs</strong><br /><strong>查看迁移</strong>                                    <strong>./storcli /c0 show  migrate</strong></th>
+<th></th>
 <th></th>
 </tr>
 </thead>
 <tbody><tr>
+<td><strong>信息</strong></td>
+<td><strong>查看控制卡的详细信息</strong>             <strong>./storcli show</strong><br /><br /><strong>查看控制卡数量</strong>                        <strong>./storcli show ctrlcount</strong><br /><strong>查看紧急热备</strong>                            <strong>./storcli /c0 show  eghs</strong><br /><strong>查看迁移</strong>                                    <strong>./storcli /c0 show  migrate</strong></td>
+</tr>
+<tr>
 <td><strong>状态</strong></td>
 <td>查看插槽ID 及状态            <strong>./storcli /call/eall/sall show</strong><br /><strong>设为good状态</strong>             <strong>./storcli /c0/eall/sall  set good  force</strong><br /><strong>将硬盘上线/离线</strong>         <strong>./storcli /c0/e32/s1   set online/offline</strong><br /><strong>使用该参数，会将目标硬盘脱离RAID组，导致具有冗余功能的RAID组降级</strong></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>Foreign</strong></td>
 <td>查看Foreign状态      <strong>./storcli /c0  /fall show</strong><br />导入Foreign          <strong>./storcli /c0 /fall import</strong><br /><strong>清空</strong>                        <strong>./storcli /c0 /fall delete</strong></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>RAID</strong></td>
 <td><strong>查看raid</strong>         <strong>./storcli /call/vall show all</strong><br /><strong>创建raid5</strong>       <strong>./storcli /c0 add vd r5 drives=32:0-3</strong><br /><strong>初始化raid</strong>         <strong>./storcli /c0/v0 start init</strong><br /><strong>删除raid</strong>           <strong>./storcli /c0/vall del force</strong><br /><strong>查看迁移</strong>          <strong>./storcli /c0 show migrate</strong><br /><strong>扩容/迁移</strong>        <strong>./storcli  /c0/v0  start  migrate type=r5 option=add drives=32:3</strong><br />           ● <strong>与原RAID级别相同时，该命令为扩大RAID容量。</strong><br />           ● <strong>与原RAID级别不同时，该命令为RAID级别迁移。</strong></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>JBOD</strong></td>
 <td><strong>打开/关闭</strong>      <strong>./storcli /c0 set jbod=on/off force</strong><br /><strong>查看</strong>            <strong>./storcli /c0 show jbod</strong><br /><strong>设置单块直通状态</strong>       <strong>./storcli /c0/e32/s1  set JBOD  force</strong><br />把所有磁盘设为JBOD      <strong>./storcli /c0/eall/sall set JBOD  force</strong></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>热备</strong></td>
 <td><strong>查看紧急热备</strong>          <strong>./storcli /c0 show  eghs</strong> <br /><strong>开启紧急热备</strong>      <strong>./storcli /c0 set eghs eug=on</strong><br /><strong>添加全局热备</strong>      <strong>./storcli /c0/e32/s0  add hotsparedrive</strong><br /><strong>添加局部热备</strong>   <strong>./storcli /c0/e32/s0  add hotsparedrive</strong> <strong>dgs=0</strong><br /><strong>移除热备</strong>       <strong>./storcli /call/eall/sall del hotsparedrive</strong></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>定位灯</strong></td>
 <td><strong>打开定位灯</strong>            <strong>./storcli /c0/e32/s1 start  locate</strong><br /><strong>关闭定位灯</strong>            <strong>./storcli /c0/e32/s1 stop  locate</strong><br /></td>
-<td></td>
 </tr>
 </tbody></table>
 <h1 id="3-sas3lrcu"><a href="#3-sas3lrcu" class="headerlink" title="3. sas3lrcu"></a>3. sas3lrcu</h1><p><strong>Broadcom提供</strong>  <strong>用于  LSI SAS卡</strong> </p>
@@ -234,11 +236,15 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <table>
 <thead>
 <tr>
-<th><strong>Adp 适配器( RAID卡)</strong></th>
-<th><strong>查看设备信息</strong>        <strong>MegaCli64 -ShowSummary -aALL</strong><br /><strong>显示Raid设置</strong>  <strong>MegaCli64 -cfgdsply -aALL</strong><br /><strong>显示RAID卡个数</strong>  <strong>MegaCli64 -AdpCount</strong><br /><strong>显示所有RAID卡信息</strong>   <strong>MegaCli64 -AdpAllInfo  -aAll</strong><br /><strong>显示 RAID 卡的缓存策略</strong>  <strong>MegaCli64 -LDGetProp -Cache -LAll -aAll</strong></th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
+<td><strong>Adp 适配器( RAID卡)</strong></td>
+<td><strong>查看设备信息</strong>        <strong>MegaCli64 -ShowSummary -aALL</strong><br /><strong>显示Raid设置</strong>  <strong>MegaCli64 -cfgdsply -aALL</strong><br /><strong>显示RAID卡个数</strong>  <strong>MegaCli64 -AdpCount</strong><br /><strong>显示所有RAID卡信息</strong>   <strong>MegaCli64 -AdpAllInfo  -aAll</strong><br /><strong>显示 RAID 卡的缓存策略</strong>  <strong>MegaCli64 -LDGetProp -Cache -LAll -aAll</strong></td>
+</tr>
+<tr>
 <td><strong>状态</strong></td>
 <td><strong>查看磁盘信息</strong>     <strong>MegaCli64 -PDList -aAll</strong><br /><strong>查看 ID及插槽</strong>      <strong>MegaCli64 -PDList -aALL | egrep ‘Enclosure Device ID|Slot Number’</strong><br /><strong>查看状态</strong>   MegaCli64 -PDList -aALL | egrep ‘Slot Number | Firmware state’<br /><strong>将盘设置为 good</strong>    <strong>MegaCli64 -PDMakeGood -PhysDrv [32:3] -Force -a0</strong></td>
 </tr>
@@ -273,7 +279,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-03-28 23:08:34" itemprop="dateModified" datetime="2024-03-28T23:08:34+08:00">2024-03-28</time>
+    <time title="修改时间：2024-03-28 23:16:07" itemprop="dateModified" datetime="2024-03-28T23:16:07+08:00">2024-03-28</time>
   </span>
 </div>
 
@@ -328,7 +334,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <div class="item left">
       
 
-  <a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;f584675dfc4ef47fcf19442f0e2ea18b.jpg" title="Mysql数据库基础">
+  <a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;a1f3404a5032323ea4857ac5a6354d2f.jpg" title="Mysql数据库基础">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
   <h3>Mysql数据库基础</h3>
@@ -338,7 +344,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <div class="item right">
       
 
-  <a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;38f4d53604cb5ca98a47fea8d62cde72.jpg" title="ipmitool工具使用">
+  <a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;b2eeb9bbef8e10749f97b0182647a32c.jpg" title="ipmitool工具使用">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
   <h3>ipmitool工具使用</h3>
@@ -448,36 +454,6 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" title="第一章 Hellow C语言">第一章 Hellow C语言</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2020/12/30/c/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84/" title="第三章 运算符和条件结构">第三章 运算符和条件结构</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
-</div>
-
-    <span><a href="/2022/09/20/linux/nginx/" title="nginx基础">nginx基础</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
 </div>
 
@@ -488,30 +464,10 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
 </div>
 
-    <span><a href="/2021/07/17/assembly/%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E4%BB%A4%E6%80%BB%E7%BB%93/" title="寄存器指令总结">寄存器指令总结</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
-</div>
-
-    <span><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" title="zabbix和prometheus对比">zabbix和prometheus对比</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E7%BB%93%E6%9E%84%E4%BD%93/" title="第十一章 结构体">第十一章 结构体</a></span>
+    <span><a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
   </li>
 
       
@@ -528,10 +484,30 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/python/" title="分类于 python基础">python基础</a>
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2022/10/20/python/day09/" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></span>
+    <span><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" title="第四章 循环初探">第四章 循环初探</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" title="第五章 存储器系统">第五章 存储器系统</a></span>
   </li>
 
       
@@ -542,6 +518,36 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 </div>
 
     <span><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" title="vpn和rpm">vpn和rpm</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/22/python/day11/" title="11.JSON、requests模块、案例练习">11.JSON、requests模块、案例练习</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+</div>
+
+    <span><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" title="第四章 汇编语言程序">第四章 汇编语言程序</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" title="第一章 Hellow C语言">第一章 Hellow C语言</a></span>
   </li>
 
   </ul>
