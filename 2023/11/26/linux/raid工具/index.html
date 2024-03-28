@@ -102,12 +102,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/2f015bf5c14d8b24eba440ef80422b8d.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/b416eece3185a1756886f95ea0603d53.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/e5221f7d85b0900837a45fb933fa34ec.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/4ac9e89ebedbc831ce278f4ad5bbfc58.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/bb198758f050283f6a89670ee083687a.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/52607e127cb45c155489002e506f7b5d.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/5ec5e6a577b47f3d9b70654073f8b881.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/7074b57c75454b3ab1aba920a32a5d97.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/9e00cb8944af8ad12fd6b7fd7eb24ebc.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/e1077c43120f41fdab6a5b79cc10a94b.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/4c481240fd5e6e7b076ca8fe50da6e52.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/f85e0c5cc31d609ad0b6e48a88040ecb.jpg"></li>
         </ul>
       </div>
     </header>
@@ -158,19 +158,19 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <thead>
 <tr>
 <th></th>
-<th><strong>#查询设备信息</strong></th>
-<th><strong>arcconf getconfig controller_id</strong> <strong>**<br /></strong>controller_id硬盘所在RAID卡的ID<strong><br /></strong>ad 表示查询控制器属性<strong><br /></strong>ld 表示查询虚拟磁盘属性<strong><br /></strong>d_id虚拟磁盘的ID<strong><br /></strong>pd 表示查询物理硬盘属性<strong><br /></strong>channel_id硬盘所在Channel的ID** <strong>slot_id硬盘槽位号</strong><br /><strong>mc表示查询maxCache信息</strong><br /><strong>al 表示查询所有信息</strong></th>
+<th align="left"><strong>#查询设备信息</strong></th>
+<th align="left"><strong>arcconf getconfig controller_id</strong> &lt;ad |  ld ld_id | pd channel_id slot_id | mc | al&gt; <br /><strong>controller_id硬盘所在RAID卡的ID</strong><br /><strong>ad 表示查询控制器属性</strong><br /><strong>ld 表示查询虚拟磁盘属性</strong><br /><strong>d_id虚拟磁盘的ID</strong><br /><strong>pd 表示查询物理硬盘属性</strong><br /><strong>channel_id硬盘所在Channel的ID</strong> <strong>slot_id硬盘槽位号</strong><br /><strong>mc表示查询maxCache信息</strong><br /><strong>al 表示查询所有信息</strong></th>
 </tr>
 </thead>
 <tbody><tr>
 <td><strong>raid</strong></td>
-<td><strong>创建raid 5</strong></td>
-<td><strong>#arcconf create controller_id logicaldrive stripesize stripesize method mode capacity raid_level channel_id1 slot_id1 channel_id2…..</strong><br /><strong>./Arcconf create  1   logicaldrive stripesize 64     method build MAX     5     0     2    0 3  0 4</strong><br /><strong>./Arcconf delete 1      logicaldrive 1</strong></td>
+<td align="left"><strong>创建raid 5</strong></td>
+<td align="left"><strong>#arcconf create controller_id logicaldrive stripesize stripesize method mode capacity raid_level channel_id1 slot_id1 channel_id2…..</strong><br /><strong>./Arcconf create  1   logicaldrive stripesize 64     method build MAX     5     0     2    0 3  0 4</strong><br /><strong>./Arcconf delete 1      logicaldrive 1</strong></td>
 </tr>
 <tr>
 <td><strong>热备</strong></td>
-<td><strong>创建全局热备</strong><br /><strong>局部热备</strong></td>
-<td><strong>arcconf setstate 1 device 0 6 hsp array 0 sparetype 2</strong><br /><strong>arcconf setstate controller_id device channel_id slot_id hsp [logicaldrive ld_id1 ld_id2]</strong><br /><strong>logicaldrive ld_id1 ld_id2，表示设置局部热备盘。</strong></td>
+<td align="left"><strong>创建全局热备</strong><br /><strong>局部热备</strong></td>
+<td align="left"><strong>arcconf setstate 1 device 0 6 hsp array 0 sparetype 2</strong><br /><strong>arcconf setstate controller_id device channel_id slot_id hsp [logicaldrive ld_id1 ld_id2]</strong><br /><strong>logicaldrive ld_id1 ld_id2，表示设置局部热备盘。</strong></td>
 </tr>
 </tbody></table>
 <h1 id="2-storcli"><a href="#2-storcli" class="headerlink" title="2. storcli"></a>2. <strong>storcli</strong></h1><p><strong>Broadcom提供 ，适用于新一代控制器</strong>   <strong>用于管理LSI /Avago /Broadcom MegaRAID</strong> </p>
@@ -273,7 +273,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-03-28 22:42:05" itemprop="dateModified" datetime="2024-03-28T22:42:05+08:00">2024-03-28</time>
+    <time title="修改时间：2024-03-28 23:08:34" itemprop="dateModified" datetime="2024-03-28T23:08:34+08:00">2024-03-28</time>
   </span>
 </div>
 
@@ -328,7 +328,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <div class="item left">
       
 
-  <a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;45f3e5855eee8430aabb492836518779.jpg" title="Mysql数据库基础">
+  <a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;f584675dfc4ef47fcf19442f0e2ea18b.jpg" title="Mysql数据库基础">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
   <h3>Mysql数据库基础</h3>
@@ -338,7 +338,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <div class="item right">
       
 
-  <a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;6e7c7d241bbd3f8bacac3372cbe3c6ba.jpg" title="ipmitool工具使用">
+  <a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;38f4d53604cb5ca98a47fea8d62cde72.jpg" title="ipmitool工具使用">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
   <h3>ipmitool工具使用</h3>
@@ -448,10 +448,20 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2020/12/23/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%8C%EF%BC%89/" title="第二章 8088&#x2F;8086微处理器">第二章 8088/8086微处理器</a></span>
+    <span><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" title="第一章 Hellow C语言">第一章 Hellow C语言</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2020/12/30/c/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E6%9D%A1%E4%BB%B6%E7%BB%93%E6%9E%84/" title="第三章 运算符和条件结构">第三章 运算符和条件结构</a></span>
   </li>
 
       
@@ -468,20 +478,10 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
 </div>
 
-    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2020/12/22/c/%E7%AC%AC%E4%B8%80%E7%AB%A0%20Hellow%20C%E8%AF%AD%E8%A8%80/" title="第一章 Hellow C语言">第一章 Hellow C语言</a></span>
+    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
   </li>
 
       
@@ -501,17 +501,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
 </div>
 
-    <span><a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" title="ipmitool工具使用">ipmitool工具使用</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
-</div>
-
-    <span><a href="/2022/01/02/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%AE%80%E7%AD%94%E9%A2%98/" title="微机原理简答题">微机原理简答题</a></span>
+    <span><a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" title="zabbix和prometheus对比">zabbix和prometheus对比</a></span>
   </li>
 
       
@@ -521,7 +511,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
-    <span><a href="/2021/01/04/c/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E5%88%9D%E6%8E%A2/" title="第四章 循环初探">第四章 循环初探</a></span>
+    <span><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E7%BB%93%E6%9E%84%E4%BD%93/" title="第十一章 结构体">第十一章 结构体</a></span>
   </li>
 
       
@@ -531,7 +521,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
 </div>
 
-    <span><a href="/2022/08/10/linux/shell/" title="shell一些知识点">shell一些知识点</a></span>
+    <span><a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" title="ipmitool工具使用">ipmitool工具使用</a></span>
   </li>
 
       
@@ -541,7 +531,17 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2022/10/18/python/day07/" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></span>
+    <span><a href="/2022/10/20/python/day09/" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+</div>
+
+    <span><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" title="vpn和rpm">vpn和rpm</a></span>
   </li>
 
   </ul>
