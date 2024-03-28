@@ -102,12 +102,12 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/13818173de445fa048acb5e72b8e650e.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/cc1a734b8a0734243d5071644d60f360.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/8a8076ea9cbc7d677dd42ad84d4e3ebd.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/3f20154a69ec2ac89963a3c94445fdd7.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/d98b6decf4bed33201f3217c864cf5a3.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/b416eece3185a1756886f95ea0603d53.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/9b626c5ba21d7cb4dbcba2b507688bbb.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/4de3e9fa9eaa48a12935da513097cc96.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/f53974c854a887e80e9f72685a99854c.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/1fca97d4bee5434e2dec3c0a4a75bc64.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/b4993dcc18b931060093920da621db79.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/65d0bfef68566882ce0560cab2e87921.jpg"></li>
         </ul>
       </div>
     </header>
@@ -156,11 +156,15 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <h2 id="●-常用命令"><a href="#●-常用命令" class="headerlink" title="● 常用命令"></a>● <strong>常用命令</strong></h2><table>
 <thead>
 <tr>
-<th align="left"><strong>查看网卡状态</strong></th>
-<th><strong>nmcli c show</strong></th>
+<th align="left"></th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
+<td align="left"><strong>查看网卡状态</strong></td>
+<td><strong>nmcli c show</strong></td>
+</tr>
+<tr>
 <td align="left"><strong>启动网卡</strong></td>
 <td>*<em>nmcli c up  &lt;ifname/UUID&gt; *</em></td>
 </tr>
@@ -196,10 +200,13 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <h2 id="●-完整举例"><a href="#●-完整举例" class="headerlink" title="● 完整举例"></a>● <strong>完整举例</strong></h2><table>
 <thead>
 <tr>
-<th><strong>#举例1</strong></th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
+<td><strong>#举例1</strong></td>
+</tr>
+<tr>
 <td><strong>nmcli c delete ens18 ens19</strong> <br /><strong>nmcli c add con-name ens18  type bond-slave ifname ens18  master bond1  mtu 1500</strong><br /><strong>nmcli c add con-name ens19  type bond-slave ifname ens19  master bond1  mtu 1500</strong><br /><strong>nmcli c add type bond con-name bond1 ifname bond1 bond.options “mode=802.3ad,miimon=100,lacp_rate=fast,xmit_hash_policy=layer3+4” ipv6.method “ignore” ipv4.method “disabled”  mtu 1500</strong><br /><strong>nmcli c add type vlan con-name bond1.2000 ifname bond1.2000 vlan.parent bond1 vlan.id 2000 ipv4.method manual ipv4.addresses ‘192.168.102.100/24’  ipv6.method “ignore”  mtu 1500</strong><br /><strong>nmcli c reload</strong></td>
 </tr>
 <tr>
@@ -209,10 +216,13 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <table>
 <thead>
 <tr>
-<th><strong>#举例2 超融合</strong></th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
+<td><strong>#举例2 超融合</strong></td>
+</tr>
+<tr>
 <td><strong>nmcli c delete bond1 enp59s0f0   enp60s0f0</strong> <br /><strong>nmcli c add con-name enp59s0f0   type bond-slave ifname  enp59s0f0   master bond1  mtu 1500</strong><br /><strong>nmcli c add con-name enp60s0f0   type bond-slave ifname  enp60s0f0   master bond1  mtu 1500</strong><br /><strong>nmcli c add type bond con-name bond1 ifname bond1 bond.options “mode=1,miimon=100” ipv6.method “ignore” ipv4.method “disabled”  mtu 1500</strong><br /><strong>nmcli c delete bond1.353</strong><br /><strong>nmcli c add type vlan con-name bond1.353 ifname bond1.353 vlan.parent bond1 vlan.id 353 ipv4.method manual ipv4.addresses “${ip5}/21”  ipv6.method “ignore”  mtu 1500</strong><br /><br /><br /><strong>nmcli c delete bond2 enp59s0f1   enp175s0f0</strong> <br /><strong>nmcli c add con-name enp59s0f1   type bond-slave ifname  enp59s0f1   master bond2 mtu 1500</strong><br /><strong>nmcli c add con-name enp175s0f0   type bond-slave ifname  enp175s0f0   master bond2 mtu 1500</strong><br /><strong>nmcli c add type bond con-name bond2 ifname bond2 bond.options “mode=1,miimon=100” ipv6.method “ignore” ipv4.method “disabled” mtu 1500</strong><br /><strong>nmcli c delete bond2.351</strong><br /><strong>nmcli c add type vlan con-name bond2.351 ifname bond2.351 vlan.parent bond2 vlan.id 351 ipv4.method manual ipv4.addresses “${ip6}/21”  ipv6.method “ignore”  mtu 1500</strong><br /><br /><br /><strong>nmcli c delete bond3 enp60s0f1   enp175s0f1</strong> <strong>nmcli c add con-name enp60s0f1   type bond-slave ifname  enp60s0f1   master bond3 mtu 1500</strong><br /><strong>nmcli c add con-name enp175s0f1   type bond-slave ifname  enp175s0f1   master bond3 mtu 1500</strong><br /><strong>nmcli c add type bond con-name bond3 ifname bond3 bond.options “mode=1,miimon=100” ipv6.method “ignore” ipv4.method “disabled” mtu 1500</strong><br /><strong>nmcli c delete bond3.352</strong><br /><strong>nmcli c add type vlan con-name bond3.352 ifname bond3.352 vlan.parent bond3 vlan.id 352 ipv4.method manual ipv4.addresses “${ip7}/22”  ipv6.method “ignore”  mtu 1500</strong><br /><br /><strong>nmcli c reload</strong></td>
 </tr>
 <tr>
@@ -233,7 +243,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2024-03-28 22:47:00" itemprop="dateModified" datetime="2024-03-28T22:47:00+08:00">2024-03-28</time>
+    <time title="修改时间：2024-03-28 23:18:46" itemprop="dateModified" datetime="2024-03-28T23:18:46+08:00">2024-03-28</time>
   </span>
 </div>
 
@@ -288,7 +298,7 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
     <div class="item left">
       
 
-  <a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;9bb9e2a4cf749eb38bd38c97835e3366.jpg" title="ipmitool工具使用">
+  <a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;img.timelessq.com&#x2F;images&#x2F;2022&#x2F;07&#x2F;26&#x2F;fdfd6e7899b03b32390187931cea99ba.jpg" title="ipmitool工具使用">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Linux运维基础</span>
   <h3>ipmitool工具使用</h3>
@@ -401,37 +411,17 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
 </div>
 
-    <span><a href="/2021/06/25/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%83%EF%BC%89/" title="第七章 常用数字接口电路">第七章 常用数字接口电路</a></span>
+    <span><a href="/2021/07/17/assembly/%E6%8C%87%E4%BB%A4%E5%85%A8%E9%9B%86/" title="指令全集">指令全集</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+<a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
 </div>
 
-    <span><a href="/2022/09/20/linux/nginx/" title="nginx基础">nginx基础</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
-</div>
-
-    <span><a href="/2023/11/27/linux/nmcli/" title="nmcli网络配置命令">nmcli网络配置命令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
-</div>
-
-    <span><a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" title="Mysql数据库基础">Mysql数据库基础</a></span>
+    <span><a href="/2021/04/04/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%9B%9B%EF%BC%89/" title="第四章 汇编语言程序">第四章 汇编语言程序</a></span>
   </li>
 
       
@@ -448,6 +438,26 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+</div>
+
+    <span><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" title="vpn和rpm">vpn和rpm</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+</div>
+
+    <span><a href="/2020/03/18/cpp/C++%E8%BF%9C%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%B3%A8%E5%85%A5MFC/" title="C++远程线程注入MFC">C++远程线程注入MFC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
 </div>
 
@@ -458,10 +468,20 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
 </div>
 
-    <span><a href="/2022/08/10/linux/ansible/" title="ansible基础">ansible基础</a></span>
+    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/16/c/%E7%AC%AC%E5%8D%81%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="第十章 字符串">第十章 字符串</a></span>
   </li>
 
       
@@ -471,27 +491,17 @@ Yume Shoka = 未来の期間 = 勿負韶華</title>
 <a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2022/10/21/python/day10/" title="10.邮件编程、paramiko模块、PyMySQL模块">10.邮件编程、paramiko模块、PyMySQL模块</a></span>
+    <span><a href="/2022/10/17/python/day06/" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
 </div>
 
-    <span><a href="/2020/12/28/c/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BF%90%E7%AE%97%E7%AC%A6/" title="第二章 变量、数据类型及运算符">第二章 变量、数据类型及运算符</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
-</div>
-
-    <span><a href="/2021/01/05/c/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%95%B0%E7%BB%84%E5%8F%8A%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" title="第六章 数组及常用算法">第六章 数组及常用算法</a></span>
+    <span><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></span>
   </li>
 
   </ul>
