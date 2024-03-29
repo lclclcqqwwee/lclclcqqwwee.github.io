@@ -89,12 +89,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/62d006663966c7ffbe93715d7d26acae.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/5da180f23a92b4141ea87338ac84c765.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/bb198758f050283f6a89670ee083687a.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/24a908a7da2e9330ac5558cea0276d97.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/4368c702fcf1129cac003f7c2f181875.jpg"></li>
-          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/132a88e4e5cfe7e3847ed93deae688d2.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/e5221f7d85b0900837a45fb933fa34ec.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/68fb5832b107119e9f351a83be51ed2f.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/9b626c5ba21d7cb4dbcba2b507688bbb.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/a8d0ac76b87f7593653e29559d61b32d.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/2e0802e6e5cfd05c700bc3f911f9351c.jpg"></li>
+          <li class="item" data-background-image="https://img.timelessq.com/images/2022/07/26/dcb8f9f223a5db821d797261469b6a17.jpg"></li>
         </ul>
       </div>
     </header>
@@ -253,13 +253,13 @@
             <li><a title="CDN概念基本介绍" href="/2023/02/12/linux/CDN/">CDN概念基本介绍</a></li>
             <li><a title="LVS集群介绍" href="/2022/08/10/linux/LVS/">LVS集群介绍</a></li>
             <li><a title="Mysql数据库基础" href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/">Mysql数据库基础</a></li>
+            <li><a title="PXE批量装机环境搭建" href="/2023/12/15/linux/pxe%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/">PXE批量装机环境搭建</a></li>
             <li><a title="ansible基础" href="/2022/08/10/linux/ansible/">ansible基础</a></li>
             <li><a title="ipmitool工具使用" href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/">ipmitool工具使用</a></li>
-            <li><a title="nginx基础" href="/2022/09/20/linux/nginx/">nginx基础</a></li>
         </ul>
         <div class="meta footer">
           <span>
-            <i class="ic i-file"></i>14 篇文章
+            <i class="ic i-file"></i>15 篇文章
           </span>
         </div>
         <a href="/categories/linux/" itemprop="url" title="Linux运维基础" class="btn">more...</a>
@@ -273,7 +273,63 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/27/linux/nmcli/" itemprop="url" title="nmcli网络配置命令"><img data-src="https://img.timelessq.com/images/2022/07/26/2e0802e6e5cfd05c700bc3f911f9351c.jpg"></a>
+    <a href="/2023/12/15/linux/pxe%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/" itemprop="url" title="PXE批量装机环境搭建"><img data-src="https://img.timelessq.com/images/2022/07/26/2aabaeb8aca379b991071d1c41632741.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-12-15 18:45:25">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-12-15T18:45:25+08:00">2023-12-15</time>
+  </span>
+</div>
+
+    <h3><a href="/2023/12/15/linux/pxe%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/" itemprop="url" title="PXE批量装机环境搭建">PXE批量装机环境搭建</a></h3>
+    <div class="excerpt">
+        [TOC]
+PXE批量装机环境搭建PXE结构介绍
+
+nginx服务
+/etc/nginx/conf.d/default.conf
+
+dhcp服务
+/etc/dhcp/dhcpd.conf
+
+tftp服务
+/etc/xinetd.d/tftp
+
+xinetd服务
+
+grub启动文件
+/var/lib/tftpboot/grub.cfg
+
+iso镜像
+/data/kylin/
+
+ks文件
+/data/ks/
+
+内核文件：vmlinuz
+/data/kylin/images/pxeboot/vmlinuz
+
+内核文件：initrd.img
+/data/kylin/images/pxeboot/ini...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/linux/" itemprop="url" title="Linux运维基础"><i class="ic i-flag"></i>Linux运维基础</a>
+      </span>
+    </div>
+    <a href="/2023/12/15/linux/pxe%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/" itemprop="url" title="PXE批量装机环境搭建" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/11/27/linux/nmcli/" itemprop="url" title="nmcli网络配置命令"><img data-src="https://img.timelessq.com/images/2022/07/26/08e73cd8998a540ab698836447eeea91.jpg"></a>
   </div>
   <div class="info">
     
@@ -320,7 +376,7 @@ nmcli c add con-name enp59s0f0 type bond-slave...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" itemprop="url" title="ipmitool工具使用"><img data-src="https://img.timelessq.com/images/2022/07/26/470d00578173666b5183f4631e51a421.jpg"></a>
+    <a href="/2023/11/26/linux/ipmitool%E7%AC%94%E8%AE%B0/" itemprop="url" title="ipmitool工具使用"><img data-src="https://img.timelessq.com/images/2022/07/26/8bc89f9a0de13b6480bf8c2ace43f806.jpg"></a>
   </div>
   <div class="info">
     
@@ -354,7 +410,7 @@ chassis 获取机箱状态并设置电源状态 1. 电源状态ipmitool -I lanpl
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/26/linux/raid%E5%B7%A5%E5%85%B7/" itemprop="url" title="raid工具"><img data-src="https://img.timelessq.com/images/2022/07/26/5e31374bf28e62a34775694f9acb06a9.jpg"></a>
+    <a href="/2023/11/26/linux/raid%E5%B7%A5%E5%85%B7/" itemprop="url" title="raid工具"><img data-src="https://img.timelessq.com/images/2022/07/26/1adb61c48863ce35a391d69c0a64f274.jpg"></a>
   </div>
   <div class="info">
     
@@ -390,7 +446,7 @@ raid
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" itemprop="url" title="Mysql数据库基础"><img data-src="https://img.timelessq.com/images/2022/07/26/7074b57c75454b3ab1aba920a32a5d97.jpg"></a>
+    <a href="/2023/02/19/linux/mysql%E5%9F%BA%E7%A1%80/" itemprop="url" title="Mysql数据库基础"><img data-src="https://img.timelessq.com/images/2022/07/26/9544aaed0500309bfed0ddfc0321f933.jpg"></a>
   </div>
   <div class="info">
     
@@ -420,7 +476,7 @@ raid
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/12/linux/CDN/" itemprop="url" title="CDN概念基本介绍"><img data-src="https://img.timelessq.com/images/2022/07/26/e5221f7d85b0900837a45fb933fa34ec.jpg"></a>
+    <a href="/2023/02/12/linux/CDN/" itemprop="url" title="CDN概念基本介绍"><img data-src="https://img.timelessq.com/images/2022/07/26/5bf6cc840c1eee492a78927590510321.jpg"></a>
   </div>
   <div class="info">
     
@@ -451,7 +507,7 @@ CDN的全称是Content Delivery...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" itemprop="url" title="zabbix和prometheus对比"><img data-src="https://img.timelessq.com/images/2022/07/26/009ee927d495427d088feacdda5589be.jpg"></a>
+    <a href="/2023/02/10/linux/zabbix%E5%92%8Cprometheus%E5%AF%B9%E6%AF%94/" itemprop="url" title="zabbix和prometheus对比"><img data-src="https://img.timelessq.com/images/2022/07/26/d10b26588ca1fe939f0146bb24578eaa.jpg"></a>
   </div>
   <div class="info">
     
@@ -482,7 +538,7 @@ zabbix：Zabbix是由Alexei...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" itemprop="url" title="负载均衡之LVS与Nginx对比"><img data-src="https://img.timelessq.com/images/2022/07/26/488297bfd0233b6c6a444f1860e55d45.jpg"></a>
+    <a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" itemprop="url" title="负载均衡之LVS与Nginx对比"><img data-src="https://img.timelessq.com/images/2022/07/26/f87ba32daeb3d0858a5dc190fbeaf6d3.jpg"></a>
   </div>
   <div class="info">
     
@@ -511,7 +567,7 @@ zabbix：Zabbix是由Alexei...
         
 <article class="item">
   <div class="cover">
-    <a href="/2022/10/22/python/day11/" itemprop="url" title="11.JSON、requests模块、案例练习"><img data-src="https://img.timelessq.com/images/2022/07/26/f534e931ecbd67c0161d82dabb45ca42.jpg"></a>
+    <a href="/2022/10/22/python/day11/" itemprop="url" title="11.JSON、requests模块、案例练习"><img data-src="https://img.timelessq.com/images/2022/07/26/f584675dfc4ef47fcf19442f0e2ea18b.jpg"></a>
   </div>
   <div class="info">
     
@@ -543,7 +599,7 @@ zabbix：Zabbix是由Alexei...
         
 <article class="item">
   <div class="cover">
-    <a href="/2022/10/21/python/day10/" itemprop="url" title="10.邮件编程、paramiko模块、PyMySQL模块"><img data-src="https://img.timelessq.com/images/2022/07/26/e44fe20f43f92d83732bf40e7d675808.jpg"></a>
+    <a href="/2022/10/21/python/day10/" itemprop="url" title="10.邮件编程、paramiko模块、PyMySQL模块"><img data-src="https://img.timelessq.com/images/2022/07/26/d4df076eb51491f02d9c9754567256fb.jpg"></a>
   </div>
   <div class="info">
     
@@ -566,38 +622,6 @@ zabbix：Zabbix是由Alexei...
       </span>
     </div>
     <a href="/2022/10/21/python/day10/" itemprop="url" title="10.邮件编程、paramiko模块、PyMySQL模块" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2022/10/20/python/day09/" itemprop="url" title="09.re模块、多线程编程、Python模块管理"><img data-src="https://img.timelessq.com/images/2022/07/26/061b15e3e38d1bcb47c7b19d49034393.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="创建时间：2022-10-20 21:35:19">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2022-10-20T21:35:19+08:00">2022-10-20</time>
-  </span>
-</div>
-
-    <h3><a href="/2022/10/20/python/day09/" itemprop="url" title="09.re模块、多线程编程、Python模块管理">09.re模块、多线程编程、Python模块管理</a></h3>
-    <div class="excerpt">
-        正则表达式及re模块re 模块match 函数
-尝试用正则表达式模式从字符串的 开头匹配，如果匹配成功，则返回一个匹配对象；否则返回 None
-
-案例：使用match函数匹配字符串12345678import re# 1. re.match(正则字符串, 目标字符串):# 判断目标字符串是不是以正则匹配到的内容开头,如果成功，返回匹配对象;否则，返回None# \d: 表示一个数字字符串 &amp;quot;0123456789&amp;quot;# &amp;#123;3&amp;#125;: 表示连续出现3次 \d&amp;#123;3&amp;#125;:...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/python/" itemprop="url" title="python基础"><i class="ic i-flag"></i>python基础</a>
-      </span>
-    </div>
-    <a href="/2022/10/20/python/day09/" itemprop="url" title="09.re模块、多线程编程、Python模块管理" class="btn">more...</a>
   </div>
 </article>
 
@@ -636,7 +660,7 @@ zabbix：Zabbix是由Alexei...
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">53</span>
+        <span class="count">54</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -704,20 +728,20 @@ zabbix：Zabbix是由Alexei...
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2020/04/18/cpp/first-blog/" title="关于C++中冻结屏幕">关于C++中冻结屏幕</a></span>
+    <span><a href="/2022/10/15/python/day04/" title="04.模块基础、时间模块、语法风格及布局、字符串详解">04.模块基础、时间模块、语法风格及布局、字符串详解</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2020/04/18/cpp/second/" title="关于vs学习c&#x2F;c++中的一些总结">关于vs学习c/c++中的一些总结</a></span>
+    <span><a href="/2022/10/11/python/day01/" title="01.Python概述、环境准备、Python起步、数据类型概述">01.Python概述、环境准备、Python起步、数据类型概述</a></span>
   </li>
 
       
@@ -734,50 +758,50 @@ zabbix：Zabbix是由Alexei...
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/cpp/" title="分类于 C++编程基础笔记">C++编程基础笔记</a>
-</div>
-
-    <span><a href="/2020/09/10/cpp/C++%20Win%E5%B8%B8%E7%94%A8API%E6%80%BB%E7%BB%93/" title="C++ windows程序设计">C++ windows程序设计</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
-</div>
-
-    <span><a href="/2022/08/10/linux/ansible/" title="ansible基础">ansible基础</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
-</div>
-
-    <span><a href="/2022/09/29/linux/vpn%E5%92%8Crpm/" title="vpn和rpm">vpn和rpm</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/assembly/" title="分类于 微机原理与接口技术-吴宁">微机原理与接口技术-吴宁</a>
 </div>
 
-    <span><a href="/2021/06/18/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E4%BA%94%EF%BC%89/" title="第五章 存储器系统">第五章 存储器系统</a></span>
+    <span><a href="/2021/06/20/assembly/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%EF%BC%88%E5%85%AD%EF%BC%89/" title="第六章 输入输出和中断技术">第六章 输入输出和中断技术</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/algorithm/" title="分类于 数据结构与算法笔记">数据结构与算法笔记</a>
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2020/12/20/algorithm/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="数据结构与算法（一）">数据结构与算法（一）</a></span>
+    <span><a href="/2022/10/18/python/day07/" title="07.函数高级应用、生成器、模块详解">07.函数高级应用、生成器、模块详解</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/c/" title="分类于 老九零基础学C语言笔记">老九零基础学C语言笔记</a>
+</div>
+
+    <span><a href="/2021/01/05/c/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/" title="第五章 循环结构进阶">第五章 循环结构进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
+</div>
+
+    <span><a href="/2022/10/14/python/day03/" title="03.文件对象、文件读写操作、函数基础">03.文件对象、文件读写操作、函数基础</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+</div>
+
+    <span><a href="/2023/02/08/linux/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1lvs%E4%B8%8Enginx%E5%AF%B9%E6%AF%94/" title="负载均衡之LVS与Nginx对比">负载均衡之LVS与Nginx对比</a></span>
   </li>
 
       
@@ -794,10 +818,10 @@ zabbix：Zabbix是由Alexei...
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/linux/" title="分类于 Linux运维基础">Linux运维基础</a>
+<a href="/categories/python/" title="分类于 python基础">python基础</a>
 </div>
 
-    <span><a href="/2022/08/10/linux/shell/" title="shell一些知识点">shell一些知识点</a></span>
+    <span><a href="/2022/10/17/python/day06/" title="06.shutil和os模块、subprocess模块、异常处理">06.shutil和os模块、subprocess模块、异常处理</a></span>
   </li>
 
   </ul>
